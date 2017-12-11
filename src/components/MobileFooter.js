@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
+import color from 'color'
 import fontawesome from '@fortawesome/fontawesome'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import { faHome, faUser, faBook} from '@fortawesome/fontawesome-free-solid'
@@ -23,36 +24,28 @@ const Menu = styled.div`
   }
 `
 
-const Item = styled(Link)`
-  background-color: ${props => props.bgColour};
+const MenuItemWrapper = styled.div`
+  background-color: ${colours.primaryColour};
   width:100%;
   flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  align-self: center;
   padding-top: 10px;
   padding-bottom: 10px;
-
   :hover
   {
-    background-color: #0c85e5
+    background-color: ${color(colours.primaryColour).darken(0.2).rgb().string()}
   }
 `
 
-const ItemA = styled.a`
-  background-color: ${props => props.bgColour};
-  width:100%;
-  flex-grow: 1;
+const LinkGroup = styled(Link)`
   display: flex;
   flex-direction: column;
   align-self: center;
-  padding-top: 10px;
-  padding-bottom: 10px;
+`
 
-  :hover
-  {
-    background-color: #0c85e5
-  }
+const LinkGroupA = styled.a`
+  display: flex;
+  flex-direction: column;
+  align-self: center;
 `
 
 const Icon = styled(FontAwesomeIcon)`
@@ -75,20 +68,26 @@ export default class Footer extends React.Component {
   render () {
     return (
       <Menu>
-        <Item to = "/" bgColour={colours.primaryColour}>
-          <Icon icon={["fas", "home"]} size ="2x"/>
-          <LogoText>Home</LogoText>
-        </Item>
+        <MenuItemWrapper>
+          <LinkGroup to = "/">
+            <Icon icon={["fas", "home"]} size ="2x"/>
+            <LogoText>Home</LogoText>
+          </LinkGroup>
+        </MenuItemWrapper>
 
-        <ItemA  href = "https://sway.com/tkELbwHp3Smhd1aN" bgColour={colours.primaryColour}>
-          <Icon icon={["fas", "user"]} size ="2x"/>
-          <LogoText>about:me</LogoText>
-        </ItemA>
+        <MenuItemWrapper>
+          <LinkGroupA href = "https://sway.com/tkELbwHp3Smhd1aN">
+            <Icon icon={["fas", "user"]} size ="2x"/>
+            <LogoText>about:me</LogoText>
+          </LinkGroupA>
+        </MenuItemWrapper>
 
-        <Item to = "/tutorial" bgColour={colours.primaryColour}>
-          <Icon icon={["fas", "book"]} size ="2x"/>
-          <LogoText>Tutorial</LogoText>
-        </Item>
+        <MenuItemWrapper>
+          <LinkGroup  to = "/tutorial">
+            <Icon icon={["fas", "book"]} size ="2x"/>
+            <LogoText>Tutorial</LogoText>
+          </LinkGroup>
+        </MenuItemWrapper>
       </Menu>
     )
   }
