@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `"Hello World - Mad Programmer Diary"`,
     description: `Official Personal Blog of Arnondora`,
-    siteUrl: `http://localhost:9000`
+    siteUrl: `http://localhost:8000`
 
   },
   plugins: [
@@ -42,6 +42,15 @@ module.exports = {
       options: {
         color: `#0f94f6`,
         showSpinner: false,
+      }
+    },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `Open Sans\:300,400,700`,
+          `source sans pro\:300,400,400i,700` // you can also specify font weights and styles
+        ]
       }
     },
 
