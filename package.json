@@ -16,6 +16,7 @@
     "gatsby-plugin-react-helmet": "^2.0.1",
     "gatsby-plugin-sitemap": "^1.2.5",
     "gatsby-plugin-styled-components": "^2.0.2",
+    "gatsby-plugin-typography": "^1.7.10",
     "gatsby-remark-responsive-iframe": "^1.4.14",
     "gatsby-source-filesystem": "^1.5.8",
     "gatsby-source-wordpress": "^2.0.37",
