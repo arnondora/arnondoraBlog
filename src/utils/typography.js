@@ -9,8 +9,8 @@ const typography = new Typography({
   headerWeight: '400',
   bodyWeight: '400',
   boldWeight: '700',
-  headerFontFamily: ["Open Sans"],
-  bodyFontFamily: ["Open Sans"],
+  headerFontFamily: ["Open Sans", "Thonburi"],
+  bodyFontFamily: ["Open Sans", "Thonburi"],
   overrideStyles: ({ adjustFontSizeTo, rhythm }, options, styles) => ({
     a: {
       color: '#424242',
