@@ -3,7 +3,7 @@ import colours from './colours'
 
 const typography = new Typography({
   baseFontSize: "18px",
-  baseLineHeight: 1,
+  baseLineHeight: 1.6,
   headerColor: colours.textHeading,
   bodyColor: colours.textHeading,
   headerWeight: '400',
