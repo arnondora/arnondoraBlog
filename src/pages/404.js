@@ -8,6 +8,7 @@ const Container = styled.div `
   display: flex;
   flex-direction: column;
   margin: 0 auto;
+  margin-top: 100px;
   width: 80%;
 `
 
@@ -18,21 +19,16 @@ const ItemWrapper = styled.div`
 `
 
 const Header = styled.p`
-  font-family: 'Open Sans';
-  color: #424242;
   font-size: 48px;
-  line-height: 100%;
   text-align:center;
   margin-bottom: 50px;
 `
 
 const StyledLink = styled(Link)`
-  font-family: 'Open Sans';
-  color: #424242;
   font-size: 36px;
   text-decoration: none;
   text-align:center;
-  margin-top:10px;
+  margin-top:20px;
 `
 
 const ErrorIcon = styled.img`

@@ -1,7 +1,7 @@
 import Typography from 'typography'
 import colours from './colours'
 
-export const typography = new Typography({
+const typography = new Typography({
   baseFontSize: "18px",
   baseLineHeight: 1,
   headerColor: colours.textHeading,
@@ -22,4 +22,4 @@ export const typography = new Typography({
   })
 })
 
-typography.injectStyles()
+export default typography
