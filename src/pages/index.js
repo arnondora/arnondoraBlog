@@ -9,11 +9,11 @@ import FeatureStory from '../components/FeatureStory'
 import CategoryButton from '../components/CategoryButton'
 import IndexTab from '../components/IndexTab'
 
-import indexStyle from './index.css'
-
 const Container = styled.div`
   display: flex;
   flex-direction: column;
+  background-color: #FAFAFA;
+  min-height: 100vh;
 `
 
 const NavigationBar = styled(NavBar)`
