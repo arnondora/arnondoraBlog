@@ -8,8 +8,11 @@ import arnondoraIcon from '../assets/arnondoraIcon.svg'
 
 const Wrapper = styled.div `
   display: flex;
+  z-index: 10;
   flex-direction: row;
   align-items: center;
+  position: fixed;
+  height: 74px;
   justify-content: flex-start;
   width:100%;
   padding: 15px 0px 15px 15px;
