@@ -38,7 +38,7 @@ const ContentWrapper = styled.div`
   margin-top: 74px;
   margin-left: auto;
 
-  @media (max-width: 576px) {
+  @media (max-width: 768px) {
       width:100%;
   }
 `
