@@ -32,7 +32,7 @@ const FeatureStoryContainer = styled.div`
   }
 `
 
-const ContentContainer = styled.div`
+const ContentWrapper = styled.div`
   position: relative;
   width:65%;
   margin-top: 74px;
@@ -41,6 +41,12 @@ const ContentContainer = styled.div`
   @media (max-width: 576px) {
       width:100%;
   }
+`
+
+const ContentContainer = styled.div`
+  width:95%;
+  margin: 0 auto;
+  padding-top:20px;
 `
 
 const CategoryContainer = styled.div`
@@ -66,9 +72,11 @@ export default class IndexPage extends React.Component {
             <FeatureStory/>
           </FeatureStoryContainer>
 
-          <ContentContainer>
-
-          </ContentContainer>
+          <ContentWrapper>
+            <ContentContainer>
+              
+            </ContentContainer>
+          </ContentWrapper>
 
         </MainContentContainer>
 
