@@ -1,0 +1,14 @@
+.parent:hover > * {
+  transform: translateY(0);
+  transition: transform .2s ease;
+}
+
+.parent:hover {
+  background-color: #2096F3;
+  transition: transform .2s ease;
+}
+
+.parent:hover .text{
+  color: white;
+  visibility: visible;
+}
