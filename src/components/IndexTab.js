@@ -12,7 +12,7 @@ const Container = styled.div`
 const Tabs = styled.div`
   display: flex;
   width:100%;
-  border-bottom-color: ${colours.textDisable};
+  border-bottom-color: ${color(colours.textHeading).alpha(0.2).string()};
   border-bottom-style: solid;
   border-bottom-width: 1px;
 `
