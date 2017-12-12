@@ -1,6 +1,8 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
+import color from 'color'
+import { toInteger } from 'lodash'
 import colours from '../utils/colours'
 import arnondoraIcon from '../assets/arnondoraIcon.svg'
 
@@ -52,8 +54,10 @@ const StyledLink = styled(Link)`
 export default class NavBar extends React.Component
 {
   render() {
+    if (toInteger(this.props.isTransparent) == 1) var bgColour = color(colours.primaryColour).alpha(0).string()
+    else var bgColour = colours.primaryColour
     return (
-      <Wrapper bgColour={colours.primaryColour}>
+      <Wrapper bgColour={bgColour}>
         <StyledLink to = "/"><Logo src ={arnondoraIcon}/></StyledLink>
         <StyledLink to = "/"><SiteName>"{process.env.SITE_NAME}"</SiteName></StyledLink>
         <Menu>
