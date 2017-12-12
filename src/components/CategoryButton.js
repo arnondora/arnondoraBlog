@@ -45,14 +45,6 @@ const CatDescription = styled.p`
 `
 
 export default class CategoryButton extends React.Component {
-  constructor (props)
-  {
-    super()
-    this.state = {
-      isHover : false,
-    }
-  }
-
   render() {
     var slug = "/" + this.props.slug
 
@@ -64,17 +56,5 @@ export default class CategoryButton extends React.Component {
         </ContentWrapper>
       </Container>
     )
-  }
-
-  onHover = () => {
-    this.setState({
-      isHover: true,
-    })
-  }
-
-  onLeave = () => {
-    this.setState({
-      isHover: false,
-    })
   }
 }
