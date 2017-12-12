@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import Link from 'gatsby-link'
 import {capitalize} from 'lodash'
-import color from 'color'
 import colours from '../utils/colours'
 
 const Container = styled.div `
