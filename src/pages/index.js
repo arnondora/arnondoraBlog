@@ -7,7 +7,7 @@ import Footer from '../components/Footer'
 import MobileFooter from '../components/MobileFooter'
 import FeatureStory from '../components/FeatureStory'
 import CategoryButton from '../components/CategoryButton'
-import SocialSharingButtonGroup from '../components/SocialSharingButtonGroup'
+import IndexTab from '../components/IndexTab'
 
 const Container = styled.div`
   display: flex;
@@ -74,7 +74,7 @@ export default class IndexPage extends React.Component {
 
           <ContentWrapper>
             <ContentContainer>
-              
+              <IndexTab/>
             </ContentContainer>
           </ContentWrapper>
 
