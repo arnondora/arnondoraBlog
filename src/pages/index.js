@@ -54,23 +54,26 @@ const CategoryContainer = styled.div`
   justify-content: space-around;
   padding-bottom: 80px;
 `
-const IndexPage = () => (
-  <Container>
-    <NavigationBar/>
 
-    <MainContentContainer>
-      <FeatureStoryContainer>
-        <FeatureStory/>
-      </FeatureStoryContainer>
+export default class IndexPage extends React.Component {
+  render () {
+    return (
+      <Container>
+        <NavigationBar/>
 
-      <ContentContainer>
+        <MainContentContainer>
+          <FeatureStoryContainer>
+            <FeatureStory/>
+          </FeatureStoryContainer>
 
-      </ContentContainer>
+          <ContentContainer>
 
-    </MainContentContainer>
+          </ContentContainer>
 
-    <MobileFooter/>
-  </Container>
-)
+        </MainContentContainer>
 
-export default IndexPage
+        <MobileFooter/>
+      </Container>
+    )
+  }
+}
