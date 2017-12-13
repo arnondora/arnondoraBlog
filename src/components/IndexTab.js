@@ -21,9 +21,12 @@ const Tabs = styled.div`
   border-bottom-width: 1px;
 `
 
-const Tab = styled.span`
+const Tab = styled.button`
   font-weight: 700;
   color: ${props => props.selected ? colours.textHeading : color(colours.textHeading).alpha(0.3).string()};
+  border:none;
+  background: none;
+  outline: none;
   border-bottom-style: solid;
   border-bottom-color: ${colours.textDisable};
   border-bottom-width: ${props => props.selected ? 5 : 0}px;
