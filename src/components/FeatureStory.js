@@ -4,7 +4,6 @@ import Link from 'gatsby-link'
 import color from 'color'
 
 import colours from '../utils/colours'
-import FeatureStoryThumbnail from '../assets/FeatureStoryThumbnail.jpg'
 
 const SuperWrapper = styled.div`
   height: 100vh;
@@ -73,13 +72,13 @@ export default class FeatureStory extends React.Component {
       <SuperWrapper>
         <Container>
 
-          <HeadingText>อีก 1 ปีในมหิดลศาลายา จบปี 1 แล้วเฮ้! ลอกคราบความเป็น Sophomore สู่การเป็น Junior</HeadingText>
-          <Excerpt>ช่วงนี้เพื่อน ๆ ก็คงจะปิดเทอมกันหมดแล้วแหละ ส่วนใครที่ยังก็สู้ต่อไปนะทาเคชิ ส่วนเราสอบเสร็จ โปรเจ็คหมดแล้ว ปิดเทอมแบบเต็มตัวแล้วเฮ้ ! ตามธรรมเนียม (เหรอ?) ที่ผมจะเขียนว่าในหนึ่งปีที่เรียนมามีอะไรเกิดขึ้นบ้าง</Excerpt>
+          <HeadingText>{this.props.headline}</HeadingText>
+          <Excerpt>{this.props.excerpt}</Excerpt>
           <ReadMoreButtonContainer><ReadMoreButton>Read More</ReadMoreButton></ReadMoreButtonContainer>
 
         </Container>
         <Overlay/>
-        <ImgBackgroundControl thumbnail={FeatureStoryThumbnail}/>
+        <ImgBackgroundControl thumbnail={this.props.featureThumbnail}/>
       </SuperWrapper>
     )
   }

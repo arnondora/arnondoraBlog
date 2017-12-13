@@ -9,6 +9,8 @@ import FeatureStory from '../components/FeatureStory'
 import CategoryButton from '../components/CategoryButton'
 import IndexTab from '../components/IndexTab'
 
+import FeatureStoryThumbnail from '../assets/FeatureStoryThumbnail.jpg'
+
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -71,7 +73,11 @@ export default class IndexPage extends React.Component {
 
         <MainContentContainer>
           <FeatureStoryContainer>
-            <FeatureStory/>
+            <FeatureStory
+              headline = "อีก 1 ปีในมหิดลศาลายา จบปี 1 แล้วเฮ้! ลอกคราบความเป็น Sophomore สู่การเป็น Junior"
+              excerpt = "ช่วงนี้เพื่อน ๆ ก็คงจะปิดเทอมกันหมดแล้วแหละ ส่วนใครที่ยังก็สู้ต่อไปนะทาเคชิ ส่วนเราสอบเสร็จ โปรเจ็คหมดแล้ว ปิดเทอมแบบเต็มตัวแล้วเฮ้ ! ตามธรรมเนียม (เหรอ?) ที่ผมจะเขียนว่าในหนึ่งปีที่เรียนมามีอะไรเกิดขึ้นบ้าง"
+              featureThumbnail = {FeatureStoryThumbnail}
+            />
           </FeatureStoryContainer>
 
           <ContentWrapper>
