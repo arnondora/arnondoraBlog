@@ -37,12 +37,17 @@ const Overlay = styled.div`
   min-height:100%;
   background-color:rgba(0,0,0,0.4);
 `
-
+const Header = styled.span`
+  font-size: 18px;
+  margin-top:20px;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.20);
+`
 const HeadingText = styled.h1`
   line-height: 1.1;
   font-size: 2em;
   color:white;
-  margin-top:20px;
+  margin-top:10px;
   font-weight: 700;
   text-shadow: 0 2px 4px rgba(0,0,0,0.20);
 `
@@ -71,7 +76,7 @@ export default class FeatureStory extends React.Component {
     return(
       <SuperWrapper>
         <Container>
-
+          <Header>Featured Story</Header>
           <HeadingText>{this.props.headline}</HeadingText>
           <Excerpt>{this.props.excerpt}</Excerpt>
           <ReadMoreButtonContainer><ReadMoreButton>Read More</ReadMoreButton></ReadMoreButtonContainer>
