@@ -42,19 +42,26 @@ export default class IndexTab extends React.Component {
   }
 
   render () {
+    const tabs = ["Posts", "Categories"]
+
     return (
       <Container>
         <Tabs>
-            <Tab selected={this.state.tabIndex == 0} onClick={() => this.setState({tabIndex: 0})}>Posts</Tab>
-            <Tab selected={this.state.tabIndex == 1} onClick={() => this.setState({tabIndex: 1})}>Categories</Tab>
+          {
+            tabs.map((item, index) => {
+              return (
+                <Tab key={item} selected={this.state.tabIndex == index} onClick={() => this.setState({tabIndex: index})}>{item}</Tab>
+              )
+            })
+          }
         </Tabs>
         <ContentContainer>
           { this.state.tabIndex == 0 ?
             // Posts
-            <div>Posts</div>
+            <div>{tabs[0]}</div>
             :
             //Categories
-            <div>Categories</div>
+            <div>{tabs[1]}</div>
           }
         </ContentContainer>
       </Container>
