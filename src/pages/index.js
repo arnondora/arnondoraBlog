@@ -53,18 +53,6 @@ const ContentContainer = styled.div`
   padding-top:20px;
 `
 
-const CategoryContainer = styled.div`
-  width:80%;
-  margin: 0 auto;
-  margin-top:20px;
-  margin-bottom: 20px;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  padding-bottom: 80px;
-`
-
 export default class IndexPage extends React.Component {
   render () {
     return (
