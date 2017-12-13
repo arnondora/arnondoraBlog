@@ -69,7 +69,7 @@ const CatDescription = styled.p`
 
 export default class CategoryButton extends React.Component {
   render() {
-    var slug = "/" + this.props.slug
+    var slug = "/category/" + this.props.slug
 
     return (
       <Container thumbnail={this.props.thumbnail}>
