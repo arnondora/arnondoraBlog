@@ -5,8 +5,6 @@ import color from 'color'
 
 import colours from '../utils/colours'
 
-import animator from '../effects/animator.module.css'
-
 import Card from '../components/Card'
 import CategoryButton from '../components/CategoryButton'
 import PrimaryButton from '../components/PrimaryButton'
@@ -186,7 +184,7 @@ export default class IndexTab extends React.Component {
             })
           }
         </Tabs>
-        <ContentContainer className={animator.fadeIn}>
+        <ContentContainer>
           { this.state.tabIndex == 0 ?
 
               this.state.posts.length == 0 ? <h2>There is no post!</h2> : posts
