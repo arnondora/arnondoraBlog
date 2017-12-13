@@ -24,6 +24,7 @@ const Tabs = styled.div`
 
 const Tab = styled.button`
   font-weight: 700;
+  font-size: 14px;
   color: ${props => props.selected ? colours.textHeading : color(colours.textHeading).alpha(0.3).string()};
   border:none;
   background: none;
@@ -58,12 +59,24 @@ const CategoryContainer = styled.div`
   flex-basis: 300px;
   justify-content: flex-start;
   padding-bottom: 80px;
+
+  @media (max-width: 693px)
+  {
+    flex-direction: column;
+    margin: 10px 0 0 0;
+  }
 `
 
 const CategoryCard = styled(CategoryButton)`
   margin-right: 20%;
   flex-basis: 50%;
   margin:0;
+
+  @media (max-width: 693px)
+  {
+    flex-basis: 0;
+    margin: 10px 0 0 0;
+  }
 `
 
 const MoreButtonWrapper = styled.div`
@@ -107,26 +120,31 @@ export default class IndexTab extends React.Component {
           name: "My Life",
           slug: "my-life",
           description: "รวบรวมเรื่องต่าง ๆ เกี่ยวกับชีวิตอันแสนสนุกของผม",
+          thumbnail: "https://themagicalmiss.files.wordpress.com/2012/07/enjoying-life-iheartfaces-wm.jpg",
         },
         {
           name: "Movie Review",
           slug: "movie-review",
           description: "รวบรวม Review หนังที่ได้ไปดูมา",
+          thumbnail: "https://www.statisticbrain.com/wp-content/uploads/2015/04/star-wars-franchise-revenue-statistics.jpg",
         },
         {
           name: "Programming 101",
           slug: "programming-101",
           description: "รวบรวมเรื่องต่าง ๆ เกี่ยวกับชีวิตอันแสนสนุกของผม",
+          thumbnail: "http://www.gettingsmart.com/wp-content/uploads/2017/06/Program-Code-Feature-Image.jpg",
         },
         {
           name: "Review",
           slug: "review",
           description: "Review อะไรก็ได้โตแล้ว รีวิวมันทุกอย่างยันเรือดำน้ำ",
+          thumbnail: "https://cnet4.cbsistatic.com/img/qhWOoIqPUIs0E8Fs-USZ-6cIQxU=/830x467/2017/10/16/b3f7c184-cbd5-4073-958e-02d33c0ddc88/google-pixel-2-0490-025.jpg",
         },
         {
           name: "Tutorial",
           slug: "tutorial",
           description: "อยากสอนอะไรก็สอน อยากเขียน",
+          thumbnail: "https://dynomapper.com/images/sitemap_tutorial_2.jpg",
         },
       ],
       page: props.page || 1,
@@ -149,6 +167,7 @@ export default class IndexTab extends React.Component {
             name={item.name}
             slug={item.slug}
             description={item.description}
+            thumbnail={item.thumbnail}
           />
       )
     })
