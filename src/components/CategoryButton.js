@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import Link from 'gatsby-link'
 
 import colours from '../utils/colours'
-import animator from "./animator.module.css";
 
 
 const Container = styled.div`
@@ -22,6 +21,11 @@ const Container = styled.div`
   justify-content: flex-end;
   overflow: hidden;
 
+  &:hover > * {
+    transform: translateY(0);
+    transition: transform .2s ease;
+  }
+
   @media (max-width: 693px)
   {
     width:100%;
@@ -37,6 +41,7 @@ const ContentWrapper = styled.div`
   width:95%;
   margin-left: 10px;
   transform: translateY(90px);
+
   @media (max-width: 693px)
   {
     transform: translateY(60px);
@@ -55,6 +60,11 @@ const CatDescription = styled.p`
   visibility: hidden;
   font-size: 18px;
   margin-bottom: 33px;
+
+  ${Container}:hover & {
+    color:white;
+    visibility:visible;
+  }
 `
 
 export default class CategoryButton extends React.Component {
@@ -62,10 +72,10 @@ export default class CategoryButton extends React.Component {
     var slug = "/" + this.props.slug
 
     return (
-      <Container thumbnail={this.props.thumbnail} className = {animator.parent}>
-        <ContentWrapper className = {animator.fadein}>
-            <CatName className = {animator.text} to = {slug}>{this.props.name}</CatName>
-            <CatDescription className = {animator.text} to = {slug}>{this.props.description}</CatDescription>
+      <Container thumbnail={this.props.thumbnail}>
+        <ContentWrapper>
+            <CatName to = {slug}>{this.props.name}</CatName>
+            <CatDescription to = {slug}>{this.props.description}</CatDescription>
         </ContentWrapper>
       </Container>
     )
