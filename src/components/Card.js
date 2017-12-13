@@ -4,7 +4,7 @@ import Link from 'gatsby-link'
 import {capitalize} from 'lodash'
 import colours from '../utils/colours'
 
-const Container = styled.div `
+const Container = styled(Link) `
   display: flex;
   flex-direction: column;
   padding: 60px 52px 60px 52px;
@@ -18,13 +18,13 @@ const Container = styled.div `
   }
 `
 
-const Heading = styled(Link)`
+const Heading = styled.h2`
   color: ${colours.textHeading};
   font-size: 25.92px;
   margin-top:0;
   margin-bottom: 0;
 
-  :hover {
+  ${Container}:hover > & {
     color: ${colours.primaryColour};
   }
 `
