@@ -6,6 +6,7 @@ import color from 'color'
 import colours from '../utils/colours'
 
 import Card from '../components/Card'
+import CategoryButton from '../components/CategoryButton'
 import PrimaryButton from '../components/PrimaryButton'
 
 const Container = styled.div`
@@ -49,6 +50,22 @@ const CardWrapper = styled.div`
   }
 `
 
+const CategoryContainer = styled.div`
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex-basis: 300px;
+  justify-content: flex-start;
+  padding-bottom: 80px;
+`
+
+const CategoryCard = styled(CategoryButton)`
+  margin-right: 20%;
+  flex-basis: 50%;
+  margin:0;
+`
+
 const MoreButtonWrapper = styled.div`
   margin-top:20px;
 `
@@ -58,7 +75,7 @@ export default class IndexTab extends React.Component {
     super()
 
     this.state = {
-      tabIndex : 0,
+      tabIndex : 1,
       posts: [
         {
           slug: "wonder",
@@ -85,7 +102,33 @@ export default class IndexTab extends React.Component {
           author: "arnondora"
         },
       ],
-      categories: [],
+      categories: [
+        {
+          name: "My Life",
+          slug: "my-life",
+          description: "รวบรวมเรื่องต่าง ๆ เกี่ยวกับชีวิตอันแสนสนุกของผม",
+        },
+        {
+          name: "Movie Review",
+          slug: "movie-review",
+          description: "รวบรวม Review หนังที่ได้ไปดูมา",
+        },
+        {
+          name: "Programming 101",
+          slug: "programming-101",
+          description: "รวบรวมเรื่องต่าง ๆ เกี่ยวกับชีวิตอันแสนสนุกของผม",
+        },
+        {
+          name: "Review",
+          slug: "review",
+          description: "Review อะไรก็ได้โตแล้ว รีวิวมันทุกอย่างยันเรือดำน้ำ",
+        },
+        {
+          name: "Tutorial",
+          slug: "tutorial",
+          description: "อยากสอนอะไรก็สอน อยากเขียน",
+        },
+      ],
       page: props.page || 1,
     }
   }
@@ -97,6 +140,17 @@ export default class IndexTab extends React.Component {
         return (
           <CardWrapper key={item.slug}><Card slug={item.slug} heading={item.heading} excerpt={item.excerpt} category={item.category} publishedDate={item.publishedDate} author={item.author}/></CardWrapper>
         )
+    })
+
+    var categories = this.state.categories.map((item) => {
+      return (
+          <CategoryCard
+            key={item.slug}
+            name={item.name}
+            slug={item.slug}
+            description={item.description}
+          />
+      )
     })
 
     return (
@@ -126,7 +180,7 @@ export default class IndexTab extends React.Component {
             </MoreButtonWrapper> : null}
 
           { this.state.tabIndex == 1 ?
-              this.state.categories.length == 0 ? <h2>There is no category!</h2> :<p>Categories goes here!</p>
+              this.state.categories.length == 0 ? <h2>There is no category!</h2> : <CategoryContainer>{categories}</CategoryContainer>
             :
               null
           }
