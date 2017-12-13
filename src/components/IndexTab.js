@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import Link from 'gatsby-link'
 import color from 'color'
 
 import colours from '../utils/colours'
@@ -44,10 +45,15 @@ const CardWrapper = styled.div`
     margin-bottom: 0;
   }
 `
+
+const MoreButtonWrapper = styled.div`
+  margin-top:20px;
+`
 export default class IndexTab extends React.Component {
   constructor (props)
   {
     super()
+
     this.state = {
       tabIndex : 0,
       posts: [
@@ -76,12 +82,19 @@ export default class IndexTab extends React.Component {
           author: "arnondora"
         },
       ],
-      categories: []
+      categories: [],
+      page: props.page || 1,
     }
   }
 
   render () {
     const tabs = ["Posts", "Categories"]
+
+    var posts = this.state.posts.map((item) => {
+        return (
+          <CardWrapper key={item.slug}><Card slug={item.slug} heading={item.heading} excerpt={item.excerpt} category={item.category} publishedDate={item.publishedDate} author={item.author}/></CardWrapper>
+        )
+    })
 
     return (
       <Container>
@@ -97,20 +110,22 @@ export default class IndexTab extends React.Component {
         <ContentContainer>
           { this.state.tabIndex == 0 ?
 
-            this.state.posts.length == 0 ?
-              <h2>There is no post!</h2>
+              this.state.posts.length == 0 ? <h2>There is no post!</h2> : posts
             :
-              this.state.posts.map((item) => {
-                  return (
-                    <CardWrapper key={item.slug}><Card slug={item.slug} heading={item.heading} excerpt={item.excerpt} category={item.category} publishedDate={item.publishedDate} author={item.author}/></CardWrapper>
-                  )
-              })
+              null
+          }
+
+          {this.state.tabIndex == 0 && this.state.posts.length > 0 ?
+            <MoreButtonWrapper>
+              {this.state.page >= 1 ? <Link to = {"/page/" + (this.state.page+1)}><PrimaryButton float="left" label="Older Posts"/></Link>  : null}
+              {this.state.page < 1 ? <Link to = {"/page/" + (this.state.page-1)}><PrimaryButton float="right" label="Newer Posts"/></Link>  : null}
+
+            </MoreButtonWrapper> : null}
+
+          { this.state.tabIndex == 1 ?
+              this.state.categories.length == 0 ? <h2>There is no category!</h2> :<p>Categories goes here!</p>
             :
-            //Categories
-            this.state.categories.length == 0 ?
-              <h2>There is no category!</h2>
-            :
-              <p>Categories</p>
+              null
           }
         </ContentContainer>
       </Container>
