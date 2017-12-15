@@ -22,7 +22,7 @@ module.exports = {
     }, {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: "Hello World - Mad Proggrammer Diary",
+        name: "Hello World - Mad Programmer Diary",
         short_name: "arnondora",
         start_url: "/",
         background_color: "#0f94f6",
