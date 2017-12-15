@@ -57,7 +57,7 @@ export default class IndexPage extends React.Component {
   render () {
     return (
       <Container>
-        <NavigationBar/>
+        <NavigationBar siteTitle = {this.props.data.site.siteMetadata.title}/>
 
         <MainContentContainer>
           <FeatureStoryContainer>
@@ -81,3 +81,13 @@ export default class IndexPage extends React.Component {
     )
   }
 }
+
+export const query = graphql`
+  query navQuery {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+  }
+`

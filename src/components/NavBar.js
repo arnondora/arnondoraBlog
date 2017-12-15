@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
 import color from 'color'
-import { toInteger } from 'lodash'
+import { toInteger, get } from 'lodash'
 import colours from '../utils/colours'
 import arnondoraIcon from '../assets/arnondoraIcon.svg'
 
@@ -62,7 +62,7 @@ export default class NavBar extends React.Component
     return (
       <Wrapper bgColour={bgColour}>
         <StyledLink to = "/"><Logo src ={arnondoraIcon}/></StyledLink>
-        <StyledLink to = "/"><SiteName>"{process.env.SITE_NAME}"</SiteName></StyledLink>
+        <StyledLink to = "/"><SiteName>{this.props.siteTitle}</SiteName></StyledLink>
         <Menu>
           <StyledLink to = "/"><MenuItem>Home</MenuItem></StyledLink>
           <StyledLink to = "/"><MenuItem>about:me</MenuItem></StyledLink>
