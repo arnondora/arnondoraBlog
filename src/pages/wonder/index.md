@@ -1,6 +1,7 @@
 ---
-title: ไปดูมาแล้วกับ Wonder หนุ่มน้อยมหัศจรรย์ที่ทำให้ทุกคน
-thumbnail: https://www.arnondora.in.th/wp-content/uploads/2017/12/wonder-wonder-poster.jpg
+title: ไปดูมาแล้วกับ Wonder หนุ่มน้อยมหัศจรรย์ที่ทำให้ทุกคน...
+landscapeThumbnail: https://www.arnondora.in.th/wp-content/uploads/2017/12/wonder-wonder-poster.jpg
+portraitThumbnail: https://www.arnondora.in.th/wp-content/uploads/2017/12/wonder-wonder-poster.jpg
 category: Movie Review
 date: "2017-12-15T22:12:03.284Z"
 author: arnondora
