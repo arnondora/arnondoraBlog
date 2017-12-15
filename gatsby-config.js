@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `"Hello World - Mad Programmer Diary"`,
-    description: `Official Personal Blog of Arnondora`,
+    title: `"Hello World"`,
+    description: `Mad Programmer Diary`,
     siteUrl: `http://localhost:8000`
 
   },
