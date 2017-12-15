@@ -1,9 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: `"Hello World"`,
-    description: `Mad Programmer Diary`,
-    siteUrl: `http://localhost:8000`
-
+    title: 'Hello World',
+    author: 'Arnon Puitrakul',
+    description: 'Mad Programmer Diary',
+    siteUrl: 'http//localhost:8000',
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
