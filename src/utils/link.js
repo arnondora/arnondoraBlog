@@ -11,5 +11,5 @@ export function getGooglePlusShareLink (link) {
 }
 
 export function convertLinkFromSlug (slug) {
-  return process.env.APP_URL + "/" + slug
+  return process.env.APP_URL + slug
 }
