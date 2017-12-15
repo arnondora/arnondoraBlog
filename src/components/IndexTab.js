@@ -200,7 +200,7 @@ export default class IndexTab extends React.Component {
             </MoreButtonWrapper> : null}
 
           { this.state.tabIndex == 1 ?
-              this.state.categories.length == 0 ? <h2>There is no category!</h2> : <CategoryContainer>{categories}</CategoryContainer>
+              this.state.categories.length == 0 ? <h2>There is no category!</h2> : <CategoryContainer> {categories} </CategoryContainer>
             :
               null
           }
