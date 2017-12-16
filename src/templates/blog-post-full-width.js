@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import colours from '../utils/colours'
 
 import SocialSharingButtonGroup from '../components/SocialSharingButtonGroup'
+import NextStory from '../components/NextStory'
 import Footer from  '../components/Footer'
 
 const SuperWrapper = styled.div`
@@ -63,13 +64,12 @@ const Info = styled.p`
   font-size: 1.5em;
 `
 
-class BlogPostTemplate extends React.Component {
+export default class BlogPostTemplate extends React.Component {
   render() {
     const postContent = this.props.data.markdownRemark
     const postInfo = postContent.frontmatter
     const siteTitle = this.props.data.site.siteMetadata.title
 
-    console.log(this.props.pathContext)
     return (
       <SuperWrapper>
         <ThumbnailContainer thumbnail={postInfo.landscapeThumbnail}>
@@ -82,6 +82,7 @@ class BlogPostTemplate extends React.Component {
         <Helmet title={`${postInfo.title} - ${siteTitle}`} />
         <Container>
           <ContentWrapper dangerouslySetInnerHTML={{ __html: postContent.html }} />
+          <NextStory next={this.props.pathContext.next} prev={this.props.pathContext.prev}/>
         </Container>
 
         <Footer/>
@@ -90,8 +91,6 @@ class BlogPostTemplate extends React.Component {
     )
   }
 }
-
-export default BlogPostTemplate
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
