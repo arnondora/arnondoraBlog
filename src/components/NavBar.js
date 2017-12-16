@@ -16,7 +16,8 @@ const Wrapper = styled.div `
   justify-content: flex-start;
   width:100%;
   padding: 15px 0px 15px 15px;
-  background-color: ${props => props.bgColour}
+  background-color: ${props => props.bgColour};
+  visibility: ${props => props.visible == 1 ? 'visible' : 'hidden'};
 `
 
 const Logo = styled.img `
@@ -60,6 +61,7 @@ export default class NavBar extends React.Component
       super(props)
       this.state = {
         scroll: 0,
+        isGoUp: true,
       }
   }
 
@@ -72,19 +74,28 @@ export default class NavBar extends React.Component
 	}
 
   handleScroll = e => {
+    console.log(this.state.scroll > window.scrollY)
     this.setState({
-      scroll: window.scrollY
+      scroll: window.scrollY,
+      isGoUp: this.state.scroll > window.scrollY ? true : false
     })
 	}
 
   render() {
+    var isVisible = 1
+
     if (this.state.scroll < 256 && get(this.props, 'article', false))
       var bgColour = color(colours.primaryColour).alpha(this.state.scroll/300).string()
+    else if (!this.state.isGoUp)
+    {
+        var bgColour = color(colours.primaryColour).alpha(1).string()
+        isVisible = 0
+    }
     else
       var bgColour = colours.primaryColour
 
     return (
-      <Wrapper bgColour={bgColour}>
+      <Wrapper bgColour={bgColour} visible={isVisible}>
         <StyledLink to = "/"><Logo src ={arnondoraIcon}/></StyledLink>
         <StyledLink to = "/"><SiteName>{this.props.siteTitle}</SiteName></StyledLink>
         <Menu>
