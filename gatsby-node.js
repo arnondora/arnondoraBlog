@@ -38,8 +38,8 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 
         // Create blog posts pages.
         _.each(result.data.allMarkdownRemark.edges, (edge, id) => {
-          const prev = id === 0 ? false : result.data.allMarkdownRemark.edges[id - 1].node;
-          const next = id === result.data.allMarkdownRemark.edges.length - 1 ? false : result.data.allMarkdownRemark.edges[id + 1].node;
+          const prev = id === 0 ? false : result.data.allMarkdownRemark.edges[id - 1].node
+          const next = id === result.data.allMarkdownRemark.edges.length - 1 ? false : result.data.allMarkdownRemark.edges[id + 1].node
 
           createPage({
             path: edge.node.fields.slug,
