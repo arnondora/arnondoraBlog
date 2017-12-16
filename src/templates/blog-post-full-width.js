@@ -34,8 +34,8 @@ const ThumbnailWrapper = styled.div`
   margin-bottom: 20vh;
 
   @media (max-width: 768px) {
-    margin-top: 10vh;
-    margin-bottom: : 10vh;
+    margin-top: 20vh;
+    margin-bottom: : 20vh;
   }
 `
 
