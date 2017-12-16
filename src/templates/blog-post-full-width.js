@@ -14,7 +14,6 @@ const SuperWrapper = styled.div`
 const Container = styled.div`
   display: flex;
   flex-direction:column;
-  margin-bottom: 30px;
 `
 
 const ThumbnailContainer = styled.div`
@@ -38,20 +37,21 @@ const ThumbnailWrapper = styled.div`
 `
 
 const SocialButtons = styled.div`
-position: sticky;
-top: 30vh;
-margin-left: 15vw;
-margin-top: 10vh;
+  position: sticky;
+  top: 30vh;
+  margin-left: 15vw;
+  margin-top: 10vh;
 
-@media (max-width: 768px) {
-  margin-left: 10vw;
-}
+  @media (max-width: 768px) {
+    margin-left: 10vw;
+  }
 `
 
 const ContentWrapper = styled.div`
   width: 50%;
   margin: 0 auto;
   margin-top: -20vh;
+  margin-bottom: 30px;
 `
 
 const Heading = styled.h1`
