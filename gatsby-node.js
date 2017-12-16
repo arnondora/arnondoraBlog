@@ -3,6 +3,8 @@ const Promise = require('bluebird')
 const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
 
+var id = -1
+
 exports.createPages = ({ graphql, boundActionCreators }) => {
   const { createPage } = boundActionCreators
 
@@ -20,6 +22,9 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
                   id
                   frontmatter {
                     title
+                    category
+                    landscapeThumbnail
+                    portraitThumbnail
                   }
                   timeToRead
                   fields {
@@ -37,9 +42,15 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         }
 
         // Create blog posts pages.
-        _.each(result.data.allMarkdownRemark.edges, (edge, id) => {
+        _.each(result.data.allMarkdownRemark.edges, (edge) => {
+          id += 1
           const prev = id === 0 ? false : result.data.allMarkdownRemark.edges[id - 1].node
           const next = id === result.data.allMarkdownRemark.edges.length - 1 ? false : result.data.allMarkdownRemark.edges[id + 1].node
+
+          const related = _.filter(result.data.allMarkdownRemark.edges, (post) => {
+            console.log(post.node.frontmatter.category === edge.node.frontmatter.category)
+            return post.node.frontmatter.category === edge.node.frontmatter.category && post.node.frontmatter.title !== edge.node.frontmatter.title
+          })
 
           createPage({
             path: edge.node.fields.slug,
@@ -49,6 +60,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
               slug: edge.node.fields.slug,
               prev,
               next,
+              related,
             },
           })
         })
