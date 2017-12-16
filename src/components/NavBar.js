@@ -74,7 +74,6 @@ export default class NavBar extends React.Component
 	}
 
   handleScroll = e => {
-    console.log(this.state.scroll > window.scrollY)
     this.setState({
       scroll: window.scrollY,
       isGoUp: this.state.scroll > window.scrollY ? true : false
