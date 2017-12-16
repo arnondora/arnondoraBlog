@@ -1,11 +1,13 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
+import { take } from 'lodash'
 
 import colours from '../utils/colours'
 
 import SocialSharingButtonGroup from '../components/SocialSharingButtonGroup'
 import NextStory from '../components/NextStory'
+import RecommendStory from '../components/RecommendStory'
 import Footer from  '../components/Footer'
 
 const SuperWrapper = styled.div`
@@ -82,12 +84,13 @@ export default class BlogPostTemplate extends React.Component {
             <Info>by {postInfo.author} on {postInfo.date}</Info>
           </ThumbnailWrapper>
         </ThumbnailContainer>
-        <SocialButtons><SocialSharingButtonGroup slug={postContent.fields.slug}/></SocialButtons>
         <Helmet title={`${postInfo.title} - ${siteTitle}`} />
         <Container>
+          <SocialButtons><SocialSharingButtonGroup slug={postContent.fields.slug}/></SocialButtons>
           <ContentWrapper dangerouslySetInnerHTML={{ __html: postContent.html }} />
-          <NextStory next={this.props.pathContext.next} prev={this.props.pathContext.prev}/>
         </Container>
+        <NextStory next={this.props.pathContext.next} prev={this.props.pathContext.prev}/>
+        <RecommendStory stories = {take(this.props.pathContext.related,4)}/>
 
         <Footer/>
       </SuperWrapper>
