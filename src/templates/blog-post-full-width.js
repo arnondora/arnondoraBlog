@@ -5,6 +5,7 @@ import { take } from 'lodash'
 
 import colours from '../utils/colours'
 
+import NavBar from '../components/NavBar'
 import SocialSharingButtonGroup from '../components/SocialSharingButtonGroup'
 import NextStory from '../components/NextStory'
 import RecommendStory from '../components/RecommendStory'
@@ -79,6 +80,7 @@ export default class BlogPostTemplate extends React.Component {
 
     return (
       <SuperWrapper>
+        <NavBar article={true}/>
         <ThumbnailContainer thumbnail={postInfo.landscapeThumbnail}>
           <ThumbnailWrapper>
             <Heading>{postInfo.title}</Heading>
