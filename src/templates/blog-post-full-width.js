@@ -45,18 +45,19 @@ const SocialButtons = styled.div`
   margin-top: 10vh;
 
   @media (max-width: 768px) {
-    margin-left: 10vw;
+    margin-left: 1vw;
   }
 `
 
 const ContentWrapper = styled.div`
   width: 50%;
   margin: 0 auto;
-  margin-top: -140px;
+  margin-top: -160px;
   margin-bottom: 30px;
 
   @media (max-width: 768px) {
     width: 80%;
+    margin-top: -190px;
   }
 `
 
