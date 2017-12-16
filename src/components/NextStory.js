@@ -53,6 +53,7 @@ const NextStoryContainer = StoryContainer.extend`
 const Label = styled.p`
   color: ${colours.textSecondary};
   font-size: 1.2em;
+  font-weight: 300;
   margin: 0;
 
   ${NextStoryContainer} > & {
