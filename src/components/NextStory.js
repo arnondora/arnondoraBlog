@@ -58,7 +58,8 @@ const Label = styled.p`
 
 const Heading = styled(Link)`
   color: ${colours.primaryColour};
-  font-size: 1.6em;
+  font-size: 1.4em;
+  font-weight: 700;
   margin: 10px 0 0 0;
 
   :hover {
