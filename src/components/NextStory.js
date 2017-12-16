@@ -69,6 +69,10 @@ const Heading = styled(Link)`
 
   ${NextStoryContainer} > & {
     text-align: right;
+
+    @media (max-width: 768px) {
+      text-align: left;
+    }
   }
 
   :hover {
