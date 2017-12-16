@@ -54,6 +54,10 @@ const Label = styled.p`
   color: ${colours.textSecondary};
   font-size: 1.2em;
   margin: 0;
+
+  ${NextStoryContainer} > & {
+    text-align: right;
+  }
 `
 
 const Heading = styled(Link)`
@@ -61,6 +65,10 @@ const Heading = styled(Link)`
   font-size: 1.4em;
   font-weight: 700;
   margin: 10px 0 0 0;
+
+  ${NextStoryContainer} > & {
+    text-align: right;
+  }
 
   :hover {
     color: ${color(colours.primaryColour).darken(0.2).string()};

@@ -50,8 +50,12 @@ const SocialButtons = styled.div`
 const ContentWrapper = styled.div`
   width: 50%;
   margin: 0 auto;
-  margin-top: -20vh;
+  margin-top: -140px;
   margin-bottom: 30px;
+
+  @media (max-width: 768px) {
+    width: 80%;
+  }
 `
 
 const Heading = styled.h1`
