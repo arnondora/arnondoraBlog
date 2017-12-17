@@ -59,12 +59,13 @@ module.exports = {
         name: 'pages'
       }
     }, {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/src/data/categories.json`,
-        name: 'categories'
-      }
-    }, {
+    resolve: `gatsby-source-filesystem`,
+    options: {
+      name: `data`,
+      path: `${__dirname}/src/data/`,
+    },
+  },
+    {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
@@ -88,6 +89,6 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    `gatsby-transformer-json`
+    `gatsby-transformer-json`,
   ]
 }

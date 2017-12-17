@@ -3,7 +3,21 @@ const Promise = require('bluebird')
 const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
 
-var id = -1
+const createCategoryPages = (createPage, edges) => {
+  const categoryPage = path.resolve('./src/templates/category.js')
+
+    edges.forEach(edge => {
+      const link = edge.node.link;
+      const name = edge.node.name
+      createPage({
+        path: `/category/${link}`,
+        component: categoryPage,
+        context: {
+          name : name
+        }
+      })
+    });
+};
 
 exports.createPages = ({ graphql, boundActionCreators }) => {
   const { createPage } = boundActionCreators
@@ -33,6 +47,16 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
                 }
               }
             }
+            allCategoriesJson {
+              edges {
+                node {
+                  name
+                  link
+                  description
+                  thumbnail
+                }
+              }
+            }
           }
         `
       ).then(result => {
@@ -40,7 +64,8 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           console.log(result.errors)
           reject(result.errors)
         }
-
+        createCategoryPages(createPage, result.data.allCategoriesJson.edges);
+        var id = -1
         // Create blog posts pages.
         _.each(result.data.allMarkdownRemark.edges, (edge) => {
           id += 1

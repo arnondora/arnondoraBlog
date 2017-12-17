@@ -3914,6 +3914,13 @@ gatsby-source-wordpress@^2.0.37:
     qs "^6.4.0"
     uuid "^3.1.0"
 
+gatsby-transformer-json@^1.0.14:
+  version "1.0.14"
+  resolved "https://registry.yarnpkg.com/gatsby-transformer-json/-/gatsby-transformer-json-1.0.14.tgz#796a3fcef9d76b1beb3c46a9ff523b2db0f1a472"
+  dependencies:
+    babel-runtime "^6.26.0"
+    bluebird "^3.5.0"
+
 gatsby-transformer-remark@^1.7.25:
   version "1.7.25"
   resolved "https://registry.yarnpkg.com/gatsby-transformer-remark/-/gatsby-transformer-remark-1.7.25.tgz#7fb1a0447270f780d933b838c16b0a82aa195d72"
