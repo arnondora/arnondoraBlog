@@ -3,7 +3,7 @@ module.exports = {
     title: 'Hello World',
     author: 'Arnon Puitrakul',
     description: 'Mad Programmer Diary',
-    siteUrl: 'http//localhost:8000',
+    siteUrl: 'http//localhost:8000'
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -17,8 +17,8 @@ module.exports = {
         trackingId: `UA-64833813-1`,
         anonymize: true
       }
-    },{
-    resolve: `gatsby-plugin-sitemap`
+    }, {
+      resolve: `gatsby-plugin-sitemap`
     }, {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -36,61 +36,58 @@ module.exports = {
           }
         ]
       }
-    },
-    {
+    }, {
       resolve: `gatsby-plugin-nprogress`,
       options: {
         color: `#0f94f6`,
-        showSpinner: false,
+        showSpinner: false
       }
-    },
-    {
+    }, {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: [
-          `Open Sans\:300,400,600,700`,
-        ]
+        fonts: [`Open Sans\:300,400,600,700`]
       }
-    },
-
-    {
+    }, {
       resolve: `gatsby-plugin-typography`,
       options: {
-        pathToConfigModule: `src/utils/typography.js`,
-      },
-    },
-    {
+        pathToConfigModule: `src/utils/typography.js`
+      }
+    }, {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/src/pages`,
-        name: 'pages',
-      },
+        name: 'pages'
+      }
+    }, {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/data/categories.json`,
+        name: 'categories'
+      }
+    }, {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 590
+            }
+          }, {
+            resolve: `gatsby-remark-responsive-iframe`,
+            options: {
+              wrapperStyle: `margin-bottom: 1.0725rem`
+            }
+          },
+          'gatsby-remark-prismjs',
+          'gatsby-remark-copy-linked-files',
+          'gatsby-remark-smartypants',
+          'gatsby-remark-emoji'
+        ]
+      }
     },
-    {
-  resolve: `gatsby-transformer-remark`,
-  options: {
-    plugins: [
-      {
-        resolve: `gatsby-remark-images`,
-        options: {
-          maxWidth: 590,
-        },
-      },
-      {
-        resolve: `gatsby-remark-responsive-iframe`,
-        options: {
-          wrapperStyle: `margin-bottom: 1.0725rem`,
-        },
-      },
-      'gatsby-remark-prismjs',
-      'gatsby-remark-copy-linked-files',
-      'gatsby-remark-smartypants',
-      'gatsby-remark-emoji',
-    ],
-  },
-},
-`gatsby-transformer-sharp`,
-`gatsby-plugin-sharp`,
-
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-json`
   ]
 }
