@@ -1,6 +1,6 @@
 ---
 title: ไปดูมาแล้วกับ Her Love Boils Bathwater
-image: https://www.arnondora.in.th/wp-content/uploads/2017/04/her_love_boils_water_4.jpg
+image: ./her_love_boils_water_4.jpg
 category: Movie Review
 date: "2017-10-17T22:12:03.284Z"
 author: arnondora

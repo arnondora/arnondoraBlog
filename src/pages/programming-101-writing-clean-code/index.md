@@ -1,6 +1,6 @@
 ---
 title: Programming 101 – Writing Clean Code
-image: https://www.arnondora.in.th/wp-content/uploads/2017/12/programming-101-writing-clean-code-writing-clean-code-signed.png
+image: ./programming-101-writing-clean-code-writing-clean-code-signed.png
 category: Programming 101
 date: "2017-12-10T22:12:03.284Z"
 author: arnondora
