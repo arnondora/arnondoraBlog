@@ -36,6 +36,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
                   id
                   frontmatter {
                     title
+                    excerpt
                     category
                     image {
                       childImageSharp {

@@ -2,6 +2,7 @@
 title: ไปดูมาแล้วกับ Her Love Boils Bathwater
 image: ./her_love_boils_water_4.jpg
 category: Movie Review
+excerpt: "“Her Love Boils Bathwater” หรือชื่อภาษาไทยว่า “60 วัน เราจะมีกันตลอดไป” เป็นหนังอีกเรื่องที่ผมตั้งตารอตั้งแต่ไปเจอโปสเตอร์ก่อนหน้านั้นแล้ว กว่าจะว่างไปดูก็เหลือที่ฉายอยู่ไม่กี่ที่แล้ว เพราะโดน Fast8 ถล่มเลยต้องวิ่งจากนนทบุรีไปดูที่ Lido ก็เหนื่อยเอาการอยู่"
 date: "2017-10-17T22:12:03.284Z"
 author: arnondora
 type: full-width

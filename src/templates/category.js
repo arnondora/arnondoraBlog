@@ -72,7 +72,7 @@ export default class CategoryTemplate extends React.Component
           <StoriesWrapper>
             {
               stories != null ? stories.map((story,index) => {
-                return <CardWrapper key={story.node.fields.slug}><Card slug={story.node.fields.slug} heading={story.node.frontmatter.title} excerpt={story.node.excerpt} category={story.node.frontmatter.category} publishedDate={story.node.frontmatter.date} author={story.node.frontmatter.author}/></CardWrapper>
+                return <CardWrapper key={story.node.fields.slug}><Card slug={story.node.fields.slug} heading={story.node.frontmatter.title} excerpt={story.node.frontmatter.excerpt} category={story.node.frontmatter.category} publishedDate={story.node.frontmatter.date} author={story.node.frontmatter.author}/></CardWrapper>
               }) : <h1>There is no post in this category. Stay Tuned</h1>
             }
           </StoriesWrapper>
@@ -119,6 +119,7 @@ export const pageQuery = graphql`
             frontmatter {
               title
               category
+              excerpt
               date(formatString: "MMMM DD, YYYY")
               author
               type

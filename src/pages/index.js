@@ -96,6 +96,7 @@ export const query = graphql`
           frontmatter {
             title
             isFeatured
+            excerpt
             image {
               childImageSharp {
                 resolutions {

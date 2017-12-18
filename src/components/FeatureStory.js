@@ -81,7 +81,7 @@ export default class FeatureStory extends React.Component {
         <Container>
           <Header>Featured Story</Header>
           <HeadingText>{featureStory.frontmatter.title}</HeadingText>
-          <Excerpt>{featureStory.excerpt}</Excerpt>
+          <Excerpt>{featureStory.frontmatter.excerpt}</Excerpt>
           <ReadMoreButtonContainer><ReadMoreButton to={featureStory.fields.slug}>Read More</ReadMoreButton></ReadMoreButtonContainer>
 
         </Container>

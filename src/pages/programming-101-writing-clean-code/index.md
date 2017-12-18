@@ -2,6 +2,7 @@
 title: Programming 101 – Writing Clean Code
 image: ./programming-101-writing-clean-code-writing-clean-code-signed.png
 category: Programming 101
+excerpt: "อีกหนึ่งเรื่องที่มักจะเห็นได้ชัดจากคนที่พึ่งเขียนโปรแกรมใหม่ ๆ คือเรื่องของลักษณะในการเขียน Code มันก็เหมือนลายมือที่บางคนอาจสวยบางคนอาจไม่สวย แต่มันก็ฝึกกันได้ บางทีผมอ่านแล้วก็จะรู้เลยว่า คน ๆ นี้เขียนเป็นหรือเขียนได้กันแน่ วันนี้เลยจะพามาดูกันว่าจะเขียน Clean Code ที่เขาว่ากัน มันทำยังไง"
 date: "2017-12-10T22:12:03.284Z"
 author: arnondora
 type: full-width
