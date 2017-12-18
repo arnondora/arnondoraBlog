@@ -96,7 +96,7 @@ export default class NavBar extends React.Component
 
     return (
       <Wrapper bgColour={bgColour} visible={isVisible}>
-        <StyledLink to = "/"><Logo alt ={"site-logog"} src ={arnondoraIcon}/></StyledLink>
+        <StyledLink to = "/"><Logo alt ={"site-logo"} src ={arnondoraIcon}/></StyledLink>
         <StyledLink to = "/"><SiteName>{this.props.siteTitle}</SiteName></StyledLink>
         <Menu>
           <StyledLink to = "/"><MenuItem>Home</MenuItem></StyledLink>
