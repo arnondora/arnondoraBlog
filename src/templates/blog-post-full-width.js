@@ -81,7 +81,7 @@ export default class BlogPostTemplate extends React.Component {
     return (
       <SuperWrapper>
         <NavBar article={true}/>
-        <ThumbnailContainer thumbnail={postInfo.image.childImageSharp.resolutions.srcWebp}>
+        <ThumbnailContainer thumbnail={postInfo.image.childImageSharp.original.src}>
           <ThumbnailWrapper>
             <Heading>{postInfo.title}</Heading>
             <Info>by {postInfo.author} on {postInfo.date}</Info>
@@ -120,8 +120,8 @@ export const pageQuery = graphql`
         title
         image {
           childImageSharp {
-            resolutions {
-              srcWebp
+            original {
+              src
             }
           }
         }

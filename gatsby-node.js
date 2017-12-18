@@ -40,8 +40,8 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
                     category
                     image {
                       childImageSharp {
-                        resolutions{
-                          srcWebp
+                        original {
+                          src
                         }
                       }
                     }

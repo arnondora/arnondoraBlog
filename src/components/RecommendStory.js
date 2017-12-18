@@ -46,7 +46,7 @@ export default class RecommendStory extends React.Component {
           this.props.stories.map((story,index) => {
             console.log(story)
             return (
-              <StoryWrapper key={story.node.fields.slug} thumbnail={story.node.frontmatter.image.childImageSharp.resolutions.srcWebp}>
+              <StoryWrapper key={story.node.fields.slug} thumbnail={story.node.frontmatter.image.childImageSharp.original.src}>
                 <Story to={story.node.fields.slug}>
                   {story.node.frontmatter.title}
                 </Story>
