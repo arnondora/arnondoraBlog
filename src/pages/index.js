@@ -86,6 +86,27 @@ export const query = graphql`
       }
     }
 
+    # Get all Posts
+    allMarkdownRemark (sort: { order: DESC, fields: [frontmatter___date] }) {
+      edges {
+        node {
+          id
+          html
+          excerpt (pruneLength: 250)
+          frontmatter {
+            title
+            landscapeThumbnail
+            portraitThumbnail
+            category
+            date(formatString: "MMMM DD, YYYY")
+            author
+            type
+            status
+          }
+        }
+      }
+    }
+
     allCategoriesJson {
       edges {
         node {
