@@ -6,6 +6,7 @@ category: Programming 101
 date: "2017-12-10T22:12:03.284Z"
 author: arnondora
 type: full-width
+isFeatured: false
 status: published
 ---
 

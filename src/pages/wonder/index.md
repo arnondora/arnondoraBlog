@@ -6,6 +6,7 @@ category: Movie Review
 date: "2017-12-15T22:12:03.284Z"
 author: arnondora
 type: full-width
+isFeatured: false
 status: published
 ---
 
