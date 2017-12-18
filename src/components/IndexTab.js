@@ -90,41 +90,15 @@ export default class IndexTab extends React.Component {
 
     this.state = {
       tabIndex : 0,
-      posts: [
-        {
-          slug: "wonder",
-          heading: "#ไปดูมาแล้วกับ Wonder หนุ่มน้อยมหัศจรรย์ที่ทำให้ทุกคน…",
-          excerpt: "เรื่อง “Wonder” หรือชื่อภาษาไทยว่า “ชีวิตมหัศจรรย์” เป็นหนังเรื่องนึงที่ดูตัวอย่างปุ๊บธาตุความอยากมันก็เข้าแทรกทันที พอดีกับที่ช่วงนี้เป็นช่วงใกล้สอบด้วย มันก็จะว่าง ๆ หน่อย (เหรอ ?) ก็ไปกดมา คนเดียว ! ย้ำว่าคนเดียว",
-          category: "Movie Review",
-          publishedDate: "December 10th, 2017",
-          author: "arnondora"
-        },
-        {
-          slug: "programming-101-writing-clean-code",
-          heading: "Programming 101 – Writing Clean Code",
-          excerpt: "อีกหนึ่งเรื่องที่มักจะเห็นได้ชัดจากคนที่พึ่งเขียนโปรแกรมใหม่ ๆ คือเรื่องของลักษณะในการเขียน Code มันก็เหมือนลายมือที่บางคนอาจสวยบางคนอาจไม่สวย แต่มันก็ฝึกกันได้ บางทีผมอ่านแล้วก็จะรู้เลยว่า คน ๆ นี้เขียนเป็นหรือเขียนได้กันแน่ วันนี้เลยจะพามาดูกันว่าจะเขียน Clean Code ที่เขาว่ากัน มันทำยังไง",
-          category: "Programming 101",
-          publishedDate: "December 10th, 2017",
-          author: "arnondora"
-        },
-        {
-          slug: "programming-101-2=days-miracle",
-          heading: "Programming 101 – 2-Days Miracle",
-          excerpt: "หลังจากที่ได้เขียน Programming 101 ในอันก่อนเรื่องที่บอกว่า ทำยังไงถึงเราจะเรียนรู้เทคโนโลยีใหม่ ๆ ได้อย่างรวดเร็ว (นี่ ๆ อ่านได้ที่ลิงค์นี้)วันนี้เลยจะมาแชร์ทริก ไม่รู้เหมือนกันมันคืออะไร ผมคิดขึ้นมาใช้เอง ผมเรียกมันว่า 2-Days Miracle",
-          category: "Programming 101",
-          publishedDate: "November 26th, 2017",
-          author: "arnondora"
-        },
-      ],
       page: props.page || 1,
     }
   }
 
   render () {
     const tabs = ["Posts", "Categories"]
-    var posts = this.state.posts.map((item) => {
+    var posts = this.props.posts.map((item) => {
         return (
-          <CardWrapper key={item.slug}><Card slug={item.slug} heading={item.heading} excerpt={item.excerpt} category={item.category} publishedDate={item.publishedDate} author={item.author}/></CardWrapper>
+          <CardWrapper key={item.node.fields.slug}><Card slug={item.node.fields.slug} heading={item.node.frontmatter.title} excerpt={item.node.excerpt} category={item.node.frontmatter.category} publishedDate={item.node.frontmatter.date} author={item.node.frontmatter.author}/></CardWrapper>
         )
     })
 
@@ -154,12 +128,12 @@ export default class IndexTab extends React.Component {
         <ContentContainer>
           { this.state.tabIndex == 0 ?
 
-              this.state.posts.length == 0 ? <h2>There is no post!</h2> : posts
+              this.props.posts.length == 0 ? <h2>There is no post!</h2> : posts
             :
               null
           }
 
-          {this.state.tabIndex == 0 && this.state.posts.length > 0 ?
+          {this.state.tabIndex == 0 && this.props.posts.length > 0 ?
             <MoreButtonWrapper>
               {this.state.page >= 1 ? <Link to = {"/page/" + (this.state.page+1)}><PrimaryButton float="left" label="Older Posts"/></Link>  : null}
               {this.state.page < 1 ? <Link to = {"/page/" + (this.state.page-1)}><PrimaryButton float="right" label="Newer Posts"/></Link>  : null}

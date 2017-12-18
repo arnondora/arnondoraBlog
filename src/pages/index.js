@@ -66,7 +66,7 @@ export default class IndexPage extends React.Component {
 
           <ContentWrapper>
             <ContentContainer>
-              <IndexTab categories={this.props.data.allCategoriesJson.edges}/>
+              <IndexTab categories={this.props.data.allCategoriesJson.edges} posts = {this.props.data.allMarkdownRemark.edges}/>
             </ContentContainer>
           </ContentWrapper>
 
@@ -93,6 +93,9 @@ export const query = graphql`
           id
           html
           excerpt (pruneLength: 250)
+          fields {
+            slug
+          }
           frontmatter {
             title
             landscapeThumbnail
