@@ -1,7 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
-
+import { get } from 'lodash'
 import colours from '../utils/colours'
 
 import NavBar from '../components/NavBar'
@@ -56,7 +56,10 @@ const CardWrapper = styled.div`
 export default class CategoryTemplate extends React.Component
 {
   render () {
-    console.log(this.props.data.allMarkdownRemark.edges)
+    var stories = null
+    if (get(this.props.data,'allMarkdownRemark.edges', null) !== null)
+      stories = this.props.data.allMarkdownRemark.edges
+
     return (
       <SuperWrapper>
         <NavigationBar siteTitle = {this.props.data.site.siteMetadata.title}/>
@@ -68,9 +71,9 @@ export default class CategoryTemplate extends React.Component
 
           <StoriesWrapper>
             {
-              this.props.data.allMarkdownRemark.edges.map((story,index) => {
+              stories != null ? stories.map((story,index) => {
                 return <CardWrapper key={story.node.fields.slug}><Card slug={story.node.fields.slug} heading={story.node.frontmatter.title} excerpt={story.node.excerpt} category={story.node.frontmatter.category} publishedDate={story.node.frontmatter.date} author={story.node.frontmatter.author}/></CardWrapper>
-              })
+              }) : <h1>There is no post in this category. Stay Tuned</h1>
             }
           </StoriesWrapper>
         </Container>
