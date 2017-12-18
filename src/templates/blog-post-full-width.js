@@ -81,7 +81,7 @@ export default class BlogPostTemplate extends React.Component {
     return (
       <SuperWrapper>
         <NavBar article={true}/>
-        <ThumbnailContainer thumbnail={postInfo.landscapeThumbnail}>
+        <ThumbnailContainer thumbnail={postInfo.image.childImageSharp.resolutions.srcWebp}>
           <ThumbnailWrapper>
             <Heading>{postInfo.title}</Heading>
             <Info>by {postInfo.author} on {postInfo.date}</Info>
@@ -118,7 +118,13 @@ export const pageQuery = graphql`
       }
       frontmatter {
         title
-        landscapeThumbnail
+        image {
+          childImageSharp {
+            resolutions {
+              srcWebp
+            }
+          }
+        }
         category
         date(formatString: "MMMM DD, YYYY")
         author

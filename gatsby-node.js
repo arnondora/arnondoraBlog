@@ -37,8 +37,13 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
                   frontmatter {
                     title
                     category
-                    landscapeThumbnail
-                    portraitThumbnail
+                    image {
+                      childImageSharp {
+                        resolutions{
+                          srcWebp
+                        }
+                      }
+                    }
                   }
                   timeToRead
                   fields {

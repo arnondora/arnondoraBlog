@@ -98,8 +98,13 @@ export const query = graphql`
           }
           frontmatter {
             title
-            landscapeThumbnail
-            portraitThumbnail
+            image {
+              childImageSharp {
+                resolutions {
+                  srcWebp
+                }
+              }
+            }
             category
             date(formatString: "MMMM DD, YYYY")
             author

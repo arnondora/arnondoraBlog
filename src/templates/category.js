@@ -118,7 +118,6 @@ export const pageQuery = graphql`
             }
             frontmatter {
               title
-              landscapeThumbnail
               category
               date(formatString: "MMMM DD, YYYY")
               author
