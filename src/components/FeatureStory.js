@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Link from 'gatsby-link'
+import { get, filter, take } from 'lodash'
 import color from 'color'
 
 import colours from '../utils/colours'
@@ -58,7 +59,7 @@ const Excerpt = styled.div`
 const ReadMoreButtonContainer = styled.div`
   margin-top:30px;
 `
-const ReadMoreButton = styled.a`
+const ReadMoreButton = styled(Link)`
   background-color: ${colours.primaryColour};
   color:white;
   float: right;
@@ -73,18 +74,27 @@ const ReadMoreButton = styled.a`
 
 export default class FeatureStory extends React.Component {
   render() {
+    const featureStory = this.findLatestFeatureStory(this.props.posts).node
+    console.log(featureStory)
     return(
       <SuperWrapper>
         <Container>
           <Header>Featured Story</Header>
-          <HeadingText>{this.props.headline}</HeadingText>
-          <Excerpt>{this.props.excerpt}</Excerpt>
-          <ReadMoreButtonContainer><ReadMoreButton>Read More</ReadMoreButton></ReadMoreButtonContainer>
+          <HeadingText>{featureStory.frontmatter.title}</HeadingText>
+          <Excerpt>{featureStory.excerpt}</Excerpt>
+          <ReadMoreButtonContainer><ReadMoreButton to={featureStory.fields.slug}>Read More</ReadMoreButton></ReadMoreButtonContainer>
 
         </Container>
         <Overlay/>
-        <ImgBackgroundControl thumbnail={this.props.featureThumbnail}/>
+        <ImgBackgroundControl thumbnail={featureStory.frontmatter.image.childImageSharp.resolutions.srcWebp}/>
       </SuperWrapper>
     )
+  }
+
+  findLatestFeatureStory (stories) {
+    if (get(stories, '', null) != null) return []
+
+    return take(filter(stories, function(story) {return story.node.frontmatter.isFeatured}),1)[0]
+
   }
 }

@@ -50,7 +50,6 @@ const ContentContainer = styled.div`
 
 export default class IndexPage extends React.Component {
   render () {
-    console.log(this.props.data)
     return (
       <Container>
         <NavBar siteTitle = {this.props.data.site.siteMetadata.title}/>
@@ -58,9 +57,7 @@ export default class IndexPage extends React.Component {
         <MainContentContainer>
           <FeatureStoryContainer>
             <FeatureStory
-              headline = "อีก 1 ปีในมหิดลศาลายา จบปี 1 แล้วเฮ้! ลอกคราบความเป็น Sophomore สู่การเป็น Junior"
-              excerpt = "ช่วงนี้เพื่อน ๆ ก็คงจะปิดเทอมกันหมดแล้วแหละ ส่วนใครที่ยังก็สู้ต่อไปนะทาเคชิ ส่วนเราสอบเสร็จ โปรเจ็คหมดแล้ว ปิดเทอมแบบเต็มตัวแล้วเฮ้ ! ตามธรรมเนียม (เหรอ?) ที่ผมจะเขียนว่าในหนึ่งปีที่เรียนมามีอะไรเกิดขึ้นบ้าง"
-              featureThumbnail = {FeatureStoryThumbnail}
+              posts = {this.props.data.allMarkdownRemark.edges}
             />
           </FeatureStoryContainer>
 
@@ -98,6 +95,7 @@ export const query = graphql`
           }
           frontmatter {
             title
+            isFeatured
             image {
               childImageSharp {
                 resolutions {
