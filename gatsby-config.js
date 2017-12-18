@@ -3,7 +3,7 @@ module.exports = {
     title: 'Hello World',
     author: 'Arnon Puitrakul',
     description: 'Mad Programmer Diary',
-    siteUrl: 'http//localhost:8000'
+    siteUrl: 'http://localhost:8000'
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -84,6 +84,30 @@ module.exports = {
           'gatsby-remark-emoji'
         ]
       }
+    },
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        output: `/sitemap.xml`,
+        query: `
+        {
+          site {
+            siteMetadata {
+                siteUrl
+            }
+          }
+
+          allSitePage {
+            edges {
+              node {
+                path
+              }
+            }
+          }
+        }
+        `
+      }
+
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
