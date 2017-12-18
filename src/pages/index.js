@@ -50,6 +50,7 @@ const ContentContainer = styled.div`
 
 export default class IndexPage extends React.Component {
   render () {
+    console.log(this.props.data)
     return (
       <Container>
         <NavBar siteTitle = {this.props.data.site.siteMetadata.title}/>
@@ -65,7 +66,7 @@ export default class IndexPage extends React.Component {
 
           <ContentWrapper>
             <ContentContainer>
-              <IndexTab/>
+              <IndexTab categories={this.props.data.allCategoriesJson.edges}/>
             </ContentContainer>
           </ContentWrapper>
 
@@ -82,6 +83,18 @@ export const query = graphql`
     site {
       siteMetadata {
         title
+      }
+    }
+
+    allCategoriesJson {
+      edges {
+        node {
+          id
+          name
+          link
+          description
+          thumbnail
+        }
       }
     }
   }

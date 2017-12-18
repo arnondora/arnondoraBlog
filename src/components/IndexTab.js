@@ -116,59 +116,26 @@ export default class IndexTab extends React.Component {
           author: "arnondora"
         },
       ],
-      categories: [
-        {
-          name: "My Life",
-          slug: "my-life",
-          description: "รวบรวมเรื่องต่าง ๆ เกี่ยวกับชีวิตอันแสนสนุกของผม",
-          thumbnail: "https://themagicalmiss.files.wordpress.com/2012/07/enjoying-life-iheartfaces-wm.jpg",
-        },
-        {
-          name: "Movie Review",
-          slug: "movie-review",
-          description: "รวบรวม Review หนังที่ได้ไปดูมา",
-          thumbnail: "https://www.statisticbrain.com/wp-content/uploads/2015/04/star-wars-franchise-revenue-statistics.jpg",
-        },
-        {
-          name: "Programming 101",
-          slug: "programming-101",
-          description: "รวบรวมเรื่องต่าง ๆ เกี่ยวกับชีวิตอันแสนสนุกของผม",
-          thumbnail: "http://www.gettingsmart.com/wp-content/uploads/2017/06/Program-Code-Feature-Image.jpg",
-        },
-        {
-          name: "Review",
-          slug: "review",
-          description: "Review อะไรก็ได้โตแล้ว รีวิวมันทุกอย่างยันเรือดำน้ำ",
-          thumbnail: "https://cnet4.cbsistatic.com/img/qhWOoIqPUIs0E8Fs-USZ-6cIQxU=/830x467/2017/10/16/b3f7c184-cbd5-4073-958e-02d33c0ddc88/google-pixel-2-0490-025.jpg",
-        },
-        {
-          name: "Tutorial",
-          slug: "tutorial",
-          description: "อยากสอนอะไรก็สอน อยากเขียน",
-          thumbnail: "https://dynomapper.com/images/sitemap_tutorial_2.jpg",
-        },
-      ],
       page: props.page || 1,
     }
   }
 
   render () {
     const tabs = ["Posts", "Categories"]
-
     var posts = this.state.posts.map((item) => {
         return (
           <CardWrapper key={item.slug}><Card slug={item.slug} heading={item.heading} excerpt={item.excerpt} category={item.category} publishedDate={item.publishedDate} author={item.author}/></CardWrapper>
         )
     })
 
-    var categories = this.state.categories.map((item) => {
+    var categories = this.props.categories.map((item) => {
       return (
           <CategoryCard
-            key={item.slug}
-            name={item.name}
-            slug={item.slug}
-            description={item.description}
-            thumbnail={item.thumbnail}
+            key={item.node.link}
+            name={item.node.name}
+            slug={item.node.link}
+            description={item.node.description}
+            thumbnail={item.node.thumbnail}
           />
       )
     })
@@ -200,7 +167,7 @@ export default class IndexTab extends React.Component {
             </MoreButtonWrapper> : null}
 
           { this.state.tabIndex == 1 ?
-              this.state.categories.length == 0 ? <h2>There is no category!</h2> : <CategoryContainer> {categories} </CategoryContainer>
+              this.props.categories.length == 0 ? <h2>There is no category!</h2> : <CategoryContainer> {categories} </CategoryContainer>
             :
               null
           }
