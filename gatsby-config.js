@@ -18,8 +18,6 @@ module.exports = {
         anonymize: true
       }
     }, {
-      resolve: `gatsby-plugin-sitemap`
-    }, {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: "Hello World - Mad Programmer Diary",
