@@ -1,7 +1,6 @@
 ---
 title: ไปดูมาแล้วกับ In This Corner of the world
-landscapeThumbnail: https://www.arnondora.in.th/wp-content/uploads/2017/09/in-this-corner-of-the-world-poster.png
-portraitThumbnail: https://www.arnondora.in.th/wp-content/uploads/2017/09/in-this-corner-of-the-world-poster.png
+image: https://www.arnondora.in.th/wp-content/uploads/2017/09/in-this-corner-of-the-world-poster.png
 category: Movie Review
 date: "2017-10-17T22:12:03.284Z"
 author: arnondora
