@@ -19,6 +19,7 @@ const StoryWrapper = styled.div`
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${props => props.thumbnail}), ${colours.primaryColour};
   background-position:center;
   background-repeat: no-repeat;
+  background-size: cover;
   padding: 0.5em;
   display: flex;
   flex-grow: 1;
@@ -38,13 +39,14 @@ const Story = styled(Link)`
 
 export default class RecommendStory extends React.Component {
   render () {
+    console.log(this.props.stories)
     return (
       <Container>
         {
           this.props.stories.map((story,index) => {
             console.log(story)
             return (
-              <StoryWrapper key={story.node.fields.slug} thumbnail={story.node.frontmatter.landscapeThumbnail}>
+              <StoryWrapper key={story.node.fields.slug} thumbnail={story.node.frontmatter.image.childImageSharp.resolutions.srcWebp}>
                 <Story to={story.node.fields.slug}>
                   {story.node.frontmatter.title}
                 </Story>
