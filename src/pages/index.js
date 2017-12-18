@@ -18,11 +18,6 @@ const Container = styled.div`
   min-height: 100vh;
 `
 
-const NavigationBar = styled(NavBar)`
-  position: fixed;
-  top: 0;
-`
-
 const MainContentContainer = styled.div`
 `
 
@@ -57,7 +52,7 @@ export default class IndexPage extends React.Component {
   render () {
     return (
       <Container>
-        <NavigationBar siteTitle = {this.props.data.site.siteMetadata.title}/>
+        <NavBar siteTitle = {this.props.data.site.siteMetadata.title}/>
 
         <MainContentContainer>
           <FeatureStoryContainer>

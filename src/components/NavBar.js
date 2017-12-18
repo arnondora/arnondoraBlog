@@ -12,6 +12,7 @@ const Wrapper = styled.div `
   flex-direction: row;
   align-items: center;
   position: fixed;
+  top: 0;
   height: 74px;
   justify-content: flex-start;
   width:100%;
