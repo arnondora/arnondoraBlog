@@ -5,7 +5,12 @@ import styled from 'styled-components'
 import colours from '../utils/colours'
 
 import NavBar from '../components/NavBar'
+import MobileFooter from '../components/MobileFooter'
+import Card from '../components/Card'
 
+const NavigationBar = styled(NavBar)`
+  position: relative;
+`
 const SuperWrapper = styled.div`
 
 `
@@ -14,26 +19,62 @@ const Container = styled.div`
   width: 80%;
   margin: 0 auto;
 
-  margin-top: 30px;
+  margin-top: 104px;
+  margin-bottom: 50px;
 
   @media (max-width: 768px) {
     width: 90%;
   }
 `
 const CategoryInfoWrapper = styled.div`
-  margin-top: 30px;
+  color: ${colours.textHeading};
 `
 const CategoryName = styled.h1 `
   margin: 0;
+  font-weight: 700;
 `
+
+const CategoryDescription = styled.p`
+  margin-bottom: 0;
+  margin-top: 10px;
+  color: ${colours.textDisable};
+  font-weight: 300;
+`
+
+const StoriesWrapper = styled.div`
+  margin-top: 20px;
+`
+
+const CardWrapper = styled.div`
+  margin-top: 40px;
+  :first-child{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+`
+
 export default class CategoryTemplate extends React.Component
 {
   render () {
-    console.log(this.props)
+    console.log(this.props.data.allMarkdownRemark.edges)
     return (
       <SuperWrapper>
-        <NavBar siteTitle = {this.props.data.site.siteMetadata.title}/>
+        <NavigationBar siteTitle = {this.props.data.site.siteMetadata.title}/>
+        <Container>
+          <CategoryInfoWrapper>
+            <CategoryName>{this.props.data.allCategoriesJson.edges[0].node.name}</CategoryName>
+            <CategoryDescription>{this.props.data.allCategoriesJson.edges[0].node.description}</CategoryDescription>
+          </CategoryInfoWrapper>
 
+          <StoriesWrapper>
+            {
+              this.props.data.allMarkdownRemark.edges.map((story,index) => {
+                return <CardWrapper key={story.node.fields.slug}><Card slug={story.node.fields.slug} heading={story.node.frontmatter.title} excerpt={story.node.excerpt} category={story.node.frontmatter.category} publishedDate={story.node.frontmatter.date} author={story.node.frontmatter.author}/></CardWrapper>
+              })
+            }
+          </StoriesWrapper>
+        </Container>
+        <MobileFooter/>
       </SuperWrapper>
     )
   }
@@ -48,7 +89,7 @@ export const pageQuery = graphql`
     }
 
     allCategoriesJson (
-      filter: { name: { eq: "Programming 101" } }
+      filter: { name: { eq: $name } }
     ){
       edges {
         node {
@@ -69,6 +110,9 @@ export const pageQuery = graphql`
           node {
             excerpt(pruneLength: 250)
             id
+            fields{
+              slug
+            }
             frontmatter {
               title
               landscapeThumbnail
