@@ -9,6 +9,7 @@ import NavBar from '../components/NavBar'
 import SocialSharingButtonGroup from '../components/SocialSharingButtonGroup'
 import NextStory from '../components/NextStory'
 import RecommendStory from '../components/RecommendStory'
+import MobileSocialShareButton from '../components/MobileSocialShareButton'
 import Footer from  '../components/Footer'
 
 const SuperWrapper = styled.div`
@@ -50,11 +51,22 @@ const SocialButtons = styled.div`
   }
 `
 
+const MobileShareButtonContainer = styled.div`
+  display: none;
+
+  @media (max-width: 768px) {
+    width: 90%;
+    padding-bottom: 20px;
+    margin: 0 auto;
+    display:block;
+  }
+`
+
 const ContentWrapper = styled.div`
   width: 50%;
   margin: 0 auto;
   margin-top: -160px;
-  margin-bottom: 30px;
+  margin-bottom: 0px;
 
   @media (max-width: 768px) {
     width: 90%;
@@ -91,6 +103,7 @@ export default class BlogPostTemplate extends React.Component {
         <Container>
           <SocialButtons><SocialSharingButtonGroup slug={postContent.fields.slug}/></SocialButtons>
           <ContentWrapper dangerouslySetInnerHTML={{ __html: postContent.html }} />
+          <MobileShareButtonContainer><MobileSocialShareButton slug={postContent.fields.slug}/></MobileShareButtonContainer>
         </Container>
         <NextStory next={this.props.pathContext.next} prev={this.props.pathContext.prev}/>
         <RecommendStory stories = {take(this.props.pathContext.related,4)}/>
