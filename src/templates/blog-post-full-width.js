@@ -147,8 +147,8 @@ export default class BlogPostTemplate extends React.Component {
         {postInfo.type === "post" ? <Container>
             <SocialButtons><SocialSharingButtonGroup slug={postContent.fields.slug}/></SocialButtons>
             <ContentWrapper>
-              <SmallHeading>{postInfo.title}</SmallHeading>
-              {postInfo.type === "post" ? <SmallSubHeading>by {postInfo.author} on {postInfo.date}</SmallSubHeading> : null}
+              {postInfo.template === "normal" ? <SmallHeading>{postInfo.title}</SmallHeading> : null}
+              {postInfo.type === "post" && postInfo.template === "normal"? <SmallSubHeading>by {postInfo.author} on {postInfo.date}</SmallSubHeading> : null}
               <ArticleWrapper dangerouslySetInnerHTML={{ __html: postContent.html }} />
             </ContentWrapper>
             <MobileShareButtonContainer><MobileSocialShareButton slug={postContent.fields.slug}/></MobileShareButtonContainer>
