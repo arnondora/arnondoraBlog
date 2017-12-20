@@ -7,8 +7,6 @@ import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import { faHome, faUser, faBook} from '@fortawesome/fontawesome-free-solid'
 import colours from '../utils/colours'
 
-fontawesome.library.add(faHome, faUser, faBook)
-
 const Menu = styled.div`
   display: flex;
   justify-content:space-between;
@@ -70,21 +68,21 @@ export default class Footer extends React.Component {
       <Menu>
         <MenuItemWrapper>
           <LinkGroup to = "/">
-            <Icon icon={["fas", "home"]} size ="2x"/>
+            <Icon icon={faHome} size ="2x"/>
             <LogoText>Home</LogoText>
           </LinkGroup>
         </MenuItemWrapper>
 
         <MenuItemWrapper>
           <LinkGroupA href = "https://sway.com/tkELbwHp3Smhd1aN">
-            <Icon icon={["fas", "user"]} size ="2x"/>
+            <Icon icon={faUser} size ="2x"/>
             <LogoText>about:me</LogoText>
           </LinkGroupA>
         </MenuItemWrapper>
 
         <MenuItemWrapper>
           <LinkGroup  to = "/tutorial">
-            <Icon icon={["fas", "book"]} size ="2x"/>
+            <Icon icon={faBook} size ="2x"/>
             <LogoText>Tutorial</LogoText>
           </LinkGroup>
         </MenuItemWrapper>
