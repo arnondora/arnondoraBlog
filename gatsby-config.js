@@ -3,7 +3,7 @@ module.exports = {
     title: 'Hello World',
     author: 'Arnon Puitrakul',
     description: 'Mad Programmer Diary',
-    siteUrl: 'http://localhost:8000',
+    siteUrl: 'https://arnondorablog.firebaseapp.com',
     authorTwitter: '@arnondora',
   },
   plugins: [
