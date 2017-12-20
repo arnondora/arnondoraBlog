@@ -3,7 +3,8 @@ module.exports = {
     title: 'Hello World',
     author: 'Arnon Puitrakul',
     description: 'Mad Programmer Diary',
-    siteUrl: 'http://localhost:8000'
+    siteUrl: 'http://localhost:8000',
+    authorTwitter: '@arnondora',
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

@@ -1,10 +1,10 @@
 import React from 'react'
-import Helmet from 'react-helmet'
 import styled from 'styled-components'
 import { take } from 'lodash'
 
 import colours from '../utils/colours'
 
+import SEO from '../components/SEO'
 import NavBar from '../components/NavBar'
 import SocialSharingButtonGroup from '../components/SocialSharingButtonGroup'
 import NextStory from '../components/NextStory'
@@ -88,10 +88,14 @@ export default class BlogPostTemplate extends React.Component {
   render() {
     const postContent = this.props.data.markdownRemark
     const postInfo = postContent.frontmatter
-    const siteTitle = this.props.data.site.siteMetadata.title
+    const siteMetadata = this.props.data.site.siteMetadata
 
     return (
       <SuperWrapper>
+        <SEO
+          postContent={postContent}
+          siteMetadata={siteMetadata}
+        />
         <NavBar article={true}/>
         <ThumbnailContainer thumbnail={postInfo.image.childImageSharp.original.src}>
           <ThumbnailWrapper>
@@ -99,7 +103,6 @@ export default class BlogPostTemplate extends React.Component {
             <Info>by {postInfo.author} on {postInfo.date}</Info>
           </ThumbnailWrapper>
         </ThumbnailContainer>
-        <Helmet title={`${postInfo.title} - ${siteTitle}`} />
         <Container>
           <SocialButtons><SocialSharingButtonGroup slug={postContent.fields.slug}/></SocialButtons>
           <ContentWrapper dangerouslySetInnerHTML={{ __html: postContent.html }} />
@@ -121,6 +124,9 @@ export const pageQuery = graphql`
       siteMetadata {
         title
         author
+        description
+        siteUrl
+        authorTwitter
       }
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {
@@ -135,9 +141,12 @@ export const pageQuery = graphql`
           childImageSharp {
             original {
               src
+              width
+              height
             }
           }
         }
+        excerpt
         category
         date(formatString: "MMMM DD, YYYY")
         author
