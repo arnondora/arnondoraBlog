@@ -5,7 +5,8 @@ category: Movie Review
 excerpt: "“In This Corner of the World” หรือชื่อภาษาไทยว่า แค่วาดฝันในโลกสวย เป็น Animation ที่ฉายต่อจาก Your Name เลย เอาความจริงคือ"
 date: "2017-10-17T22:12:03.284Z"
 author: arnondora
-type: full-width
+template: full-width
+type: post
 isFeatured: false
 status: published
 ---

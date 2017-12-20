@@ -5,7 +5,8 @@ category: Movie Review
 excerpt: "เรื่อง “Wonder” หรือชื่อภาษาไทยว่า “ชีวิตมหัศจรรย์” เป็นหนังเรื่องนึงที่ดูตัวอย่างปุ๊บธาตุความอยากมันก็เข้าแทรกทันที พอดีกับที่ช่วงนี้เป็นช่วงใกล้สอบด้วย มันก็จะว่าง ๆ หน่อย (เหรอ ?) ก็ไปกดมา คนเดียว ! ย้ำว่าคนเดียว"
 date: "2017-12-15T22:12:03.284Z"
 author: arnondora
-type: full-width
+template: full-width
+type: post
 isFeatured: false
 status: published
 ---
