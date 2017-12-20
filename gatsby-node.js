@@ -38,6 +38,8 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
                     title
                     excerpt
                     category
+                    template
+                    type
                     image {
                       childImageSharp {
                         original {
@@ -72,8 +74,29 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         }
         createCategoryPages(createPage, result.data.allCategoriesJson.edges);
         var id = -1
+
+        const posts = _.filter(result.data.allMarkdownRemark.edges, (item) => {
+          return item.node.frontmatter.type === "post"
+        })
+
+        const pages = _.filter(result.data.allMarkdownRemark.edges, (item) => {
+          return item.node.frontmatter.type === "page"
+        })
+
+        // Create pages.
+        _.each(pages, (edge) => {
+          createPage({
+            path: edge.node.fields.slug,
+            component: blogPost,
+            context: {
+              id: id,
+              slug: edge.node.fields.slug,
+            },
+          })
+        })
+
         // Create blog posts pages.
-        _.each(result.data.allMarkdownRemark.edges, (edge) => {
+        _.each(posts, (edge) => {
           id += 1
           const prev = id === 0 ? false : result.data.allMarkdownRemark.edges[id - 1].node
           const next = id === result.data.allMarkdownRemark.edges.length - 1 ? false : result.data.allMarkdownRemark.edges[id + 1].node
