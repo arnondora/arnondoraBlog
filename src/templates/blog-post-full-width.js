@@ -74,6 +74,14 @@ const ContentWrapper = styled.div`
   }
 `
 
+const PageWrapper = ContentWrapper.extend`
+  margin-top: 20px;
+
+  @media (max-width: 768px) {
+    margin-top:20px;
+  }
+`
+
 const Heading = styled.h1`
   color:white;
   font-size: 3em;
@@ -103,13 +111,21 @@ export default class BlogPostTemplate extends React.Component {
             <Info>by {postInfo.author} on {postInfo.date}</Info>
           </ThumbnailWrapper>
         </ThumbnailContainer>
-        <Container>
-          <SocialButtons><SocialSharingButtonGroup slug={postContent.fields.slug}/></SocialButtons>
-          <ContentWrapper dangerouslySetInnerHTML={{ __html: postContent.html }} />
-          <MobileShareButtonContainer><MobileSocialShareButton slug={postContent.fields.slug}/></MobileShareButtonContainer>
-        </Container>
-        <NextStory next={this.props.pathContext.next} prev={this.props.pathContext.prev}/>
-        <RecommendStory stories = {take(this.props.pathContext.related,4)}/>
+        {postInfo.type === "post" ? <Container>
+            <SocialButtons><SocialSharingButtonGroup slug={postContent.fields.slug}/></SocialButtons>
+            <ContentWrapper dangerouslySetInnerHTML={{ __html: postContent.html }} />
+            <MobileShareButtonContainer><MobileSocialShareButton slug={postContent.fields.slug}/></MobileShareButtonContainer>
+          </Container> :
+          <Container><PageWrapper dangerouslySetInnerHTML={{ __html: postContent.html }} /></Container>
+        }
+        {
+          postInfo.type === "post" ?
+            <div>
+              <NextStory next={this.props.pathContext.next} prev={this.props.pathContext.prev}/>
+              <RecommendStory stories = {take(this.props.pathContext.related,4)}/>
+            </div>
+          : null
+        }
 
         <Footer/>
       </SuperWrapper>
