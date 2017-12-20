@@ -6,10 +6,9 @@ import Helmet from 'react-helmet'
 const TemplateWrapper = ({ children }) => (
   <div>
     <Helmet
-      title="Gatsby Default Starter"
+      title="Hello World - Mad Programmer Diary"
       meta={[
-        { name: 'description', content: 'Sample' },
-        { name: 'keywords', content: 'sample, something' },
+        { name: 'description', content: 'The offical personal blog of @arnondora' },
       ]}
     >
       <html lang="th"/>
