@@ -105,6 +105,7 @@ export default class NavBar extends React.Component
         <Menu>
           <StyledLink to = "/index.html"><MenuItem>Home</MenuItem></StyledLink>
           <StyledLinkOut href = "https://sway.com/tkELbwHp3Smhd1aN"><MenuItem>about:me</MenuItem></StyledLinkOut>
+          <StyledLink to = "/page/tutorial"><MenuItem>Tutorial</MenuItem></StyledLink>
         </Menu>
       </Wrapper>
     )
