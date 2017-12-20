@@ -85,7 +85,7 @@ export default class FeatureStory extends React.Component {
 
         </Container>
         <Overlay/>
-        <ImgBackgroundControl thumbnail={featureStory.frontmatter.image.childImageSharp.resolutions.srcWebp}/>
+        <ImgBackgroundControl thumbnail={featureStory.frontmatter.image.childImageSharp.resolutions.src}/>
       </SuperWrapper>
     )
   }

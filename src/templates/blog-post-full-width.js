@@ -134,14 +134,14 @@ export default class BlogPostTemplate extends React.Component {
         <NavBar article={true}/>
 
         {postInfo.template === "full-width" ?
-          <ThumbnailContainer thumbnail={postInfo.image.childImageSharp.resolutions.srcWebp}>
+          <ThumbnailContainer thumbnail={postInfo.image.childImageSharp.resolutions.src}>
             <ThumbnailWrapper>
               <Heading>{postInfo.title}</Heading>
               {postInfo.type === "post" ? <Info>by {postInfo.author} on {postInfo.date}</Info> : null}
             </ThumbnailWrapper>
           </ThumbnailContainer> :
 
-          <OnlyThumbnail thumbnail={postInfo.image.childImageSharp.resolutions.srcWebp}></OnlyThumbnail>
+          <OnlyThumbnail thumbnail={postInfo.image.childImageSharp.resolutions.src}></OnlyThumbnail>
         }
 
         {postInfo.type === "post" ? <Container>
@@ -193,7 +193,7 @@ export const pageQuery = graphql`
         image {
           childImageSharp {
             resolutions (width:1200, quality: 50) {
-               srcWebp
+               src
                height
                width
             }

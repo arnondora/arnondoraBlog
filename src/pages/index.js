@@ -103,7 +103,7 @@ export const query = graphql`
             image {
               childImageSharp {
                 resolutions (width:1200, quality: 50) {
-              	   srcWebp
+              	   src
             	  }
               }
             }
