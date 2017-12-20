@@ -75,7 +75,6 @@ const ReadMoreButton = styled(Link)`
 export default class FeatureStory extends React.Component {
   render() {
     const featureStory = this.findLatestFeatureStory(this.props.posts).node
-    console.log(featureStory)
     return(
       <SuperWrapper>
         <Container>

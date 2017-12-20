@@ -39,12 +39,10 @@ const Story = styled(Link)`
 
 export default class RecommendStory extends React.Component {
   render () {
-    console.log(this.props.stories)
     return (
       <Container>
         {
           this.props.stories.map((story,index) => {
-            console.log(story)
             return (
               <StoryWrapper key={story.node.fields.slug} thumbnail={story.node.frontmatter.image.childImageSharp.original.src}>
                 <Story to={story.node.fields.slug}>
