@@ -97,6 +97,7 @@ const PageWrapper = ArticleWrapper.extend`
 
 const Heading = styled.h1`
   color:white;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.20);
   font-size: 3em;
 `
 
