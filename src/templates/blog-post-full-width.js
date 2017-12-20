@@ -28,6 +28,14 @@ const ThumbnailContainer = styled.div`
   background-repeat: no-repeat;
 `
 
+const OnlyThumbnail = styled.div`
+  background: url(${props => props.thumbnail}), ${colours.primaryColour};
+  background-size:cover;
+  background-position:center;
+  background-repeat: no-repeat;
+  height: 80vh;
+`
+
 const ThumbnailWrapper = styled.div`
   width:80%;
   margin: 0 auto;
@@ -73,8 +81,10 @@ const ContentWrapper = styled.div`
     margin-top: 25px;
   }
 `
+const ArticleWrapper = styled.div`
+`
 
-const PageWrapper = ContentWrapper.extend`
+const PageWrapper = ArticleWrapper.extend`
   margin-top: 20px;
 
   @media (max-width: 768px) {
@@ -92,12 +102,26 @@ const Info = styled.p`
   font-size: 1.5em;
 `
 
+const SmallHeading = styled.h1`
+  color: ${colours.textHeading};
+  font-weight: 400;
+  font-size: 2.5em;
+  margin-bottom: 0px;
+`
+
+const SmallSubHeading = styled.p`
+  margin-top:10px;
+  color: ${colours.textLowProfile};
+  font-weight: 300;
+`
+
 export default class BlogPostTemplate extends React.Component {
   render() {
     const postContent = this.props.data.markdownRemark
     const postInfo = postContent.frontmatter
     const siteMetadata = this.props.data.site.siteMetadata
 
+    console.log(postInfo.template === "normal")
     return (
       <SuperWrapper>
         <SEO
@@ -105,15 +129,25 @@ export default class BlogPostTemplate extends React.Component {
           siteMetadata={siteMetadata}
         />
         <NavBar article={true}/>
-        <ThumbnailContainer thumbnail={postInfo.image.childImageSharp.original.src}>
-          <ThumbnailWrapper>
-            <Heading>{postInfo.title}</Heading>
-            <Info>by {postInfo.author} on {postInfo.date}</Info>
-          </ThumbnailWrapper>
-        </ThumbnailContainer>
+
+        {postInfo.template === "full-width" ?
+          <ThumbnailContainer thumbnail={postInfo.image.childImageSharp.original.src}>
+            <ThumbnailWrapper>
+              <Heading>{postInfo.title}</Heading>
+              <Info>by {postInfo.author} on {postInfo.date}</Info>
+            </ThumbnailWrapper>
+          </ThumbnailContainer> :
+
+          <OnlyThumbnail thumbnail={postInfo.image.childImageSharp.original.src}></OnlyThumbnail>
+        }
+
         {postInfo.type === "post" ? <Container>
             <SocialButtons><SocialSharingButtonGroup slug={postContent.fields.slug}/></SocialButtons>
-            <ContentWrapper dangerouslySetInnerHTML={{ __html: postContent.html }} />
+            <ContentWrapper>
+              <SmallHeading>{postInfo.title}</SmallHeading>
+              <SmallSubHeading>by {postInfo.author} on {postInfo.date}</SmallSubHeading>
+              <ArticleWrapper dangerouslySetInnerHTML={{ __html: postContent.html }} />
+            </ContentWrapper>
             <MobileShareButtonContainer><MobileSocialShareButton slug={postContent.fields.slug}/></MobileShareButtonContainer>
           </Container> :
           <Container><PageWrapper dangerouslySetInnerHTML={{ __html: postContent.html }} /></Container>
@@ -167,6 +201,7 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         author
         type
+        template
         status
       }
     }
