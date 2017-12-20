@@ -85,9 +85,12 @@ const ArticleWrapper = styled.div`
 `
 
 const PageWrapper = ArticleWrapper.extend`
+  width: 50%;
+  margin: 0 auto;
   margin-top: 20px;
 
   @media (max-width: 768px) {
+    width: 90%;
     margin-top:20px;
   }
 `
