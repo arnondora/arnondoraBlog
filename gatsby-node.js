@@ -98,8 +98,8 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         // Create blog posts pages.
         _.each(posts, (edge) => {
           id += 1
-          const prev = id === 0 ? false : result.data.allMarkdownRemark.edges[id - 1].node
-          const next = id === result.data.allMarkdownRemark.edges.length - 1 ? false : result.data.allMarkdownRemark.edges[id + 1].node
+          const prev = id === 0 ? false : posts[id - 1].node
+          const next = id === posts.length - 1 ? false : posts[id + 1].node
 
           const related = _.filter(result.data.allMarkdownRemark.edges, (post) => {
             return post.node.frontmatter.category === edge.node.frontmatter.category && post.node.frontmatter.title !== edge.node.frontmatter.title
