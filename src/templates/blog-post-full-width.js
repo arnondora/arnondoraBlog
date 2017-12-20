@@ -133,7 +133,7 @@ export default class BlogPostTemplate extends React.Component {
           <ThumbnailContainer thumbnail={postInfo.image.childImageSharp.original.src}>
             <ThumbnailWrapper>
               <Heading>{postInfo.title}</Heading>
-              <Info>by {postInfo.author} on {postInfo.date}</Info>
+              {postInfo.type === "post" ? <Info>by {postInfo.author} on {postInfo.date}</Info> : null}
             </ThumbnailWrapper>
           </ThumbnailContainer> :
 
@@ -144,7 +144,7 @@ export default class BlogPostTemplate extends React.Component {
             <SocialButtons><SocialSharingButtonGroup slug={postContent.fields.slug}/></SocialButtons>
             <ContentWrapper>
               <SmallHeading>{postInfo.title}</SmallHeading>
-              <SmallSubHeading>by {postInfo.author} on {postInfo.date}</SmallSubHeading>
+              {postInfo.type === "post" ? <SmallSubHeading>by {postInfo.author} on {postInfo.date}</SmallSubHeading> : null}
               <ArticleWrapper dangerouslySetInnerHTML={{ __html: postContent.html }} />
             </ContentWrapper>
             <MobileShareButtonContainer><MobileSocialShareButton slug={postContent.fields.slug}/></MobileShareButtonContainer>
