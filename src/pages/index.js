@@ -102,9 +102,9 @@ export const query = graphql`
             excerpt
             image {
               childImageSharp {
-                original {
-                  src
-                }
+                resolutions (width:1200, quality: 50) {
+              	   srcWebp
+            	  }
               }
             }
             category
