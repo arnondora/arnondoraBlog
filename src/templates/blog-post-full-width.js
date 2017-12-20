@@ -121,7 +121,6 @@ export default class BlogPostTemplate extends React.Component {
     const postInfo = postContent.frontmatter
     const siteMetadata = this.props.data.site.siteMetadata
 
-    console.log(postInfo.template === "normal")
     return (
       <SuperWrapper>
         <SEO
