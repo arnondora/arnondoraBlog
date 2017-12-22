@@ -29,7 +29,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
       graphql(
         `
           {
-            allMarkdownRemark {
+            allMarkdownRemark (sort: { order: DESC, fields: [frontmatter___date] }) {
               edges {
                 node {
                   excerpt(pruneLength: 250)
