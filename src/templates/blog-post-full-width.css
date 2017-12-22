@@ -42,9 +42,9 @@ blockquote > p > strong
 code
 {
   background-color: #f2f2f2;
-
+  white-space: pre-wrap;
   display: block;
-  padding: 10px 0px 10px 15px;
+  padding: 10px 15px 10px 15px;
   color: #222222;
 }
 
