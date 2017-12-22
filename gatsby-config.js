@@ -3,7 +3,7 @@ module.exports = {
     title: 'Hello World',
     author: 'Arnon Puitrakul',
     description: 'Mad Programmer Diary',
-    siteUrl: 'https://arnondorablog.firebaseapp.com',
+    siteUrl: 'https://staging.arnondora.in.th',
     authorTwitter: '@arnondora',
   },
   plugins: [
@@ -29,7 +29,7 @@ module.exports = {
         display: "minimal-ui",
         icons: [
           {
-            src: `/favicons/android-chrome-192x192.png`,
+            src: `./src/assets/favicon.png`,
             sizes: `512x512`,
             type: `image/png`
           }
