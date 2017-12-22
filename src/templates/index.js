@@ -9,8 +9,6 @@ import FeatureStory from '../components/FeatureStory'
 import CategoryButton from '../components/CategoryButton'
 import IndexTab from '../components/IndexTab'
 
-import FeatureStoryThumbnail from '../assets/FeatureStoryThumbnail.jpg'
-
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -50,7 +48,6 @@ const ContentContainer = styled.div`
 
 export default class IndexPage extends React.Component {
   render () {
-    console.log()
     return (
       <Container>
         <NavBar siteTitle = {this.props.data.site.siteMetadata.title}/>

@@ -94,7 +94,6 @@ export default class IndexTab extends React.Component {
   }
 
   render () {
-    console.log(this.props)
     const tabs = ["Posts", "Categories"]
     var posts = this.props.posts.map((item) => {
         return (
