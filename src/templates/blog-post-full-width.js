@@ -12,6 +12,8 @@ import RecommendStory from '../components/RecommendStory'
 import MobileSocialShareButton from '../components/MobileSocialShareButton'
 import Footer from  '../components/Footer'
 
+import './blog-post-full-width.css' /* Import Reader Style */
+
 const SuperWrapper = styled.div`
 
 `
