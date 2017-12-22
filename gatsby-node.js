@@ -1,6 +1,7 @@
 const _ = require('lodash')
 const Promise = require('bluebird')
 const path = require('path')
+const createPaginatedPages = require("gatsby-paginate")
 const { createFilePath } = require('gatsby-source-filesystem')
 
 const createCategoryPages = (createPage, edges) => {
@@ -40,6 +41,8 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
                     category
                     template
                     type
+                    author
+                    date(formatString: "MMMM DD, YYYY")
                     image {
                       childImageSharp {
                         original {
@@ -72,6 +75,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           console.log(result.errors)
           reject(result.errors)
         }
+
         createCategoryPages(createPage, result.data.allCategoriesJson.edges);
         var id = -1
 
@@ -81,6 +85,15 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 
         const pages = _.filter(result.data.allMarkdownRemark.edges, (item) => {
           return item.node.frontmatter.type === "page"
+        })
+
+        // Build Index
+        createPaginatedPages({
+          edges: posts,
+          createPage: createPage,
+          pageTemplate: "src/templates/index.js",
+          pageLength: 5, // This is optional and defaults to 10 if not used
+          pathPrefix: "" // This is optional and defaults to an empty sctring if not used
         })
 
         // Create pages.

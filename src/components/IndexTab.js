@@ -90,11 +90,11 @@ export default class IndexTab extends React.Component {
 
     this.state = {
       tabIndex : 0,
-      page: props.page || 1,
     }
   }
 
   render () {
+    console.log(this.props)
     const tabs = ["Posts", "Categories"]
     var posts = this.props.posts.map((item) => {
         return (
@@ -133,10 +133,11 @@ export default class IndexTab extends React.Component {
               null
           }
 
-          {this.state.tabIndex == 0 && this.props.posts.length > 0 ?
+          {this.state.tabIndex == 0 ?
             <MoreButtonWrapper>
-              {this.state.page >= 1 ? <Link to = {"/page/" + (this.state.page+1)}><PrimaryButton float="left" label="Older Posts"/></Link>  : null}
-              {this.state.page < 1 ? <Link to = {"/page/" + (this.state.page-1)}><PrimaryButton float="right" label="Newer Posts"/></Link>  : null}
+              {!this.props.pagination.last ? <Link to = {"/" + (this.props.pagination.index+1)}><PrimaryButton float="left" label="Older Posts"/></Link>  : null}
+              {!this.props.pagination.first && !this.props.pagination.index === 2 ? <Link to = {(this.props.pagination.index-1)}><PrimaryButton float="right" label="Newer Posts"/></Link>  : null}
+              {this.props.pagination.index === 2 ? <Link to = {"/"}><PrimaryButton float="right" label="Newer Posts"/></Link>  : null}
 
             </MoreButtonWrapper> : null}
 

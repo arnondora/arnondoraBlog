@@ -50,6 +50,7 @@ const ContentContainer = styled.div`
 
 export default class IndexPage extends React.Component {
   render () {
+    console.log()
     return (
       <Container>
         <NavBar siteTitle = {this.props.data.site.siteMetadata.title}/>
@@ -63,7 +64,7 @@ export default class IndexPage extends React.Component {
 
           <ContentWrapper>
             <ContentContainer>
-              <IndexTab categories={this.props.data.allCategoriesJson.edges} posts = {this.props.data.allMarkdownRemark.edges}/>
+              <IndexTab categories={this.props.data.allCategoriesJson.edges} posts = {this.props.pathContext.group} pagination = {this.props.pathContext}/>
             </ContentContainer>
           </ContentWrapper>
 
