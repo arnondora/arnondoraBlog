@@ -18,6 +18,12 @@
     "thumbnail": "http://www.gettingsmart.com/wp-content/uploads/2017/06/Program-Code-Feature-Image.jpg"
   },
   {
+    "name": "Laravel",
+    "link": "laravel-101",
+    "description": "รวบรวม Tip ต่าง ๆ ในการใช้ PHP Framework อย่าง Laravel",
+    "thumbnail": "http://www.gettingsmart.com/wp-content/uploads/2017/06/Program-Code-Feature-Image.jpg"
+  },
+  {
     "name": "Review",
     "link": "review",
     "description": "Review อะไรก็ได้โตแล้ว รีวิวมันทุกอย่างยันเรือดำน้ำ",
