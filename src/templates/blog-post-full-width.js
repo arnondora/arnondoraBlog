@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { take } from 'lodash'
+import { take, get } from 'lodash'
 
 import colours from '../utils/colours'
 
@@ -136,7 +136,7 @@ export default class BlogPostTemplate extends React.Component {
         <NavBar article={true}/>
 
         {postInfo.template === "full-width" ?
-          <ThumbnailContainer thumbnail={postInfo.image.childImageSharp.resolutions.src}>
+          <ThumbnailContainer thumbnail={get(postInfo, 'image.childImageSharp.resolutions.src',"")}>
             <ThumbnailWrapper>
               <Heading>{postInfo.title}</Heading>
               {postInfo.type === "post" ? <Info>by {postInfo.author} on {postInfo.date}</Info> : null}
