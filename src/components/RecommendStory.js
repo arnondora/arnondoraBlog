@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Link from 'gatsby-link'
+import { get } from 'lodash'
 
 import colours from '../utils/colours'
 
@@ -44,7 +45,7 @@ export default class RecommendStory extends React.Component {
         {
           this.props.stories.map((story,index) => {
             return (
-              <StoryWrapper key={story.node.fields.slug} thumbnail={story.node.frontmatter.image.childImageSharp.original.src}>
+              <StoryWrapper key={story.node.fields.slug} thumbnail={get(story.node.frontmatter,'image.childImageSharp.original.src',"")}>
                 <Story to={story.node.fields.slug}>
                   {story.node.frontmatter.title}
                 </Story>
