@@ -3,7 +3,7 @@ title: รีวิว iOS11 OS ตัวล่าสุดจาก Apple
 image: "./ios11-review-1f4fa905-ad50-4239-ade1-f97d6ba15925.png"
 category: "Review"
 excerpt: "เมื่อไม่กี่วันที่ผ่านมา Apple ก็ได้ปล่อย iOS เวอร์ชั่นใหม่ออกมา นั่นคือ iOS 11 ถือว่าเป็นเวอร์ชั่นที่มีการเปลี่ยนแปลงเยอะมาก เมื่อเทียบกับเวอร์ชั่นอื่น ๆ โดยเฉพาะใน iPad ตอนนี้หลังจากที่ผมได้ใช้มาตั้งแต่ GM"
-date: "2017-01-10T22:12:03.284Z"
+date: "2017-09-10T22:12:03.284Z"
 author: arnondora
 template: full-width
 type: post
