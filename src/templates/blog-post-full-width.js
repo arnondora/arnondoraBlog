@@ -143,7 +143,7 @@ export default class BlogPostTemplate extends React.Component {
             </ThumbnailWrapper>
           </ThumbnailContainer> :
 
-          <OnlyThumbnail thumbnail={postInfo.image.childImageSharp.resolutions.src}></OnlyThumbnail>
+          <OnlyThumbnail thumbnail={get(postInfo,"image.childImageSharp.resolutions.src","")}></OnlyThumbnail>
         }
 
         {postInfo.type === "post" ? <Container>
