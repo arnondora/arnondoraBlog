@@ -52,7 +52,7 @@
   "main": "n/a",
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
+    "develop": "node --max-old-space-size=7168 ./node_modules/.bin/gatsby develop",
     "predeploy": "gatsby build",
     "deploy": "firebase deploy",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\"",
