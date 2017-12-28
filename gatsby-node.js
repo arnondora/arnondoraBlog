@@ -90,7 +90,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           return item.node.frontmatter.type === "page"
         })
 
-        //Create Index page with pagination
+        // Create Index page with pagination
         var chunkPost = _.chunk(posts, IndexPaginationAmount)
         for (var page = 1; page <= chunkPost.length; page++) {
           createPage ({
