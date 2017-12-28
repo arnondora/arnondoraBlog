@@ -74,7 +74,8 @@ const ReadMoreButton = styled(Link)`
 
 export default class FeatureStory extends React.Component {
   render() {
-    const featureStory = this.findLatestFeatureStory(this.props.posts).node
+    var featureStory = this.findLatestFeatureStory(this.props.posts)
+    featureStory = featureStory.length > 0 ? featureStory[0].node : null
     return(
       <SuperWrapper>
         <Container>
@@ -92,8 +93,6 @@ export default class FeatureStory extends React.Component {
 
   findLatestFeatureStory (stories) {
     if (get(stories, '', null) != null) return []
-
-    return take(filter(stories, function(story) {return story.node.frontmatter.isFeatured}),1)[0]
-
+    return take(filter(stories, function(story) {return story.node.frontmatter.isFeatured === true}),1)
   }
 }
