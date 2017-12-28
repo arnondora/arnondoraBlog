@@ -50,6 +50,8 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
                       childImageSharp {
                         original {
                           src
+                          width
+                          height
                         }
                       }
                     }
@@ -86,6 +88,10 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           return item.node.frontmatter.type === "post"
         })
 
+        const featurePosts = _.filter(result.data.allCategoriesJson.edges, (item) => {
+          return _.get(item,'node.frontmatter.isFeatured', false) === true || _.get(item,'node.frontmatter.isFeatured','false') === 'true'
+        })
+
         const pages = _.filter(result.data.allMarkdownRemark.edges, (item) => {
           return item.node.frontmatter.type === "page"
         })
@@ -100,7 +106,8 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
               posts : chunkPost[page],
               isFirst: page === 1 ? true : false,
               isLast: page === chunkPost.length? true : false,
-              page: page
+              page: page,
+              featurePosts: featurePosts
             }
           })
         }
@@ -121,12 +128,11 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         _.each(posts, (edge) => {
           id += 1
           const prev = id === 0 ? false : posts[id - 1].node
-          const next = id === posts.length - 1 ? false : posts[id + 1].node
+          const next = id === _.get(posts[id+1],false) === false ? false : posts[id + 1].node
 
           const related = _.filter(result.data.allMarkdownRemark.edges, (post) => {
             return post.node.frontmatter.category === edge.node.frontmatter.category && post.node.frontmatter.title !== edge.node.frontmatter.title
           })
-
           createPage({
             path: edge.node.fields.slug,
             component: blogPost,
@@ -155,4 +161,21 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
       value,
     })
   }
+}
+
+exports.modifyWebpackConfig = ({ config, stage }) => {
+  if (stage === "build-html") {
+    config.loader("null", {
+      test: /scroll-to-element/,
+      loader: "null-loader"
+    });
+  }
+  switch (stage) {
+    case `build-javascript`:
+      config.plugin(`Lodash`, webpackLodashPlugin, null)
+
+      break
+  }
+
+  return config
 }

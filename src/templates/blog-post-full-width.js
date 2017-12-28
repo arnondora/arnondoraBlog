@@ -194,10 +194,8 @@ export const pageQuery = graphql`
         title
         image {
           childImageSharp {
-            resolutions (width:1200, quality: 50) {
+            original {
                src
-               height
-               width
             }
           }
         }

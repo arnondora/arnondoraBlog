@@ -56,7 +56,7 @@ export default class IndexPage extends React.Component {
         <MainContentContainer>
           <FeatureStoryContainer>
             <FeatureStory
-              posts = {this.props.data.allMarkdownRemark.edges}
+              posts = {this.props.data.pathContext.featurePosts}
             />
           </FeatureStoryContainer>
 
@@ -75,46 +75,13 @@ export default class IndexPage extends React.Component {
 }
 
 export const query = graphql`
-  query navQuery {
+  query indexQuery {
     site {
       siteMetadata {
         title
       }
     }
 
-    # Get all Posts
-    allMarkdownRemark (
-      sort: { order: DESC, fields: [frontmatter___date] }
-      filter: { frontmatter: { type: { eq: "post" } } }
-    ) {
-      edges {
-        node {
-          id
-          html
-          excerpt (pruneLength: 250)
-          fields {
-            slug
-          }
-          frontmatter {
-            title
-            isFeatured
-            excerpt
-            image {
-              childImageSharp {
-                resolutions (width:1200, quality: 50) {
-              	   src
-            	  }
-              }
-            }
-            category
-            date(formatString: "MMMM DD, YYYY")
-            author
-            type
-            status
-          }
-        }
-      }
-    }
 
     allCategoriesJson {
       edges {
