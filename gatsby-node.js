@@ -1,7 +1,6 @@
 const _ = require('lodash')
 const Promise = require('bluebird')
 const path = require('path')
-const createPaginatedPages = require("gatsby-paginate")
 const { createFilePath } = require('gatsby-source-filesystem')
 
 const createCategoryPages = (createPage, edges) => {
@@ -25,6 +24,10 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 
   return new Promise((resolve, reject) => {
     const blogPost = path.resolve('./src/templates/blog-post-full-width.js')
+    const index = path.resolve('./src/templates/index.js')
+
+    const IndexPaginationAmount = 5
+
     resolve(
       graphql(
         `
@@ -87,14 +90,20 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           return item.node.frontmatter.type === "page"
         })
 
-        // Build Index
-        createPaginatedPages({
-          edges: posts,
-          createPage: createPage,
-          pageTemplate: "src/templates/index.js",
-          pageLength: 5, // This is optional and defaults to 10 if not used
-          pathPrefix: "" // This is optional and defaults to an empty sctring if not used
-        })
+        //Create Index page with pagination
+        var chunkPost = _.chunk(posts, IndexPaginationAmount)
+        for (var page = 1; page <= chunkPost.length; page++) {
+          createPage ({
+            path: page === 1 ? "/" : "/" + page,
+            component: index,
+            context : {
+              posts : chunkPost[page],
+              isFirst: page === 1 ? true : false,
+              isLast: page === chunkPost.length? true : false,
+              page: page
+            }
+          })
+        }
 
         // Create pages.
         _.each(pages, (edge) => {
