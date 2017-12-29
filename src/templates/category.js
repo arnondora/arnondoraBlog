@@ -3,10 +3,12 @@ import Helmet from 'react-helmet'
 import styled from 'styled-components'
 import { get } from 'lodash'
 import colours from '../utils/colours'
+import Link from 'gatsby-link'
 
 import NavBar from '../components/NavBar'
 import MobileFooter from '../components/MobileFooter'
 import Card from '../components/Card'
+import PrimaryButton from '../components/PrimaryButton'
 
 const NavigationBar = styled(NavBar)`
   position: relative;
@@ -53,12 +55,16 @@ const CardWrapper = styled.div`
 }
 `
 
+const MoreButtonWrapper = styled.div`
+  margin-top:20px;
+`
+
 export default class CategoryTemplate extends React.Component
 {
   render () {
     var stories = null
-    if (get(this.props.data,'allMarkdownRemark.edges', null) !== null)
-      stories = this.props.data.allMarkdownRemark.edges
+    if (get(this.props.pathContext,'posts', null) !== null)
+      stories = this.props.pathContext.posts
 
     return (
       <SuperWrapper>
@@ -76,6 +82,12 @@ export default class CategoryTemplate extends React.Component
               }) : <h1>There is no post in this category. Stay Tuned</h1>
             }
           </StoriesWrapper>
+
+          <MoreButtonWrapper>
+            {!this.props.pathContext.isLast ? <Link to = {"/category/" + this.props.data.allCategoriesJson.edges[0].node.link + "/" + (this.props.pathContext.page+1)}><PrimaryButton float="left" label="Older Posts"/></Link>  : null}
+            {!this.props.pathContext.isFirst && this.props.pathContext.page !== 2 ? <Link to = {"/category/" + this.props.data.allCategoriesJson.edges[0].node.link + "/" + (this.props.pathContext.page-1)}><PrimaryButton float="right" label="Newer Posts"/></Link>  : null}
+            {!this.props.pathContext.isFirst && this.props.pathContext.page === 2 ? <Link to = {"/category/" + this.props.data.allCategoriesJson.edges[0].node.link}><PrimaryButton float="right" label="Newer Posts"/></Link>  : null}
+          </MoreButtonWrapper>
         </Container>
         <MobileFooter/>
       </SuperWrapper>

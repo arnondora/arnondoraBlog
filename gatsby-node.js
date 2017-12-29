@@ -4,19 +4,31 @@ const path = require('path')
 const webpackLodashPlugin = require('lodash-webpack-plugin')
 const { createFilePath } = require('gatsby-source-filesystem')
 
-const createCategoryPages = (createPage, edges) => {
+const createCategoryPages = (createPage, edges,posts) => {
   const categoryPage = path.resolve('./src/templates/category.js')
 
     edges.forEach(edge => {
-      const link = edge.node.link;
+      const link = edge.node.link
       const name = edge.node.name
-      createPage({
-        path: `/category/${link}`,
-        component: categoryPage,
-        context: {
-          name : name
-        }
+      const catPosts = _.filter(posts, (item) => {
+        return _.get(item,'node.frontmatter.category', false) === name
       })
+
+      var chunkCatPosts = _.chunk(catPosts, 10)
+      for (var page = 0; page < chunkCatPosts.length; page++) {
+        createPage({
+          path: (page+1) === 1 ? "/category/" + link : "/category/" + link + "/" + (page+1),
+          component: categoryPage,
+          context: {
+            name : name,
+            isFirst: (page+1) === 1 ? true : false,
+            isLast: (page+1) === chunkCatPosts.length? true : false,
+            page: (page+1),
+            posts : chunkCatPosts[page]
+          }
+        })
+      }
+
     });
 };
 
@@ -83,9 +95,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           reject(result.errors)
         }
 
-        createCategoryPages(createPage, result.data.allCategoriesJson.edges);
-        var id = -1
-
         const posts = _.filter(result.data.allMarkdownRemark.edges, (item) => {
           return item.node.frontmatter.type === "post"
         })
@@ -97,6 +106,9 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         const pages = _.filter(result.data.allMarkdownRemark.edges, (item) => {
           return item.node.frontmatter.type === "page"
         })
+
+        // Create Category Pages with pagination
+        createCategoryPages(createPage, result.data.allCategoriesJson.edges, posts);
 
         // Create Index page with pagination
         var chunkPost = _.chunk(posts, IndexPaginationAmount)
@@ -127,10 +139,11 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         })
 
         // Create blog posts pages.
+        var id = -1
         _.each(posts, (edge) => {
           id += 1
           const prev = id === 0 ? false : posts[id - 1].node
-          const next = _.isError(posts[id+1]) === false ? false : posts[id + 1].node
+          const next = id+1 > _.size(posts)-1 ? false : posts[id + 1].node
 
           const related = _.filter(posts, (post) => {
             return post.node.frontmatter.category === edge.node.frontmatter.category && post.node.frontmatter.title !== edge.node.frontmatter.title
