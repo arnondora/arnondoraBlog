@@ -136,14 +136,14 @@ export default class BlogPostTemplate extends React.Component {
         <NavBar article={true}/>
 
         {postInfo.template === "full-width" ?
-          <ThumbnailContainer thumbnail={get(postInfo, 'image.childImageSharp.resolutions.src',"")}>
+          <ThumbnailContainer thumbnail={get(postInfo, 'image.childImageSharp.original.src',"")}>
             <ThumbnailWrapper>
               <Heading>{postInfo.title}</Heading>
               {postInfo.type === "post" ? <Info>by {postInfo.author} on {postInfo.date}</Info> : null}
             </ThumbnailWrapper>
           </ThumbnailContainer> :
 
-          <OnlyThumbnail thumbnail={get(postInfo,"image.childImageSharp.resolutions.src","")}></OnlyThumbnail>
+          <OnlyThumbnail thumbnail={get(postInfo,"image.childImageSharp.original.src","")}></OnlyThumbnail>
         }
 
         {postInfo.type === "post" ? <Container>
