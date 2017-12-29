@@ -132,7 +132,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           const prev = id === 0 ? false : posts[id - 1].node
           const next = _.isError(posts[id+1]) === false ? false : posts[id + 1].node
 
-          const related = _.filter(result.data.allMarkdownRemark.edges, (post) => {
+          const related = _.filter(posts, (post) => {
             return post.node.frontmatter.category === edge.node.frontmatter.category && post.node.frontmatter.title !== edge.node.frontmatter.title
           })
           createPage({
