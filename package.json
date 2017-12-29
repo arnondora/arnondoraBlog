@@ -53,7 +53,7 @@
   "scripts": {
     "build": "node --max-old-space-size=20000 ./node_modules/.bin/gatsby  build",
     "develop": "node --max-old-space-size=20000 ./node_modules/.bin/gatsby develop",
-    "predeploy": "gatsby build",
+    "predeploy": "yarn build",
     "deploy": "firebase deploy",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\"",
     "test": "echo \"Error: no test specified\" && exit 1"
