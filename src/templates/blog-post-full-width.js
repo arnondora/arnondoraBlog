@@ -10,6 +10,7 @@ import SocialSharingButtonGroup from '../components/SocialSharingButtonGroup'
 import NextStory from '../components/NextStory'
 import RecommendStory from '../components/RecommendStory'
 import MobileSocialShareButton from '../components/MobileSocialShareButton'
+import StickyMobileShare from '../components/StickyMobileShare'
 import Footer from  '../components/Footer'
 
 import './blog-post-full-width.css' /* Import Reader Style */
@@ -69,6 +70,18 @@ const MobileShareButtonContainer = styled.div`
     padding-bottom: 20px;
     margin: 0 auto;
     display:block;
+  }
+`
+
+const MobileStickyShareContainer = styled.div`
+  display: none;
+
+  @media (max-width: 768px) {
+    display:block;
+    position:fixed;
+    left: 0;
+    bottom: 0;
+    width:100%;
   }
 `
 
@@ -166,6 +179,7 @@ export default class BlogPostTemplate extends React.Component {
           : null
         }
 
+        <MobileStickyShareContainer><StickyMobileShare slug={postContent.fields.slug}/></MobileStickyShareContainer>
         <Footer/>
       </SuperWrapper>
 
