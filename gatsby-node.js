@@ -99,15 +99,15 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 
         // Create Index page with pagination
         var chunkPost = _.chunk(posts, IndexPaginationAmount)
-        for (var page = 1; page <= chunkPost.length; page++) {
+        for (var page = 0; page < chunkPost.length; page++) {
           createPage ({
-            path: page === 1 ? "/" : "/" + page,
+            path: page+1 === 1 ? "/" : "/" + page+1,
             component: index,
             context : {
               posts : chunkPost[page],
-              isFirst: page === 1 ? true : false,
-              isLast: page === chunkPost.length? true : false,
-              page: page,
+              isFirst: page+1 === 1 ? true : false,
+              isLast: page+1 === chunkPost.length? true : false,
+              page: page+1,
               featurePosts: featurePosts
             }
           })
