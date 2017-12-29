@@ -3,7 +3,7 @@ export function getFacebookShareLink (link) {
 }
 
 export function getTwitterShareLink (link) {
-  return 'https://twitter.com/home?status=' + process.env.SHARE_TWITTER_LINK + link
+  return 'https://twitter.com/home?status=' + link
 }
 
 export function getGooglePlusShareLink (link) {
