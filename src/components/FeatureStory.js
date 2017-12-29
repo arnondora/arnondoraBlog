@@ -74,7 +74,7 @@ const ReadMoreButton = styled(Link)`
 
 export default class FeatureStory extends React.Component {
   render() {
-    var featureStory = this.props.posts.length > 0 ? this.props.posts[0].node : null
+    var featureStory = this.props.posts[0]
 
     return(
       <SuperWrapper>
@@ -86,7 +86,7 @@ export default class FeatureStory extends React.Component {
 
         </Container>
         <Overlay/>
-        <ImgBackgroundControl thumbnail={featureStory.node.frontmatter.image.childImageSharp.resolutions.src}/>
+        <ImgBackgroundControl thumbnail={featureStory.node.frontmatter.image.childImageSharp.original.src}/>
       </SuperWrapper>
     )
   }
