@@ -27,7 +27,7 @@ const Logo = styled.img `
   margin : 0;
 `
 
-const SiteName = styled.p `
+const SiteName = styled.span `
   color: white;
   font-size: 24px;
   font-weight: 400;

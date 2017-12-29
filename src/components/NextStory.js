@@ -50,7 +50,7 @@ const NextStoryContainer = StoryContainer.extend`
   float: right;
 `
 
-const Label = styled.p`
+const Label = styled.span`
   color: ${colours.textSecondary};
   font-size: 1.2em;
   font-weight: 300;
