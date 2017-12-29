@@ -1,6 +1,7 @@
 const _ = require('lodash')
 const Promise = require('bluebird')
 const path = require('path')
+const webpackLodashPlugin = require('lodash-webpack-plugin')
 const { createFilePath } = require('gatsby-source-filesystem')
 
 const createCategoryPages = (createPage, edges) => {
@@ -129,7 +130,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         _.each(posts, (edge) => {
           id += 1
           const prev = id === 0 ? false : posts[id - 1].node
-          const next = id === _.get(posts[id+1],false) === false ? false : posts[id + 1].node
+          const next = _.isError(posts[id+1]) === false ? false : posts[id + 1].node
 
           const related = _.filter(result.data.allMarkdownRemark.edges, (post) => {
             return post.node.frontmatter.category === edge.node.frontmatter.category && post.node.frontmatter.title !== edge.node.frontmatter.title
