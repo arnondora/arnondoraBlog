@@ -13,7 +13,7 @@ const Container = styled.div`
   flex-direction:column;
 `
 
-const Header = styled.p`
+const Header = styled.span`
   color: ${colours.textSecondary};
   font-weight: 300;
   margin-bottom: 10px;
