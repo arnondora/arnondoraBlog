@@ -90,7 +90,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           return item.node.frontmatter.type === "post"
         })
 
-        const featurePosts = _.filter(result.data.allMarkdownRemark.edges, (item) => {
+        const featurePosts = _.filter(posts, (item) => {
           return _.get(item,'node.frontmatter.isFeatured', false) === true || _.get(item,'node.frontmatter.isFeatured','false') === 'true'
         })
 
