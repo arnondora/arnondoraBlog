@@ -8,7 +8,7 @@
   {
     "name": "Movie Review",
     "link": "movie-review",
-    "description": "รวบรวม Review หนังที่ได้ไปดูมา",
+    "description": "รวบรวม Review หนังต่าง ๆ ที่ได้ไปดูมาทั้งไทยและเทศ",
     "thumbnail": "https://www.statisticbrain.com/wp-content/uploads/2015/04/star-wars-franchise-revenue-statistics.jpg"
   },
   {
@@ -20,8 +20,8 @@
   {
     "name": "Laravel",
     "link": "laravel-101",
-    "description": "รวบรวม Tip ต่าง ๆ ในการใช้ PHP Framework อย่าง Laravel",
-    "thumbnail": "http://www.gettingsmart.com/wp-content/uploads/2017/06/Program-Code-Feature-Image.jpg"
+    "description": "รวบรวม Tip และสิ่งที่ได้รู้มาต่าง ๆ ในการใช้ PHP Framework อย่าง Laravel",
+    "thumbnail": "https://laracasts.com/images/series/squares/laravel-from-scratch.jpg"
   },
   {
     "name": "Review",
