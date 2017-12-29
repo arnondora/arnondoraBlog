@@ -19,6 +19,12 @@ h3 {font-size: 25.92px;}
 h4 {font-size: 21.6px;}
 p {font-size: 18px;}
 
+
+p:first-child::first-letter {
+  color: #2096F3;
+  font-size: 60px;
+}
+
 blockquote
 {
   border-left: 5px solid #2096F3;
