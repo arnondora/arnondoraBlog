@@ -39,7 +39,7 @@ export default class StickyMobileShare extends React.Component {
           <SocialItem href = {getFacebookShareLink(link)} target="_blank" bgColour={colours.facebook}><Icon icon={faFacebookF} colour={"white"}/></SocialItem>
           <SocialItem href = {getTwitterShareLink(link)} target="_blank" bgColour={colours.twitter}><Icon icon={faTwitter} colour={"white"}/></SocialItem>
           <SocialItem href = {getGooglePlusShareLink(link)} target="_blank" bgColour={colours.googlePlus}><Icon icon={faGooglePlusG} colour={"white"}/></SocialItem>
-          <SocialItem href = {getLineShareLink(link)} bgColour={colours.line}><Icon icon={faLine} colour={"white"}/></SocialItem>
+          <SocialItem href = {getLineShareLink(link)} target="_blank" bgColour={colours.line}><Icon icon={faLine} colour={"white"}/></SocialItem>
         </Container>
     )
   }
