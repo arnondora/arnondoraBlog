@@ -1,7 +1,7 @@
 ---
 title: "มา Deploy Laravel บน Microsoft Azure กันเถอะ"
 image: "./DeployLaravelAzureSign.png"
-category: Tutorial
+category: "Laravel"
 excerpt: "ปัญหาของการ Deploy เป็นปัญหาหนึ่งตอนที่ผมพึ่งเรียน Laravel ใหม่ ๆ ตอนเขียนก็ยังได้อยู่"
 date: 2017-01-01T23:19:20.000
 author: arnondora

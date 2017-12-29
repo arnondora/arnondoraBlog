@@ -1,7 +1,7 @@
 ---
 title: "Programming 101 - 2-Days Miracle"
 image: "./programming-101-2-days-miracle-programming-101-2-days-miracle-signed.png"
-category: Tutorial
+category: "Programming 101"
 excerpt: "หลังจากที่ได้เขียน Programming 101 ในอันก่อนเรื่องที่บอกว่า ทำยังไงถึงเราจะเรียนรู้เทคโนโลยีใหม่ ๆ ได้อย่างรวดเร็ว"
 date: 2017-11-27T02:47:21.000
 author: arnondora

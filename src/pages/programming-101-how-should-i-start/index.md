@@ -1,7 +1,7 @@
 ---
 title: "Programming 101: How should I start?"
-image: "./"
-category: Tutorial
+image:
+category: "Programming 101"
 excerpt: "โลกเราหมุนไปทุกวัน เทคโนโลยีเกิดขึ้นทุกวัน
 เมื่อก่อน การเขียนโปรแกรม มันใกล้ตัวกว่าที่เราคิด
 แล้วถามว่า "ผมเขียนไม่เป็น แล้วผมควรจะเริ่มยังไงดี?""

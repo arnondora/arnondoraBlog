@@ -1,7 +1,7 @@
 ---
 title: Programming 101 - How to write a good code
 image: "./writing-good-code-writing-good-code-programming-101-good-code-sign.png"
-category: Programming 101
+category: "Programming 101"
 excerpt: "ผมเชื่อว่า หลาย ๆ คนที่กำลังหัดเขียน Code อาจจะคุ้นเคยกับการเขียน Code ในแบบที่ตัวเองชอบ หรือคุ้นเคย แต่ Programming ในชีวิตจริง นั่นต่างไปจากที่เราหัดอยู่ตอนนี้มาก ๆ"
 date: "2017-08-16T22:12:03.284Z"
 author: arnondora

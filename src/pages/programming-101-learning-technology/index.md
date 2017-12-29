@@ -1,7 +1,7 @@
 ---
 title: Programming 101 - How to learn new technology lightning fast
 image: "./programming-101-learning-technology-learning-new-technology-signed.png"
-category: Programming 101
+category: "Programming 101"
 excerpt: "หลังจากที่ได้เขียน Programming 101 ในอันก่อนเรื่องที่บอกว่า ทำยังไงถึงเราจะเรียนรู้เทคโนโลยีใหม่ ๆ ได้อย่างรวดเร็ววันนี้เลยจะมาแชร์ทริก ไม่รู้เหมือนกันมันคืออะไร ผมคิดขึ้นมาใช้เอง ผมเรียกมันว่า 2-Days Miracle"
 date: "2017-10-09T22:12:03.284Z"
 author: arnondora
