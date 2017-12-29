@@ -8,7 +8,8 @@ const colours = {
   secondaryBorder: "#E0E0E0",
   facebook: "#3b5998",
   twitter: "#55acee",
-  googlePlus: "#dd4b39"
+  googlePlus: "#dd4b39",
+  line: "#00c300"
 }
 
 export default colours
