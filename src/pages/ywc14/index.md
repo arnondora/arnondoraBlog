@@ -5,7 +5,7 @@ category: My Life
 excerpt: "ช่วง 4 ผ่านที่ผ่านมาก็ค่อนข้างหายไปจาก Social Network ไปเลย ก็ผมไปค่าย YWC หรือ Young Webmaster Camp มาครับ วันนี้ผมเลยจะมาแชร์ประสบการณ์ และสิ่งที่ได้ให้ทุกคนอ่านกันครับ"
 date: 2016-12-26T23:14:36.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

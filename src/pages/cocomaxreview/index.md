@@ -5,7 +5,7 @@ category: Review
 excerpt: "เมื่อ 2-3 สัปดาห์ก่อน อากาศร้อน ๆ ก็เข้าไป 7-11 เพื่อหาซื้อน้ำอะไรดื่มตามปกติ แต่ก็ไปสะดุดตากับขวด น้ำมะพร้าวแบรนด์นึงอยู่ในตู้เย็นที่ร้าน เลยจัดมาเลย"
 date: 2015-06-22T00:52:14.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

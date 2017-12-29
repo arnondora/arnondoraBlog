@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "วันนี้ก็ได้มีโอกาสได้เป็นเป็น Guest Speaker ในวิชาเรียนตัวเอง ก็รู็สึกแปลกดี ปกติไปพูดข้างนอกส่วนใหญ่"
 date: 2015-11-30T21:11:59.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

@@ -5,7 +5,7 @@ category: My Life
 excerpt: "หลังจากเมื่อเดือนมิถุนาที่ผ่านมาก็ได้ อัพเกรด ย้ำว่า อัพเกรด เว็บใหม่หมด ยกเครื่องกันรัวๆ แต่วันนี้ไม่ได้มาอัพเกรด แต่แค่อัพเดทพอ ทำไมไหว lol ส่วนใหญ่ก็จะเป็นการจัดการเรื่อง Performance เป็นสักส่วนใหญ่ เพราะไปเห็นเว็บอื่นแล้วเกิดอารมณ์ "อิจ" เพราะ..."
 date: 2015-09-09T17:38:33.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

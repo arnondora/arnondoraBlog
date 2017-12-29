@@ -5,7 +5,7 @@ category: My Life
 excerpt: "มันเป็นคำถามที่ผมถามทุกเกือบ 2 เดือนเลยครับ ตั้งแต่เข้ามหาลัยมาเนี่ย เมื่อก่อนตั้งแต่อยู่ อนุบาล ยัน ม ปลาย ก็ไม่ได้คิดทรงผมเองหรืออะไรเทือกนั้นเลย"
 date: 2015-04-15T00:18:32.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

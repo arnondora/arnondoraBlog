@@ -5,7 +5,7 @@ category: My Life
 excerpt: "เมื่อตอนผม ม.1 ไม่ก็ ม.2 ผมเคยไปฟังบรรยายจากอาจารย์ท่านหนึ่ง จำได้ว่ามาจาก สวทช. ผมจำชื่อเขาไม่ได้แล้ว (เสียใจ TT)"
 date: 2015-04-24T00:16:56.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

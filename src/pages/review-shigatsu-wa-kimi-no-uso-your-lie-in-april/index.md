@@ -5,7 +5,7 @@ category: Review
 excerpt: "ห่างหายกันไปนานเลยนะครัช ช่วงนี้ก็เทอม 2 แล้ว อะไรที่ยุ่งๆก็ผ่านไปบ้าง เสร็จบ้าง ทิ้งบ้าง (เฮ้ย!! ไม่ใช่และ) เลยมีเวลามานั่งดู Anime อย่างจริงจัง"
 date: 2015-03-22T21:58:07.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

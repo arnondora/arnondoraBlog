@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "ก่อนอื่นต้องขอเกริ่นก่อนว่า วันนี้เราไปงาน Big data Conference ที่จัดโดยสมาคมโปรแกรมเมอร์ไทยมา ซึ่งในงานรวม ๆ ก็สนุกได้ความรู้หลาย ๆ อย่างดี (ชอบ Keynote ของอาจารย์ Rawitat มาก เนื้อหาในนี้ส่วนใหญ่จะดึงมากจากที่ อาจารย์ Rawitat พูดวันนี้เป็นส่วนให..."
 date: 2016-05-08T00:55:19.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "มาถึงตอนนี้แล้ว หลาย ๆ คนน่าเคยได้ยินเรื่องของ Node.js กันมาบ้างแล้ว วันนี้เราจะมาดูกันว่า มันคืออะไร แล้วมันเอาไปใช้งานกับอะไรบ้าง"
 date: 2015-10-23T21:34:22.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "หลายๆ ที่ใช้คอมอยู่ ก็สงสัยกันเยอะมากเลยว่า ถ้าเราไม่ได้ใช้คอมแปบนึง เราน่าจะ Shutdown"
 date: 2015-09-13T15:47:29.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

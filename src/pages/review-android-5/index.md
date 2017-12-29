@@ -5,7 +5,7 @@ category: Review
 excerpt: "เมื่อเช้าครับ ตื่นมาเปิดคอม เช็คเมล์ อ่านอะไรไปเรื่อย (ดูว่างเนอะ) ไปเจอว่า Xperia Z1 ศูนย์ไทยได้อัพเกรด เป็น Android 5.0 Lolipop แล้ว!! จึงรีบกดอัพเกรต อย่างทันควัน!!"
 date: 2015-04-14T20:38:40.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

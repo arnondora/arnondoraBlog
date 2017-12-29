@@ -5,7 +5,7 @@ category: My Life
 excerpt: "หลังจากที่ปิดเทอมมาได้สักระยะนึง ก็ได้เคลียร์งานส่วนใหญ่ไปหมดและ ตอนนี้เลยค่อนข้างจะมีเวลา ก่อนปิดเทอมเคยคิดที่จะสร้าง Theme ของเว็บตัวเองอยู่แล้วล่ะ แต่ตอนนั้นเขียนไม่เป็น ไม่รู้เรื่องเลยว่า Wordpress Theme มันทำยังไงอะไรบ้าง สัปดาห์นี้จัดเลย ใช้..."
 date: 2015-06-26T15:54:13.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

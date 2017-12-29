@@ -5,7 +5,7 @@ category: My Life
 excerpt: "หลังจากเมื่อตอนเดือนพฤษภา ก็ได้เขียนเล่าเรื่องตอนที่ได้ใช้กล้องใหม่ๆ ตอนนี้จะมาอัพเดทกันดีกว่า ว่าครึ่งปีที่จับกล้องมาได้อะไรมาบ้าง"
 date: 2015-09-09T20:19:04.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

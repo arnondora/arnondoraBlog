@@ -5,7 +5,7 @@ category: Review
 excerpt: "ทุก ๆ วันนี้ในกรุงเทพเมืองหลวงของเราก็มี คาเฟ่แมว พุดขึ้นมามากมายเพื่อตอบสนองทาสแมวทั้งหลาย ที่ชอบแมว แต่ไม่สามารถเลี้ยงแมวได้ หรือไม่มีเวลา คาเฟ่แมวจึงเป็นสถานที่ ที่ทำให้เราผ่อนคลายโดยการมาเล่นกับแมวได้"
 date: 2015-06-11T18:53:09.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

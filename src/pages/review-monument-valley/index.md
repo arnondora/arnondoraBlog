@@ -6,7 +6,7 @@ excerpt: "นานๆทีจะซื้อเกมมาเล่นที 
 รอบนี้ซื้อเกมนี้เลย Monument Valley เป็นเกม Puzzle สไตล์แหวกสุดๆตัดมาในราคา 134 THB"
 date: 2014-12-04T21:40:29.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "เป็นอะไรที่โดนถามมาเยอะมาก ๆ เลยว่าจะเลือก Laptop สำหรับเขียนโปรแกรมจะเลือกอะไรดี ซึ่งแน่นอนว่า สำหรับสาวกเครื่องคอมพิวเตอร์ยี่ห้อผลไม้แล้ว ก็ไม่ลังเลตอบไปอย่างรวดเร็วว่า Macbook แน่นอน"
 date: 2017-07-27T01:21:49.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

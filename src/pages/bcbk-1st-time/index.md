@@ -5,7 +5,7 @@ category: My Life
 excerpt: "ก่อนที่จะเล่ามาบอกกันก่อนว่า BCBK คืออะไร มันคืองาน Barcamp Bangkhen เป็นงานที่จัดให้ใครก็ได้เข้ามาพูดเรื่องที่ตัวเองอยากพูด ฟังเรื่องที่ตัวเองอยากฟัง ซึ่งเป็นงานที่จัดขึ้นทุกปีโดย คณะวิศวะกรรม มหาวิทยาลัยเกษตรศาสตร์ งานนี้ก็จัดได้ว่าเป็น Barcamp ..."
 date: 2014-11-26T08:31:03.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

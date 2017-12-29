@@ -5,7 +5,7 @@ category: My Life
 excerpt: "ก็เมื่อวานของวันที่เขียนเป็นวันที่ 13 สิงหาคม ซึ่งเขากำหนดให้เป็นวันของคนถนัดซ้ายสากล จากการสำรวจพบว่า คนที่ถนัดซ้ายมีอยู่ประมาณ 15% ของคนบนโลกเท่านั้นเอง ซึ่งผมก็เป็นหนึ่งใน 15% เช่นกัน"
 date: 2015-08-14T11:12:39.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

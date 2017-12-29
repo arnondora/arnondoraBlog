@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "เคยสังเกตกันมั้ยครับ ว่าตอนแรกๆ ที่เราซื้อเครื่องมาใหม่ๆ โห !! มันโคตรเร็วเลย ! พอใช้ไปสักพักเท่านั้นแหละ อืดเป็นเต่าคลานเลย"
 date: 2015-09-03T20:38:13.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

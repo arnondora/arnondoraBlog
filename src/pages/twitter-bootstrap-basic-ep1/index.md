@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "ในปัจจุบันเรามีอุปกรณ์ที่สามารถเข้าถึงอินเตอร์เน็ตมากขึ้นเรื่อยๆ จากเมื่อก่อนเรามีแค่คอมพิวเตอร์อย่างเดียว ขนาดหน้าจอก็เดิมๆ"
 date: 2015-08-18T18:31:57.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

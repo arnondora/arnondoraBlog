@@ -5,7 +5,7 @@ category: My Life
 excerpt: "เชื่อว่าหลายๆ คนตอนนี้น่าจะได้ข่าวกันมาบ้างแล้วล่ะ ว่ารัฐบาลผู้น่ารักของเราได้พยายามพลักดันให้มีการจัดตั้งเกตเวย์แห่งชาติ"
 date: 2015-09-25T23:57:58.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

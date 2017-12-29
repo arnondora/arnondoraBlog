@@ -6,7 +6,7 @@ excerpt: "อันนี้อยากเขียนเป็นพิเศ�
 มาเข้าเรื่องกันเลยดีกว่า StringTokenizer"
 date: 2015-01-01T18:58:18.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

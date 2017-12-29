@@ -5,7 +5,7 @@ category: Review
 excerpt: "หลังจากที่ได้อ่านกระทู้ Pantip กระทู้หนึ่ง เรื่อง ไปเที่ยววังหลังอะไรนี่แหละ เลยอยากไปเที่ยวบ้าง เมื่อวันศุกร์เลยจัดซะเลย"
 date: 2015-07-19T21:08:49.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

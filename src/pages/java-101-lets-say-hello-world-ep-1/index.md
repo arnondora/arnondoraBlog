@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "ซีรีส์ Java 101 นี้ผมจะพยายามใช้ภาษาพูดเยอะหน่อยนะครับ เพราะมันเป็นการอธิบายซะส่วนใหญ่."
 date: 2014-12-21T16:45:18.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

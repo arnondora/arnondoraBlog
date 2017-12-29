@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "วันนี้ก็อยากเขียนอีกแล้ว เรื่องนี้มีหลายคนถามอยู่เหมือนกันว่า ทำยังไง วันนี้ผมเลยจะมาพูดถึงมันกัน นั่นคือเรื่องของ Thread นั่นเอง"
 date: 2015-01-03T12:14:43.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

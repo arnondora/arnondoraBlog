@@ -5,7 +5,7 @@ category: Review
 excerpt: "ช่วงนี้ก็ปิดเทอมอยู่ แต่ก็แอบมีงานที่มหาลัยบ้าง เลยไม่ค่อยจะได้เขียนอะไรมากเท่าไหร่ แต่วันนี้พิเศษ เพราะเราได้ของเล่นมาใหม่ นั่นคือ Raspberry Pi"
 date: 2015-07-06T23:38:25.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

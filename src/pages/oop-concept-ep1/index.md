@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "ช่วงนี้ก็หาย ๆ กันไป ไม่มีเวลาเขียนจริง ๆ ประกอบกับช่วงนี้น้อง ๆ ที่คณะกำลังเรียน OOP"
 date: 2016-04-12T17:52:44.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

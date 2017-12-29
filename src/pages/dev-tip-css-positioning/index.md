@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "หายกันไปนานอยู่พอสมควร อันเนื่องมาจากสอบ Midterm เล่นซะแทบตาย ลาก๊อยกันเลยทีเดียว วันนี้เรากลับมาที่เรื่องไอที"
 date: 2015-10-17T13:21:09.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

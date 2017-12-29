@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "ผมเชื่อว่า ใครที่พึ่งเริ่มเรียน หรือหัดใช้ Laravel สิ่ง ๆ หนึ่งที่พวกเราหลาย ๆ คนไม่น่าอยากเข้าไปยุ่งในตอนนั้นคือ Middleware มันดูเป็นอะไรที่ ลึกลับ ซับซ้อน มาก ๆ สำหรับผมตอนแรก ๆ"
 date: 2016-07-30T03:18:12.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

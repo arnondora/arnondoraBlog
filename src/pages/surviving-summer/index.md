@@ -5,7 +5,7 @@ category: My Life
 excerpt: "หน้าร้อนนี้โคตรร้อนเลยครับ ผมเลยไปเปิดเว็บเพื่อหาสูตรการดับร้อน แต่ก็มาลองทำก็ไม่โอเลย เศร้าแท้ TT"
 date: 2015-04-07T16:46:58.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

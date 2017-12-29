@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "ตอนนี้ก็ปิดเทอมแล้ว เกมก็ต้องมา แฮร่~~ วางแผนกันตั้งแต่ก่อนปิดเทอมแล้วว่า จะเปิดเซิพ Minecraft เล่นกัน!!!! ด้วย Digital Ocean เพราะเดือนนึงมันตก 5 USD เองถ้าเล่นกัน 5 คนเดือนนึงก็ตกคนล่ะ 1 USD หรือประมาณ 3x บาทเท่านั้นเอง มาดูกันเลยว่าทำยังไง"
 date: 2015-05-22T16:20:26.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

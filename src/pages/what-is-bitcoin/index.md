@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "ช่วงนี้ก็หายไปนานเลย เพราะว่าติดงานหลาย ๆ อย่างเลย แต่ตอนนี้แอบกลับมาแล้ว เย้ ๆ ขอเกริ่นก่อน เมื่อสัก 2-3"
 date: 2015-11-13T20:35:50.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

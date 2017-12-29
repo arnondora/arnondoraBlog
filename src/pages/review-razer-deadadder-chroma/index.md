@@ -5,7 +5,7 @@ category: Review
 excerpt: "วันนี้มากับเมาส์อันใหม่ เย้ๆๆ ปิดเทอมมาเกมก็มาครับ เมาส์เก่าพังเลยถอดอันใหม่เลย! กับ Razer Deadadder Chroma"
 date: 2015-05-27T17:41:01.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

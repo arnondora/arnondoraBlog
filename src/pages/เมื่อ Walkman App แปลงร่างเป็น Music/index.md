@@ -5,7 +5,7 @@ category: Review
 excerpt: "ตอนนี้ผมก็ปิดเทอมและ มีเวลาเขียนอะไรเยอะแยะไปหมด จะพยายามเขียนให้หมดก่อนเปิดเทอมล่ะกันนะครับ เข้าเรื่องกันดีกว่า"
 date: 2015-05-23T19:01:53.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

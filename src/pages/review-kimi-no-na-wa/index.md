@@ -5,7 +5,7 @@ category: Review
 excerpt: Kimi no na wa เป็นอีกผลงานจากผู้กำกับ Makoto Shinkai อันเลื่องลือจากผลงานชื่อดังอย่าง 5 centimeters per second."
 date: 2016-11-10T23:02:18.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

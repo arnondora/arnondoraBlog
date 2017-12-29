@@ -5,7 +5,7 @@ category: Review
 excerpt: "ตอนนี้กำลังติดเกมในเว็บ Agar.io เลยมันเป็นเกมที่แบบ ง่ายๆ แต่โคตรจะมันเลย วันนี้ผมเสียเวลานั่งติดมันอยู่ตั้ง 3 ชั่วโมง ! ตอนเข้ามาก็ใส่ชื่อเรา บางชื่อมันจะทำให้มีลายอยู่บนตัวเราด้วยนะ !!"
 date: 2015-05-27T22:28:36.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

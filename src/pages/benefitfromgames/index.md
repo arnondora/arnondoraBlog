@@ -5,7 +5,7 @@ category: My Life
 excerpt: "พักหลัง ๆ นี้สื่อและผู้ใหญ่หลาย ๆ คนมองว่า การเล่นเกมนั้น "ไร้สาระ" และเป็นภัยต่อลูกหลานของตัวเอง ทำให้เสียคนอีกตั้งหาก แต่หารู้มั้ยว่า จริง ๆ การเล่นเกมมีประโยชน์กว่าที่เราคิดซะอีก เราลองมาดูประโยชน์จากการเล่นเกมกัน"
 date: 2015-07-05T23:16:38.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

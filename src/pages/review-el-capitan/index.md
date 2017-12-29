@@ -6,7 +6,7 @@ excerpt: "เมื่อวันที่ 1 ตุลาที่ผ่าน�
 ![](https://fbcdn-sphotos-f-a.akamaihd.net/hphotos-ak-xpl1/t31.0-8/11223761_10..."
 date: 2015-10-05T09:38:04.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

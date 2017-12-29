@@ -5,7 +5,7 @@ category: Review
 excerpt: "ตอนนี้ผมก็เปลี่ยน Text Editor ตัวเองมาใช้ Atom มาหลายเดือนแล้วตั้งแต่ประกาศเวอร์ชั่น 1.0 ออกมา ในตอนแรกนั้นมันก็ ทำอะไรไม่ค่อยได้เลย และบัคก็เยอะมาก เมื่อเทียบกับ Sublime Text ที่ใช้อยู่ ณ ตอนนั้น แต่ตอนนี้เวลาผ่านไป Community ของคนที่ใช้ Atom"
 date: 2016-07-04T02:27:31.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

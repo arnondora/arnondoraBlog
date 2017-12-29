@@ -5,7 +5,7 @@ category: My Life
 excerpt: "ตอนผมอยู่ ม. ปลาย พี่ๆที่รู้จักก็ไปเรียนมหาลัยกันหมดและ ส่วนผมก็ยังเป็นนักเรียน ม.ปลาย อันน่ารักอยู่ อิอิ เวลาจะชวนพี่ๆไปไหน"
 date: 2015-04-19T11:54:01.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

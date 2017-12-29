@@ -5,7 +5,7 @@ category: Uncategorized
 excerpt: "เมื่อวันก่อนก็เขียน [Review Windows 10][0] กันไปแล้ว ก็มีคมนมาบอกต่อว่าไหนๆ ก็ Review แล้วก็โปรดเขียนวิธีการ Upgrade มาด้วยเลยจะดีมาก เพราะฉะนั้นวันนี้จะมาบอกกันว่า เราสามารถที่จะ Upgrade Windows ของตัวเราให้เป็น Windows 10 กัน เอาที่ผมรู้นะ มันมี..."
 date: 2015-08-03T00:28:14.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

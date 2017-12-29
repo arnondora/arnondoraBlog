@@ -5,7 +5,7 @@ category: My Life
 excerpt: "คือตอนนี้ Blog arnondora.in.th ก็มี View เกิน 10,000 ไปแล้ว วันนี้เลยอยากจะมาเล่าให้ฟังว่า ทำไม Blog นี้มันถึงเกิดขึ้นมาได้"
 date: 2015-04-15T15:28:52.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

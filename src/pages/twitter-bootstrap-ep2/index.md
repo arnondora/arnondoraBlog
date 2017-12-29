@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "กลับมาแล้วกับ EP.2 เมื่อตอนที่แล้ว เราก็ได้พูดถึงเรื่อง Grid ซึ่งเป็นอะไรที่ช่วยทำให้เราจัดหน้าเว็บของเราได้ง่าย และสวยขึ้นเยอะเลย"
 date: 2015-08-25T12:44:01.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

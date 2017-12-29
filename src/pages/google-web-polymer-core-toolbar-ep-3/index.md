@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "เมื่อตอนก่อน เราพูดเรื่องของ Elements พื้นฐานไปบ้างและ ลงลึกเรื่องของ Icon ไปแล้ว วันนี้เราจะมาลงลึกในเรื่องของ Toolbar กันบ้าง แบบที่เราเห็นอยู่ใน Android Application"
 date: 2015-03-26T15:38:09.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

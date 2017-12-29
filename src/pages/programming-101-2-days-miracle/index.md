@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "หลังจากที่ได้เขียน Programming 101 ในอันก่อนเรื่องที่บอกว่า ทำยังไงถึงเราจะเรียนรู้เทคโนโลยีใหม่ ๆ ได้อย่างรวดเร็ว"
 date: 2017-11-27T02:47:21.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

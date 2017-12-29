@@ -5,7 +5,7 @@ category: Review
 excerpt: "นับว่าเป็นอัพเดทใหญ่ตัวแรกที่ Microsoft ออกให้กับ Windows 10 เพือเป็นการฉลองที่ Windows 10 มีอายุครบ 1 ขวบพอดี เลยตั้งชื่อมันซะเลยว่า Windows 10 Anniversary Update เอางั้นเลย ฮ่าๆๆ"
 date: 2016-08-14T22:30:03.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

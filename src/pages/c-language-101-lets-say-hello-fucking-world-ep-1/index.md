@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "สวัสดีครับผม! มาแล้วกับ **Tutorial** ชุดใหม่นั่นคือภาษา C 101!!! วู้ๆๆ เย้ๆๆๆๆ แบะๆๆๆ เบี๊ยบๆๆ"
 date: 2015-04-08T13:22:55.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

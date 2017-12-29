@@ -5,7 +5,7 @@ category: My Life
 excerpt: "ถ้าใครได้อ่านหน้า [about:me][0] ของผมก็น่าจะรู้ว่าผมเขียนอยู่มหาวิทยาลัยมหิดล วันนี้ผมก็สอบ Final สุดท้ายของปี 1 เรียบร้อยแล้ว หมดแล้วความเป็น Freshman ปีหน้าก็กลายเป็นพี่ๆแล้ว"
 date: 2015-05-22T13:48:53.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

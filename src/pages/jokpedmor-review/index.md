@@ -5,7 +5,7 @@ category: Review
 excerpt: "เมื่อวันก่อน มีเพื่อนบอกว่า เออมีโจ๊กร้านนึง ก็อร่อยดีนะ เลยไปลองมาวันนี้จะมารีวิว ขนาดย่อมๆ ให้อ่านกัน"
 date: 2015-08-08T08:02:50.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

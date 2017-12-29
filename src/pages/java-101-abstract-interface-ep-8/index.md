@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "เมื่อวานเราได้เรียนเรื่องของ สมบัติหนึ่งของ OOP นั่นคือ Inheritance และ Encapsulation ไปแล้ว วันนี้เราจะมาต่อยอดมันนิดหน่อย นั่นคือเรื่องของ Abstract และ Interface"
 date: 2014-12-28T12:34:59.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

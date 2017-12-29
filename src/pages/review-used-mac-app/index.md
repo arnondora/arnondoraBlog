@@ -5,7 +5,7 @@ category: Review
 excerpt: "ตั้งแต่ใช้ Mac มาก็มักจะมีคนถามบ่อย ๆ เหมือนกันว่า บนเครื่องต้องใช้ App อะไรบ้าง ? วันนี้ผมจะเอา List ของ Mac App ที่ผมใช้มาให้ดูกัน."
 date: 2016-10-23T22:14:12.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

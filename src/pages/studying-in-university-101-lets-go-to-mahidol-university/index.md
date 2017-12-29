@@ -5,7 +5,7 @@ category: My Life
 excerpt: "ตอนนี้ผมก็เรียนอยู่ที่ มหิดล มาปีนึงล่ะ เลยอยากจะเขียนถึงมหาลัยตัวเองสักครั้ง ตอนแรกที่เข้ามาที่นี่ เราก็มีคำถามว่า มันจะกันดารมากมั้ย จะมีอะไรกิน เที่ยว เยอะมั้ย แต่พอมาอยู่จริงปีนึงแล้ว"
 date: 2015-07-13T01:32:23.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

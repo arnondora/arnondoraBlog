@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "ในช่วงปีที่ผ่านมา หลาย ๆ เราน่าจะได้ยินคำว่า Microservice Architecture ผ่านหูกันมาไม่น้อยเลย ซึ่งตอนนี้สถาปัตยกรรมแบบนี้ก็ได้ถูกนำไป **Implement** จริงในบริษัท IT"
 date: 2017-03-19T14:34:04.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

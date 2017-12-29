@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "และแล้วก็มาถึงเรื่องสุดท้ายแล้ว แต่เรื่องนี้โดยส่วนตัวผมก็ไม่ค่อยได้ใช้เลยนะ นั่นคือเรื่องของ Preprocessor Directives นั่นเอง"
 date: 2015-06-19T16:33:28.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

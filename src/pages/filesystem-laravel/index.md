@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "กลับมาอีกครั้งกับซีรีส์ของ Laravel ในวันนี้ผมจะพาไปรู้จักอีก Service หนึ่งใน Laravel ที่จะช่วยให้เราจัดเก็บ และจัดการไฟล์ต่าง ๆ ในเว็บไซต์ของเราได้ง่ายขึ้นกับ Service"
 date: 2016-07-14T23:14:38.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

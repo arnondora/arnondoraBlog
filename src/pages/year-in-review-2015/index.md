@@ -5,7 +5,7 @@ category: My Life
 excerpt: "สำหรับปีนี้เป็นเหมือนปีที่ พังทุกอย่าง และเริ่มต้นใหม่จริง ๆ ปีนี้ผมเหมือนพยายามพังทุกอย่าง"
 date: 2015-12-31T21:37:08.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

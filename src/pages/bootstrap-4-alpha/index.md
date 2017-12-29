@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "หลังจากที่เขียน Tutorial ของ Bootstrap ไปไม่กี่ตอน Boostrap ตัวใหม่ก็ออกมาจนได้ วันนี้เราจะมาดูว่า มันมีอะไรใหม่บ้าง"
 date: 2015-08-20T19:32:26.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

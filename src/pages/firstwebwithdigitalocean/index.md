@@ -5,7 +5,7 @@ category: Review
 excerpt: "เรื่องมันเกิดขึ้นเมื่อคืนครับ! กำลังนอนดูหนังอยู่ดีๆ (ตี 1 กว่าๆ) ก็ได้อีเมล์จาก System ของตัว Hosting ว่า Bandwidth มันเต็มแล้ว!"
 date: 2015-04-13T17:20:39.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

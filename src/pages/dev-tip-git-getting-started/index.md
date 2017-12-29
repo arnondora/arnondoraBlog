@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "เมื่อสักปีที่แล้วได้ ไม่รู้ว่าจำกันได้หรือเปล่าว่า เราเขียนบทความเรื่องของ Version Control"
 date: 2016-03-20T23:33:24.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

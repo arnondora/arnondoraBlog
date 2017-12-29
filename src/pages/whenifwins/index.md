@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "ช่วงนี้ก็ได้ลงมือเขียนโค๊ตอยู่หลายๆ งานอยู่เลยทำให้นึกถึงตัวเองตอนหัดเขียนโปรแกรมใหม่ๆ ที่มักจะเขียน If แบบถล่มทลายเลยทีเดียว"
 date: 2015-07-14T00:28:18.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

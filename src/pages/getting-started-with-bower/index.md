@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "อย่างที่รู้กันว่า ตอนนี้ผมกำลังเขียน Tutorial ของ Bootstrap อยู่ มันเลยทำให้ผมนึงถึงของสิ่งนึงที่ทำให้เรา Install Bootstrap หรือ Web Components อื่นๆ ได้ง่ายขึ้นเพียงแค่ Enter เดียว นั่นคือ Bower นั่นเอง"
 date: 2015-08-16T16:18:07.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

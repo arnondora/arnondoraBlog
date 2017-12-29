@@ -5,7 +5,7 @@ category: My Life
 excerpt: "แรงบัลดาลใจของคนเรามีกลายอย่างครับ อาจจะเป็น การได้ออกไปพบธรรมชาติข้างนอก การได้ไปพบปะผู้คน แต่ของผมนั้นไม่เหมือนใครครับ นั่นคือ ความขี้เกียจ"
 date: 2014-04-13T21:23:13.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

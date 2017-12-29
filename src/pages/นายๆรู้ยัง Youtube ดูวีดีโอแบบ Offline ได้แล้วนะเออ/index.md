@@ -8,7 +8,7 @@ excerpt: "หลังจากที่ Youtube มาเปิด Youtube Thai
 ซึ่งตอนนี้ Youtube Thailand ก็เปิดให้ใช้ Offline Mode เป็นที..."
 date: 2015-05-28T11:10:18.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

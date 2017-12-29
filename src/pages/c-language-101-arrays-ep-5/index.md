@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "หายหน้าหายตากันไปนานเลยกับ Tutorial นี้ ตอนนี้ปิดเทอมแล้ว ทำอะไรๆได้มากขึ้น แฮะๆๆ เที่ยวแน่นอน! เข้าเรื่องเลยดีกว่า วันนี้เราจะมาพูดถึง Array สำหรับคนที่เคยเรียนเขียนโปรแกรมภาษาอื่นมาแล้ว หรือเคยอ่านเรื่อง Data Structure ก็ข้ามๆตรงนี้ไปดูตรง Synta..."
 date: 2015-05-24T15:24:46.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

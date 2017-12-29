@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "จากตอนที่แล้ว ก็ได้เล่าไปแล้วว่า กว่าจะมาเป็น Design ของ PaperTheme ที่ทุกคนเห็นกัน มันมาจากไหน และมีหลักการอะไรอยู่เบื้องหลังบ้าง มาในวันนี้ เราจะมาดูอีกขั้นตอนที่สำคัญในการทำกันบ้าง นั่นคือ การเขียนมันออกมานั่นเอง."
 date: 2017-05-31T00:10:16.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

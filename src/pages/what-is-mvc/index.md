@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "ถ้าพูดถึง MVC หลาย ๆ คนน่าจะเคยได้ยินกันมาก่อนแล้ว แต่สำหรับคนที่ไม่เคยได้ยิน ไม่เป็นไร วันนี้เราจะมาดูกันว่า MVC มันคืออะไร และ ทำไมเราถึงต้องใช้ MVC"
 date: 2015-11-01T22:24:44.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

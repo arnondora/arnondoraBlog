@@ -6,7 +6,7 @@ excerpt: "ผมเห็นใครหลายคนชอบมองว่�
 แต่ผมก็เข้าใจว่าการที่ทำให้คนที่"
 date: 2014-04-16T22:21:50.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

@@ -5,7 +5,7 @@ category: My Life
 excerpt: "จากตอนท่ีแล้ว [ทำไมต้องมีแฟนเป็นคนทำงานไอที?][0] ได้รับเสียงตอบรับอันล้นหลาม ตกใจมากๆครับ เช้าตื่นมา เปิดดดู Site Stat โดนไป 1000 กว่าๆ Views ตกเย็นๆโดนไป 6000 กว่าๆ Views ผมนี่ทึ้งไปเลย แต่ก็**ขอบคุณที่ติดตามครับ"
 date: 2015-04-12T15:04:13.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

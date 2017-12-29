@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "หลังจากที่ 2 ตอนที่ผ่านมา เราก็จบการทำงานกันหลังเลนส์แล้ว ในตอนนี้เราจะมาต่อกันว่า หลังจากที่เราถ่ายรูปมาเสร็จแล้ว เราจะเอารูปมาทำอะไรในคอมพิวเตอร์ต่อ"
 date: 2015-10-18T12:09:09.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

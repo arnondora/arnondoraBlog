@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "ถ้าใครที่เขียนเว็บในสมัยนี้ เราจะพบว่ากว่าเราจะเขียนเว็บออกมาได้สักเว็บหนึ่ง เราต้องเขียนทั้ง HTML, CSS และ JS หรือในบางคนอาจจะเขียน SCSS ไม่ก็ SASS ก็ต้องมา Compile และ Minify อีก"
 date: 2016-07-07T16:41:11.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

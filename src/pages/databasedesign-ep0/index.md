@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "หลาย ๆ โปรแกรมที่เราใช้อยู่ตอนนี้ เช่น Facebook หรือแม้กระทั่งโทรศัพท์ ทุก ๆ อย่างตอนนี้ก็ต้องใช้ฐานข้อมูลทั้งหมดเลย เราเลยจำเป็นที่ต้องรู้ว่า มันทำงานยังไง แล้วเราจะออกแบบมันยังไง ใน Tutorial เราจะมาพูดในเรื่องของการออกแบบฐานข้อมูล (ไม่เน้นนะว่าจ..."
 date: 2015-06-23T19:01:30.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

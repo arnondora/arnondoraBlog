@@ -5,7 +5,7 @@ category: Review
 excerpt: "และนี่ก็ครบรอบอีก 1 ปีที่ Apple จะเปิดตัวระบบปฏิบัติการใหม่ออกมาให้เราได้ใช้กัน ซึงปีนี้แค่ชื่อก็มาแปลกแล้ว จาก Mac OSX แล้วก็ชื่อ แต่ปีนี้เปลี่ยนเป็น macOS Sierra เพื่อให้มันเข้ากับ OS"
 date: 2016-10-16T00:55:07.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

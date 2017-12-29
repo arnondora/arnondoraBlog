@@ -6,7 +6,7 @@ excerpt: "จากรอบที่แล้วนะครับ ที่เ
 คำสั่งที่เราใช้ในการ Input ค่าเข้าโปรแกรมเราหลัก ๆ ก็มีหลายคำสั่งนะ แต่ก่อนอื่นเรามาลองอัน"
 date: 2015-06-09T11:13:02.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

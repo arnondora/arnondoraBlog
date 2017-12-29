@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "เมื่อวานเราได้เรียนเรื่องของอะไรว่ะ ลืม... เดียวนะอ่อ Array กับ ArrayList ไปแล้ว วันนี้มาเปลี่ยนอารมณ์กันบ้าง (ตรงไหนว่ะ!!) วันนี้เราจะมาเรียนรู้ในเรื่องของ String กัน"
 date: 2014-12-25T23:11:20.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

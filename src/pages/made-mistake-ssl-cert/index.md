@@ -5,7 +5,7 @@ category: My Life
 excerpt: "เมื่อไม่กี่วันที่ผ่านมา ระหว่างที่ผมเข้าเน็ต เล่นเว็บอะไรไปเรื่อย ๆ ก็ไปเจอว่า "Let's Encrypt เปิดในบริการในช่วง Public Beta แล้ว"
 date: 2015-12-05T22:41:12.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

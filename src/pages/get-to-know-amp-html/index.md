@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "ในบทความนี้เราจะมาทำความรู้จักโปรเจ็คใหม่ล่าสุดแกะกล่องจาก Google กันนั่นคือ Accelerated Mobile Pages หรือที่เราเรียกย่อ ๆ ว่า AMP นั่นเอง"
 date: 2015-12-23T23:56:33.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

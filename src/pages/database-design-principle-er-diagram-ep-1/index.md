@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "มาดูกันว่า เวลาเราจะวาด ER Diagram ที่เขาวาด ๆ กันได้ยังไง แต่ก่อนหน้านั้น..."
 date: 2015-07-05T09:56:41.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

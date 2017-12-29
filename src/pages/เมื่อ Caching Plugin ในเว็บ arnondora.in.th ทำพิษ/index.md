@@ -5,7 +5,7 @@ category: My Life
 excerpt: "อันนี้ถือว่าเป็นเรื่องสั้น ๆ ละกันนะ มาเล่าถึงความบรรลัยของการ Settings Cache Plugin แล้วพลาด"
 date: 2017-06-16T00:41:44.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

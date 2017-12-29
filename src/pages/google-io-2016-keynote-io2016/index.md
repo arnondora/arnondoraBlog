@@ -5,7 +5,7 @@ category: Review
 excerpt: "Google I/O 2016 ในปีนี้ก็ผ่านกันไปแล้ว ปีนี้ผมเขียนช้ามาก ๆ เลย ติดงานหลายอย่างอยู่ ซึ่งปีนี้ทางฝั่ง Google เองก็มีอพไรมาอัพเดทให้เราหลาย ๆ อย่างอยู่เหมือนกัน เรามาดูกันทีล่ะอย่างกันเลยดีกว่า"
 date: 2016-05-22T23:00:56.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

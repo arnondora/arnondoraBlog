@@ -5,7 +5,7 @@ category: My Life
 excerpt: "จากตอนที่แล้ว ก็เล่าเรื่องการอยู่หอไปแล้ว วันนี้มาด้วยอีกเรื่องที่ มันสร้างความ ชิบหาย กับบ้างในบางวิชา นั่นคือการเข้าเรียน"
 date: 2015-03-27T23:07:28.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

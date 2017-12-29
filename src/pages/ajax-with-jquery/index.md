@@ -8,7 +8,7 @@ Project เป็นเรื่องง่าย ๆ เลยล่ะที�
 แต่วันนี้ เราไม่ได้มาแค่"
 date: 2015-11-26T00:03:17.000Z
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

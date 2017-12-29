@@ -5,7 +5,7 @@ category: Review
 excerpt: "หลังจากที่มีข่าวการให้สัมภาษณ์รัฐมนตรีว่าการกระทรวงไอซีที นายพรชัย รุจิประภา ออกมาให้สัมภาษณ์ว่ารัฐเตรียมเอาผิดการส่งต่อข้อความประเภทหมิ่นประมาท และหมิ่นสถาบันฯ บนแอพพลิเคชัน LINE โดยรัฐสามารถ สอดส่อง การสนทนาทุกข้อ..."
 date: 2014-12-26T03:10:10.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

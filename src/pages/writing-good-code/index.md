@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "ผมเชื่อว่า หลาย ๆ คนที่กำลังหัดเขียน Code อาจจะคุ้นเคยกับการเขียน Code ในแบบที่ตัวเองชอบ หรือคุ้นเคย แต่ Programming ในชีวิตจริง"
 date: 2017-08-16T22:09:24.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

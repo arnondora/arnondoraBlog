@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "เมื่อวานเราได้เรียนเรื่องของ String StringBuffer และ StringBuilder ไปแล้ว"
 date: 2014-12-26T13:56:33.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "เรื่องที่จะอธิบายในวันนี้นั้นจะใช้ความรู้ของเรื่อง OOP ค่อนข้างเยอะ เพราะฉะนั้นถ้าใครยังมึนงงกับเรื่องนี้อยู่"
 date: 2014-12-27T14:41:03.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

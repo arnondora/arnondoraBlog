@@ -5,7 +5,7 @@ category: My Life
 excerpt: "น้องๆหลายๆคนก็เปิดเทอมกันแล้ว ส่วนพี่ยังนั่งสอบ Final อยู่เลย เมื่อก่อนบอกเลยว่า ไม่ใช่คนที่จะอ่านหนังสือสอบเลย อ่านเอาหน้าห้องสอบทั้งนั้น พอมามหาลัยปุ๊บนี่ อ่านกันเป็นพรวนเลย เนื้อหามันเยอะมากๆ"
 date: 2015-05-14T22:26:05.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

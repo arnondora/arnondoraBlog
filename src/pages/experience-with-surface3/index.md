@@ -5,7 +5,7 @@ category: Review
 excerpt: "จากตอนที่เราได้แกะกล่อง Surface 3 Tablet จาก Microsoft กันไป วันนี้ลองมาอ่านรีวิวในเรื่องของ User Experience กันบ้างดีกว่า"
 date: 2016-03-10T21:08:03.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

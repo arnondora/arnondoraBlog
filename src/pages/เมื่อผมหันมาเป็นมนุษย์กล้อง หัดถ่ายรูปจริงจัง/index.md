@@ -5,7 +5,7 @@ category: My Life
 excerpt: "ก็ไม่นานมานี้ (เมื่อสิ้นเดือนกุมภา) ก็ได้กล้อง DSLR มาใช้ หลังจากใช้โทรศัพท์ถ่ายมานาน ก็พบว่าการถ่ายรูปสักรูปมันต้องใช้อะไรหลายๆอย่างมาก"
 date: 2015-05-02T00:28:49.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

@@ -5,7 +5,7 @@ category: Review
 excerpt: "อันเนื่องมาจาก หูฟังอันเก่า Sony MDR-NC31EM ที่เป็นหูฟัง Noise Cancelling มันสายหักในไป เสียดายสุด ๆ แต่ก็ต้องหาอะไรมาแทนมัน"
 date: 2015-10-20T19:13:43.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

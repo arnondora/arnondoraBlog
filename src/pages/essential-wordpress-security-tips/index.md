@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "เรื่องของ Wordpress Security นั่นถือเป็นเรื่องที่สำคัญมาก นั่นเป็นเพราะเราก็อยากที่จะใช้เว็บไซต์ของเราไปเรื่อย ๆ แบบไม่มีปัญหาอะไร เหมือนกับเราอยู่บ้าน แล้ววันนึงโจรเข้าบ้าน"
 date: 2017-04-22T23:29:08.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

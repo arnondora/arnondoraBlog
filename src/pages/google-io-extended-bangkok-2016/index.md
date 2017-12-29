@@ -5,7 +5,7 @@ category: My Life
 excerpt: "เมื่อวาน (นับจากวันที่เขียน) 1 ปีก็เวียนมาบรรจบอีกครั้งกับงาน Google I/O Extended Bangkok 2016 ปีนี้ก็เป็นอีกปีที่ GDG Thailand จัดขึ้น และปีนี้เล่นใหญ่มาก เพราะเล่นไปจัดกันใน สยามพาวาลัย Siam Paragon กันเลยทีเดียว"
 date: 2016-06-27T01:18:59.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

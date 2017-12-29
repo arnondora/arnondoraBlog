@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "จากเมื่อตอนที่แล้ว เราก็ได้เรียนเรื่อง Function กันไปแล้ว แต่วันนี้ของจริงเลย วันนี้เราจะมาพูดถึงเรื่อง Pointer"
 date: 2015-06-13T11:53:17.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

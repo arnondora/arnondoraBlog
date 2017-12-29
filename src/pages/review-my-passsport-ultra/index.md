@@ -5,7 +5,7 @@ category: Review
 excerpt: "เหตุมันเกิดมาจากว่า เมื่อตอนเดือนธันวาคมในปีที่ผ่านมา External HDD ลูกเก่า My Passport Studio ลูกเก่าก็เริ่มแสดงอาการอันน่ากลัว นั่นคือ เสียบติดบ้าง ไม่ติดบ้าง หลังจากการใช้มา 3 ปีเกือบ 4 ปี"
 date: 2016-01-05T20:58:34.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

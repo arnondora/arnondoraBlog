@@ -5,7 +5,7 @@ category: My Life
 excerpt: "เมื่อไม่นานมานี้ผมได้อ่านเรื่องของ **"วิกฤติเด็กไทยไม่ชอบเขียนโปรแกรม"** ซึ่งก็บ่นว่างานหนักบ้าง เปรียบเป็นกรรมกรในห้องแอร์บ้าง ค่าตอบแทนก็น้อย"
 date: 2014-04-19T00:57:04.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

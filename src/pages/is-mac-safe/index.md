@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "หลังจากห่างหายไม่ได้เขียนไปนาน อันด้วยการแข่ง Imagine Cup ขอกลับมาด้วยเรื่องเบา ๆ กับคำถามที่เกิดจาก ความนิยมของ Mac ที่สูงขึ้นเรื่อย ๆ  ว่า "ตอนนี้ Mac ยังปลอดภัยอยู่รึเปล่า ?""
 date: 2016-05-06T23:53:54.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "ในปัจจุบัน ก็คงปฏิเสธไม่ได้ว่า ไม่มีใครที่ไม่รู้จักภาษายอดนิยมอย่าง Java เพราะตอนนี้เป็นภาษาที่ฮิตอยู่อันดับที่ 2 รองจาก Python กันเลยทีเดียว และหลาย ๆ คนก็อาจจะเคยเรียนมาบ้าง"
 date: 2016-01-06T19:40:22.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

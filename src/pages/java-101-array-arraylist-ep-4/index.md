@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "เมื่อวานเราได้เรียนรู้เกี่ยวกับการ รับข้อมูล และ การเอาข้อมูลออก วันนี้เราจะมาเรียนรู้เกี่ยวกับการเก็บข้อมูลแบบหนึ่งที่ใครๆน่าจะรู้จัก นั่นคือ Array"
 date: 2014-12-24T16:53:34.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

@@ -5,7 +5,7 @@ category: My Life
 excerpt: "ก็ ณ วันที่เขียน ผมก็ได้ไปงาน I/O Rewind 2015 ที่ คณะวิศวกรรมศาสตร์ จุฬา มานะครับ คร่าว ๆ คืองาน I/O Rewind เป็นงานที่เอาสิ่งที่น่าสนใจที่ Google ได้เปิดตัวมาในงาน Google I/O ที่ผ่านมาให้คนไทยได้ฟังกัน"
 date: 2015-06-21T00:43:32.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

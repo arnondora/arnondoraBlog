@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "วันนี้เราจะมาทำความรู้จักกับฟีเจอร์นึงใน OSX ที่เราไม่ค่อยได้ใช้กันเท่าไหร่นั่นคือ FileVallt นั่นเอง"
 date: 2015-10-27T23:22:34.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

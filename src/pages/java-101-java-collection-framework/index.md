@@ -6,7 +6,7 @@ excerpt: "Java Collection Framework คืออะไร
 ง่ายๆไม่คิดมาก มันคือ Class และ Interface ที่อยู่ใน Package java.util"
 date: 2015-01-09T14:20:09.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

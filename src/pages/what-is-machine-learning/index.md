@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "เมื่อช่วงปิดเทอมใหม่ ๆ ก็ มีเวลา แอบไปนั่งเรียน Machine Learning ใน Udacity มา วันนี้เลยจะมาเล่าให้อ่านกันดีกว่า ว่ามันคืออะไรกันแน่น้อ"
 date: 2016-01-08T09:58:21.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

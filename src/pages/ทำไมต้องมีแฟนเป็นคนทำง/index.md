@@ -5,7 +5,7 @@ category: My Life
 excerpt: "เรื่องนี้เป็นเรื่องที่ผม คิด มานานมากแล้ว แต่ก็ไม่ได้เขียนสักที นึกได้แล้วก็ลืม (แย่จัง TT)"
 date: 2015-03-29T00:27:27.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

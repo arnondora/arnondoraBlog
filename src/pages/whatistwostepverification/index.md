@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "ทุก ๆ วันนี้ เราใช้บริการออนไลน์หลาย ๆ บริการมากมาย ไม่ว่าจะเป็น E-mail, Cloud Storage แม้กระทั่ง Contact ของเราก็เข้าไปอยู่ในโลกของอินเตอร์เน็ตหมดเลย"
 date: 2015-06-30T23:40:39.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

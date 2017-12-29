@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "เคยประสบปัญหาเวลา เราเขียนเว็บกันมั้ยครับ เราต้องค่อย ๆ มานั่งพิมพ์ ทีล่ะตัว ๆ ไปเรื่อย ๆ Web Developer หลาย ๆ"
 date: 2015-06-22T23:29:19.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

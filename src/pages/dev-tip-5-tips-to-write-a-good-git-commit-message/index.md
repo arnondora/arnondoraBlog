@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "ตอนนี้หลายๆ คนก็ได้ใช้ Git เป็น VCS ในการพัฒนาโปรแกรมแล้ว แรกๆ ผมก็เขียนแบบ งงๆ เหมือนกัน จนตอนหลังมีพี่คนนึงมาสอนว่า Commit Message ที่ดีมันควรจะทำยังไง"
 date: 2015-09-22T20:13:21.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

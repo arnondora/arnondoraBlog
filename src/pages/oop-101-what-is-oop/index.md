@@ -6,7 +6,7 @@ excerpt: "ตอนนี้ก็หมดเทอมแรกแล้ว เ
 แต่ช่างก่อน มีหลายๆคนบอยากรู้ว่า OOP คืออะไรกันแน่ เห็นผมพูดบ่อยมาก แล้วไล่ให้ไปเรียนเอาในเทอม 2 วันนี้จะมาบอกกัน"
 date: 2014-12-18T16:10:46.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

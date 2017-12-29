@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "อย่างที่เคยบอกไปว่า Web Polymer มันคือการเอา Element มาวางต่อๆกันจนเป็น Application ขึ้นมา วันนี้เราจะมาดูต่อกันว่า เราจะเรียกใช้ Elements ได้ยังไง"
 date: 2015-03-25T15:25:10.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

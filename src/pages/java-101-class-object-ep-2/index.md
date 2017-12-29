@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "วันนี้เราจะมาเรียนรู้สิ่งนึงของ Java ที่เจ๋งคือ เรื่องของ Class และ Object"
 date: 2014-12-22T16:10:23.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

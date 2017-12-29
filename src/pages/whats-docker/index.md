@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "Dockerเป็น Tool ตัวหนึ่งที่ทำให้เราสามารถห่อระบบของเราแล้วเอาไปรันที่ไหนก็ได้ ที่มี Docker ติดตั้งไว้ อ่านแล้วน่าจะ งง กัน ง่าย ๆ มัน"
 date: 2016-06-02T18:59:01.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "สวัสดีครับ พอดีได้มีโอกาสไปดูเด็ก ๆ เขียนโปรแกรมมา เลยทำให้เห็นอะไรเยอะแยะเลย แต่เรื่องนึงที่ดูเหมือนจะเป็นกันทุกคนเลย"
 date: -0001-11-30T07:00:00.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

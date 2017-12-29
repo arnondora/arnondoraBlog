@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "จากตอนที่แล้ว ที่เขียนเรื่องของ Docker ไปก็มีหลายคนสนใจมาก ๆ วันนี้เลยจะมาต่อยอดจากคราวที่แล้วกัน เราจะมาลองทำ LAMP Stack ไว้ใช้งานกัน"
 date: 2016-06-09T18:33:11.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

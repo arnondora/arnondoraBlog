@@ -5,7 +5,7 @@ category: Review
 excerpt: "ตอนนี้ Microsoft ก็ได้ปล่อย Windows 10 ตัวเต็มอย่างเป็นทางการกันไปแล้ว จากตอนแรกที่เป็น Public Beta ที่ให้ใครก็ได้เข้าไปลองใช้แล้วส่ง Feedback กลับมา วันนี้เราเลยจะมาลอง Review กันดูคร่าวๆ กันดีกว่า"
 date: 2015-08-01T02:08:02.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

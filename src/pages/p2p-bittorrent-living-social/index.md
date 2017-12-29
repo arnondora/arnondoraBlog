@@ -5,7 +5,7 @@ category: Review
 excerpt: "ในปัจจุบัน P2P ก็หลายเป็น The King ของโลก Internet ของเราซะแล้ว เรียกได้ว่าบรรดาสิงห์นักโหลดทั้งหน้าเก่า และหน้าใหม่ก็ยังต่างติดใจใช้ P2P"
 date: 2015-08-31T23:08:41.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

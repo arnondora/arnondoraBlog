@@ -5,7 +5,7 @@ category: Review
 excerpt: "หลังจากที่คราวที่แล้วได้ บุกไปงาน Mobile Expo ไปซื้อ (ที่ไปงาน ตัวเครื่องเหลืออยู่ 2 ตัว กับ อุปกรณ์ เหลือชุดสุดท้าย) และกลับแกะกล่อง iPad Pro 10.5 inch พร้อมกับรีวิวคร่าว ๆ กันไปแล้ว"
 date: 2017-07-21T10:41:50.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

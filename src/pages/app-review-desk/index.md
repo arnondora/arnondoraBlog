@@ -5,7 +5,7 @@ category: Review
 excerpt: "วันนี้ผมก็เปิดคอมมาเล่นเน็ตเขียน Blog อะไรนิดหน่อยแต่แล้วผมก็ไปเจอกับโปรแกรมตัวนึง เป็นโปรแกรมที่เจ๋งมากครับ มันชื่อ Desk (App ตัวนี้ได้รับรางวัล 2014 Best App ด้วยล่ะ)"
 date: 2014-12-23T21:50:12.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

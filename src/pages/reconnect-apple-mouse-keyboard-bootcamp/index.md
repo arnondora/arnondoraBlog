@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "เมื่อวันก่อน เปิดคอมขึ้นมาใช้ตามปกติ แต่แค่เปิด Windows ผ่าน Bootcamp ตามปกติ แต่จู่ ๆ เมาส์ที่เป็น Magic Mouse ก็ต่อไม่ได้ เปิดแล้วนะ ก็ยังใช่ไม่ได้อยู่ดี"
 date: 2015-12-07T23:36:27.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

@@ -6,7 +6,7 @@ excerpt: "สวัสดีครับ หายไปนานเลย น�
 วันนี้จะว่าด้วยเรื่องของ If-Else Statement กัน..."
 date: 2015-04-18T11:41:56.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

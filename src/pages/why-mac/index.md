@@ -6,7 +6,7 @@ excerpt: "มีคนหลายคนชอบถามผมเสมอว�
 "ทำไมถึงต้องใช้ Mac ด้วย ?? ราคาต่อสเปกก็แพงกว่า"
 date: 2014-05-26T03:11:26.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

@@ -5,7 +5,7 @@ category: Review
 excerpt: "ตอนนี้ ณ ตอนที่เขียนตอนนี้ก็เหลือเพียงอีกไม่กี่ชม. ก็จะเป็นอันเริ่มฤกษ์ของงานประจำปีอย่าง Google I/O ครั้งนี้ก็จัดขึ้นเป็นปีที่ 8 แล้วซึ่งแน่นอนว่าคนส่วนใหญ่ก็ไม่มีโอกาสได้ไปงานสดๆ"
 date: 2015-05-28T20:08:08.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

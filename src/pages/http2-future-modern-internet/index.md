@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "ก่อนจะเล่าว่า HTTP/2 คืออะไร ผมขอพาทุกคนย้อนกลับไปเมื่อปี 1989 ที่ HTTP Protocol ถูกสร้างขึ้นมาเป็นครั้งแรก ในตอนนั้น Protocol นั้นถูกออกแบบมาเพื่อใช้บนเครื่องที่ทันสมัยที่สุดในสมัยนั้นนั่นคือ CPU Clock Speed อยู่ราว ๆ 25 MHz และ Ram มีอยู่แค่ไม่ก..."
 date: 2017-06-20T00:30:34.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

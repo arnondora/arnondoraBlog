@@ -6,7 +6,7 @@ excerpt: "Web Polymer ความคิดใหม่สุดแหวกแ�
 เจ้า Web Polymer Google ได้เปิดตัวจริงๆจังๆตั้งแต่ในงาน Google I/O 2013"
 date: 2015-03-24T22:13:54.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

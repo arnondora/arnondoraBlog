@@ -5,7 +5,7 @@ category: My Life
 excerpt: "วันนี้ครับ! วันนี้ครับ! เฮ้ยซ้ำ วันนี้ผมอยากจะพูดถึงเรื่องที่โคตรจะอึดอัดมานาน นั่นคือเรื่องของ เล่นเกมแล้วไร้สาระ ไปทำอย่างอื่นแสะ!!"
 date: 2015-04-05T22:49:21.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

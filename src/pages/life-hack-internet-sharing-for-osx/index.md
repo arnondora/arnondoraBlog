@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "ตอนนี้ครับที่หอแจกรหัส Internet แล้ว หลังจากที่เมื่อก่อนที่หอเขาก็ปล่อยเน็ตให้ใช้แบบไม่มีรหัส แต่ตอนนี้เมื่อมันมี Account ห้องนึงมันก็ใช้ได้ 2 เครื่องซึ่งแน่นอนว่า มันไม่พอแน่นอน"
 date: 2015-09-18T22:39:12.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

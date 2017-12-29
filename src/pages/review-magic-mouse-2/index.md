@@ -5,7 +5,7 @@ category: Review
 excerpt: "หลังจากใช้ Magic Mouse ครั้งแรกเมื่อ 5 ปีมาแล้ว ตอนที่ซื้อ Macbook Pro 2011 มาใช้ ตอนนี้มันก็เริ่มอาการไม่ดีเท่าไหร่ บางทีมันก็คลิกไม่ได้ หรือบางทีคลิกไปครั้งเดียวมันกลายเป็น คลิก 2 ครั้งเฉยเลย"
 date: 2016-06-17T22:41:24.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

@@ -5,7 +5,7 @@ category: Review
 excerpt: "วันนี้ก็เป็นโอกาสอันดีที่เราได้ โดดงาน ไปดูหนัง ซึ่งเป็นเรื่องที่อยากดูมานานแล้ว แต่ไม่มีโอกาสได้ไปดูสักที วันนี้ก็ได้ไปดูมาแล้ว กับเรื่อง If Cats Disappeared From The World"
 date: 2016-05-31T00:29:51.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "ช่วงๆหลังๆนี่หลังจากผมสอนเขียนโปรแกรมหลายๆคน มักจะมาถามว่า มันเป็นอะไรอะแก้ให้หน่อย!!!"
 date: 2015-04-30T21:06:41.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

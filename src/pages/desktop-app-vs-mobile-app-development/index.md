@@ -5,7 +5,7 @@ category: Uncategorized
 excerpt: "ในปัจจุบันนี้ มือถือ ถือว่าเป็นสิ่งที่ใกล้ตัวเรามาก ๆ เราใช้มันทุกวัน ทุกที่ และทุกเวลา มันเลยทำให้เกิดนักพัฒนาที่ออกมาเขียน Application ทางฝั่งของ Mobile ซะเยอะ วันนี้เลยจะพามาดูกันว่า ในการพัฒนา App ทางฝั่งของ Desktop ที่เราใช้กันทุกวันจะแตกต่าง..."
 date: -0001-11-30T07:00:00.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

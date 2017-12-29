@@ -5,7 +5,7 @@ category: Review
 excerpt: "สวัสดี โอ๋เล้ หายไปนานเลย ช่วงนี้งานเยอะจริง ๆ เลยไม่ค่อยได้เขียนเลย แต่ก็ช่างมันก่อน วันนี้เรามีของเล่นใหม่ของเรามารีวิวให้อ่านกัน นั่นคือ Surface 3"
 date: 2016-02-29T23:25:49.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

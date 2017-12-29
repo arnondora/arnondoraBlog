@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "หลังจากตอนที่แล้วก็หายไปนานเลย สารภาพบาปว่า ตอนนั้นงานยุ่งมาก จนลืมไปเลย ตอนนี้ปิดเทอมแล้ว จะมาไล่เขียน Tutorial ที่ค้างไว้ให้จบกันเลย คราวที่แล้ว เราได้เรียนรู้ **การดู Histogram** กันไป วันนี้ เราจะมาดูอีกหนึ่งเรื่องที่สำคัญของการ Process ภาพนั่..."
 date: 2016-06-30T15:00:22.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

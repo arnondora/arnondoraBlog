@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "หลังจากที่ Let's Encrypt ที่เป็นโครงการที่ทำให้เราสามารถออก Certification Authority (CA) ได้ฟรีโดยไม่มีค่าใช้จ่าย"
 date: 2015-12-11T23:57:07.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

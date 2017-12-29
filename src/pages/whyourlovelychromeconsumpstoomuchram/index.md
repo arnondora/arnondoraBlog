@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "ปัจจุบันนี้ Web Browser ยอดนิยมก็คงหนีไม่พ้น Internet Explorer ไม่สิ Google Chrome ต่างหาก ซึ่งถ้าใครหลายๆคนได้ใช้ Google Chrome"
 date: 2015-05-31T21:27:46.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

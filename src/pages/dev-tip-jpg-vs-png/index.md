@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "ตอนนี้หลายๆ เว็บรวมทั้งเว็บผมด้วย กำลังมีปัญหาอันนึงที่ใหญ่มากๆ อันเนื่องมาจาก เว็บมันใหญ่มาก!!! คือเราพยายามจะ Optimize แล้ว"
 date: 2015-08-25T17:33:53.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

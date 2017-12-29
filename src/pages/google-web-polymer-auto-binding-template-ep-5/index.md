@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "เมื่อตอนที่ผ่านๆมาเราได้เรียนรู้เรื่องของการ สร้างโครงสร้างของหน้าไปบ้างแล้ว ตอนหลังนี้จะเป็นเรื่องของการผูกข้อมูล หรือเรียกดีๆว่า Data-Binding แต่ก่อนจะพูดถึงเรื่องนั้น เราต้องมาพูดถึงเรื่อง Data-Binding กันก่อน"
 date: 2015-03-30T20:34:19.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

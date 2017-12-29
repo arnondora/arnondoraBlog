@@ -5,7 +5,7 @@ category: Uncategorized
 excerpt: "2 เรื่องที่ผ่านมา เป็นเรื่องที่ค่อนข้างยากอยู่พอสมควร แต่วันนี้เป็นเรื่องสั้นๆ ง่ายๆ ไม่มึน งง"
 date: 2014-12-29T14:37:22.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

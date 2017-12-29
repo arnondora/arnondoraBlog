@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "ในสมัยนี้ใครที่เขียนโปรแกรมที่ไม่รู้จักคำว่า API ก็คงจะน้อยแล้ว และในตอนนี้อีกเหมือนกันคำว่า REST API ก็มาแรงเช่นกัน (เหรอ ??) แต่พอผมลองไปหาใน Google เพื่อจะหาวิธีใช้ก็เจออยู่ แต่วิธีมันค่อนข้างที่จะยากสำหรับมือใหม่อยู่บ้าง"
 date: 2016-04-03T01:16:08.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "เรื่องสุดท้ายแล้วนะครับ วันนี้กับเรื่องของ **File I/O** เป็นเรื่องของ**การ เขียน อ่านไฟล์** นั่นเอง เรื่องนี้ไม่ยาก แล้วก็สนุกด้วย มาดูกันเลย"
 date: 2014-12-29T15:52:56.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

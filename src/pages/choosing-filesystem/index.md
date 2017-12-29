@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "คำถามนี้ ก็มีหลายๆ คนถามถามอยู่ในเว็บบอร์ดเยอะอยู่พอสมควรเหมือนกัน ว่า **"เราซื้อ External HDD มา แล้วจะเลือก Format เป็นแบบไหนดี ?" **วันนี้เราจะมาหาคำตอบให้กับคำถามนี้กัน"
 date: 2015-07-28T16:55:22.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

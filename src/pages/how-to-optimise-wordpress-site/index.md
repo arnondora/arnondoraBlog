@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "มีหลายคนถามผมมาว่า ทำไมยังใช้ Wordpress อยู่ทั้งที่ Traffic สูงขนาดนี้ แล้วรับโหลดไหวเหรอ จริง ๆ แล้ว Wordpress เป็นระบบที่ถูก Code มาดีอยู่ในระดับหนึ่งแล้วละ แต่ด้วยการลง Plugin และอื่น ๆ"
 date: 2017-07-13T23:34:53.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

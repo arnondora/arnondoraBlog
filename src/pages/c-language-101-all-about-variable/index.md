@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "สวัสดีฮ่ะ! นี่ก็ตอนที่ 2 แล้วหลังจากที่เขียนตอนที่แล้ว แล้วหายไปหลายวันอยู่ วันนี้กลับมาแล้ว กับตอนที่ 2 เย้ๆๆ อ่อ ลืม สวัสดีปีใหม่ไทยล่วงหน้านะครับมาเข้าเนื้อหากันเลย วันนี้เราจะมาพูดถึงเรื่อง ตัวแปร หรือ Variable"
 date: 2015-04-10T19:02:26.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

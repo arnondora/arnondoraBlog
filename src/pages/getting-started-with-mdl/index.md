@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "ย้อนกลับไปที่งาน Google I/O 2014 Google ได้เปิดตัว Guidelines สำหรับการ Design App และ Web ต่างๆ นอกจากนั้นยังเปิดตัวโครงการอย่าง Polymer ที่เปลี่ยนแปลงวิธีการเขียนเว็บของเรา ไปเยอะอยู่เหมือนกัน"
 date: 2015-07-15T01:52:25.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published
@@ -14,7 +14,7 @@ status: published
 ย้อนกลับไปที่งาน Google I/O 2014 Google ได้เปิดตัว Guidelines สำหรับการ Design App และ Web ต่างๆ นอกจากนั้นยังเปิดตัวโครงการอย่าง Polymer ที่เปลี่ยนแปลงวิธีการเขียนเว็บของเรา ไปเยอะอยู่เหมือนกัน (เอาจริงๆ Polymer ผมก็ชอบนะ)  แต่ตอนนี้ มาแล้ว Web Component บน Paper Element ใน Web Polymer ถูกเอามาลงใน Version CSS, HTML และ Javascript ซึ่งทาง Google เรียกมันว่า Material Design Lite หรือ MDL นั่นเอง
 ถ้ายังนึกไม่ออกว่ามันคืออะไร ให้นึงถึง Front-end Framework อย่าง Bootstrap ที่เราชอบใช้กัน แต่ต่างกันตรงที่ Element ทั้งหมดจะถูกถอด Design มาจาก Paper Element ใน Web Polymer นั่นเอง
 แต่ที่น่าสะพรึ่งคือ ขนาดของมัน เมื่อโหลดผ่าน CDN เพียงแค่ 27 kb เท่านั้นเอง **และยังสามารถใช้กับ Web Browser ใหม่ๆ ได้หมดทุกตัว ยกเว้น IE9** นอกจากที่ขนาดจะเล็ก และรองรับ Web Browser ใหม่ๆได้แล้ว ยัง Install และใช้งานได้ง่ายมากๆ ยิ่งถ้าใครเคยใช้พวก Foudation หรือไม่ก็ Bootstrap มาแล้ว ก็คงจะไม่ใช้ปัญหาสักเท่าไหร่
-นอกจากนี้ยังมี Template มาตราฐานหลายๆ อย่างให้เราได้ดูเป็นตัวอย่างอีกด้วย สามารถเข้าไปดูได้ที่ หน้า [Templete][0] ได้เลย
+นอกจากนี้ยังมี Template มาตราฐานหลายๆ อย่างให้เราได้ดูเป็นตัวอย่างอีกด้วย สามารถเข้าไปดูได้ที่ หน้า [template][0] ได้เลย
 
 ![MDLGetting_started5](./MDLGetting_started5.png) ![MDLGetting_started4](./MDLGetting_started4.png) ![MDLGetting_started3](./MDLGetting_started3.png) ![MDLGetting_started2](./MDLGetting_started2.png) ![MDLGetting_started1](./MDLGetting_started1.png)
 

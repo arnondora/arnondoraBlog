@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "จากตอนที่แล้ว เราก็ได้เรียนเรื่อง การรับข้อมูลเข้าหรือ Input กันไปแล้ว วันนี้เรามาเปลี่ยนเรื่องกันบ้างดีกว่า"
 date: 2015-06-12T14:56:47.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

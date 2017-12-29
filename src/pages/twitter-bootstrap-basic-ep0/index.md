@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "หลังจากที่หายไปจากการเขียน Tutorial มานาน วันนี้กลับมาแล้ว กับหัวข้อที่หลายๆ คน Request เข้ามา ว่าอยากจะสร้างเว็บที่เป็น Responsive ง่ายๆ โดยที่ไม่ต้องเขียน Breakpoint เลยมีคนแนะนำให้เขียน Tutorial ของ Bootstrap ขึ้นมานั่นเอง"
 date: 2015-08-15T09:49:57.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

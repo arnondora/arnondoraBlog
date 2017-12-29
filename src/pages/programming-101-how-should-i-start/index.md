@@ -7,7 +7,7 @@ excerpt: "โลกเราหมุนไปทุกวัน เทคโน
 แล้วถามว่า "ผมเขียนไม่เป็น แล้วผมควรจะเริ่มยังไงดี?""
 date: 2014-12-13T13:00:57.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

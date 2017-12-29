@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "หลังจากเมื่อตอนที่แล้ว เราได้รู้จักกับ การตั้งค่าแสง และการโฟกัสไปแล้ว วันนี้เราจะมาต่อกันในเรื่องใหม่แต่ก็ไม่ใหม่มากนั่นคือ การวัดค่าแสง"
 date: 2015-09-27T16:58:29.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

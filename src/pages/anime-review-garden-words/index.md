@@ -5,7 +5,7 @@ category: Review
 excerpt: "The Garden of Words ยามสายฝนโปรยปรายเป็นอีกผลงาน Anime ของมาโคโตะ ชินไค ที่เคยเรียกเสียงได้อยู่เยอะพอสมควรจาก"
 date: 2015-01-03T13:50:25.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

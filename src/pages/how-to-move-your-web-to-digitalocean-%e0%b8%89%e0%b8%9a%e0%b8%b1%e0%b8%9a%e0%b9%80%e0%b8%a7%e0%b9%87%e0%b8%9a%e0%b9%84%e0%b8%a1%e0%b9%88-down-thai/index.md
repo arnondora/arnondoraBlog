@@ -9,7 +9,7 @@ excerpt: "หลังจากที่ผมได้ผ่านสรภู�
 * Backup Database และข้อมูลผ่านตัว Manager ของ Host เก่..."
 date: 2015-04-16T11:01:23.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

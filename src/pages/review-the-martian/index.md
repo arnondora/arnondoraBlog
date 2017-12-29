@@ -5,7 +5,7 @@ category: Review
 excerpt: "ช่วงนี้หลาย ๆ มหาลัยก็น่าจะสอบเสร็จกันหมดแล้ว แต่ของผมยังไม่ได้สอบเลย แค่ใกล้สอบเฉยๆ แต่ช่วงใกล้สอบนี่แหละ น่าไปหาอะไรทำนอกจากอ่านหนังสือสุดๆ ไหนๆ The Martian ก็เข้าแล้ว เลยไปจัดซะเลย"
 date: 2015-10-06T20:40:28.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

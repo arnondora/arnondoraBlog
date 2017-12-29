@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "เมื่อก่อน จนถึงตอนนี้ Dev อย่างเรา ๆ เวลาทำงานส่วนใหญ่ เราก็จะลงมือ Design แล้ว มาเขียน แล้วค่อย Test แต่งานมันไปงอกตรง"
 date: 2015-06-28T23:13:39.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

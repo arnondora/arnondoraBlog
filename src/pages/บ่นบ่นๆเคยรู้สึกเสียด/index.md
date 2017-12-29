@@ -5,7 +5,7 @@ category: My Life
 excerpt: "คำเตือน นี่คือการบ่นด้วยบรรทัดฐานของตัวผมเอง ฉะนั้น Logic ไม่ต้องไปหานะ OK นะ เข้าใจตรงกันนะ"
 date: 2015-04-27T14:58:40.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

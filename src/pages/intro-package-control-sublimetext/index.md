@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "Sublime Text ก็เป็น Editor ตัวหนึ่งที่หลายๆ คนเลือกใช้กันเพราะว่า มันค่อนข้างที่จะทำอะไรได้หลายอย่าง และก็ใช้ง่ายด้วย ตอนแรกผมก็เฉยๆ นะแต่พอมาลองเล่นดูจริงๆ มันทำอะไรได้เยอะมากๆ"
 date: 2015-08-12T23:56:55.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

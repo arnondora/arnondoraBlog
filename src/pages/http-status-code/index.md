@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "เชื่อว่าหลาย ๆ คนที่เข้าเว็บในปัจจุบันน่าจะเคยเห็น Error ในหน้าเว็บต่าง ๆ ไม่ว่าจะเป็น 4xx หรือ 5xx เราจะเรียกมันว่า HTTP Error Code"
 date: 2015-12-22T14:20:32.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

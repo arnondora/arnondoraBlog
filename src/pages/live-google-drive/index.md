@@ -5,7 +5,7 @@ category: Review
 excerpt: "ก็หายไปนานอีกแล้วนะครับ อิอิ วันนี้ไม่ได้มาสอนอะไร แต่วันนี้จะมานำเสนออะไรอย่างนึง ก่อนอื่นขอพูดถึงปัญหาของผมก่อนล่ะกันครับ ก็ผมใช้ **Macbook** แล้วมันก็ลง **OSX** เข้ามาซึ่งเวลาผมทำงานเอกสาร ก็จะใช้ **Page,Keynote,Number** ของ **Apple** พอไปฝั่ง ..."
 date: 2015-01-26T22:31:57.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

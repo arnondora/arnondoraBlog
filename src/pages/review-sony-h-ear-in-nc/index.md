@@ -5,7 +5,7 @@ category: Review
 excerpt: "เป็นรีวิวที่หลายคนถามถึงมาก และผมก็ไม่ได้เขียนสักที ตอนนี้แหละก็เป็นเวลาอันสมควรแล้วที่จะได้เริ่มเขียนกันสักที กับหูฟังความละเอียดสูงจาก Sony กับ Sony h.ear in NC"
 date: 2017-01-05T17:08:50.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "กลับมาแล้ว ผิดสัญญาไปหน่อย บอกว่าจะเว้นแปบเดียว นี่เว้นนานเลย ก็ช่วงนี้มันงานยุ่งจริงๆ แถมใกล้สอบ Final แล้วอีก ร่างจะแตกและ"
 date: 2015-04-28T15:22:46.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

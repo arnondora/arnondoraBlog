@@ -5,7 +5,7 @@ category: My Life
 excerpt: "ก่อนอื่นขอเท้าความกันก่อน คือก็เปิดเทอม ขึ้นปี 2 มาสักพักใหญ่ ๆ แล้ว ซึ่ง หน้าที่ภาระงานหลาย ๆ อย่างมันก็มากขึ้นกว่าตอนที่อยู่ปี 1 แต่ช้าแต่ ก็ยังอยากมีชีวิตที่เกือบ Slow Life."
 date: 2015-10-09T23:39:28.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

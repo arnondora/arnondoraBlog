@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "ปัจจุบันนี้ เราก็ก้าวสู่โลกของอินเตอร์เน็ตเป็นที่เรียบร้อยแล้ว เมื่อก่อนตอนอินเตอร์เน็ตพึ่งเกิด ด้วยเทคโนโลยีสมัยนั้น อินเตอร์เน็ตมันแพงมาก ๆ."
 date: 2015-05-30T22:27:19.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

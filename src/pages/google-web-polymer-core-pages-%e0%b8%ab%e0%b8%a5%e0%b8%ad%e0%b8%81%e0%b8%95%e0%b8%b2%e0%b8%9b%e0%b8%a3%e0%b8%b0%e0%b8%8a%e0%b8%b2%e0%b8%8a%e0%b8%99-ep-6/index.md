@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "เมื่อ EP. ทีแล้วเราได้เรียนรู้เรื่องของการผูกข้อมูลกับ JS กันไปแล้ว วันนี้เราขยับมาอีกสเต๊ปนั้นคือ การใช้ Core Pages กับ JS แบบเมื่อ EP. ที่แล้ว"
 date: 2015-04-02T20:54:49.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

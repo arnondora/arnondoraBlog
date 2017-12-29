@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "มาตามสัญญาที่จะเล่าเรื่องว่าเจ้า PaperTheme ที่กำลังใช้นี้มันมีที่มาอย่างไร ก็จะค่อย ๆ เล่าไปทีละ Process เรื่อย ๆ ละกัน ต้องเกริ่นก่อนว่า เว็บนี้จะมีการเปลี่ยน"
 date: 2017-05-18T19:23:03.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

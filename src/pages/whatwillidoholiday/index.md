@@ -5,7 +5,7 @@ category: My Life
 excerpt: "คำถามนี้เป็นคำถามที่ คิดนานมากก่อนจะปิดเทอม ว่า "ปิดเทอมทำอะไรดีน้อ ?" วันนี้เลยจะมาเล่าให้ฟังว่า ก่อนที่จะปิดเทอม ผมคิดที่จะทำอะไรบ้าง"
 date: 2015-06-25T14:37:06.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

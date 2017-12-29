@@ -5,7 +5,7 @@ category: Review
 excerpt: "เป็นเรื่องเป็นราวกันมาทั้งแต่ท้ายปีที่แล้ว (2557) กับ พ.ร.บ. ความมั่นคงไซเบอร์ที่รัฐดันสุดตัวเพื่อให้ พ.ร.บ. นี่ออกเป็นกฏหมาย"
 date: 2015-01-31T09:21:06.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

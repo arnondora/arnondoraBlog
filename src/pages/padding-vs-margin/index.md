@@ -6,7 +6,7 @@ excerpt: "ตอนนี้ก็หายไปหลายวันอยู�
 Padding กับ Margin ใช้ทำอะไร ?"
 date: 2015-07-10T16:42:27.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

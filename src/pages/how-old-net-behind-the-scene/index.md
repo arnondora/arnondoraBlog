@@ -6,7 +6,7 @@ excerpt: "ในวันที่สองของงาน BUILD 2015 จา�
 ซึ่งมันก็..."
 date: 2015-05-04T01:02:52.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

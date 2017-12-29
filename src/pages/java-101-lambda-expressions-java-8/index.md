@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "Lambda Expressions เป็น Feature ใหม่ที่พึ่งเพิ่มเข้ามาใน JSE8 เป็นหนึ่งในหลายๆ Feature ที่คนที่ใช้ Java หลายๆคนบอกว่า"
 date: 2015-01-06T19:57:05.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

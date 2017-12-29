@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "พรุ่งนี้จะสอบ เจแว้ แล้วเห็นหลายคนถามเยอะมากว่า **DecimalFormat** มันคืออะไรแว้ๆๆ วันนี้จะมาตอบให้อ่านกัน"
 date: 2015-03-11T20:25:05.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

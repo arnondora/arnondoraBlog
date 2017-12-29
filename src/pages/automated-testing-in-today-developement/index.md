@@ -5,7 +5,7 @@ category: Uncategorized
 excerpt: "ในโลกของการพัฒนาโปรแกรมในปัจจุบัน เราจะเห็นได้ว่า โปรแกรมที่เราเขียนออกมานั้นจะมีความซับซ้อนมากกว่าสมัยก่อน ๆ เป็นอย่างมาก ทำให้การสร้างโปรแกรมที่มีขนาดใหญ่จะต้องพึ่งความสามารถในการสร้างพอสมควร และการทำ Testing ก็ย่อม ทำได้ยากกว่าโปรแกรมเล็ก ๆ แน่..."
 date: 2016-01-11T23:21:13.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

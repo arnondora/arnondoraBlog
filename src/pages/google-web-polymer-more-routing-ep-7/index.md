@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "คราวที่แล้ว เราได้รู้เรื่องของ การ Routing พื้นฐานกันไปแล้ว วันนี้เรามาเรียนอีกแบบนึงกัน รอบนี้เราไม่ต้องแตะ JS สักบรรทัดเลยล่ะ ก่อนอื่น เราต้อง Install ตัวของ more-routing กันก่อน ก็ปกติตามแบบฉบับของ bower เลย"
 date: 2015-04-08T22:11:12.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

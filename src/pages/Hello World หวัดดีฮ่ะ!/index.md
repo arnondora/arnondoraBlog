@@ -6,7 +6,7 @@ excerpt: "คนที่เขียนโปรแกรม หรือเค
 ถ้าเราอยากรู้จุดเริ่มต้นของคำๆนี้ เราต้องย้อน"
 date: 2015-05-06T02:15:21.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

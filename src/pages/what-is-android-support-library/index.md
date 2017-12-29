@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "ถ้าใครที่ใช้ Android จะรู้ว่า เมื่อ Google ประกาศ Android เวอร์ชั่นใหม่ ๆ มาถามว่าจะมีสักกี่คนเองที่ได้ใช้ เนื่องมาจาก กว่าผู้ผลิตโทรศัพท์จะปล่อย ROM ที่มีเวอร์ชั่นใหม่ ๆ มาก็กินเวลาไปครึ่งปีถึงปีแล้ว นี่ยังไม่นับเครื่องที่มีสเปกเก่าเกินจนอัพเกรดไ..."
 date: 2016-04-16T17:52:31.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

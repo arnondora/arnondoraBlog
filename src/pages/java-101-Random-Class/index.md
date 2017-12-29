@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "กลับมาอีกแล้ว อันนี้ก็ถามกันมาเยอะ นั่นคือเรื่องของ Random Class มันใช้ยังไง ทำอะไร"
 date: 2015-03-11T21:23:34.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

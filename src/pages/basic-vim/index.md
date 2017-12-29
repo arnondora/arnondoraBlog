@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "สวัสดีครับ ! ช่วงนี้หายไปนานเลย วันนี้ขอกลับมาด้วยหัวข้อที่คนที่พึ่งหัดเขียนโปรแกรมในสมัยนี้ไม่รู้จักหน่อยล่ะกัน นั่นคือ Text Editor ที่เป็นที่นิยมอย่าง Vi หรือ Vim นั่นเอง ในบทความนี้ผมจะอธิบายการใช้งานเบื้องต้นเท่านั้น ไม่มีเรื่องของการใช้ Plugi..."
 date: 2016-06-24T00:59:43.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

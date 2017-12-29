@@ -5,7 +5,7 @@ category: My Life
 excerpt: "เมื่อคืนก็ผ่านกันไปแล้วครับกับ Keynote ของ Google I/O 2015 ซึ่งปีนี้งาน Google I/O ก็จัดขึ้นเป็นครั้งที่ 8 แล้ว"
 date: 2015-05-29T15:26:28.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

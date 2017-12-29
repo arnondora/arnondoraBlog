@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "ก่อนจะเริ่มเนื้อหาของเรื่องนี้ ก็ต้องขอบคุณก่อนเลยครับ ที่อ่านมาเรื่อย ๆ จนถึงตอนนี้ ตอนนี้เราก็เดินทางกันมาจนจะจบแล้ว ขอบคุณมากจริง ๆ ครับ"
 date: 2015-06-14T12:33:50.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

@@ -5,7 +5,7 @@ category: Review
 excerpt: "เมื่อปีก่อน Apple ก็ได้เปิดตัว iPad Pro รุ่นแรกคือรุ่น 9.7 นิ้วและ 12.5 นิ้วที่ขายดีกันแบบวัวตายควายล้ม ปีนี้ Apple กลับมาอีกครั้งด้วย iPad ขนาดใหม่ที่มาแทน 9.7 นิ้วคือ iPad Pro 10.5 inch"
 date: 2017-06-29T22:46:27.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

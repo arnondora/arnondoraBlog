@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "เรามาถึงในยุคที่เว็บไซต์ของเราสามารถเข้าถึงได้จากทุกที่ และจากหลากหลายประเภทอุปกรณ์ด้วยกัน เรื่องนึงที่สำคัญเรื่องนึงคือ รูปภาพ ไหนจะเรื่องของขนาด (Dimension) หรือจะขนาดไฟล์อีก"
 date: 2017-02-23T14:23:12.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

@@ -5,7 +5,7 @@ category: Review
 excerpt: "หนึ่งปีก็เวียนมาบรรจบอีกแล้ว กับงาน Google I/O Extended Bangkok 2016 ปีที่แล้วจัดที่ Paragon จัดว่า Grand มาก ปีนี้มา Google I/O Extended Bangkok 2017 ชื่อเดิมที่เพิ่มคือ ปี ก็กลับมาอีกครั้ง"
 date: 2017-07-11T00:24:25.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

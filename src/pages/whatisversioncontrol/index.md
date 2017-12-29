@@ -6,7 +6,7 @@ excerpt: "Version Control มันคืออะไร ?
 มาถึงก็เข้าเรื่องเลย จริง ๆ แล้วตัว Version Control"
 date: 2015-06-27T14:01:40.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

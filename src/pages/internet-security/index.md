@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "ในตอนนี้จำนวนผู้ใช้อินเตอร์เน็ตเพิ่มสูงขึ้นเรื่อย ๆ แล้ว จากเมื่อก่อนบ้านหนึ่งหลัง จะมีอุปกรณ์ที่ใช้เชื่อมต่ออินเตอร์เน็คเพียงแค่เครื่องเดียว หรือไม่มีด้วยซ้ำ แต่ในปัจจุบัน คนหนึ่งคนอาจจะมีมากกว่า 1 อุปกรณ์ด้วยซ้ำ"
 date: 2016-09-15T18:26:16.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

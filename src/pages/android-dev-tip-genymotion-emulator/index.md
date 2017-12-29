@@ -6,7 +6,7 @@ excerpt: "ห่างหายไปนานอยู่ เพราะเป
 ถ้าใครเคยใช้ **AVD** ที่อยู่บน **Android Studio** หรือว่าบน **Eclipse..."
 date: 2015-01-14T20:25:08.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

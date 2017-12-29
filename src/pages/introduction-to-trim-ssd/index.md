@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "ตอนนี้ถ้าใครหลายๆ คนที่ซื้อคอมใหม่ หรือกำลังจะซื้อคอมใหม่น่าจะเคยได้ยินคำว่า SSD กันมาบ้างแล้ว เมื่อก่อน เราอาจจะมองว่า SSD มันราคาแพงมากคนทั่วๆ ไปมักจะเอื้อมไม่ค่อยถึงกัน"
 date: 2015-08-09T13:13:40.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

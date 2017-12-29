@@ -5,7 +5,7 @@ category: My Life
 excerpt: "ช่วงหลัง ๆ มานี่ผมก็สังเกต เพื่อน ๆ หรือพี่ ๆ ที่ทำงานสาย Dev หลาย ๆ คนชอบเขียน Blog กันมากเลย ?"
 date: 2015-06-24T00:23:38.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

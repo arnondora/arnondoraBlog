@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "ทุกวันนี้เราคงปฏิเสธไม่ได้แล้วว่า เราอยู่ในยุคที่เราใช้ข้อมูลในการตัดสินใจสิ่งต่าง ๆ มากขึ้นจะเห็นได้ว่า ทุกวันนี้เราเสพข้อมูลมากแค่ไหน"
 date: 2017-02-11T16:50:06.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

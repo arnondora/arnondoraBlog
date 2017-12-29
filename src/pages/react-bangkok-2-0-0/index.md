@@ -5,7 +5,7 @@ category: Review
 excerpt: "หลังจากงาน React Bangkok รอบก่อนที่เล็กมาก ๆ มาในรอบนี้ React Bangkok 2.0.0 เล่นใหญ่มาก จัดมันทั้งวัน การกดบัตรก็นรกสุดใจเช่นกัน แย่งกันแทบจะกินหัวกัน"
 date: 2017-06-05T10:24:35.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published
@@ -43,7 +43,7 @@ status: published
 
 และช่วงบ่ายก็เปิดมาที่เรื่อง**Styled Components** จากพี่เข้ม Jitta ึ่งพี่เขาก็ทำ Slide ด้วย **Styled Components** ด้วย ฮ่า ๆ เด็ด ๆ ที่ [Linkนี้ มันเริ่มจากปัญหาที่ว่า เมื่อมาเขียนตัวงานออกมา เวลาจะเรียกใช้ของต่าง ๆ กลับมีปัญหาว่า เราต้องใช้ **Styling Class** ไหนหรือยังไงดีกว่า
 
-ถ้าเรามาเขียนใน Styled Component เราจะเขียน Style กันใน Components กันไปเลย เขาเรียกกันวา **Tagged Templete Literals** มันก็เหมือนกับว่าเราสร้าง Component มาพร้อมกับ Style และมันก็คล้าย ๆ กับเราใช้ UI Framework ต่าง ๆ เลย
+ถ้าเรามาเขียนใน Styled Component เราจะเขียน Style กันใน Components กันไปเลย เขาเรียกกันวา **Tagged template Literals** มันก็เหมือนกับว่าเราสร้าง Component มาพร้อมกับ Style และมันก็คล้าย ๆ กับเราใช้ UI Framework ต่าง ๆ เลย
 
 ที่เจ๋งคือ เราสามารถใส่ Style อะไรก็ได้ของ CSS ลงได้ไปหมด และยังสามารถรับ Props เข้ามาได้เช็ค หรือทำอะไรเพิ่มได้อีกด้วย และนอกจากนั้นในเวอร์ชั่น 2 เรายังสามารถ Extend Style ได้เหมือนกับที่ SCSS, SASS extend Style ได้เหมือนกันเลย แต่ว่าจะมีข้อจำกัดอยู่ที่ว่า เราไม่สามารถที่จะ Extend Style ที่ไม่ได้มาจาก Styled Component ได้เลย
 

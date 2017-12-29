@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "ช่วงนี้เหมือนหายหน้าหายตาไปสักพักใหญ่ ๆ เลย ตอนนี้เลยต้องเขียนเพื่อทดแทนหน่อยซะแล้ว เข้าเรื่องกันดีกว่า ตอนนี้ตัวผมก็กำลังเรียนวิชา Web Programming อยู่แล้วต้องทำ Project เลยอยากเขียนเรื่องที่ต้องใช้สักหน่อย อย่าง PDO"
 date: 2015-11-15T22:28:31.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

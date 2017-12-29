@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "จากเรื่องที่แล้วเราได้เรียนเรื่องของ Class กับ ** ไปแล้วว่ามันต่างกันยังไง ใช้งานยังไง"
 date: 2014-12-23T21:22:47.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

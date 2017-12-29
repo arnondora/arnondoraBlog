@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "วันนี้ก็กลับมาอีกแล้ว วันนี้อยากมาเอง ไม่มีใครจุดธูปเรียก เฮ้ยไม่ใช่ เข้าเรื่องดีกว่า ช่วงนี้ก็เปิดเทอมแล้วก็เลยทำโจทย์อะไรหน่อย พอดีไปเจอโจทย์ข้อนึงใน Google Code Jam"
 date: 2015-01-18T16:27:54.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

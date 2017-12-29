@@ -5,7 +5,7 @@ category: My Life
 excerpt: "จากที่ผมไปอ่านในพันทิพย์ หรือจากในหลายๆกระทู้ คนที่เริ่มเขียนโปรแกรมใหม่ๆ หรือกำลังจะเริ่มหัดมักหาจุดเริ่ม ไม่ถูก"
 date: 2015-04-21T22:22:53.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

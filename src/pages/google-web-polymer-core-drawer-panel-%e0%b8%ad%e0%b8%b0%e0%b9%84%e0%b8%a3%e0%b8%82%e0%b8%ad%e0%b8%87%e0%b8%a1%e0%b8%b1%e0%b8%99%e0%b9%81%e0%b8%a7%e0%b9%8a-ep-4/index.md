@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "กลับมาอีกแล้วนะฮ่ะ ตอนที่เขียนตอนนี้ Class โดน Cancel ได้เจ็บปวดมาก เลยว่างออกมาเขียน Blog นี่แหละ มาต่อจากความที่แล้วกันเลยครับ"
 date: 2015-03-27T16:43:00.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "วันนี้ เราจะมาดูกันว่า เราสามารถติดตั้ง SSH Key ลงบน Server ของเราได้อย่างไร ในตัวอย่างนี้ ผมจะติดตั้งมันลงไปใน Server ของเว็บนี้กัน"
 date: 2015-12-14T22:13:46.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

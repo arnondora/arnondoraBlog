@@ -5,7 +5,7 @@ category: My Life
 excerpt: "ถ้าใครเป็น Friend กับผมใน Facebook ก็น่าจะรู้ว่าช่วง 2 เดือนที่ผ่านมาก็ได้มีโอกาสไปฝึกงานที่ Like Me"
 date: 2017-07-29T02:06:24.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

@@ -5,7 +5,7 @@ category: My Life
 excerpt: "จากเสียงตอบรับของ 2 ตอนที่แล้ว วันนี้เลยจะมาต่อจากตอนที่แล้วเลย นั่นคือ การเข้าเรียน Lecture สิ่งที่ตามมานั่นคืออะไร พวกเราก็น่าจะรู้กันอยู่แล้ว นั่นคือ การบ้าน"
 date: 2015-04-11T14:23:42.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

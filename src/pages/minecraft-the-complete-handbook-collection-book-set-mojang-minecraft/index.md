@@ -5,7 +5,7 @@ category: Review
 excerpt: "สวัสดีครับ ตอนนี้ก็พึ่งผ่านงานสัปดาห์หนังสือมา ผมก็ไปเดินหาซื้อหนังสือมา แต่ไปเจอหนังสืออยู่กล่องนึงครับในบูท Asia Book"
 date: 2015-04-08T20:32:40.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published

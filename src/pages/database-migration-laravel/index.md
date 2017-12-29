@@ -5,7 +5,7 @@ category: Tutorial
 excerpt: "ถ้าใครที่ใช้ Laravel ใหม่ ๆ ก็อาจจะสงสัยว่า Migration ใน Laravel มันคืออะไร แล้วมันเกิดมาเพื่ออะไรกันแน่ วันนี้เราจะมาทำความเข้าใจกับ Database Migration ใน Laravel กัน"
 date: 2016-06-27T22:38:21.000
 author: arnondora
-templete: full-width
+template: full-width
 type: post
 isFeatured: false
 status: published
