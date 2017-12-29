@@ -74,19 +74,19 @@ const ReadMoreButton = styled(Link)`
 
 export default class FeatureStory extends React.Component {
   render() {
-    var featureStory = this.findLatestFeatureStory(this.props.posts)
-    featureStory = featureStory.length > 0 ? featureStory[0].node : null
+    var featureStory = this.props.posts.length > 0 ? this.props.posts[0].node : null
+
     return(
       <SuperWrapper>
         <Container>
           <Header>Featured Story</Header>
-          <HeadingText>{featureStory.frontmatter.title}</HeadingText>
-          <Excerpt>{featureStory.frontmatter.excerpt}</Excerpt>
-          <ReadMoreButtonContainer><ReadMoreButton to={featureStory.fields.slug}>Read More</ReadMoreButton></ReadMoreButtonContainer>
+          <HeadingText>{featureStory.node.frontmatter.title}</HeadingText>
+          <Excerpt>{featureStory.node.frontmatter.excerpt}</Excerpt>
+          <ReadMoreButtonContainer><ReadMoreButton to={featureStory.node.fields.slug}>Read More</ReadMoreButton></ReadMoreButtonContainer>
 
         </Container>
         <Overlay/>
-        <ImgBackgroundControl thumbnail={featureStory.frontmatter.image.childImageSharp.resolutions.src}/>
+        <ImgBackgroundControl thumbnail={featureStory.node.frontmatter.image.childImageSharp.resolutions.src}/>
       </SuperWrapper>
     )
   }

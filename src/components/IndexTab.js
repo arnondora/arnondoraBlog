@@ -95,7 +95,7 @@ export default class IndexTab extends React.Component {
 
   render () {
     const tabs = ["Posts", "Categories"]
-    var posts = this.props.posts.map((item) => {
+    var posts = this.props.context.posts.map((item) => {
         return (
           <CardWrapper key={item.node.fields.slug}><Card slug={item.node.fields.slug} heading={item.node.frontmatter.title} excerpt={item.node.frontmatter.excerpt} category={item.node.frontmatter.category} publishedDate={item.node.frontmatter.date} author={item.node.frontmatter.author}/></CardWrapper>
         )

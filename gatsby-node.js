@@ -46,6 +46,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
                     type
                     author
                     date(formatString: "MMMM DD, YYYY")
+                    isFeatured
                     image {
                       childImageSharp {
                         original {

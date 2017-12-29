@@ -56,13 +56,13 @@ export default class IndexPage extends React.Component {
         <MainContentContainer>
           <FeatureStoryContainer>
             <FeatureStory
-              posts = {this.props.data.pathContext.featurePosts}
+              posts = {this.props.pathContext.featurePosts}
             />
           </FeatureStoryContainer>
 
           <ContentWrapper>
             <ContentContainer>
-              {/* <IndexTab categories={this.props.data.allCategoriesJson.edges} context = {this.props.pathContext}/> */}
+              <IndexTab categories={this.props.data.allCategoriesJson.edges} context = {this.props.pathContext}/>
             </ContentContainer>
           </ContentWrapper>
 
