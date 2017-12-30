@@ -41,7 +41,7 @@ status: published
 จากที่เราเห็นมันก็จะเป็นตารางโง่ๆ อันนึงเลย ทีนี้ ตัว Bootstrap มันก็มี Table มาให้เราใช้เช่นกัน และมีหลายแบบมากๆ เราจะมาค่อยๆ เจาะดูทีล่ะแบบเลยล่ะกันว่ามีแบบไหนบ้าง
 **แบบง่ายๆ ปกติ**
 
-![bootstrap_table01](http://www.arnondora.in.th/wp-content/uploads/2015/08/bootstrap_table01.png)
+![bootstrap_table01](./bootstrap_table01.png)
 
 แบบนี้ก็เป็นแบบพื้นฐานสุดเลย มีขอบมีอะไรให้ ก็แค่เรียก Class Table ออกมา
 
@@ -52,7 +52,7 @@ status: published
 ## Striped Row
 
 แบบนี้ก็ Upgrade จากแบบที่แล้วหน่อย แต่จะมีสีขาวและสีเทาสลับกัน
-![bootstrap_table02](http://www.arnondora.in.th/wp-content/uploads/2015/08/bootstrap_table02.png)
+![bootstrap_table02](./bootstrap_table02.png)
 
     <table class = "table table-stripped">
     ...
@@ -60,7 +60,7 @@ status: published
 
 เอาคร่าวๆ ก็ประมาณนี้เลย ส่วนแบบที่เหลือ เราสามารถเข้าไปดูได้ใน Document ของ Bootstrap ได้เลย แต่มาดูกันอีกอย่างนึงกันดีกว่า เพราะว่า เราสามารถใส่สีตามสถานะของตารางได้ด้วยล่ะ
 
-![bootstrap_table03](http://www.arnondora.in.th/wp-content/uploads/2015/08/bootstrap_table03.png)
+![bootstrap_table03](./bootstrap_table03.png)
 
 อย่างที่เราเห็นเลย จะมีสี เขียว ฟ้า เหลืองและแดง มันเป็นตามสถานะ เราสามารถใส่สีพวกนี้ได้โดยการเรียก Class ตามนี้
 

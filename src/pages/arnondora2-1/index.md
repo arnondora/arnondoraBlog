@@ -15,7 +15,7 @@ status: published
 
 ## เพิ่ม Tag meta theme-color เรียบร้อยแล้ว
 
-[![newcolor-theme-2](./newcolor-theme-2.png)][0]
+![newcolor-theme-2](./newcolor-theme-2.png)
 
 อันนี้จะไม่ค่อยได้เห็นผลกันเท่าไหร่ เว้นแต่ว่า จะเป็นคนที่ใช้ Chrome ใน Android เปิด จะสังเกตได้ว่า ที่แถบ address bar และ system bar จะเปลี่ยนสีเป็นสีฟ้า น้อววว ที่ต้องเป็นสีฟ้า เหตุผลง่ายมากๆ เพราะผมชอบสีฟ้า จบนะ!
 
@@ -26,7 +26,7 @@ status: published
 
 ## Optimise Image!
 
-[![reducePNGFile](./reducePNGFile.png)][1]
+![reducePNGFile](./reducePNGFile.png)
 
 Traffic ส่วนใหญ่ที่เราใช้โหลดกันตอนนี้ ก็น่าจะมาจากไฟล์รูปนี่แหละ ซึ่งเว็บนี้ก็เช่นกัน ก็เลยจับมันมาย่อซะเลย โดยใช้เว็บ [tinyPNG][2] ที่เคยเอามาให้ดูตอน [PNG VS JPG][3] เพื่อลดขนาดของไฟล์ภาพ เอาจริงๆ ก็ลดไปได้อยู่พอสมควรเลยทีเดียว คุ้มมากๆ
 
@@ -42,8 +42,6 @@ Webp มันเป็นมาตราฐานไฟล์ใหม่ขอ
 ## Lighter a bit
 ตัว Theme ของเว็บนี้นั่นคือ [Paper Theme][5] ที่ผมปล่อยอยู่ใน Github ตอนนี้ก็ได้รับการปรับปรุงทำให้ตัวหน้าเว็บมันค่อนข้างเบาขึ้นเล็กน้อยทำให้ใช้เวลา Render เร็วขึ้นและน้อย แต่ก็จะพยายาม Optimise ให้มันดีขึ้นไปเรื่อยๆ นะครับ
 
-[0]: http://www.arnondora.in.th/wp-content/uploads/2015/09/newcolor-theme-2.png
-[1]: http://www.arnondora.in.th/wp-content/uploads/2015/09/reducePNGFile.png
 [2]: https://tinypng.com
 [3]: http://www.arnondora.in.th/dev-tip-jpg-vs-png/
 [4]: http://imulus.github.io/retinajs/

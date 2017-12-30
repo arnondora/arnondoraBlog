@@ -2,11 +2,7 @@
 title: "How To Move Your Web To DigitalOcean! ฉบับเว็บไม่ Down (Thai)"
 image: "./"
 category: Tutorial
-excerpt: "หลังจากที่ผมได้ผ่านสรภูมิการย้ายเว็บลง Digital Ocean เมื่อไม่กี่วันก่อน ตอนที่หาวิธี ผมหาอันที่เป็นภาษาไทยไม่ได้เลย เศร้ามาก!! วันนี้ผมเลยจะมาบอกเล่า เป็นภาษาไทยกันล่ะกัน
-
-## **To Do List**
-
-* Backup Database และข้อมูลผ่านตัว Manager ของ Host เก่..."
+excerpt: "หลังจากที่ผมได้ผ่านสรภูมิการย้ายเว็บลง Digital Ocean เมื่อไม่กี่วันก่อน ตอนที่หาวิธี ผมหาอันที่เป็นภาษาไทยไม่ได้เลย เศร้ามาก!! วันนี้ผมเลยจะมาบอกเล่า เป็นภาษาไทยกันล่ะกัน Backup Database และข้อมูลผ่านตัว Manager ของ Host เก่..."
 date: 2015-04-16T11:01:23.000
 author: arnondora
 template: full-width
@@ -66,11 +62,14 @@ status: published
 
 ## 4+5 ย้าย Web Content และ DB ลง Digital Ocean
 เอา Web Content ก่อนให้เราเข้าผ่าน FTP โดย Host จะเป็น IP Address ของเครื่องเรา Username เป็น root และ Password เป็น Password ที่ใช้เข้า SSH ตอนต้นเลย จากนั้นก็ไปแปะ (อัพน่ะ) ไว้ที่ /var/www ไปเลย
-ส่วน DB ให้เราเข้าไปที่ **http://yourIPAddress/phpmyadmin **Username ก็เป็น root และ Password ก็เป็น Password ที่เราตั้งตอนติดตั้ง Phpmyadmin แล้วก็ Restore DB ลงไปเหมือนปกติเลย
+ส่วน DB ให้เราเข้าไปที่ **http://yourIPAddress/phpmyadmin** Username ก็เป็น root และ Password ก็เป็น Password ที่เราตั้งตอนติดตั้ง Phpmyadmin แล้วก็ Restore DB ลงไปเหมือนปกติเลย
 
 ## 6\. Set ค่า DNS เพื่อให้ชี้มาที่เว็บใหม่
 ตรงนี้แหละครับ ยากสุด พลาดทีนี้เว็บ Down เป็นชม. เลยนะ 5555 ก่อนอื่นเปิดหน้า Admin ของ Digital Ocean แล้วกดที่ DNS ด้านบนกันก่อน เราจะได้หน้าประมาณด้านล่างนี้ขึ้นมา แล้วตรง Add Domain ด้านขวาสุดมันจะให้เลือก  Droplet ให้เราเลือก Droplet ที่เราสร้างไว้เลย มันจะมี IP Address ช่องที่ 2 โผล่มาเอง ไม่ต้องไปยุ่งอะไรกับมัน และชื่อแรก ใน Doc ของ Digital Ocean บอกว่าให้ใส่ชื่อเว็บเรา โดยไม่ต้องใส่ www. แต่ผมลองแล้วมันไม่ได้อะ ผมเลยทำแบบนี้ 2 ครั้งแต่ อันนึงใส่ www. กับอีกอันไม่ได้ใส่
-![DNSSettingDigitalOcean](http://www.arnondora.in.th/wp-content/uploads/2015/04/DNSSettingDigitalOcean.png)หลังจากสร้างแล้ว กด View ที่สัก Domain นึง อันไหนก็ได้ เราจะเข้ามาที่หน้าที่มันแสดง Name Server อยู่ มี 3 อันให้เอามันไปใส่ใน DNS Settings ของ Domain เราได้เลย
+
+![DNSSettingDigitalOcean](./DNSSettingDigitalOcean.png)
+
+หลังจากสร้างแล้ว กด View ที่สัก Domain นึง อันไหนก็ได้ เราจะเข้ามาที่หน้าที่มันแสดง Name Server อยู่ มี 3 อันให้เอามันไปใส่ใน DNS Settings ของ Domain เราได้เลย
 หลังจากนั้น รอไปไม่เกิน 24 ชม รอ Update ตอนนั้นผมรอไป 3 ชมกว่าๆ แต่เว็บจะไม่ Down เพราะว่า ถ้าเราทำถูกต้อง ระหว่างรอปรับ DNS Domain Name เรามันจะถูก Route ไปที่ Host เดิม และหลังจากที่ Update แล้ว มันก็จะ Route ไปหน้าใหม่ User ไม่รู้แน่นอน
 วิธีเช็คว่าเราย้ายไปรึยังให้ใช้ Whois ในการเช็ค (ผมจะเช็คผ่าน SSH ของ Droplet เลยนะ) วิธีคือ Install Whois ก่อน
 

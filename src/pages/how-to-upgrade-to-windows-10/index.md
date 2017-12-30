@@ -24,7 +24,6 @@ status: published
 เมื่อมันโหลดเสร็จแล้ว มันจะถามต่อว่า เราจะเก็บอะไรไว้บ้างหลังการ Upgrade ซึ่งในขั้นตอนนี้แนะนำให้เลือกเป็น **keep personal files and apps **เราจะได้ไม่ต้องลงอะไรใหม่ **(คำเตือน! บางเครื่อง เช่นเครื่องผม ตัวเลือกน้ีจะเลือกไม่ได้ ซึ่งผมก็ยังไม่รู้ว่าทำไมเหมือนกัน) **จากนั้นก็กดต่อไป มันก็จะ Restart เครื่องเราและเข้าหน้าติดตั้ง ที่เหลือก็รอไปจนเสร็จ ช้าเร็วขึ้นกับคอมพิวเตอร์ของท่านเอง เท่านี้ก็เป็นอันเสร็จ
 
 [0]: http://www.arnondora.in.th/windows10-review/
-[1]: http://www.arnondora.in.th/wp-content/uploads/2015/07/Windows10Review_10.png
 [2]: https://www.microsoft.com/en-us/software-download/windows10
 [3]: http://go.microsoft.com/fwlink/?LinkId=616935
 [4]: http://go.microsoft.com/fwlink/?LinkId=616936
