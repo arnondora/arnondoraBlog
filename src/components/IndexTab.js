@@ -134,8 +134,9 @@ export default class IndexTab extends React.Component {
 
           {this.state.tabIndex == 0 ?
             <MoreButtonWrapper>
-              {!this.props.context.last ? <Link to = {"/" + (this.props.context.page+1)}><PrimaryButton float="left" label="Older Posts"/></Link>  : null}
-              {!this.props.context.first && !this.props.context.page === 2 ? <Link to = {(this.props.context.page-1)}><PrimaryButton float="right" label="Newer Posts"/></Link>  : null}
+              {!this.props.context.isLast ? <Link to = {"/" + (this.props.context.page+1)}><PrimaryButton float="left" label="Older Posts"/></Link>  : null}
+              {!this.props.context.isFirst && this.props.context.page !== 2 ? <Link to = {(this.props.context.page-1)}><PrimaryButton float="right" label="Newer Posts"/></Link>  : null}
+              {this.props.context.page === 2 ? <Link to = {"/"}><PrimaryButton float="right" label="Newer Posts"/></Link>  : null}
 
             </MoreButtonWrapper> : null}
 
