@@ -3,36 +3,36 @@
     "name": "My Life",
     "link": "my-life",
     "description": "รวบรวมเรื่องต่าง ๆ เกี่ยวกับชีวิตอันแสนสนุกของผม",
-    "thumbnail": "https://themagicalmiss.files.wordpress.com/2012/07/enjoying-life-iheartfaces-wm.jpg"
+    "thumbnail": "https://firebasestorage.googleapis.com/v0/b/arnondorablog.appspot.com/o/categories%2Fmy-life.jpg?alt=media&token=da43ad7a-6f27-40e1-81b5-b4c6ae04ce32"
   },
   {
     "name": "Movie Review",
     "link": "movie-review",
     "description": "รวบรวม Review หนังต่าง ๆ ที่ได้ไปดูมาทั้งไทยและเทศ",
-    "thumbnail": "https://www.statisticbrain.com/wp-content/uploads/2015/04/star-wars-franchise-revenue-statistics.jpg"
+    "thumbnail": "https://firebasestorage.googleapis.com/v0/b/arnondorablog.appspot.com/o/categories%2Fmovie-review.jpg?alt=media&token=333835a7-f0b6-4297-91b9-d4b49eac3c1e"
   },
   {
     "name": "Programming 101",
     "link": "programming-101",
     "description": "รวบรวมเรื่องต่าง ๆ เกี่ยวกับชีวิตอันแสนสนุกของผม",
-    "thumbnail": "http://www.gettingsmart.com/wp-content/uploads/2017/06/Program-Code-Feature-Image.jpg"
+    "thumbnail": "https://firebasestorage.googleapis.com/v0/b/arnondorablog.appspot.com/o/categories%2Freview.png?alt=media&token=1efb39f0-e46d-462a-a730-d7d2ee0652ea"
   },
   {
     "name": "Laravel",
     "link": "laravel-101",
     "description": "รวบรวม Tip และสิ่งที่ได้รู้มาต่าง ๆ ในการใช้ PHP Framework อย่าง Laravel",
-    "thumbnail": "https://laracasts.com/images/series/squares/laravel-from-scratch.jpg"
+    "thumbnail": "https://firebasestorage.googleapis.com/v0/b/arnondorablog.appspot.com/o/categories%2Flaravel.jpg?alt=media&token=5f03b99d-9a84-4d09-9771-9c1e4e2641d3"
   },
   {
     "name": "Review",
     "link": "review",
     "description": "Review อะไรก็ได้โตแล้ว รีวิวมันทุกอย่างยันเรือดำน้ำ",
-    "thumbnail": "https://cnet4.cbsistatic.com/img/qhWOoIqPUIs0E8Fs-USZ-6cIQxU=/830x467/2017/10/16/b3f7c184-cbd5-4073-958e-02d33c0ddc88/google-pixel-2-0490-025.jpg"
+    "thumbnail": "https://firebasestorage.googleapis.com/v0/b/arnondorablog.appspot.com/o/categories%2Freview.png?alt=media&token=1efb39f0-e46d-462a-a730-d7d2ee0652ea"
   },
   {
     "name": "Tutorial",
     "link": "tutorial",
     "description": "อยากสอนอะไรก็สอน อยากเขียน",
-    "thumbnail": "https://dynomapper.com/images/sitemap_tutorial_2.jpg"
+    "thumbnail": "https://firebasestorage.googleapis.com/v0/b/arnondorablog.appspot.com/o/categories%2Ftutorial.jpg?alt=media&token=46f3d1d5-8745-4eb4-829d-700482ea169c"
   }
 ]
