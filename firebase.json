@@ -10,7 +10,8 @@
       "**/node_modules/**",
       "**/.git",
       "**/.cache",
-      "**/.functions"
+      "**/.functions",
+      "**/src"
     ],
     "rewrites": [
       {
