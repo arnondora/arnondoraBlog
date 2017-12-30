@@ -5,7 +5,7 @@ import Link from 'gatsby-link'
 import colours from '../utils/colours'
 
 
-const Container = styled.div`
+const Container = styled(Link)`
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${props => props.thumbnail}) ${props => props.hover ? colours.primaryColour : 'white'};
   background-position:center;
   background-repeat: no-repeat;
@@ -48,13 +48,13 @@ const ContentWrapper = styled.div`
   }
 `
 
-const CatName = styled(Link)`
+const CatName = styled.span`
   font-size: 36px;
   line-height: 1.2;
   color: white;
   margin-bottom: 20px;
 `
-const CatDescription = styled.p`
+const CatDescription = styled.span`
   color: white;
   width:100%;
   visibility: hidden;
@@ -72,10 +72,10 @@ export default class CategoryButton extends React.Component {
     var slug = "/category/" + this.props.slug
 
     return (
-      <Container thumbnail={this.props.thumbnail}>
+      <Container to = {slug} thumbnail={this.props.thumbnail}>
         <ContentWrapper>
-            <CatName to = {slug}>{this.props.name}</CatName>
-            <CatDescription to = {slug}>{this.props.description}</CatDescription>
+            <CatName>{this.props.name}</CatName>
+            <CatDescription>{this.props.description}</CatDescription>
         </ContentWrapper>
       </Container>
     )
