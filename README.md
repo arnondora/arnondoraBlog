@@ -1,13 +1,9 @@
-# gatsby-starter-default
-The default Gatsby starter
+# Arnondora Blog
+An official blog of Arnondora made of Gatsbyjs. It provides many features than the old site which powered by Wordpress. An upcoming features will be released in winter 2018. Stay tuned!
 
-For an overview of the project structure please refer to the [Gatsby documentation - Building with Components](https://www.gatsbyjs.org/docs/building-with-components/)
+## Installing
+- run `git clone https://github.com/arnondora/arnondoraBlog.git` to clone this repository.
+- run `yarn install` to install dependencies.
 
-Install this starter (assuming Gatsby is installed) by running from your CLI:
-```
-gatsby new gatsby-example-site
-```
-
-## Deploy
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
+## Deploying
+- run `yarn deploy`. Yarn takes care of build and deployment process
