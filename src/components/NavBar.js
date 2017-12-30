@@ -100,10 +100,10 @@ export default class NavBar extends React.Component
 
     return (
       <Wrapper bgColour={bgColour} visible={isVisible}>
-        <StyledLink to = "/index.html"><Logo alt ={"site-logo"} src ={arnondoraIcon}/></StyledLink>
-        <StyledLink to = "/index.html"><SiteName>{this.props.siteTitle}</SiteName></StyledLink>
+        <StyledLink to = "/"><Logo alt ={"site-logo"} src ={arnondoraIcon}/></StyledLink>
+        <StyledLink to = "/"><SiteName>{this.props.siteTitle}</SiteName></StyledLink>
         <Menu>
-          <StyledLink to = "/index.html"><MenuItem>Home</MenuItem></StyledLink>
+          <StyledLink to = "/"><MenuItem>Home</MenuItem></StyledLink>
           <StyledLinkOut href = "https://sway.com/tkELbwHp3Smhd1aN"><MenuItem>about:me</MenuItem></StyledLinkOut>
           <StyledLink to = "/page/tutorial"><MenuItem>Tutorial</MenuItem></StyledLink>
         </Menu>
