@@ -130,6 +130,7 @@ module.exports = {
      },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    `gatsby-transformer-json`
+    `gatsby-transformer-json`,
+    `gatsby-plugin-remove-trailing-slashes`
   ]
 }
