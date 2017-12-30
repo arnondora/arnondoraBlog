@@ -3742,7 +3742,7 @@ fs-extra@^1.0.0:
     jsonfile "^2.1.0"
     klaw "^1.0.0"
 
-fs-extra@^4.0.1, fs-extra@^4.0.2:
+fs-extra@^4.0.0, fs-extra@^4.0.1, fs-extra@^4.0.2:
   version "4.0.3"
   resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-4.0.3.tgz#0d852122e5bc5beb453fb028e9c0c9bf36340c94"
   dependencies:
@@ -3834,6 +3834,12 @@ gatsby-plugin-catch-links@^1.0.10:
   resolved "https://registry.yarnpkg.com/gatsby-plugin-catch-links/-/gatsby-plugin-catch-links-1.0.14.tgz#e003f51dac46225eccff1ec9daca0ee64e7d4fe5"
   dependencies:
     babel-runtime "^6.26.0"
+
+gatsby-plugin-copy-files@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-copy-files/-/gatsby-plugin-copy-files-1.0.1.tgz#844807697ae34a96d41eead68de5874a0a36c1ce"
+  dependencies:
+    fs-extra "^4.0.0"
 
 gatsby-plugin-favicon@^2.1.1:
   version "2.1.1"
