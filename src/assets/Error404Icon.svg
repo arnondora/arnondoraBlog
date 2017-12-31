@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="446px" height="235px" viewBox="0 0 446 235" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.1 (47250) - http://www.bohemiancoding.com/sketch -->
+    <title>Image</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Desktop" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-418.000000, -350.000000)">
+        <g id="Content">
+            <g transform="translate(175.000000, 186.000000)">
+                <g id="Image" transform="translate(241.000000, 170.000000)">
+                    <text id="4" font-family="OpenSans-Bold, Open Sans" font-size="150" font-weight="bold" fill="#2096F3">
+                        <tspan x="0.189941406" y="216">4</tspan>
+                    </text>
+                    <text id="4" font-family="OpenSans-Bold, Open Sans" font-size="150" font-weight="bold" fill="#2096F3">
+                        <tspan x="364.189941" y="216">4</tspan>
+                    </text>
+                    <g id="Ghost" transform="translate(150.000000, 0.000000)">
+                        <path d="M149.994024,194.173739 C149.995219,193.955676 150,193.738754 150,193.520271 L150,87.7826762 C150,39.5022013 121.551155,0 86.7803785,0 L63.2196215,0 C28.4488446,0 0,39.5022013 0,87.7826762 L0,193.520271 C0,193.738754 14.61251,185.367075 23.3067729,187.271118 C33.6259363,189.530976 34.9204183,198.636734 44.2231076,199.875905 C56.1026892,201.458346 59.8236454,187.385941 73.5059761,187.271118 C85.9909363,187.166318 88.0067331,198.840571 100.996016,198.675449 C112.223785,198.532715 115.126614,189.754081 127.888446,188.471574 C137.074422,187.548423 144.950199,191.154232 149.994024,194.173739 Z" id="Shape" stroke="#2096F3" stroke-width="11" fill="#FAFAFA" fill-rule="nonzero"></path>
+                        <circle id="Oval" stroke="#2096F3" stroke-width="11" fill="#2096F3" fill-rule="nonzero" cx="53" cy="70" r="3"></circle>
+                        <circle id="Oval" stroke="#2096F3" stroke-width="11" fill="#2096F3" fill-rule="nonzero" cx="97" cy="70" r="3"></circle>
+                        <rect id="Rectangle-path" stroke="#2096F3" stroke-width="7" fill="#FFFFFF" fill-rule="nonzero" x="45" y="113" width="62" height="19" rx="9.5"></rect>
+                        <path d="M65,113 L65,132" id="Shape" stroke="#2096F3" stroke-width="5"></path>
+                        <path d="M86,113 L86,132" id="Shape" stroke="#2096F3" stroke-width="5"></path>
+                        <path d="M45,125 L107,125" id="Shape" stroke="#2096F3" stroke-width="5"></path>
+                        <ellipse id="Oval" fill="#E6E6E6" fill-rule="nonzero" cx="75.5" cy="224.5" rx="66.5" ry="4.5"></ellipse>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -3,55 +3,26 @@ import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 
-import './index.css'
-
-const Header = () => (
-  <div
-    style={{
-      background: 'rebeccapurple',
-      marginBottom: '1.45rem',
-    }}
-  >
-    <div
-      style={{
-        margin: '0 auto',
-        maxWidth: 960,
-        padding: '1.45rem 1.0875rem',
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: 'white',
-            textDecoration: 'none',
-          }}
-        >
-          Gatsby
-        </Link>
-      </h1>
-    </div>
-  </div>
-)
+import siteLogo from '../assets/favicon.png'
 
 const TemplateWrapper = ({ children }) => (
   <div>
     <Helmet
-      title="Gatsby Default Starter"
+      title="Hello World - Mad Programmer Diary"
       meta={[
-        { name: 'description', content: 'Sample' },
-        { name: 'keywords', content: 'sample, something' },
+        { name: 'description', content: 'The offical personal blog of @arnondora' },
+        {property: "og:title", "content" : 'Hello World - Mad Programmer Diary'},
+        {property: "og:description", "content" : 'The offical personal blog of @arnondora'},
+        {property: "og:locale", "content" : "th_TH"},
+        {property: "og:type", "content": "blog"},
+        {property: "og:url", "content": "https://staging.arnondora.in.th"},
+        {property: "og:image:secure_url", "content": siteLogo},
+        {property: "og:site_name", "content": 'Hello World - Mad Programmer Diary'},
       ]}
-    />
-    <Header />
-    <div
-      style={{
-        margin: '0 auto',
-        maxWidth: 960,
-        padding: '0px 1.0875rem 1.45rem',
-        paddingTop: 0,
-      }}
     >
+      <html lang="th"/>
+    </Helmet>
+    <div>
       {children()}
     </div>
   </div>
