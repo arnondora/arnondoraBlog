@@ -3,7 +3,7 @@ module.exports = {
     title: 'Hello World',
     author: 'Arnon Puitrakul',
     description: 'Mad Programmer Diary',
-    siteUrl: 'https://staging.arnondora.in.th',
+    siteUrl: 'https://www.arnondora.in.th',
     authorTwitter: '@arnondora',
   },
   plugins: [
