@@ -4,7 +4,7 @@ import color from 'color'
 
 import colours from '../utils/colours'
 
-const Container = styled.button`
+const Container = styled.div`
   background-color: ${colours.primaryColour};
   color:white;
   float: ${props => props.float};
