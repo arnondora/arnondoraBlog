@@ -3,7 +3,7 @@ module.exports = {
     title: 'Hello World',
     author: 'Arnon Puitrakul',
     description: 'Mad Programmer Diary',
-    siteUrl: 'https://www.arnondora.in.th',
+    siteUrl: `${process.env.APP_URL}`,
     authorTwitter: '@arnondora',
   },
   plugins: [
@@ -15,7 +15,7 @@ module.exports = {
     `gatsby-remark-responsive-iframe`, {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: `UA-64833813-1`,
+        trackingId: `${process.env.GOOGLE_ANALYTICS_TRACKING_ID}`,
         anonymize: true
       }
     }, {
@@ -54,7 +54,7 @@ module.exports = {
     }, {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/src/pages`,
+        path: `${process.env.gatsby_executing_command === "develop"? __dirname + "/src/sample-articles" : __dirname + "/src/articles"}`,
         name: 'pages'
       }
     }, {
