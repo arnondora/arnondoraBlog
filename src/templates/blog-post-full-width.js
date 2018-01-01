@@ -146,7 +146,7 @@ export default class BlogPostTemplate extends React.Component {
           postContent={postContent}
           siteMetadata={siteMetadata}
         />
-        <NavBar article={true}/>
+        <NavBar article={true} headline={postInfo.title}/>
 
         {postInfo.template === "full-width" ?
           <ThumbnailContainer thumbnail={get(postInfo, 'image.childImageSharp.original.src',"")}>
