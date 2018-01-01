@@ -18,7 +18,7 @@ const Wrapper = styled.div `
   width:100%;
   padding: 15px 0px 15px 15px;
   background-color: ${props => props.bgColour};
-  overflow-x:hidden;
+  overflow:hidden;
 `
 
 const Logo = styled.img `
