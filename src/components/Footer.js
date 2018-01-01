@@ -65,6 +65,7 @@ const ThemeText = BottomTextItem.extend`
 
 export default class Footer extends React.Component {
   render () {
+    console.log(process.env)
     return (
       <Container bgColour={colours.primaryColour}>
         <Wrapper>
@@ -77,7 +78,7 @@ export default class Footer extends React.Component {
 
           <BottomText>
             <CopyrightText>© 2014-{new Date().getFullYear()} Arnon Puitrakul all right reserved.</CopyrightText>
-            {process.env.NODE_ENV === "staging" ?
+            {process.env.GATSBY_ENV === "staging" ?
                 <ThemeText>🔥 {process.env.APP_VERSION}</ThemeText>
               :
                 <ThemeText>Code with <FontAwesomeIcon icon={["fas", "heart"]} style = {{color: "#E91E63"}}/> by @arnondora</ThemeText>

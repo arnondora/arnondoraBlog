@@ -55,7 +55,7 @@
   "main": "n/a",
   "scripts": {
     "build": "node --max-old-space-size=20000 ./node_modules/.bin/gatsby  build",
-    "build-staging": "NODE_ENV=staging node --max-old-space-size=20000 ./node_modules/.bin/gatsby  build",
+    "build-staging": "GATSBY_ENV=staging node --max-old-space-size=20000 ./node_modules/.bin/gatsby  build",
     "develop": "node --max-old-space-size=20000 ./node_modules/.bin/gatsby develop",
     "predeploy": "rm -rf public && yarn build",
     "deploy": "firebase deploy",
