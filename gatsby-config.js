@@ -89,7 +89,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
-        output: `/sitemap.xml`,
+        output: `/sitemap_index.xml`,
         query: `
         {
           site {
