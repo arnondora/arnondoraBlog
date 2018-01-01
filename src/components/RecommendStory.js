@@ -30,6 +30,10 @@ const SuperWrapper = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   width: ${props => (props.width * 100) + "%"};
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `
 
 const Story = styled.div`
