@@ -56,6 +56,7 @@ const SocialButtons = styled.div`
   top: 30vh;
   margin-left: 15vw;
   margin-top: 10vh;
+  z-index: -1;
 
   @media (max-width: 768px) {
     display: none;
