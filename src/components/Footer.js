@@ -77,7 +77,11 @@ export default class Footer extends React.Component {
 
           <BottomText>
             <CopyrightText>© 2014-{new Date().getFullYear()} Arnon Puitrakul all right reserved.</CopyrightText>
-            <ThemeText>Code with <FontAwesomeIcon icon={["fas", "heart"]} style = {{color: "#E91E63"}}/> by @arnondora</ThemeText>
+            {process.env.NODE_ENV === "staging" ?
+                <ThemeText>🔥 {process.env.APP_VERSION}</ThemeText>
+              :
+                <ThemeText>Code with <FontAwesomeIcon icon={["fas", "heart"]} style = {{color: "#E91E63"}}/> by @arnondora</ThemeText>
+            }
           </BottomText>
         </Wrapper>
       </Container>
