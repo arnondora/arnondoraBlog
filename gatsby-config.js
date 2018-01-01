@@ -3,7 +3,7 @@ module.exports = {
     title: 'Hello World',
     author: 'Arnon Puitrakul',
     description: 'Mad Programmer Diary',
-    siteUrl: `${process.env.APP_URL}`,
+    siteUrl: "https://www.arnondora.in.th",
     authorTwitter: '@arnondora',
   },
   plugins: [
@@ -87,28 +87,7 @@ module.exports = {
       }
     },
     {
-      resolve: `gatsby-plugin-sitemap`,
-      options: {
-        output: `/sitemap_index.xml`,
-        query: `
-        {
-          site {
-            siteMetadata {
-                siteUrl
-            }
-          }
-
-          allSitePage {
-            edges {
-              node {
-                path
-              }
-            }
-          }
-        }
-        `
-      }
-
+      resolve: `gatsby-plugin-sitemap`
     },
     {
        resolve: `gatsby-plugin-favicon`,
