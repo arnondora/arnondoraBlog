@@ -8,9 +8,17 @@ h1,h2,h3,h4,h5,h6,p
 {
   color: #424242;
 }
-p
-{
+p {
   color: #616161;
+}
+
+a {
+  text-decoration: none;
+  color: #2096F3;
+}
+
+a:visited {
+  color: #0d8aed;
 }
 
 h1 {font-size: 37.32px;}
