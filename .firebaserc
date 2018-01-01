@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "arnondorablog"
+    "default": "arnondorablog",
+    "staging": "arnondorablog-staging"
   }
 }
