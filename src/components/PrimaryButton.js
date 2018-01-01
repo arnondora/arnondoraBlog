@@ -12,6 +12,10 @@ const Container = styled.div`
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.20);
   border-radius: 2px;
 
+  :visited {
+    color:white;
+  }
+
   :hover {
     background-color: ${color(colours.primaryColour).darken(0.2).string()};
   }

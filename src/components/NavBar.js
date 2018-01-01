@@ -63,10 +63,18 @@ const MenuItem = styled.li`
 
 const StyledLink = styled(Link)`
   color: white;
+
+  :visited {
+    color: white;
+  }
 `
 
 const StyledLinkOut = styled.a`
   color:white;
+
+  :visited {
+    color: white;
+  }
 `
 
 export default class NavBar extends React.Component
