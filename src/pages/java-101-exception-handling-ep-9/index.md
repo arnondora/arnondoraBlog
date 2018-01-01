@@ -1,7 +1,7 @@
 ---
 title: "Java 101 - Exception Handling (EP.9)"
 image: "./java101ep9.jpg"
-category: Uncategorized
+category: "Tutorial"
 excerpt: "2 เรื่องที่ผ่านมา เป็นเรื่องที่ค่อนข้างยากอยู่พอสมควร แต่วันนี้เป็นเรื่องสั้นๆ ง่ายๆ ไม่มึน งง"
 date: 2014-12-29T14:37:22.000
 author: arnondora
