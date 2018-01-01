@@ -17,16 +17,19 @@ const Container =  styled.div`
 `
 
 const StoryWrapper = styled(Link)`
+  padding: 0.5em;
+  display: flex;
+  height:200px;
+  justify-content: center;
+  align-items: center;
+`
+
+const SuperWrapper = styled.div`
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${props => props.thumbnail}), ${colours.primaryColour};
   background-position:center;
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 0.5em;
-  display: flex;
-  flex-grow: 1;
-  height:200px;
-  justify-content: center;
-  align-items: center;
+  width: ${props => (props.width * 100) + "%"};
 `
 
 const Story = styled.div`
@@ -45,11 +48,11 @@ export default class RecommendStory extends React.Component {
         {
           this.props.stories.map((story,index) => {
             return (
-              <StoryWrapper to={story.node.fields.slug} key={story.node.fields.slug} thumbnail={get(story.node.frontmatter,'image.childImageSharp.original.src',"")}>
+              <SuperWrapper key={story.node.fields.slug} width={1/this.props.stories.length} thumbnail={get(story.node.frontmatter,'image.childImageSharp.original.src',"")}><StoryWrapper to={story.node.fields.slug}>
                 <Story>
                   {story.node.frontmatter.title}
                 </Story>
-              </StoryWrapper>
+              </StoryWrapper></SuperWrapper>
             )
           })
         }
