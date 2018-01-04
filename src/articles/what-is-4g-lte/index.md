@@ -137,7 +137,7 @@ _CDMA Demultiplexer_
 **Non-Geek Resume** ซึ่งแน่นอนเหมือนกับ 1G และ 2G ที่ 3G ก็มีหลายเทคโนโลยีเช่นกัน เช่น **CDMA2000** และ **Universal Mobile Telecommunication**
 **System** หรือ **UMTS**
 
-![3GPP Logo](./what-is-4g-lte-4.gif)
+![3GPP Logo](./what-is-4g-lte-4.png)
 _3GPP Logo_
 
 มาในยุคของ 4G ที่ต้องการความเร็วที่สูงขึ้น 3G ที่ตอนนั้นถือว่าเร็วก็ช้าไปเลยเมื่อเจอ 4G ต้นกำเนิดของมันมาจาก **3rd Generation Partnership Project** หรือ **3GPP** ได้พัฒนาเทคโนโลยีตัวนึงที่**เร็วกว่า 3G ถึง 10 เท่า** ซึ่งได้ถูกตั้งชื่อว่า **Long Term Evolution** หรือย่อว่า **LTE** ดั่งที่เรารู้จักกัน
