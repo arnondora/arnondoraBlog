@@ -65,7 +65,6 @@ const ThemeText = BottomTextItem.extend`
 
 export default class Footer extends React.Component {
   render () {
-    console.log(process.env)
     return (
       <Container bgColour={colours.primaryColour}>
         <Wrapper>
