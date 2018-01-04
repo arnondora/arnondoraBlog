@@ -75,7 +75,7 @@ export default class CategoryButton extends React.Component {
       <Container to = {slug} thumbnail={this.props.thumbnail}>
         <ContentWrapper>
             <CatName>{this.props.name}</CatName>
-            <CatDescription>{this.props.description}</CatDescription>
+            <CatDescription>{this.props.description.length > 40 ? this.props.description.substr(0,38) + "..." : this.props.description}</CatDescription>
         </ContentWrapper>
       </Container>
     )

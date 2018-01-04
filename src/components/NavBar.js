@@ -1,8 +1,8 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
-import color from 'color'
 import { toInteger, get } from 'lodash'
+import color from 'color'
 import colours from '../utils/colours'
 import arnondoraIcon from '../assets/arnondoraIcon.svg'
 
@@ -18,7 +18,7 @@ const Wrapper = styled.div `
   width:100%;
   padding: 15px 0px 15px 15px;
   background-color: ${props => props.bgColour};
-  visibility: ${props => props.visible == 1 ? 'visible' : 'hidden'};
+  overflow:hidden;
 `
 
 const Logo = styled.img `
@@ -47,6 +47,15 @@ const Menu = styled.ul `
   }
 `
 
+const NavHeadline = styled.p`
+  color:white;
+  margin: 0 0 0 20px;
+  display: inline;
+  overflow:hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+`
+
 const MenuItem = styled.li`
   display: inline;
   margin-left: 20px;
@@ -54,10 +63,18 @@ const MenuItem = styled.li`
 
 const StyledLink = styled(Link)`
   color: white;
+
+  :visited {
+    color: white;
+  }
 `
 
 const StyledLinkOut = styled.a`
   color:white;
+
+  :visited {
+    color: white;
+  }
 `
 
 export default class NavBar extends React.Component
@@ -66,7 +83,6 @@ export default class NavBar extends React.Component
       super(props)
       this.state = {
         scroll: 0,
-        isGoUp: true,
       }
   }
 
@@ -81,32 +97,23 @@ export default class NavBar extends React.Component
   handleScroll = e => {
     this.setState({
       scroll: window.scrollY,
-      isGoUp: this.state.scroll > window.scrollY ? true : false
     })
 	}
 
   render() {
-    var isVisible = 1
-
     if (this.state.scroll < 256 && get(this.props, 'article', false))
       var bgColour = color(colours.primaryColour).alpha(this.state.scroll/300).string()
-    else if (!this.state.isGoUp)
-    {
-        var bgColour = color(colours.primaryColour).alpha(1).string()
-        isVisible = 0
-    }
-    else
+      else
       var bgColour = colours.primaryColour
-
     return (
-      <Wrapper bgColour={bgColour} visible={isVisible}>
+      <Wrapper bgColour={bgColour}>
         <StyledLink to = "/"><Logo alt ={"site-logo"} src ={arnondoraIcon}/></StyledLink>
-        <StyledLink to = "/"><SiteName>{this.props.siteTitle}</SiteName></StyledLink>
-        <Menu>
+        {get(this.props,'article', false) ? null : <StyledLink to = "/"><SiteName>{this.props.siteTitle}</SiteName></StyledLink>}
+        {this.state.scroll > 256 && get(this.props,'article',false) ? <NavHeadline>{this.props.headline}</NavHeadline>:<Menu>
           <StyledLink to = "/"><MenuItem>Home</MenuItem></StyledLink>
           <StyledLinkOut href = "https://sway.com/tkELbwHp3Smhd1aN"><MenuItem>about:me</MenuItem></StyledLinkOut>
           <StyledLink to = "/page/tutorial"><MenuItem>Tutorial</MenuItem></StyledLink>
-        </Menu>
+        </Menu>}
       </Wrapper>
     )
   }
