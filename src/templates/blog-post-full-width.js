@@ -56,6 +56,7 @@ const SocialButtons = styled.div`
   top: 30vh;
   margin-left: 15vw;
   margin-top: 10vh;
+  z-index: -1;
 
   @media (max-width: 768px) {
     display: none;
@@ -146,7 +147,7 @@ export default class BlogPostTemplate extends React.Component {
           postContent={postContent}
           siteMetadata={siteMetadata}
         />
-        <NavBar article={true}/>
+        <NavBar article={true} headline={postInfo.title}/>
 
         {postInfo.template === "full-width" ?
           <ThumbnailContainer thumbnail={get(postInfo, 'image.childImageSharp.original.src',"")}>
@@ -171,7 +172,7 @@ export default class BlogPostTemplate extends React.Component {
           <Container><PageWrapper dangerouslySetInnerHTML={{ __html: postContent.html }} /></Container>
         }
         {
-          postInfo.type === "post" ?
+          postInfo.type === "post" && (this.props.pathContext.next !== false || this.props.pathContext.prev !== false) ?
             <div>
               <NextStory next={this.props.pathContext.next} prev={this.props.pathContext.prev}/>
               <RecommendStory stories = {take(this.props.pathContext.related,4)}/>

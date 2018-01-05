@@ -18,10 +18,11 @@ const ItemWrapper = styled.div`
   transform: translateY(-50%);
 `
 
-const Header = styled.p`
+const Header = styled.span`
   font-size: 48px;
   text-align:center;
   margin-bottom: 50px;
+  line-height: 1.2;
 `
 
 const StyledLink = styled(Link)`

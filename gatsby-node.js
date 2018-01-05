@@ -58,6 +58,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
                     template
                     type
                     author
+                    status
                     date(formatString: "MMMM DD, YYYY")
                     isFeatured
                     image {
@@ -99,7 +100,15 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           return item.node.frontmatter.type === "post"
         })
 
-        const featurePosts = _.filter(posts, (item) => {
+        const publishedPosts = _.filter(posts, (item) => {
+          return item.node.frontmatter.status === "published"
+        })
+
+        const draftPosts = _.filter(posts, (item) => {
+          return item.node.frontmatter.status === "draft"
+        })
+
+        const featurePosts = _.filter(publishedPosts, (item) => {
           return _.get(item,'node.frontmatter.isFeatured', false) === true || _.get(item,'node.frontmatter.isFeatured','false') === 'true'
         })
 
@@ -108,10 +117,10 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         })
 
         // Create Category Pages with pagination
-        createCategoryPages(createPage, result.data.allCategoriesJson.edges, posts);
+        createCategoryPages(createPage, result.data.allCategoriesJson.edges, publishedPosts);
 
         // Create Index page with pagination
-        var chunkPost = _.chunk(posts, IndexPaginationAmount)
+        var chunkPost = _.chunk(publishedPosts, IndexPaginationAmount)
         for (var page = 0; page < chunkPost.length; page++) {
           createPage ({
             path: (page+1) === 1 ? "/" : "/" + (page+1),
@@ -138,16 +147,35 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           })
         })
 
-        // Create blog posts pages.
+        // Create blog published post pages.
         var id = -1
-        _.each(posts, (edge) => {
+        _.each(publishedPosts, (edge) => {
           id += 1
-          const prev = id === 0 ? false : posts[id - 1].node
-          const next = id+1 > _.size(posts)-1 ? false : posts[id + 1].node
+          const prev = id === 0 ? false : publishedPosts[id - 1].node
+          const next = id+1 > _.size(publishedPosts)-1 ? false : publishedPosts[id + 1].node
 
-          const related = _.filter(posts, (post) => {
+          const related = _.filter(publishedPosts, (post) => {
             return post.node.frontmatter.category === edge.node.frontmatter.category && post.node.frontmatter.title !== edge.node.frontmatter.title
           })
+          createPage({
+            path: edge.node.fields.slug,
+            component: blogPost,
+            context: {
+              id: id,
+              slug: edge.node.fields.slug,
+              prev,
+              next,
+              related,
+            },
+          })
+        })
+
+        // Create blog draft post pages.
+        _.each(draftPosts, (edge) => {
+          const prev = false
+          const next = false
+          const related = false
+
           createPage({
             path: edge.node.fields.slug,
             component: blogPost,
