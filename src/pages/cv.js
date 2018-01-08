@@ -20,6 +20,11 @@ export default class cv extends React.Component {
           color: #212121;
         }
 
+        h1 {font-size: 22px;}
+        h2 {font-size: 18px;}
+        h3 {font-size: 16px;}
+        p,li {font-size: 14px;}
+
         .container
         {
           width: 70%;
@@ -55,11 +60,12 @@ export default class cv extends React.Component {
         .introduction > .subtitle
         {
           font-size: 1.5em;
+          margin-top: 5px;
         }
 
         .introduction > .super-subtitle
         {
-          margin-top: 0;
+          margin-top: 5px;
           font-size: 1.2em;
           color: #848788;
         }
@@ -84,6 +90,11 @@ export default class cv extends React.Component {
         .section-list-wrapper > .section-list-item
         {
           margin-top: 20px;
+        }
+
+        .languages > ul
+        {
+          margin-top: 5px;
         }
 
         .skills > .chip-wrapper
@@ -183,7 +194,7 @@ export default class cv extends React.Component {
 
             <div class = "section-list-item">
               <h3>Like Me Co., Ltd.</h3>
-              <p class = "subtitle">Former Front-End Developer Intern | Jun,2017 - Jul,2017</p>
+              <p class = "subtitle">Former Front-End Developer Intern | Jun-Jul 2017</p>
               <p>Tech Stack : React, Experess</p>
             </div>
 
@@ -259,6 +270,11 @@ export default class cv extends React.Component {
           <h2>Extracurricular Activities </h2>
 
           <div class = "section-list-wrapper">
+
+            <div class = "section-list-item">
+              <h3>MUICT Open House 2017</h3>
+              <p class = "subtitle">Head of Project Section | 2017</p>
+            </div>
 
             <div class = "section-list-item">
               <h3>MU Guide</h3>
@@ -465,7 +481,7 @@ export default class cv extends React.Component {
             <li class = "chip">weka</li>
             <li class = "chip">R</li>
             <li class = "chip">java</li>
-            <li class = "chip">elastic search</li>
+            <li class = "chip">elasticsearch</li>
           </ul>
         </section>
 
