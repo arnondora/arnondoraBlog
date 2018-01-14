@@ -1,13 +1,12 @@
 module.exports = {
   siteMetadata: {
-    title: `${process.env.SITE_NAME}`,
+    title: "Hello World",
     author: 'Arnon Puitrakul',
     description: 'Mad Programmer Diary',
     siteUrl: `${process.env.NODE_ENV === "production" ? "https://www.arnondora.in.th" : "https://staging.arnondora.in.th"}`,
     authorTwitter: '@arnondora',
   },
   plugins: [
-    `gatsby-plugin-preact`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-catch-links`,
     `gatsby-plugin-offline`,
