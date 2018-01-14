@@ -16,7 +16,7 @@ module.exports = {
     `gatsby-remark-responsive-iframe`, {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: `${process.env.GOOGLE_ANALYTICS_TRACKING_ID}`,
+        trackingId: 'UA-64833813-1',
         anonymize: true
       }
     }, {
