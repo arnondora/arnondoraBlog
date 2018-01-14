@@ -30,7 +30,7 @@ module.exports = {
         display: "minimal-ui",
         icons: [
           {
-            src: `./src/assets/favicon.png`,
+            src: `./favicon.png`,
             sizes: `512x512`,
             type: `image/png`
           }
