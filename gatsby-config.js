@@ -1,9 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: 'Hello World',
+    title: `${process.env.SITE_NAME}`,
     author: 'Arnon Puitrakul',
     description: 'Mad Programmer Diary',
-    siteUrl: "https://www.arnondora.in.th",
+    siteUrl: `${process.env.NODE_ENV === "production" ? "https://www.arnondora.in.th" : "https://staging.arnondora.in.th"}`,
     authorTwitter: '@arnondora',
   },
   plugins: [
@@ -16,7 +16,7 @@ module.exports = {
     `gatsby-remark-responsive-iframe`, {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: 'UA-64833813-1',
+        trackingId: `${process.env.gatsby_executing_command === "develop" ? "UA-64833813-3" : "UA-64833813-1"}`,
         anonymize: true
       }
     }, {
@@ -93,7 +93,7 @@ module.exports = {
     {
        resolve: `gatsby-plugin-favicon`,
        options: {
-         logo: "./src/assets/favicon.png",
+         logo: "./favicon.png",
          injectHTML: true,
          icons: {
            android: true,
@@ -108,6 +108,9 @@ module.exports = {
          }
        }
      },
+    {
+      resolve: `gatsby-plugin-feed`
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-json`,
