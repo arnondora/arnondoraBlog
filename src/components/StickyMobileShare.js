@@ -6,7 +6,7 @@ import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import faLine from '@fortawesome/fontawesome-free-brands/faLine'
 import faFacebookF from '@fortawesome/fontawesome-free-brands/faFacebookF'
 import faTwitter from '@fortawesome/fontawesome-free-brands/faTwitter'
-import faGooglePlus from '@fortawesome/fontawesome-free-brands/faGooglePlus'
+import faGooglePlusG from '@fortawesome/fontawesome-free-brands/faGooglePlusG'
 
 import colours from '../utils/colours'
 import { getFacebookShareLink, getTwitterShareLink, getGooglePlusShareLink, getLineShareLink, convertLinkFromSlug } from '../utils/link'
