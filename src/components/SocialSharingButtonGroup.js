@@ -28,6 +28,7 @@ const IconLink = styled.a`
 const Icon = styled(FontAwesomeIcon)`
   align-self: center;
   color: ${color(colours.textSecondary).lighten(0.2).string()};
+  height:30px;
 
   &:hover {
     color: ${props => props.colour}
