@@ -50,7 +50,7 @@ const BottomText = styled.div`
   flex-direction: row;
   justify-content: space-between;
 `
-const BottomTextItem = styled.p`
+const BottomTextItem = styled.span`
     color: white;
     font-size: 18px;
 `
@@ -61,6 +61,10 @@ const CopyrightText = BottomTextItem.extend`
 
 const ThemeText = BottomTextItem.extend`
   align-self: flex-end;
+`
+
+const FooterIcon = styled(FontAwesomeIcon)`
+  height: 18px;
 `
 
 export default class Footer extends React.Component {
@@ -80,7 +84,7 @@ export default class Footer extends React.Component {
             {process.env.GATSBY_ENV === "staging" ?
                 <ThemeText>🔥 {process.env.APP_VERSION}</ThemeText>
               :
-                <ThemeText>Code with <FontAwesomeIcon icon={["fas", "heart"]} style = {{color: "#E91E63"}}/> by @arnondora</ThemeText>
+                <ThemeText>Code with <FooterIcon icon={["fas", "heart"]} style = {{color: "#E91E63"}}/> by @arnondora</ThemeText>
             }
           </BottomText>
         </Wrapper>
