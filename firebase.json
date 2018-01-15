@@ -11,7 +11,8 @@
       "**/.git",
       "**/.cache",
       "**/.functions",
-      "**/src"
+      "**/src",
+      "**/public/*.map.js"
     ],
     "rewrites": [
       {
