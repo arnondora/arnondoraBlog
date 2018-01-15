@@ -1,7 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
-import { get } from 'lodash'
+import get from 'lodash/get'
 import colours from '../utils/colours'
 import Link from 'gatsby-link'
 

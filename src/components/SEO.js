@@ -1,6 +1,6 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import { get } from 'lodash'
+import get from 'lodash/get'
 
 export default class SEO extends React.Component {
   render () {

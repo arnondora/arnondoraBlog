@@ -3,7 +3,7 @@ import Link from 'gatsby-link'
 import styled from 'styled-components'
 import fontawesome from '@fortawesome/fontawesome'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
-import { faHeart} from '@fortawesome/fontawesome-free-solid'
+import faHeart from '@fortawesome/fontawesome-free-solid/faHeart'
 import colours from '../utils/colours'
 
 fontawesome.library.add(faHeart)

@@ -4,7 +4,9 @@ import styled from 'styled-components'
 import color from 'color'
 import fontawesome from '@fortawesome/fontawesome'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
-import { faHome, faUser, faBook} from '@fortawesome/fontawesome-free-solid'
+import faHome from '@fortawesome/fontawesome-free-solid/faHome'
+import faUser from '@fortawesome/fontawesome-free-solid/faUser'
+import faBook from '@fortawesome/fontawesome-free-solid/faBook'
 import colours from '../utils/colours'
 
 const Menu = styled.div`

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Link from 'gatsby-link'
-import { get } from 'lodash'
+import get from 'lodash/get'
 
 import colours from '../utils/colours'
 

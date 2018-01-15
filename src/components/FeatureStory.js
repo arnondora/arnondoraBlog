@@ -1,7 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import Link from 'gatsby-link'
-import { get, filter, take } from 'lodash'
+import get from 'lodash/get'
+import filter from 'lodash/filter'
+import take from 'lodash/take'
 import color from 'color'
 
 import colours from '../utils/colours'
@@ -70,7 +72,7 @@ const ReadMoreButton = styled(Link)`
   :visited {
     color:white;
   }
-  
+
   :hover {
     background-color: ${color(colours.primaryColour).darken(0.2).string()};
   }
