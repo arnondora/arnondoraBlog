@@ -71,6 +71,11 @@ const NavHeadline = styled.span`
 const NavArticleShareWrapper = styled.div `
   margin-right: 20px;
   align-self: flex-end;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+
 `
 
 const MenuItem = styled.li`
