@@ -7,6 +7,8 @@ import color from 'color'
 import colours from '../utils/colours'
 import arnondoraIcon from '../assets/arnondoraIcon.svg'
 
+import SocialShareNavBarButtons from './SocialShareNavBarButtons'
+
 const Wrapper = styled.div `
   display: flex;
   z-index: 10;
@@ -48,13 +50,27 @@ const Menu = styled.ul `
   }
 `
 
-const NavHeadline = styled.p`
+const NavHeadShare = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0 auto;
+`
+
+const NavHeadline = styled.span`
+  align-self: flex-start;
   color:white;
   margin: 0 0 0 20px;
   display: inline;
   overflow:hidden;
+  font-size: 18px;
   text-overflow: ellipsis;
   white-space: nowrap;
+`
+
+const NavArticleShareWrapper = styled.div `
+  margin-right: 20px;
+  align-self: flex-end;
 `
 
 const MenuItem = styled.li`
@@ -110,11 +126,21 @@ export default class NavBar extends React.Component
       <Wrapper bgColour={bgColour}>
         <StyledLink to = "/"><Logo alt ={"site-logo"} src ={arnondoraIcon}/></StyledLink>
         {get(this.props,'article', false) ? null : <StyledLink to = "/"><SiteName>{this.props.siteTitle}</SiteName></StyledLink>}
-        {this.state.scroll > 256 && get(this.props,'article',false) ? <NavHeadline>{this.props.headline}</NavHeadline>:<Menu>
-          <StyledLink to = "/"><MenuItem>Home</MenuItem></StyledLink>
-          <StyledLinkOut href = "https://sway.com/tkELbwHp3Smhd1aN"><MenuItem>about:me</MenuItem></StyledLinkOut>
-          <StyledLink to = "/page/tutorial"><MenuItem>Tutorial</MenuItem></StyledLink>
-        </Menu>}
+
+        {this.state.scroll > 256 && get(this.props,'article',false && get(this.props,'slug', false)) ?
+        <NavHeadShare>
+          <NavHeadline>{this.props.headline}</NavHeadline>
+          <NavArticleShareWrapper><SocialShareNavBarButtons slug={this.props.slug}/></NavArticleShareWrapper>
+        </NavHeadShare>
+
+        :
+
+        <Menu>
+            <StyledLink to = "/"><MenuItem>Home</MenuItem></StyledLink>
+            <StyledLinkOut href = "https://sway.com/tkELbwHp3Smhd1aN"><MenuItem>about:me</MenuItem></StyledLinkOut>
+            <StyledLink to = "/page/tutorial"><MenuItem>Tutorial</MenuItem></StyledLink>
+        </Menu>
+      }
       </Wrapper>
     )
   }

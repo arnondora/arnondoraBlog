@@ -7,7 +7,6 @@ import colours from '../utils/colours'
 
 import SEO from '../components/SEO'
 import NavBar from '../components/NavBar'
-import SocialSharingButtonGroup from '../components/SocialSharingButtonGroup'
 import NextStory from '../components/NextStory'
 import RecommendStory from '../components/RecommendStory'
 import MobileSocialShareButton from '../components/MobileSocialShareButton'
@@ -52,27 +51,8 @@ const ThumbnailWrapper = styled.div`
   }
 `
 
-const SocialButtons = styled.div`
-  position: sticky;
-  top: 30vh;
-  margin-left: 15vw;
-  margin-top: 10vh;
-  z-index: -1;
-
-  @media (max-width: 768px) {
-    display: none;
-  }
-`
-
 const MobileShareButtonContainer = styled.div`
-  display: none;
-
-  @media (max-width: 768px) {
-    width: 90%;
-    padding-bottom: 20px;
-    margin: 0 auto;
-    display:block;
-  }
+  padding-bottom: 20px;
 `
 
 const MobileStickyShareContainer = styled.div`
@@ -88,9 +68,9 @@ const MobileStickyShareContainer = styled.div`
 `
 
 const ContentWrapper = styled.div`
-  width: 50%;
+  width: 60%;
   margin: 0 auto;
-  margin-top: -160px;
+  margin-top: 50px;
   margin-bottom: 0px;
 
   @media (max-width: 768px) {
@@ -102,7 +82,7 @@ const ArticleWrapper = styled.div`
 `
 
 const PageWrapper = ArticleWrapper.extend`
-  width: 50%;
+  width: 60%;
   margin: 0 auto;
   margin-top: 20px;
 
@@ -148,7 +128,7 @@ export default class BlogPostTemplate extends React.Component {
           postContent={postContent}
           siteMetadata={siteMetadata}
         />
-        <NavBar article={true} headline={postInfo.title}/>
+        <NavBar article={true} slug={postContent.fields.slug} headline={postInfo.title}/>
 
         {postInfo.template === "full-width" ?
           <ThumbnailContainer thumbnail={get(postInfo, 'image.childImageSharp.original.src',"")}>
@@ -162,13 +142,13 @@ export default class BlogPostTemplate extends React.Component {
         }
 
         {postInfo.type === "post" ? <Container>
-            <SocialButtons><SocialSharingButtonGroup slug={postContent.fields.slug}/></SocialButtons>
             <ContentWrapper>
               {postInfo.template === "normal" ? <SmallHeading>{postInfo.title}</SmallHeading> : null}
               {postInfo.type === "post" && postInfo.template === "normal"? <SmallSubHeading>by {postInfo.author} on {postInfo.date}</SmallSubHeading> : null}
               <ArticleWrapper dangerouslySetInnerHTML={{ __html: postContent.html }} />
+              <MobileShareButtonContainer><MobileSocialShareButton slug={postContent.fields.slug}/></MobileShareButtonContainer>
             </ContentWrapper>
-            <MobileShareButtonContainer><MobileSocialShareButton slug={postContent.fields.slug}/></MobileShareButtonContainer>
+
           </Container> :
           <Container><PageWrapper dangerouslySetInnerHTML={{ __html: postContent.html }} /></Container>
         }
