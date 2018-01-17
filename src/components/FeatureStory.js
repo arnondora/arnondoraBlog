@@ -27,6 +27,7 @@ const Container = styled.div`
   z-index: 2;
 `
 const ImgBackgroundControlContainer = styled.div `
+  background-color: ${colours.primaryColour};
   height:100%;
   width: auto;
   z-index: -1;
@@ -85,14 +86,16 @@ export default class FeatureStory extends React.Component {
     return(
       <SuperWrapper>
         <ImgBackgroundControlContainer>
-          <Img
-            title ={featureStory.node.frontmatter.title}
-            alt = {featureStory.node.frontmatter.excerpt}
-            sizes={featureStory.node.frontmatter.image.childImageSharp.sizes}
-            backgroundColor={colours.primaryColour}
-            outerWrapperClassName={"full-width-gatsby-image"}
-            style={{height:'100%'}}
-          />
+          {get(featureStory.node.frontmatter, 'image.childImageSharp.sizes', null) !== null ?
+            <Img
+              title ={featureStory.node.frontmatter.title}
+              alt = {featureStory.node.frontmatter.excerpt}
+              sizes={featureStory.node.frontmatter.image.childImageSharp.sizes}
+              backgroundColor={colours.primaryColour}
+              outerWrapperClassName={"full-width-gatsby-image"}
+              style={{height:'100%'}}
+            />
+          : null}
         </ImgBackgroundControlContainer>
 
         <Overlay>
