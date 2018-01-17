@@ -50,7 +50,7 @@ export default class IndexPage extends React.Component {
   render () {
     return (
       <Container>
-        <NavBar siteTitle = {this.props.data.site.siteMetadata.title}/>
+        <NavBar siteTitle = {this.props.pathContext.siteInfo.siteMetadata.title}/>
 
         <MainContentContainer>
           <FeatureStoryContainer>
@@ -61,7 +61,7 @@ export default class IndexPage extends React.Component {
 
           <ContentWrapper>
             <ContentContainer>
-              <IndexTab categories={this.props.data.allCategoriesJson.edges} context = {this.props.pathContext}/>
+              <IndexTab context = {this.props.pathContext}/>
             </ContentContainer>
           </ContentWrapper>
 
@@ -72,26 +72,3 @@ export default class IndexPage extends React.Component {
     )
   }
 }
-
-export const query = graphql`
-  query indexQuery {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-
-
-    allCategoriesJson {
-      edges {
-        node {
-          id
-          name
-          link
-          description
-          thumbnail
-        }
-      }
-    }
-  }
-`

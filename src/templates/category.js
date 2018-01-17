@@ -65,14 +65,13 @@ export default class CategoryTemplate extends React.Component
     var stories = null
     if (get(this.props.pathContext,'posts', null) !== null)
       stories = this.props.pathContext.posts
-
     return (
       <SuperWrapper>
-        <NavigationBar siteTitle = {this.props.data.site.siteMetadata.title}/>
+        <NavigationBar siteTitle = {this.props.pathContext.siteInfo.siteMetadata.title}/>
         <Container>
           <CategoryInfoWrapper>
-            <CategoryName>{this.props.data.allCategoriesJson.edges[0].node.name}</CategoryName>
-            <CategoryDescription>{this.props.data.allCategoriesJson.edges[0].node.description}</CategoryDescription>
+            <CategoryName>{this.props.pathContext.category.name}</CategoryName>
+            <CategoryDescription>{this.props.pathContext.category.description}</CategoryDescription>
           </CategoryInfoWrapper>
 
           <StoriesWrapper>
@@ -84,9 +83,9 @@ export default class CategoryTemplate extends React.Component
           </StoriesWrapper>
 
           <MoreButtonWrapper>
-            {!this.props.pathContext.isLast ? <Link to = {"/category/" + this.props.data.allCategoriesJson.edges[0].node.link + "/" + (this.props.pathContext.page+1)}><PrimaryButton float="left" label="Older Posts"/></Link>  : null}
-            {!this.props.pathContext.isFirst && this.props.pathContext.page !== 2 ? <Link to = {"/category/" + this.props.data.allCategoriesJson.edges[0].node.link + "/" + (this.props.pathContext.page-1)}><PrimaryButton float="right" label="Newer Posts"/></Link>  : null}
-            {!this.props.pathContext.isFirst && this.props.pathContext.page === 2 ? <Link to = {"/category/" + this.props.data.allCategoriesJson.edges[0].node.link}><PrimaryButton float="right" label="Newer Posts"/></Link>  : null}
+            {!this.props.pathContext.isLast ? <Link to = {"/category/" + this.props.pathContext.category.link + "/" + (this.props.pathContext.page+1)}><PrimaryButton float="left" label="Older Posts"/></Link>  : null}
+            {!this.props.pathContext.isFirst && this.props.pathContext.page !== 2 ? <Link to = {"/category/" + this.props.pathContext.category.link + "/" + (this.props.pathContext.page-1)}><PrimaryButton float="right" label="Newer Posts"/></Link>  : null}
+            {!this.props.pathContext.isFirst && this.props.pathContext.page === 2 ? <Link to = {"/category/" + this.props.pathContext.category.link}><PrimaryButton float="right" label="Newer Posts"/></Link>  : null}
           </MoreButtonWrapper>
         </Container>
         <MobileFooter/>
@@ -94,52 +93,3 @@ export default class CategoryTemplate extends React.Component
     )
   }
 }
-
-export const pageQuery = graphql`
-  query SiteInfoQuery($name : String) {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-
-    allCategoriesJson (
-      filter: { name: { eq: $name } }
-    ){
-      edges {
-        node {
-          name
-          link
-          description
-          thumbnail
-        }
-      }
-    }
-
-
-    allMarkdownRemark (
-      sort: { order: DESC, fields: [frontmatter___date] }
-      filter: { frontmatter: { category: { eq: $name } } }
-      limit: 30
-    ){
-        edges {
-          node {
-            excerpt(pruneLength: 250)
-            id
-            fields{
-              slug
-            }
-            frontmatter {
-              title
-              category
-              excerpt
-              date(formatString: "MMMM DD, YYYY")
-              author
-              type
-              status
-            }
-          }
-        }
-      }
-  }
-`

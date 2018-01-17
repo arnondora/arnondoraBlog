@@ -118,9 +118,9 @@ const SmallSubHeading = styled.p`
 
 export default class BlogPostTemplate extends React.Component {
   render() {
-    const postContent = this.props.data.markdownRemark
+    const postContent = this.props.pathContext.post
     const postInfo = postContent.frontmatter
-    const siteMetadata = this.props.data.site.siteMetadata
+    const siteMetadata = this.props.pathContext.siteInfo.siteMetadata
 
     return (
       <SuperWrapper>
@@ -168,41 +168,3 @@ export default class BlogPostTemplate extends React.Component {
     )
   }
 }
-
-export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
-    site {
-      siteMetadata {
-        title
-        author
-        description
-        siteUrl
-        authorTwitter
-      }
-    }
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      id
-      html
-      fields {
-        slug
-      }
-      frontmatter {
-        title
-        image {
-          childImageSharp {
-            original {
-               src
-            }
-          }
-        }
-        excerpt
-        category
-        date(formatString: "MMMM DD, YYYY")
-        author
-        type
-        template
-        status
-      }
-    }
-  }
-`

@@ -4,12 +4,12 @@ const path = require('path')
 const webpackLodashPlugin = require('lodash-webpack-plugin')
 const { createFilePath } = require('gatsby-source-filesystem')
 
-const createCategoryPages = (createPage, edges,posts) => {
+const createCategoryPages = (createPage, categories ,posts, siteInfo) => {
   const categoryPage = path.resolve('./src/templates/category.js')
 
-    edges.forEach(edge => {
-      const link = edge.node.link
-      const name = edge.node.name
+    categories.forEach(category => {
+      const link = category.node.link
+      const name = category.node.name
       const catPosts = _.filter(posts, (item) => {
         return _.get(item,'node.frontmatter.category', false) === name
       })
@@ -20,6 +20,8 @@ const createCategoryPages = (createPage, edges,posts) => {
           path: (page+1) === 1 ? "/category/" + link : "/category/" + link + "/" + (page+1),
           component: categoryPage,
           context: {
+            category: category.node,
+            siteInfo : siteInfo,
             name : name,
             isFirst: (page+1) === 1 ? true : false,
             isLast: (page+1) === chunkCatPosts.length? true : false,
@@ -45,12 +47,25 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
       graphql(
         `
           {
+            site {
+              siteMetadata {
+                title
+                author
+                description
+                siteUrl
+                authorTwitter
+              }
+            }
+
             allMarkdownRemark (sort: { order: DESC, fields: [frontmatter___date] }) {
               edges {
                 node {
                   excerpt(pruneLength: 250)
                   html
                   id
+                  fields {
+                    slug
+                  }
                   frontmatter {
                     title
                     excerpt
@@ -117,7 +132,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         })
 
         // Create Category Pages with pagination
-        createCategoryPages(createPage, result.data.allCategoriesJson.edges, publishedPosts);
+        createCategoryPages(createPage, result.data.allCategoriesJson.edges, publishedPosts, result.data.site);
 
         // Create Index page with pagination
         var chunkPost = _.chunk(publishedPosts, IndexPaginationAmount)
@@ -126,11 +141,13 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
             path: (page+1) === 1 ? "/" : "/" + (page+1),
             component: index,
             context : {
+              siteInfo : result.data.site,
               posts : chunkPost[page],
               isFirst: (page+1) === 1 ? true : false,
               isLast: (page+1) === chunkPost.length? true : false,
               page: (page+1),
-              featurePosts: featurePosts
+              featurePosts: featurePosts,
+              categories: result.data.allCategoriesJson.edges
             }
           })
         }
@@ -141,8 +158,9 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
             path: edge.node.fields.slug,
             component: blogPost,
             context: {
+              siteInfo : result.data.site,
               id: id,
-              slug: edge.node.fields.slug,
+              post: edge.node,
             },
           })
         })
@@ -161,8 +179,9 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
             path: edge.node.fields.slug,
             component: blogPost,
             context: {
+              siteInfo : result.data.site,
               id: id,
-              slug: edge.node.fields.slug,
+              post: edge.node,
               prev,
               next,
               related,
@@ -180,8 +199,9 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
             path: edge.node.fields.slug,
             component: blogPost,
             context: {
+              siteInfo : result.data.site,
               id: id,
-              slug: edge.node.fields.slug,
+              post: edge.node,
               prev,
               next,
               related,

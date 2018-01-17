@@ -100,8 +100,7 @@ export default class IndexTab extends React.Component {
           <CardWrapper key={item.node.fields.slug}><Card slug={item.node.fields.slug} heading={item.node.frontmatter.title} excerpt={item.node.frontmatter.excerpt} category={item.node.frontmatter.category} publishedDate={item.node.frontmatter.date} author={item.node.frontmatter.author}/></CardWrapper>
         )
     })
-
-    var categories = this.props.categories.map((item) => {
+    var categories = this.props.context.categories.map((item) => {
       return (
           <CategoryCard
             key={item.node.link}
@@ -141,7 +140,7 @@ export default class IndexTab extends React.Component {
             </MoreButtonWrapper> : null}
 
           { this.state.tabIndex == 1 ?
-              this.props.categories.length == 0 ? <h2>There is no category!</h2> : <CategoryContainer> {categories} </CategoryContainer>
+              this.props.context.categories.length == 0 ? <h2>There is no category!</h2> : <CategoryContainer> {categories} </CategoryContainer>
             :
               null
           }
