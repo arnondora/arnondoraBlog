@@ -78,7 +78,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
                     isFeatured
                     image {
                       childImageSharp {
-                        sizes(maxWidth: 1240 ) {
+                        sizes(maxWidth: 1200 ) {
                           base64
                           tracedSVG
                           aspectRatio
