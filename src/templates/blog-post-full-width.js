@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import Img from 'gatsby-image'
 import take from 'lodash/take'
 import get from 'lodash/get'
 
@@ -17,8 +16,6 @@ import Footer from  '../components/Footer'
 import './blog-post-full-width.css' /* Import Reader Style */
 
 const SuperWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
 
 `
 const Container = styled.div`
@@ -27,8 +24,11 @@ const Container = styled.div`
 `
 
 const ThumbnailContainer = styled.div`
-  height: 80vh;
-  overflow: hidden;
+  display: flex;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${props => props.thumbnail}), ${colours.primaryColour};
+  background-size:cover;
+  background-position:center;
+  background-repeat: no-repeat;
 `
 
 const OnlyThumbnail = styled.div`
@@ -40,22 +40,14 @@ const OnlyThumbnail = styled.div`
 `
 
 const ThumbnailWrapper = styled.div`
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:80vh;
-  background-color: rgba(0,0,0,0.4);
-`
-
-const TitleContainer = styled.div`
-  position: absolute;
-  top:40vh;
-  padding-left: 10vw;
-  padding-right: 10vw;
+  width:80%;
+  margin: 0 auto;
+  margin-top: 40vh;
+  margin-bottom: 20vh;
 
   @media (max-width: 768px) {
-    top:20vh;
+    margin-top: 20vh;
+    margin-bottom: : 20vh;
   }
 `
 
@@ -124,14 +116,6 @@ const SmallSubHeading = styled.p`
   font-weight: 300;
 `
 
-const ImgBackgroundControlContainer = styled.div `
-  height:100%;
-  width: auto;
-  z-index: -1;
-  display: block;
-  background-color: ${colours.primaryColour};
-`
-
 export default class BlogPostTemplate extends React.Component {
   render() {
     const postContent = this.props.pathContext.post
@@ -145,40 +129,16 @@ export default class BlogPostTemplate extends React.Component {
           siteMetadata={siteMetadata}
         />
         <NavBar article={true} slug={postContent.fields.slug} headline={postInfo.title}/>
+
         {postInfo.template === "full-width" ?
-          <ThumbnailContainer>
-            <ImgBackgroundControlContainer>
-              {get(postInfo, 'image.childImageSharp.sizes', null) !== null ?
-              <Img
-                title ={postInfo.title}
-                alt = {postInfo.excerpt}
-                sizes={postInfo.image.childImageSharp.sizes}
-                backgroundColor={colours.primaryColour}
-                outerWrapperClassName={"full-width-gatsby-image"}
-                style={{height:'100%'}}
-              />
-              : null}
-            </ImgBackgroundControlContainer>
-
+          <ThumbnailContainer thumbnail={get(postInfo, 'image.childImageSharp.original.src',"")}>
             <ThumbnailWrapper>
-              <TitleContainer>
-                <Heading>{postInfo.title}</Heading>
-                {postInfo.type === "post" ? <Info>by {postInfo.author} on {postInfo.date}</Info> : null}
-              </TitleContainer>
+              <Heading>{postInfo.title}</Heading>
+              {postInfo.type === "post" ? <Info>by {postInfo.author} on {postInfo.date}</Info> : null}
             </ThumbnailWrapper>
-          </ThumbnailContainer>
+          </ThumbnailContainer> :
 
-          :
-          <OnlyThumbnail>
-            <Img
-              title ={postInfo.title}
-              alt = {postInfo.excerpt}
-              sizes={postInfo.image.childImageSharp.sizes}
-              backgroundColor={colours.primaryColour}
-              outerWrapperClassName={"full-width-gatsby-image"}
-              style={{height:'100%'}}
-            />
-          </OnlyThumbnail>
+          <OnlyThumbnail thumbnail={get(postInfo,"image.childImageSharp.original.src","")}></OnlyThumbnail>
         }
 
         {postInfo.type === "post" ? <Container>
