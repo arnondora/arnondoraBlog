@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import Img from 'gatsby-image'
 import Link from 'gatsby-link'
 import get from 'lodash/get'
 import filter from 'lodash/filter'
@@ -8,11 +7,9 @@ import take from 'lodash/take'
 import color from 'color'
 
 import colours from '../utils/colours'
-import '../styles/FeatureStory.css'
 
 const SuperWrapper = styled.div`
   height: 100vh;
-  background-color: ${colours.primaryColour};
 `
 
 const Container = styled.div`
@@ -26,12 +23,13 @@ const Container = styled.div`
   padding-bottom: 20px;
   z-index: 2;
 `
-const ImgBackgroundControlContainer = styled.div `
-  background-color: ${colours.primaryColour};
+const ImgBackgroundControl = styled.div `
   height:100%;
-  width: auto;
-  z-index: -1;
-  display: block;
+  background: url(${props => props.thumbnail}) ${colours.primaryColour};
+  background-size: cover;
+  background-position:center;
+  background-repeat: no-repeat;
+  display: flex;
 `
 
 const Overlay = styled.div`
@@ -83,29 +81,18 @@ const ReadMoreButton = styled(Link)`
 export default class FeatureStory extends React.Component {
   render() {
     var featureStory = this.props.posts[0]
+
     return(
       <SuperWrapper>
-        <ImgBackgroundControlContainer>
-          {get(featureStory.node.frontmatter, 'image.childImageSharp.sizes', null) !== null ?
-            <Img
-              title ={featureStory.node.frontmatter.title}
-              alt = {featureStory.node.frontmatter.excerpt}
-              sizes={featureStory.node.frontmatter.image.childImageSharp.sizes}
-              backgroundColor={colours.primaryColour}
-              outerWrapperClassName={"full-width-gatsby-image"}
-              style={{height:'100%'}}
-            />
-          : null}
-        </ImgBackgroundControlContainer>
+        <Container>
+          <Header>Featured Story</Header>
+          <HeadingText>{featureStory.node.frontmatter.title}</HeadingText>
+          <Excerpt>{featureStory.node.frontmatter.excerpt}</Excerpt>
+          <ReadMoreButtonContainer><ReadMoreButton to={featureStory.node.fields.slug}>Read More</ReadMoreButton></ReadMoreButtonContainer>
 
-        <Overlay>
-          <Container>
-            <Header>Featured Story</Header>
-            <HeadingText>{featureStory.node.frontmatter.title}</HeadingText>
-            <Excerpt>{featureStory.node.frontmatter.excerpt}</Excerpt>
-            <ReadMoreButtonContainer><ReadMoreButton to={featureStory.node.fields.slug}>Read More</ReadMoreButton></ReadMoreButtonContainer>
-          </Container>
-        </Overlay>
+        </Container>
+        <Overlay/>
+        <ImgBackgroundControl thumbnail={featureStory.node.frontmatter.image.childImageSharp.original.src}/>
       </SuperWrapper>
     )
   }
