@@ -8,7 +8,8 @@ public/
 yarn-error.log
 # ENV FILES
 .env
-.env.development
+.env.develogit com
+gitpment
 .env.production
 # Articles
-./src/articles
+src/articles/
