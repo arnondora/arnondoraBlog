@@ -2,8 +2,7 @@
 title: "Why Mac ?"
 image: "./"
 category: My Life
-excerpt: "มีคนหลายคนชอบถามผมเสมอว่า
-"ทำไมถึงต้องใช้ Mac ด้วย ?? ราคาต่อสเปกก็แพงกว่า"
+excerpt: "มีคนหลายคนชอบถามผมเสมอว่า ทำไมถึงต้องใช้ Mac ด้วย ?? ราคาต่อสเปกก็แพงกว่า"
 date: 2014-05-26T03:11:26.000
 author: arnondora
 template: full-width

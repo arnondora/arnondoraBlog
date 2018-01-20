@@ -2,10 +2,7 @@
 title: "นายๆรู้ยัง Youtube ดูวีดีโอแบบ Offline ได้แล้วนะเออ"
 image:
 category: Review
-excerpt: "หลังจากที่ Youtube มาเปิด Youtube Thailand อยู่ในประเทศไทยอันน่าอยู่ของเรา เขาบอกไว้ว่า
-
-## "นี่ๆเราจะเปิดให้ใช้ Offline Mode เร็ว ๆ นี้" (เขาไม่ได้พูดแบบนี้หรอก สุภาพกว่านี้แน่นอน lol)
-ซึ่งตอนนี้ Youtube Thailand ก็เปิดให้ใช้ Offline Mode เป็นที..."
+excerpt: "หลังจากที่ Youtube มาเปิด Youtube Thailand อยู่ในประเทศไทยอันน่าอยู่ของเรา เขาบอกไว้ว่า นี่ๆเราจะเปิดให้ใช้ Offline Mode เร็ว ๆ นี้ (เขาไม่ได้พูดแบบนี้หรอก สุภาพกว่านี้แน่นอน lol) ซึ่งตอนนี้ Youtube Thailand ก็เปิดให้ใช้ Offline Mode เป็นที..."
 date: 2015-05-28T11:10:18.000
 author: arnondora
 template: full-width

@@ -2,7 +2,7 @@
 title: "รู้จักกับ Garbage Collection ใน Java"
 image: "./GarbageCollection2.jpg"
 category: Tutorial
-excerpt: "เมื่อตอนที่ผมย้ายจากเขียน C แล้วมาเขียน Java ก็ทำให้สงสัยอยู่เรื่องนึงว่า "ใน Java มันมีคำสั่งที่ทำงานกับ Memory โดยตรงมั้ย"
+excerpt: "เมื่อตอนที่ผมย้ายจากเขียน C แล้วมาเขียน Java ก็ทำให้สงสัยอยู่เรื่องนึงว่า ใน Java มันมีคำสั่งที่ทำงานกับ Memory โดยตรงมั้ย"
 date: 2016-01-17T22:45:52.000
 author: arnondora
 template: full-width
