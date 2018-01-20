@@ -6,6 +6,9 @@ node_modules
 public/
 .DS_Store
 yarn-error.log
+# ENV FILES
 .env
 .env.development
 .env.production
+# Articles
+./src/articles
