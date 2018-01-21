@@ -39,13 +39,15 @@ export default class reporter extends React.Component {
   constructor () {
     super ()
     this.state = {
-      reportList: null
+      reportList: -1
     }
   }
   componentDidMount() {
-    var db = firebase.firestore()
-    db.collection('bugs').get().then((snapshot) => {
-      this.setState({reportList: snapshot})
+    const reportRef = firebase.database().ref('reports')
+    reportRef.on('value', (snapshot) => {
+      this.setState({
+        reportList: snapshot.val()
+      })
     })
   }
 
@@ -62,9 +64,9 @@ export default class reporter extends React.Component {
           <PageTitle>Feature Request 🚀 / Bug Report 🐛</PageTitle>
           <ReportFormContainer><ReportForm/></ReportFormContainer>
           {
-            this.state.reportList === null ? <LoadingText>We are loading the content from server 🐢, please be patient</LoadingText>
+            this.state.reportList === -1 ? <LoadingText>We are loading the content from server 🐢, please be patient</LoadingText>
             :
-            this.state.reportList.size === 0 ? <LoadingText>There is no report right now. You can be the first by fill and submit your problem/ feature request in the form above.</LoadingText>
+            this.state.reportList === null ? <LoadingText>There is no report right now. You can be the first by fill and submit your problem/ feature request in the form above.</LoadingText>
             :
             this.state.reportList.forEach((report) => {
               <p id="report">report</p>
