@@ -1,5 +1,5 @@
 ---
-title: ""Laziness" is my inspiration"
+title: "Laziness is my inspiration"
 image: "./"
 category: My Life
 excerpt: "แรงบัลดาลใจของคนเรามีกลายอย่างครับ อาจจะเป็น การได้ออกไปพบธรรมชาติข้างนอก การได้ไปพบปะผู้คน แต่ของผมนั้นไม่เหมือนใครครับ นั่นคือ ความขี้เกียจ"
