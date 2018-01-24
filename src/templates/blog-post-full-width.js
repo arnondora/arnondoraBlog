@@ -9,6 +9,7 @@ import SEO from '../components/SEO'
 import NavBar from '../components/NavBar'
 import NextStory from '../components/NextStory'
 import RecommendStory from '../components/RecommendStory'
+import CommentBox from '../components/CommentBox'
 import MobileSocialShareButton from '../components/MobileSocialShareButton'
 import StickyMobileShare from '../components/StickyMobileShare'
 import Footer from  '../components/Footer'
@@ -84,12 +85,16 @@ const ArticleWrapper = styled.div`
 const PageWrapper = ArticleWrapper.extend`
   width: 60%;
   margin: 0 auto;
-  margin-top: 20px;
+  padding-top: 20px;
 
   @media (max-width: 768px) {
     width: 90%;
     margin-top:20px;
   }
+`
+
+const CommentWrapper = styled.div`
+  background-color: #FAFAFA
 `
 
 const Heading = styled.h1`
@@ -159,6 +164,13 @@ export default class BlogPostTemplate extends React.Component {
               <RecommendStory stories = {take(this.props.pathContext.related,4)}/>
             </div>
           : null
+        }
+
+        {
+          postInfo.type === "post" ?
+          <CommentWrapper><PageWrapper><CommentBox slug={postContent.fields.slug}/></PageWrapper></CommentWrapper>
+          :
+          null
         }
 
         <MobileStickyShareContainer><StickyMobileShare slug={postContent.fields.slug}/></MobileStickyShareContainer>
