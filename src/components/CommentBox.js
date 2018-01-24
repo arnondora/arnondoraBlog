@@ -75,6 +75,10 @@ const PrimaryButton = styled.button`
   }
 `
 
+const Warning = styled.span `
+  color:red;
+`
+
 export default class CommentBox extends React.Component {
   constructor(props) {
       super(props)
@@ -110,6 +114,7 @@ export default class CommentBox extends React.Component {
       <Container>
           <Header>Leave a comment?</Header>
           <CommentForm onSubmit={this.addComment}>
+            {process.env !== 'production' ? <Warning>Posting to staging database 🔥</Warning>: null}
             <InputGroup>
               <InputLabel>Name : </InputLabel>
               <InputField required name="name" value={this.state.name} onChange={this.handleNameChange}/>
