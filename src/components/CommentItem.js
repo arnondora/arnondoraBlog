@@ -12,6 +12,7 @@ const Container = styled.div `
   box-shadow: 0 2px 5px 0 rgba(0,0,0,0.05);
   border-radius: 2px;
   overflow: hidden;
+  margin-top:25px;
 `
 
 const Author = styled.h3`
