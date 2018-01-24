@@ -5,6 +5,7 @@ node_modules
 # Build directory
 public/
 .DS_Store
+.firebaserc
 yarn-error.log
 # ENV FILES
 .env
