@@ -3,8 +3,10 @@ module.exports = {
     title: "Hello World",
     author: 'Arnon Puitrakul',
     description: 'Mad Programmer Diary',
-    siteUrl: `${process.env.NODE_ENV === "production" ? "https://www.arnondora.in.th" : "https://staging.arnondora.in.th"}`,
-    authorTwitter: '@arnondora',
+    siteUrl: `${process.env.NODE_ENV === "production"
+      ? "https://www.arnondora.in.th"
+      : "https://staging.arnondora.in.th"}`,
+    authorTwitter: '@arnondora'
   },
   plugins: [
     `gatsby-plugin-react-next`,
@@ -16,7 +18,9 @@ module.exports = {
     `gatsby-remark-responsive-iframe`, {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: `${process.env.gatsby_executing_command === "develop" ? "UA-64833813-3" : "UA-64833813-1"}`,
+        trackingId: `${process.env.gatsby_executing_command === "develop"
+          ? "UA-64833813-3"
+          : "UA-64833813-1"}`,
         anonymize: true
       }
     }, {
@@ -55,7 +59,9 @@ module.exports = {
     }, {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${process.env.gatsby_executing_command === "develop"? __dirname + "/src/sample-articles" : __dirname + "/src/articles"}`,
+        path: `${process.env.gatsby_executing_command === "develop"
+          ? __dirname + "/src/sample-articles"
+          : __dirname + "/src/articles"}`,
         name: 'pages'
       }
     }, {
@@ -86,29 +92,26 @@ module.exports = {
           'gatsby-remark-emoji'
         ]
       }
-    },
-    {
+    }, {
       resolve: `gatsby-plugin-sitemap`
-    },
-    {
-       resolve: `gatsby-plugin-favicon`,
-       options: {
-         logo: "./favicon.png",
-         injectHTML: true,
-         icons: {
-           android: true,
-           appleIcon: true,
-           appleStartup: true,
-           coast: false,
-           favicons: true,
-           firefox: true,
-           twitter: false,
-           yandex: false,
-           windows: false
-         }
-       }
-     },
-    {
+    }, {
+      resolve: `gatsby-plugin-favicon`,
+      options: {
+        logo: "./favicon.png",
+        injectHTML: true,
+        icons: {
+          android: true,
+          appleIcon: true,
+          appleStartup: true,
+          coast: false,
+          favicons: true,
+          firefox: true,
+          twitter: false,
+          yandex: false,
+          windows: false
+        }
+      }
+    }, {
       resolve: `gatsby-plugin-feed`
     },
     `gatsby-transformer-sharp`,
