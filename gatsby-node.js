@@ -3,6 +3,35 @@ const Promise = require('bluebird')
 const path = require('path')
 const webpackLodashPlugin = require('lodash-webpack-plugin')
 const {createFilePath} = require('gatsby-source-filesystem')
+const firebase = require('firebase')
+
+if (process.env.gatsby_executing_command === 'develop' || process.env.GATSBY_ENV === 'staging')
+  var envPath = './.env.development'
+else
+  var envPath = './.env.production'
+
+require('dotenv').config({path: envPath})
+
+const uploadArticleToFirebase = (posts, path) => {
+  var config = {
+    apiKey: process.env.GATSBY_FIREBASE_APIKEY,
+    authDomain: process.env.GATSBY_FIREBASE_AUTHDOMAIN,
+    databaseURL: process.env.GATSBY_FIREBASE_DATABASEURL,
+    projectId: process.env.GATSBY_FIREBASE_PROJECTID,
+    storageBucket: process.env.GATSBY_FIREBASE_STORAGEBUCKET,
+    messagingSenderId: process.env.GATSBY_FIREBASE_MESSAGINGSENDERID
+  }
+
+  if (!firebase.apps.length)
+    firebase.initializeApp(config)
+
+  _.each(posts, (edge) => {
+    var node = _.cloneDeep(edge.node)
+    if (node.frontmatter.image !== null)
+      node.frontmatter.image.childImageSharp = null
+    firebase.database().ref(path + "/" + node.fields.slug).update(node)
+  })
+}
 
 const createCategoryPages = (createPage, categories, posts, siteInfo) => {
   const categoryPage = path.resolve('./src/templates/category.js')
@@ -82,6 +111,8 @@ exports.createPages = ({graphql, boundActionCreators}) => {
                     date(formatString: "MMMM DD, YYYY")
                     isFeatured
                     image {
+                      name
+                      ext
                       childImageSharp {
                         original {
                           src
@@ -138,6 +169,9 @@ exports.createPages = ({graphql, boundActionCreators}) => {
 
       // Create Category Pages with pagination
       createCategoryPages(createPage, result.data.allCategoriesJson.edges, publishedPosts, result.data.site);
+      uploadArticleToFirebase(posts,"articles")
+      uploadArticleToFirebase(pages,"pages")
+
 
       // Create Index page with pagination
       var chunkPost = _.chunk(publishedPosts, IndexPaginationAmount)
