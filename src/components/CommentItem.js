@@ -32,7 +32,6 @@ const Content = styled.span`
 
 export default class CommentItem extends React.Component {
   render () {
-    console.log(this.props.comment)
     return (
       <Container>
         <Author>{this.props.comment.name}</Author>

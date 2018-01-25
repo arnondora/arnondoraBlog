@@ -109,7 +109,6 @@ export default class CommentBox extends React.Component {
   }
 
   render () {
-    console.log(this.state.commentList)
     return (
       <Container>
           <Header>Leave a comment?</Header>
