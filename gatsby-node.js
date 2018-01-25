@@ -12,24 +12,32 @@ else
 
 require('dotenv').config({path: envPath})
 
+var config = {
+  apiKey: process.env.GATSBY_FIREBASE_APIKEY,
+  authDomain: process.env.GATSBY_FIREBASE_AUTHDOMAIN,
+  databaseURL: process.env.GATSBY_FIREBASE_DATABASEURL,
+  projectId: process.env.GATSBY_FIREBASE_PROJECTID,
+  storageBucket: process.env.GATSBY_FIREBASE_STORAGEBUCKET,
+  messagingSenderId: process.env.GATSBY_FIREBASE_MESSAGINGSENDERID
+}
+
+if (!firebase.apps.length)
+  firebase.initializeApp(config)
+
+
 const uploadArticleToFirebase = (posts, path) => {
-  var config = {
-    apiKey: process.env.GATSBY_FIREBASE_APIKEY,
-    authDomain: process.env.GATSBY_FIREBASE_AUTHDOMAIN,
-    databaseURL: process.env.GATSBY_FIREBASE_DATABASEURL,
-    projectId: process.env.GATSBY_FIREBASE_PROJECTID,
-    storageBucket: process.env.GATSBY_FIREBASE_STORAGEBUCKET,
-    messagingSenderId: process.env.GATSBY_FIREBASE_MESSAGINGSENDERID
-  }
-
-  if (!firebase.apps.length)
-    firebase.initializeApp(config)
-
   _.each(posts, (edge) => {
     var node = _.cloneDeep(edge.node)
     if (node.frontmatter.image !== null)
       node.frontmatter.image.childImageSharp = null
     firebase.database().ref(path + "/" + node.fields.slug).update(node)
+  })
+}
+
+const uploadCategoryToFirebase = (categories) => {
+  _.each(categories, (category) => {
+    var node = _.cloneDeep(category.node)
+    firebase.database().ref("categories/" + node.link).update(node)
   })
 }
 
@@ -171,6 +179,7 @@ exports.createPages = ({graphql, boundActionCreators}) => {
       createCategoryPages(createPage, result.data.allCategoriesJson.edges, publishedPosts, result.data.site);
       uploadArticleToFirebase(posts,"articles")
       uploadArticleToFirebase(pages,"pages")
+      uploadCategoryToFirebase(result.data.allCategoriesJson.edges,"categories")
 
 
       // Create Index page with pagination
