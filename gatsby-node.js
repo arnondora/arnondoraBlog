@@ -30,7 +30,7 @@ const uploadArticleToFirebase = (posts, path) => {
     var node = _.cloneDeep(edge.node)
     if (node.frontmatter.image !== null)
       node.frontmatter.image.childImageSharp = null
-    firebase.database().ref(path + "/" + node.fields.slug).update(node)
+    firebase.database().ref(path + node.fields.slug).update(node)
   })
 }
 
