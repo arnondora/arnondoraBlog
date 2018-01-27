@@ -222,7 +222,7 @@ exports.createPages = ({graphql, boundActionCreators}) => {
       // Create pages.
       _.each(pages, (edge) => {
 
-        node = _.pick(edge.node, ['fields.slug',  'frontmatter.excerpt', 'frontmatter.title', 'frontmatter.image', 'frontmatter.category', 'frontmatter.date', 'frontmatter.author', 'frontmatter.template', 'html'])
+        node = _.pick(edge.node, ['fields.slug',  'frontmatter.excerpt', 'frontmatter.title', 'frontmatter.image', 'frontmatter.category', 'frontmatter.date', 'frontmatter.author', 'frontmatter.template', 'frontmatter.type', 'html'])
 
         createPage({
           path: edge.node.fields.slug,
@@ -256,7 +256,7 @@ exports.createPages = ({graphql, boundActionCreators}) => {
           return _.pick(post, ['node.fields.slug', 'node.frontmatter.title', 'node.frontmatter.image'])
         })
 
-        node = _.pick(edge.node, ['fields.slug',  'frontmatter.excerpt', 'frontmatter.title', 'frontmatter.image', 'frontmatter.category', 'frontmatter.date', 'frontmatter.author', 'frontmatter.template', 'html'])
+        node = _.pick(edge.node, ['fields.slug',  'frontmatter.excerpt', 'frontmatter.title', 'frontmatter.image', 'frontmatter.category', 'frontmatter.date', 'frontmatter.author', 'frontmatter.template', 'frontmatter.type', 'html'])
 
         createPage({
           path: edge.node.fields.slug,
@@ -278,7 +278,7 @@ exports.createPages = ({graphql, boundActionCreators}) => {
         const next = false
         const related = false
 
-        node = _.pick(edge.node, ['fields.slug',  'frontmatter.excerpt', 'frontmatter.title', 'frontmatter.image', 'frontmatter.category', 'frontmatter.date', 'frontmatter.author', 'frontmatter.template', 'html'])
+        node = _.pick(edge.node, ['fields.slug',  'frontmatter.excerpt', 'frontmatter.title', 'frontmatter.image', 'frontmatter.category', 'frontmatter.date', 'frontmatter.author', 'frontmatter.template', 'frontmatter.type', 'html'])
 
         createPage({
           path: edge.node.fields.slug,
