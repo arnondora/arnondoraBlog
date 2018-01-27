@@ -12,7 +12,7 @@ import IndexTab from '../components/IndexTab'
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: #FAFAFA;
+  background-color: #F5F5F5;
   min-height: 100vh;
 `
 
