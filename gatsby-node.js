@@ -44,6 +44,10 @@ const uploadCategoryToFirebase = (categories) => {
 const createCategoryPages = (createPage, categories, posts, siteInfo) => {
   const categoryPage = path.resolve('./src/templates/category.js')
 
+  posts = _.map(posts, (post) => {
+    return _.pick(post, ['node.fields.slug', 'node.frontmatter.title', 'node.frontmatter.excerpt', 'node.frontmatter.category', 'node.frontmatter.date', 'node.frontmatter.author'])
+  })
+
   categories.forEach(category => {
     const link = category.node.link
     const name = category.node.name
@@ -167,8 +171,12 @@ exports.createPages = ({graphql, boundActionCreators}) => {
         return item.node.frontmatter.status === "draft"
       })
 
-      const featurePosts = _.filter(publishedPosts, (item) => {
+      var featurePosts = _.take(_.filter(publishedPosts, (item) => {
         return _.get(item, 'node.frontmatter.isFeatured', false) === true || _.get(item, 'node.frontmatter.isFeatured', 'false') === 'true'
+      }),1)
+
+      featurePosts = _.map(featurePosts, (post) => {
+        return _.pick(post, ['node.fields.slug', 'node.frontmatter.title', 'node.frontmatter.image', 'node.frontmatter.excerpt'])
       })
 
       const pages = _.filter(result.data.allMarkdownRemark.edges, (item) => {
@@ -185,6 +193,10 @@ exports.createPages = ({graphql, boundActionCreators}) => {
       // Create Index page with pagination
       var chunkPost = _.chunk(publishedPosts, IndexPaginationAmount)
       for (var page = 0; page < chunkPost.length; page++) {
+        chunkCleanPosts = _.map(chunkPost[page], (post) => {
+          return _.pick(post, ['node.fields.slug', 'node.frontmatter.title', 'node.frontmatter.excerpt', 'node.frontmatter.category', 'node.frontmatter.date', 'node.frontmatter.author'])
+        })
+
         createPage({
           path: (page + 1) === 1
             ? "/"
@@ -193,7 +205,7 @@ exports.createPages = ({graphql, boundActionCreators}) => {
           component: index,
           context: {
             siteInfo: result.data.site,
-            posts: chunkPost[page],
+            posts: chunkCleanPosts,
             isFirst: (page + 1) === 1
               ? true
               : false,
@@ -209,13 +221,16 @@ exports.createPages = ({graphql, boundActionCreators}) => {
 
       // Create pages.
       _.each(pages, (edge) => {
+
+        node = _.pick(edge.node, ['fields.slug',  'frontmatter.excerpt', 'frontmatter.title', 'frontmatter.image', 'frontmatter.category', 'frontmatter.date', 'frontmatter.author', 'frontmatter.template', 'html'])
+
         createPage({
           path: edge.node.fields.slug,
           component: blogPost,
           context: {
             siteInfo: result.data.site,
             id: id,
-            post: edge.node
+            post: node
           }
         })
       })
@@ -223,24 +238,33 @@ exports.createPages = ({graphql, boundActionCreators}) => {
       // Create blog published post pages.
       var id = -1
       _.each(publishedPosts, (edge) => {
+
         id += 1
         const prev = id === 0
           ? false
-          : publishedPosts[id - 1].node
+          : _.pick(publishedPosts[id - 1].node, ['fields.slug', 'frontmatter.title'])
+
         const next = id + 1 > _.size(publishedPosts) - 1
           ? false
-          : publishedPosts[id + 1].node
+          : _.pick(publishedPosts[id + 1].node, ['fields.slug', 'frontmatter.title'])
 
-        const related = _.filter(publishedPosts, (post) => {
+        var related = _.take(_.filter(publishedPosts, (post) => {
           return post.node.frontmatter.category === edge.node.frontmatter.category && post.node.frontmatter.title !== edge.node.frontmatter.title
+        }), 4)
+
+        related = _.map(related, (post) => {
+          return _.pick(post, ['node.fields.slug', 'node.frontmatter.title', 'node.frontmatter.image'])
         })
+
+        node = _.pick(edge.node, ['fields.slug',  'frontmatter.excerpt', 'frontmatter.title', 'frontmatter.image', 'frontmatter.category', 'frontmatter.date', 'frontmatter.author', 'frontmatter.template', 'html'])
+
         createPage({
           path: edge.node.fields.slug,
           component: blogPost,
           context: {
             siteInfo: result.data.site,
             id: id,
-            post: edge.node,
+            post: node,
             prev,
             next,
             related
@@ -254,13 +278,15 @@ exports.createPages = ({graphql, boundActionCreators}) => {
         const next = false
         const related = false
 
+        node = _.pick(edge.node, ['fields.slug',  'frontmatter.excerpt', 'frontmatter.title', 'frontmatter.image', 'frontmatter.category', 'frontmatter.date', 'frontmatter.author', 'frontmatter.template', 'html'])
+
         createPage({
           path: edge.node.fields.slug,
           component: blogPost,
           context: {
             siteInfo: result.data.site,
             id: id,
-            post: edge.node,
+            post: node,
             prev,
             next,
             related
