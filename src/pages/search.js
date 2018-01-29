@@ -47,7 +47,7 @@ const FormWrapper = styled.div`
   & >input:focus {
     border: none;
     outline: none;
-    padding: 10px 10px 10px 10px;
+    padding: 15px 15px 15px 15px;
     box-shadow: 0 2px 5px 0 rgba(0,0,0,0.05);
   }
 `
