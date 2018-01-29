@@ -88,7 +88,32 @@ module.exports = {
         ]
       }
     }, {
-      resolve: `gatsby-plugin-sitemap`
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                siteUrl
+              }
+            }
+            allSitePage (
+              filter: {
+                path : {
+                  regex : "/^(?!\/(dev-404-page 404)).*$/"
+                  regex : "/[^0-9]+$/"
+                }
+              }
+            ) {
+              edges {
+                node {
+                  path
+                }
+              }
+            }
+          }
+        `
+      }
     }, {
       resolve: `gatsby-plugin-favicon`,
       options: {
