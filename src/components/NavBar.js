@@ -45,6 +45,10 @@ const Menu = styled.div`
   display: flex;
   justify-content: space-between;
   flex-grow: 1;
+
+  @media (max-width: 576px) {
+      justify-content: flex-end;
+  }
 `
 
 const LeftMenu = styled.ul `
@@ -67,10 +71,6 @@ const RightMenu = styled.ul `
   margin: 0;
   list-style-type: none;
   list-style-position: inside;
-
-  @media (max-width: 576px) {
-      display: none;
-  }
 `
 
 const NavHeadShare = styled.div`
@@ -91,7 +91,7 @@ const NavHeadline = styled.span`
   white-space: nowrap;
 `
 
-const NavItemRight = styled.div `
+const NavShareButton = styled.div `
   margin-right: 20px;
   align-self: flex-end;
 
@@ -99,6 +99,11 @@ const NavItemRight = styled.div `
     display: none;
   }
 
+`
+
+const NavSearchWrapper = styled.div `
+  margin-right: 20px;
+  align-self: flex-end;
 `
 
 const MenuItem = styled.li`
@@ -163,7 +168,7 @@ export default class NavBar extends React.Component
         {this.state.scroll > 256 && get(this.props,'article',false && get(this.props,'slug', false)) ?
         <NavHeadShare>
           <NavHeadline>{this.props.headline}</NavHeadline>
-          <NavItemRight><SocialShareNavBarButtons slug={this.props.slug}/></NavItemRight>
+          <NavShareButton><SocialShareNavBarButtons slug={this.props.slug}/></NavShareButton>
         </NavHeadShare>
 
         :
@@ -176,7 +181,7 @@ export default class NavBar extends React.Component
             </LeftMenu>
 
             <RightMenu>
-                <StyledLink to = "/search"><NavItemRight><SearchIcon icon={faSearch}/></NavItemRight></StyledLink>
+                <StyledLink to = "/search"><NavSearchWrapper><SearchIcon icon={faSearch}/></NavSearchWrapper></StyledLink>
             </RightMenu>
         </Menu>
       }
