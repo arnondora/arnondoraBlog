@@ -1,6 +1,75 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import colours from '../utils/colours'
+
+import NavBar from '../components/NavBar'
+import Card from '../components/Card'
+import MobileFooter from '../components/MobileFooter'
+
+const NavigationBar = styled(NavBar)`
+  position: relative;
+`
+const SuperWrapper = styled.div`
+  background-color: #F5F5F5;
+  min-height: 100vh;
+`
+
+const Container = styled.div`
+  width: 80%;
+  margin: 0 auto;
+
+  padding-top: 104px;
+  padding-bottom: 50px;
+
+  @media (max-width: 768px) {
+    width: 90%;
+  }
+`
+
+const PageHeader = styled.h1`
+
+`
+
+const FormWrapper = styled.div`
+  display: flex;
+  width:100%;
+  margin-bottom: 10px;
+
+  & > input {
+    width:100%;
+    padding: 15px 15px 15px 15px;
+    background-color: #FFFFFF;
+    outline: none;
+    border: none;
+  }
+
+  & >input:focus {
+    border: none;
+    outline: none;
+    padding: 10px 10px 10px 10px;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.05);
+  }
+`
+
+const ResultWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+
+`
+const CardWrapper = styled.div`
+  margin-top: 40px;
+  :first-child{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+`
+
+const NotFoundText = styled.h3`
+  margin-top: 15px;
+  color: ${colours.textSecondary};
+`
+
 export default class search extends React.Component {
 
   constructor (props) {
@@ -21,28 +90,39 @@ export default class search extends React.Component {
   }
 
   render () {
-    return (
-      <div>
-        <input
-          type="text"
-          onChange={this.handleSearch}
-          value={this.state.keyword}
-          ref= {input => {
-              this.textInput = input
-          }}
-        />
+    var searchResult = this.state.articles
+    .filter(this.searchFor(this.state.keyword))
+    .map(page => (
+      <CardWrapper key={page.node.fields.slug}><Card slug={page.node.fields.slug} heading={page.node.frontmatter.title} excerpt={page.node.excerpt} category={page.node.frontmatter.category} publishedDate={page.node.frontmatter.date} author={page.node.frontmatter.author}/></CardWrapper>
+    ))
+    .slice(0, 10)
 
-        <ul>
+    return (
+      <SuperWrapper>
+        <NavigationBar siteTitle = {this.props.data.site.siteMetadata.title}/>
+        <Container>
+          <PageHeader>Search for articles</PageHeader>
+
+            <FormWrapper>
+              <input
+                type="text"
+                placeholder = "Let's search something new"
+                onChange={this.handleSearch}
+                value={this.state.keyword}
+                ref= {input => {
+                    this.textInput = input
+                }}
+              />
+            </FormWrapper>
+
+          <ResultWrapper>
             {
-              this.state.articles
-              .filter(this.searchFor(this.state.keyword))
-              .map(page => (
-                <li>{page.node.frontmatter.title}</li>
-              ))
-              .slice(0, 10)
+              searchResult.length > 0 ? searchResult : <NotFoundText>Not found article from the keyword.</NotFoundText>
             }
-        </ul>
-      </div>
+          </ResultWrapper>
+        </Container>
+        <MobileFooter/>
+      </SuperWrapper>
     )
   }
 
@@ -69,40 +149,24 @@ export default class search extends React.Component {
 
 export const pageQuery = graphql`
   query SearchQuery {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+
     allMarkdownRemark (sort: { order: DESC, fields: [frontmatter___date] }) {
       edges {
         node {
           excerpt(pruneLength: 250)
-          html
-          id
           fields {
             slug
           }
           frontmatter {
             title
-            excerpt
             category
-            template
-            type
             author
-            status
             date(formatString: "MMMM DD, YYYY")
-            isFeatured
-            image {
-              name
-              ext
-              childImageSharp {
-                original {
-                  src
-                  height
-                  width
-                }
-              }
-            }
-          }
-          timeToRead
-          fields {
-            slug
           }
         }
       }
