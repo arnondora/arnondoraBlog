@@ -47,11 +47,6 @@ module.exports = {
         showSpinner: false
       }
     }, {
-      resolve: `gatsby-plugin-google-fonts`,
-      options: {
-        fonts: [`Open Sans\:300,400,700`]
-      }
-    }, {
       resolve: `gatsby-plugin-typography`,
       options: {
         pathToConfigModule: `src/utils/typography.js`
