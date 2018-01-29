@@ -20,7 +20,7 @@ const Header = styled.h2`
   margin-bottom: 10px;
 `
 
-const CommentForm = styled.form`
+const CommentForm = styled.div`
   margin-bottom: 0;
 `
 
@@ -57,9 +57,10 @@ const CommentList = styled.div`
   flex-direction: column;
 `
 
-const PrimaryButton = styled.button`
+const PrimaryButton = styled.div`
   background-color: ${colours.primaryColour};
   color:white;
+  text-align: center;
   float: ${props => props.float};
   padding: 13px 14px 13px 14px;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.20);
@@ -112,7 +113,7 @@ export default class CommentBox extends React.Component {
     return (
       <Container>
           <Header>Leave a comment?</Header>
-          <CommentForm onSubmit={this.addComment}>
+          <CommentForm>
             {process.env !== 'production' ? <Warning>Posting to staging database 🔥</Warning>: null}
             <InputGroup>
               <InputLabel>Name : </InputLabel>
@@ -125,7 +126,7 @@ export default class CommentBox extends React.Component {
             </InputGroup>
 
             <InputGroup>
-              <PrimaryButton>Post a comment</PrimaryButton>
+              <PrimaryButton onClick={this.addComment}>Post a comment</PrimaryButton>
             </InputGroup>
           </CommentForm>
 
