@@ -93,7 +93,7 @@ export default class search extends React.Component {
     var searchResult = this.state.articles
     .filter(this.searchFor(this.state.keyword))
     .map(page => (
-      <CardWrapper key={page.node.fields.slug}><Card slug={page.node.fields.slug} heading={page.node.frontmatter.title} excerpt={page.node.excerpt} category={page.node.frontmatter.category} publishedDate={page.node.frontmatter.date} author={page.node.frontmatter.author}/></CardWrapper>
+      <CardWrapper key={page.node.fields.slug}><Card slug={page.node.fields.slug} heading={page.node.frontmatter.title} excerpt={page.node.frontmatter.excerpt} category={page.node.frontmatter.category} publishedDate={page.node.frontmatter.date} author={page.node.frontmatter.author}/></CardWrapper>
     ))
     .slice(0, 10)
 
@@ -164,6 +164,7 @@ export const pageQuery = graphql`
           }
           frontmatter {
             title
+            excerpt
             category
             author
             date(formatString: "MMMM DD, YYYY")
