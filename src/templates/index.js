@@ -17,6 +17,11 @@ const Container = styled.div`
   flex-direction: column;
   background-color: #F5F5F5;
   min-height: 100vh;
+  padding-bottom: 83px;
+
+  @media (min-width: 576px) {
+      padding-bottom: 0;
+  }
 `
 
 const MainContentContainer = styled.div`
