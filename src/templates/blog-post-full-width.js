@@ -18,6 +18,10 @@ import './blog-post-full-width.css' /* Import Reader Style */
 
 const SuperWrapper = styled.div`
 
+  @media (max-width: 768px) {
+    padding-bottom: 38px;
+  }
+
 `
 const Container = styled.div`
   display: flex;
