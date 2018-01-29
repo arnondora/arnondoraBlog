@@ -180,9 +180,12 @@ export default class NavBar extends React.Component
                 <StyledLink to = "/page/tutorial"><MenuItem>Tutorial</MenuItem></StyledLink>
             </LeftMenu>
 
-            <RightMenu>
+            {
+              get(this.props, 'article', false) === false ?
+              <RightMenu>
                 <StyledLink to = "/search"><NavSearchWrapper><SearchIcon icon={faSearch}/></NavSearchWrapper></StyledLink>
-            </RightMenu>
+            </RightMenu> : null
+          }
         </Menu>
       }
       </Wrapper>
