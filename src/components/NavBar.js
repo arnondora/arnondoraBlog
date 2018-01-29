@@ -1,9 +1,12 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
+import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import toInteger from 'lodash/toInteger'
 import get from 'lodash/get'
 import color from 'color'
+import faSearch from '@fortawesome/fontawesome-free-solid/faSearch'
+
 import colours from '../utils/colours'
 import arnondoraIcon from '../assets/arnondoraIcon.svg'
 
@@ -38,7 +41,27 @@ const SiteName = styled.span `
   margin-left: 15px;
 `
 
-const Menu = styled.ul `
+const Menu = styled.div`
+  display: flex;
+  justify-content: space-between;
+  flex-grow: 1;
+`
+
+const LeftMenu = styled.ul `
+  align-self: flex-start;
+  color: white;
+  font-weight: 300;
+  margin: 0;
+  list-style-type: none;
+  list-style-position: inside;
+
+  @media (max-width: 576px) {
+      display: none;
+  }
+`
+
+const RightMenu = styled.ul `
+  align-self: flex-end;
   color: white;
   font-weight: 300;
   margin: 0;
@@ -68,7 +91,7 @@ const NavHeadline = styled.span`
   white-space: nowrap;
 `
 
-const NavArticleShareWrapper = styled.div `
+const NavItemRight = styled.div `
   margin-right: 20px;
   align-self: flex-end;
 
@@ -97,6 +120,11 @@ const StyledLinkOut = styled.a`
   :visited {
     color: white;
   }
+`
+
+const SearchIcon = styled(FontAwesomeIcon)`
+  align-self: center;
+  color: white;
 `
 
 export default class NavBar extends React.Component
@@ -135,15 +163,21 @@ export default class NavBar extends React.Component
         {this.state.scroll > 256 && get(this.props,'article',false && get(this.props,'slug', false)) ?
         <NavHeadShare>
           <NavHeadline>{this.props.headline}</NavHeadline>
-          <NavArticleShareWrapper><SocialShareNavBarButtons slug={this.props.slug}/></NavArticleShareWrapper>
+          <NavItemRight><SocialShareNavBarButtons slug={this.props.slug}/></NavItemRight>
         </NavHeadShare>
 
         :
 
         <Menu>
-            <StyledLink to = "/"><MenuItem>Home</MenuItem></StyledLink>
-            <StyledLink to = "/cv"><MenuItem>about:me</MenuItem></StyledLink>
-            <StyledLink to = "/page/tutorial"><MenuItem>Tutorial</MenuItem></StyledLink>
+            <LeftMenu>
+                <StyledLink to = "/"><MenuItem>Home</MenuItem></StyledLink>
+                <StyledLink to = "/cv"><MenuItem>about:me</MenuItem></StyledLink>
+                <StyledLink to = "/page/tutorial"><MenuItem>Tutorial</MenuItem></StyledLink>
+            </LeftMenu>
+
+            <RightMenu>
+                <StyledLink to = "/search"><NavItemRight><SearchIcon icon={faSearch}/></NavItemRight></StyledLink>
+            </RightMenu>
         </Menu>
       }
       </Wrapper>
