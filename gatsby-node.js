@@ -51,6 +51,7 @@ const createCategoryPages = (createPage, categories, posts, siteInfo) => {
   categories.forEach(category => {
     const link = category.node.link
     const name = category.node.name
+    const cleanCategory = _.pick(category.node, ['name', 'description','link'])
     const catPosts = _.filter(posts, (item) => {
       return _.get(item, 'node.frontmatter.category', false) === name
     })
@@ -64,7 +65,7 @@ const createCategoryPages = (createPage, categories, posts, siteInfo) => {
           page + 1),
         component: categoryPage,
         context: {
-          category: category.node,
+          category: cleanCategory,
           siteInfo: siteInfo,
           name: name,
           isFirst: (page + 1) === 1
