@@ -161,7 +161,7 @@ export default class cv extends React.Component {
           <h3 class = "super-subtitle">Faculty of ICT, Mahidol University</h3>
           <div class = "contact-info">
             <span class = "email"><strong>Email:</strong> peter.arnon@gmail.com</span>
-            <span class = "website"><strong>Website:</strong> <a href = "https://arnondora.in.th">https://www.arnondora.in.th</a></span>
+            <span class = "website"><strong>Website:</strong> <a href = "https://www.arnondora.in.th">https://www.arnondora.in.th</a></span>
           </div>
           <span class = "personal-statement">I believe in technology and sharing, as they enable us with a better world via several clicks.
   Especially, programming is one of the most powerful tools which inspire people to make
