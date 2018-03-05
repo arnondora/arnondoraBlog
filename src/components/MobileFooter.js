@@ -42,12 +42,6 @@ const LinkGroup = styled(Link)`
   align-self: center;
 `
 
-const LinkGroupA = styled.a`
-  display: flex;
-  flex-direction: column;
-  align-self: center;
-`
-
 const Icon = styled(FontAwesomeIcon)`
   align-self: center;
   color: white;
@@ -76,10 +70,10 @@ export default class Footer extends React.Component {
         </MenuItemWrapper>
 
         <MenuItemWrapper>
-          <LinkGroupA href = "https://sway.com/tkELbwHp3Smhd1aN">
+          <LinkGroup to = "/cv">
             <Icon icon={faUser} size ="2x"/>
             <LogoText>about:me</LogoText>
-          </LinkGroupA>
+          </LinkGroup>
         </MenuItemWrapper>
 
         <MenuItemWrapper>
