@@ -29,6 +29,13 @@ h3 {font-size: 25.92px;}
 h4 {font-size: 21.6px;}
 p {font-size: 18px;}
 
+iframe
+{
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  width:100%;
+}
 
 div > p:first-child::first-letter {
   color: #2096F3;
