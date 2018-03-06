@@ -15,6 +15,7 @@ const NavigationBar = styled(NavBar)`
 `
 const SuperWrapper = styled.div`
   background-color: #F5F5F5;
+  min-height: 100vh;
 `
 
 const Container = styled.div`
