@@ -7,6 +7,7 @@ import colours from '../utils/colours'
 
 import SEO from '../components/SEO'
 import NavBar from '../components/NavBar'
+import ThumbnailContainer from '../components/ThumbnailContainer'
 import NextStory from '../components/NextStory'
 import RecommendStory from '../components/RecommendStory'
 import CommentBox from '../components/CommentBox'
@@ -26,34 +27,6 @@ const SuperWrapper = styled.div`
 const Container = styled.div`
   display: flex;
   flex-direction:column;
-`
-
-const ThumbnailContainer = styled.div`
-  display: flex;
-  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${props => props.thumbnail}), ${colours.primaryColour};
-  background-size:cover;
-  background-position:center;
-  background-repeat: no-repeat;
-`
-
-const OnlyThumbnail = styled.div`
-  background: url(${props => props.thumbnail}), ${colours.primaryColour};
-  background-size:cover;
-  background-position:center;
-  background-repeat: no-repeat;
-  height: 80vh;
-`
-
-const ThumbnailWrapper = styled.div`
-  width:80%;
-  margin: 0 auto;
-  margin-top: 40vh;
-  margin-bottom: 20vh;
-
-  @media (max-width: 768px) {
-    margin-top: 20vh;
-    margin-bottom: : 20vh;
-  }
 `
 
 const MobileShareButtonContainer = styled.div`
@@ -107,11 +80,6 @@ const Heading = styled.h1`
   font-size: 3em;
 `
 
-const Info = styled.p`
-  color: white;
-  font-size: 1.5em;
-`
-
 const SmallHeading = styled.h1`
   color: ${colours.textHeading};
   font-weight: 400;
@@ -139,16 +107,7 @@ export default class BlogPostTemplate extends React.Component {
         />
         <NavBar article={true} slug={postContent.fields.slug} headline={postInfo.title}/>
 
-        {postInfo.template === "full-width" ?
-          <ThumbnailContainer thumbnail={get(postInfo, 'image.childImageSharp.original.src',"")}>
-            <ThumbnailWrapper>
-              <Heading>{postInfo.title}</Heading>
-              {postInfo.type === "post" ? <Info>by {postInfo.author} on {postInfo.date}</Info> : null}
-            </ThumbnailWrapper>
-          </ThumbnailContainer> :
-
-          <OnlyThumbnail thumbnail={get(postInfo,"image.childImageSharp.original.src","")}></OnlyThumbnail>
-        }
+        <ThumbnailContainer post={postInfo}/>
 
         {postInfo.type === "post" ? <Container>
             <ContentWrapper>
