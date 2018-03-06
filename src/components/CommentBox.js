@@ -114,7 +114,7 @@ export default class CommentBox extends React.Component {
       <Container>
           <Header>Leave a comment?</Header>
           <CommentForm>
-            {process.env !== 'production' ? <Warning>Posting to staging database 🔥</Warning>: null}
+            {process.env.NODE_ENV !== 'production' ? <Warning>Posting to staging database 🔥</Warning>: null}
             <InputGroup>
               <InputLabel>Name : </InputLabel>
               <InputField required name="name" value={this.state.name} onChange={this.handleNameChange}/>
