@@ -14,15 +14,15 @@ const NavigationBar = styled(NavBar)`
   position: relative;
 `
 const SuperWrapper = styled.div`
-
+  background-color: #F5F5F5;
 `
 
 const Container = styled.div`
   width: 80%;
   margin: 0 auto;
 
-  margin-top: 104px;
-  margin-bottom: 50px;
+  padding-top: 104px;
+  padding-bottom: 50px;
 
   @media (max-width: 768px) {
     width: 90%;
