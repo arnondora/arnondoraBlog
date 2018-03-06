@@ -77,7 +77,7 @@ export default class Footer extends React.Component {
         </MenuItemWrapper>
 
         <MenuItemWrapper>
-          <LinkGroup  to = "/tutorial">
+          <LinkGroup  to = "/page/tutorial">
             <Icon icon={faBook} size ="2x"/>
             <LogoText>Tutorial</LogoText>
           </LinkGroup>
