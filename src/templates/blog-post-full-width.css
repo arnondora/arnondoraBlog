@@ -6,11 +6,8 @@ h3 {font-size: 25.92px;}
 h4 {font-size: 21.6px;}
 p {font-size: 18px;}
 
-h1,h2,h3,h4,h5,h6,p
+h1,h2,h3,h4,h5,h6,p,li
 {
-  color: #424242;
-}
-p {
   color: #424242;
 }
 
