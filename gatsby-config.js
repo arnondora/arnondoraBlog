@@ -1,4 +1,5 @@
 module.exports = {
+  pathPrefix: `/`,
   siteMetadata: {
     title: "Hello World",
     author: 'Arnon Puitrakul',
@@ -33,7 +34,7 @@ module.exports = {
         display: "minimal-ui",
         icons: [
           {
-            src: `./favicon.png`,
+            src: `/favicon.png`,
             sizes: `512x512`,
             type: `image/png`
           }
@@ -111,7 +112,7 @@ module.exports = {
     }, {
       resolve: `gatsby-plugin-favicon`,
       options: {
-        logo: "./favicon.png",
+        logo: "./src/assets/favicon.png",
         injectHTML: true,
         icons: {
           android: true,
