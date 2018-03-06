@@ -12,5 +12,6 @@ yarn-error.log
 .env.development
 .env.production
 # Articles
-src/articles/
+src/articles
+src/articles/*
 src/data
