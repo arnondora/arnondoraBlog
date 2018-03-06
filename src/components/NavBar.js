@@ -109,6 +109,7 @@ const NavSearchWrapper = styled.div `
 const MenuItem = styled.li`
   display: inline;
   margin-left: 20px;
+  color : white;
 `
 
 const StyledLink = styled(Link)`
@@ -120,10 +121,10 @@ const StyledLink = styled(Link)`
 `
 
 const StyledLinkOut = styled.a`
-  color:white;
+  color:white !important;
 
   :visited {
-    color: white;
+    color: white !important;
   }
 `
 
