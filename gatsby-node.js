@@ -127,10 +127,10 @@ exports.createPages = ({graphql, boundActionCreators}) => {
                       name
                       ext
                       childImageSharp {
-                        original {
+                        sizes (maxWidth: 1200, quality: 80) {
                           src
-                          height
-                          width
+                          srcWebp
+                          base64
                         }
                       }
                     }

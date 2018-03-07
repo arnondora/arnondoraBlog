@@ -52,7 +52,7 @@ export default class RecommendStory extends React.Component {
         {
           this.props.stories.map((story,index) => {
             return (
-              <SuperWrapper key={story.node.fields.slug} width={1/this.props.stories.length} thumbnail={get(story.node.frontmatter,'image.childImageSharp.original.src',"")}><StoryWrapper to={story.node.fields.slug}>
+              <SuperWrapper key={story.node.fields.slug} width={1/this.props.stories.length} thumbnail={get(story.node.frontmatter,'image.childImageSharp.sizes.srcWebp',"")}><StoryWrapper to={story.node.fields.slug}>
                 <Story>
                   {story.node.frontmatter.title}
                 </Story>

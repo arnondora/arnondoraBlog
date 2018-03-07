@@ -52,7 +52,7 @@ export default class ThumbnailContainer extends React.Component {
     return (
       <SuperContainer>
         { this.props.post.template === 'full-width' ?
-          <FullWidthContainer thumbnail={get(this.props.post, 'image.childImageSharp.original.src')}>
+          <FullWidthContainer thumbnail={get(this.props.post, 'image.childImageSharp.sizes.srcWebp')}>
             <ThumbnailWrapper>
               <Heading>{this.props.post.title}</Heading>
               {this.props.post.type === "post" ? <Info>by {this.props.post.author} on {this.props.post.date}</Info> : null}
@@ -60,7 +60,7 @@ export default class ThumbnailContainer extends React.Component {
           </FullWidthContainer>
           :
 
-          <OnlyThumbnail thumbnail={get(this.props.post, 'image.childImageSharp.original.src')}></OnlyThumbnail>
+          <OnlyThumbnail thumbnail={get(this.props.post, 'image.childImageSharp.sizes.srcWebp')}></OnlyThumbnail>
         }
       </SuperContainer>
     )
