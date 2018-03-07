@@ -71,6 +71,7 @@ code
 table
 {
   width:100%;
+  table-layout: fixed;
 }
 
 strong
