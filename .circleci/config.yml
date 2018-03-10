@@ -3,9 +3,6 @@ jobs:
   build-staging:
     docker:
       - image: circleci/node:latest
-    filters:
-      branches:
-        only: develop
     steps:
       - checkout
       - restore_cache:
@@ -29,9 +26,6 @@ jobs:
   build-production:
     docker:
       - image: circleci/node:latest
-    filters:
-      branches:
-        only: master
     steps:
       - checkout
       - restore_cache:
@@ -52,3 +46,17 @@ jobs:
       - run:
           name: Deploy to Firebase
           command: firebase deploy --token=$FIREBASE_TOKEN --non-interactive -P default
+workflows:
+  version: 2
+  run-staging :
+    jobs:
+      - build-staging
+    filters :
+      branches:
+        only: develop
+  run-production :
+    jobs:
+      - build-production
+    filters :
+      branches:
+        only: master
