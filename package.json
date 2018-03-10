@@ -57,7 +57,7 @@
     "build-staging": "GATSBY_ENV=staging node --max-old-space-size=20000 ./node_modules/.bin/gatsby  build",
     "develop": "gatsby develop",
     "predeploy": "yarn build",
-    "deploy": "firebase deploy",
+    "deploy": "firebase deploy -P default",
     "deploy-staging": "yarn build-staging && firebase deploy -P staging",
     "serve" : "gatsby serve",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\"",
