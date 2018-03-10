@@ -59,10 +59,10 @@ workflows:
       - build-staging:
           filters:
             branches:
-			  only: develop
+              only: develop
       - build-production:
           requires:
             - build-staging
           filters:
             branches:
-			  only: master
+              only: master
