@@ -1,62 +1,62 @@
-version: 2
-jobs:
-  build-staging:
-    docker:
-      - image: circleci/node:latest
-    steps:
-      - checkout
-      - restore_cache:
-          keys:
-          - dependencies-
-          # fallback to using the latest cache if no exact match is found
-          - dependencies-
-      - run:
-          name: Install Dependencies
-          command: yarn install
-      - save_cache:
-          paths:
-            - node_modules
-          key: dependencies-
-      - run:
-          name: Gatsby build site
-          command: yarn build-staging
-      - run:
-          name: Deploy to Firebase
-          command: firebase deploy --token=$FIREBASE_TOKEN --non-interactive -P staging
-  build-production:
-    docker:
-      - image: circleci/node:latest
-    steps:
-      - checkout
-      - restore_cache:
-          keys:
-          - dependencies-
-          # fallback to using the latest cache if no exact match is found
-          - dependencies-
-      - run:
-          name: Install Dependencies
-          command: yarn install
-      - save_cache:
-          paths:
-            - node_modules
-          key: dependencies-
-      - run:
-          name: Gatsby build site
-          command: yarn build
-      - run:
-          name: Deploy to Firebase
-          command: firebase deploy --token=$FIREBASE_TOKEN --non-interactive -P default
 workflows:
   version: 2
   run-staging :
     jobs:
-      - build-staging
+      - build:
+        docker:
+          - image: circleci/node:latest
+        filters:
+          branches:
+            only: develop
+        steps:
+          - checkout
+          - restore_cache:
+              keys:
+                - dependencies-
+                  - dependencies-
+          - run:
+              name: Install Dependencies
+              command: yarn install
+          - save_cache:
+              paths:
+                - node_modules
+              key: dependencies-
+          - run:
+              name: Gatsby build site
+              command: yarn build-staging
+          - run:
+              name: Deploy to Firebase
+              command: firebase deploy --token=$FIREBASE_TOKEN --non-interactive -P staging
     filters :
       branches:
         only: develop
   run-production :
     jobs:
-      - build-production
+      - build:
+        docker:
+          - image: circleci/node:latest
+        filters:
+          branches:
+            only: develop
+        steps:
+          - checkout
+          - restore_cache:
+              keys:
+                - dependencies-
+                  - dependencies-
+          - run:
+              name: Install Dependencies
+              command: yarn install
+          - save_cache:
+              paths:
+                - node_modules
+              key: dependencies-
+          - run:
+              name: Gatsby build site
+              command: yarn build
+          - run:
+              name: Deploy to Firebase
+              command: firebase deploy --token=$FIREBASE_TOKEN --non-interactive -P default
     filters :
       branches:
         only: master
