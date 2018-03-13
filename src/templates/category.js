@@ -55,15 +55,20 @@ const StoriesWrapper = styled.div`
   flex-direction: row;
   justify-content: space-evenly;
   flex-wrap: wrap;
+  margin-top: -10px;
 
   @media (max-width: 1200px) {
     flex-direction: column;
   }
 `
 
+const ErrorMessage = styled.h3`
+  margin-top:10px;
+`
+
 const CardWrapper = styled.div`
   flex-grow: 1;
-  margin-top: 30px;
+  margin-top: 15px;
   padding-left: 30px;
   width:33.33%;
   :first-child{
@@ -74,6 +79,12 @@ const CardWrapper = styled.div`
     width:100%;
     padding-left: 0;
   }
+`
+
+const SectionHeader = styled.h4`
+  color: ${colours.textSecondary};
+  margin-top:30px;
+  margin-bottom: 10px;
 `
 
 const MoreButtonWrapper = styled.div`
@@ -98,13 +109,15 @@ export default class CategoryTemplate extends React.Component
 
           {!isEmpty(this.props.pathContext.featurePost) ? <FeaturedCategory categoryName = {this.props.pathContext.category.name} post={this.props.pathContext.featurePost}/> : null}
 
+          {stories != null ? <div><SectionHeader>Latest</SectionHeader><hr/></div> : null}
+
           <StoriesWrapper>
             {
               stories != null ? stories.map((story,index) => {
                 return <CardWrapper key={story.node.fields.slug}><CardImage post={story}/></CardWrapper>
               })
-              : this.props.pathContext.featurePost.length !== 0 ? <h3>There's no more post in this category</h3> :
-                <h1>There is no post in this category. Stay Tuned</h1>
+              : !isEmpty(this.props.pathContext.featurePost)? <ErrorMessage>There's no more post in this category</ErrorMessage> :
+                <ErrorMessage>There is no post in this category. Stay Tuned</ErrorMessage>
             }
           </StoriesWrapper>
 
