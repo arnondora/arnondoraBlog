@@ -17,6 +17,11 @@ a {
   color: #2096F3;
 }
 
+em {
+  display: inherit;
+  text-align: center;
+}
+
 a:visited {
   color: #0d8aed;
 }
