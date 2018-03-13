@@ -22,6 +22,8 @@ const Menu = styled.div`
   @media (min-width: 576px) {
       display: none;
   }
+
+  z-index: 999;
 `
 
 const MenuItemWrapper = styled.div`

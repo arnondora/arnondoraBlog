@@ -7,6 +7,7 @@ import Link from 'gatsby-link'
 
 import NavBar from '../components/NavBar'
 import MobileFooter from '../components/MobileFooter'
+import FeaturedCategory from '../components/FeaturedCategory'
 import Card from '../components/Card'
 import PrimaryButton from '../components/PrimaryButton'
 
@@ -31,7 +32,12 @@ const Container = styled.div`
 `
 const CategoryInfoWrapper = styled.div`
   color: ${colours.textHeading};
+  padding-bottom: 20px;
+  border-bottom-style: solid;
+  border-bottom-color: #E0E0E0;
+  border-bottom-width: 1px;
 `
+
 const CategoryName = styled.h1 `
   margin: 0;
   font-weight: 700;
@@ -63,6 +69,7 @@ const MoreButtonWrapper = styled.div`
 export default class CategoryTemplate extends React.Component
 {
   render () {
+    console.log(this.props.pathContext.posts)
     var stories = null
     if (get(this.props.pathContext,'posts', null) !== null)
       stories = this.props.pathContext.posts
@@ -75,11 +82,15 @@ export default class CategoryTemplate extends React.Component
             <CategoryDescription>{this.props.pathContext.category.description}</CategoryDescription>
           </CategoryInfoWrapper>
 
+          <FeaturedCategory categoryName = {this.props.pathContext.category.name} post={this.props.pathContext.featurePost}/>
+
           <StoriesWrapper>
             {
               stories != null ? stories.map((story,index) => {
                 return <CardWrapper key={story.node.fields.slug}><Card slug={story.node.fields.slug} heading={story.node.frontmatter.title} excerpt={story.node.frontmatter.excerpt} category={story.node.frontmatter.category} publishedDate={story.node.frontmatter.date} author={story.node.frontmatter.author}/></CardWrapper>
-              }) : <h1>There is no post in this category. Stay Tuned</h1>
+              })
+              : this.props.pathContext.featurePost.length !== 0 ? <h3>There's no more post in this category</h3> :
+                <h1>There is no post in this category. Stay Tuned</h1>
             }
           </StoriesWrapper>
 
