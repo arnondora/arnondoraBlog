@@ -87,7 +87,7 @@ export default class Footer extends React.Component {
             <a href ="https://www.facebook.com/arnondora"><ContactItem src = {Facebook}/></a>
             <a href ="https://www.twitter.com/arnondora"><ContactItem src = {Twitter}/></a>
             <a href ="https://www.plus.google.com/+arnonpuitrakul"><ContactItem src = {GooglePlus}/></a>
-            <a href ="mailto:me@arnondora.in.th"><ContactItem src = {Email}/></a>
+            <a href ="mailto:peter.arnon@gmail.com"><ContactItem src = {Email}/></a>
           </ContactList>
 
           <BottomText>
