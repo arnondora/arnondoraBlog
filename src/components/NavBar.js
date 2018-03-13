@@ -54,7 +54,7 @@ const Menu = styled.div`
 const LeftMenu = styled.ul `
   align-self: flex-start;
   color: white;
-  font-weight: 300;
+  font-weight: ${props => props.isArticle ? 400 : 300};
   margin: 0;
   list-style-type: none;
   list-style-position: inside;
@@ -175,7 +175,7 @@ export default class NavBar extends React.Component
         :
 
         <Menu>
-            <LeftMenu>
+            <LeftMenu isArticle={get(this.props, 'article', false)}>
                 <StyledLink to = "/"><MenuItem>Home</MenuItem></StyledLink>
                 <StyledLink to = "/cv"><MenuItem>about:me</MenuItem></StyledLink>
                 <StyledLink to = "/page/tutorial"><MenuItem>Tutorial</MenuItem></StyledLink>
