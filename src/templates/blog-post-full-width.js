@@ -47,7 +47,7 @@ const MobileStickyShareContainer = styled.div`
 const ContentWrapper = styled.div`
   width: 60%;
   margin: 0 auto;
-  margin-top: 50px;
+  margin-top: 30px;
   margin-bottom: 0px;
 
   @media (max-width: 768px) {
