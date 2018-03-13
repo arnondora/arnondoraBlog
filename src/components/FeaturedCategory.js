@@ -57,6 +57,10 @@ const Title = styled.h2`
 const Subtitle = styled.p`
   color:white;
   text-shadow: 0 2px 4px rgba(0,0,0,0.20);
+
+  @media (min-width: 1024px) {
+    font-size: 19px;
+  }
 `
 
 export default class FeaturedCategory extends React.Component {
