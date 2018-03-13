@@ -65,7 +65,7 @@ const createCategoryPages = (createPage, categories, posts, siteInfo) => {
       return _.pick(post, ['node.fields.slug', 'node.frontmatter.title', 'node.frontmatter.excerpt', 'node.frontmatter.category', 'node.frontmatter.date', 'node.frontmatter.author', 'node.frontmatter.image'])
     })
 
-    var chunkCatPosts = _.chunk(catPosts, 10)
+    var chunkCatPosts = _.chunk(catPosts, 9)
 
     const noOfPages = chunkCatPosts.length > 0 ? chunkCatPosts.length : 1
     for (var page = 0; page < noOfPages; page++) {

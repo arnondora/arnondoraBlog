@@ -8,7 +8,7 @@ import Link from 'gatsby-link'
 import NavBar from '../components/NavBar'
 import MobileFooter from '../components/MobileFooter'
 import FeaturedCategory from '../components/FeaturedCategory'
-import Card from '../components/Card'
+import CardImage from '../components/CardImage'
 import PrimaryButton from '../components/PrimaryButton'
 
 const NavigationBar = styled(NavBar)`
@@ -51,15 +51,29 @@ const CategoryDescription = styled.p`
 `
 
 const StoriesWrapper = styled.div`
-  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+
+  @media (max-width: 1200px) {
+    flex-direction: column;
+  }
 `
 
 const CardWrapper = styled.div`
-  margin-top: 40px;
+  flex-grow: 1;
+  margin-top: 30px;
+  padding-left: 30px;
+  width:33.33%;
   :first-child{
-    margin-top: 0;
-    margin-bottom: 0;
-}
+    padding-left: 0;
+  }
+
+  @media (max-width: 1200px) {
+    width:100%;
+    padding-left: 0;
+  }
 `
 
 const MoreButtonWrapper = styled.div`
@@ -86,7 +100,7 @@ export default class CategoryTemplate extends React.Component
           <StoriesWrapper>
             {
               stories != null ? stories.map((story,index) => {
-                return <CardWrapper key={story.node.fields.slug}><Card slug={story.node.fields.slug} heading={story.node.frontmatter.title} excerpt={story.node.frontmatter.excerpt} category={story.node.frontmatter.category} publishedDate={story.node.frontmatter.date} author={story.node.frontmatter.author}/></CardWrapper>
+                return <CardWrapper key={story.node.fields.slug}><CardImage post={story}/></CardWrapper>
               })
               : this.props.pathContext.featurePost.length !== 0 ? <h3>There's no more post in this category</h3> :
                 <h1>There is no post in this category. Stay Tuned</h1>
