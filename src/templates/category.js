@@ -88,6 +88,7 @@ export default class CategoryTemplate extends React.Component
       stories = this.props.pathContext.posts
     return (
       <SuperWrapper>
+        <Helmet title={this.props.pathContext.category.name + " - " + this.props.pathContext.siteInfo.siteMetadata.title}/>
         <NavigationBar siteTitle = {this.props.pathContext.siteInfo.siteMetadata.title}/>
         <Container>
           <CategoryInfoWrapper>
