@@ -109,8 +109,7 @@ export default class BlogPostTemplate extends React.Component {
     const postContent = this.props.pathContext.post
     const postInfo = postContent.frontmatter
     const siteMetadata = this.props.pathContext.siteInfo.siteMetadata
-
-    console.log(postInfo)
+    
     return (
       <SuperWrapper>
         <SEO
