@@ -3,6 +3,7 @@ title: "How I Get Started With React"
 image: "./how-i-get-started-with-react-logo-og.png"
 category: Tutorial
 excerpt: "From last summer, I was an internship at Like Me Co, Ltd. Many of you might not know this company before but if I say Infographic Thailand. You might heard."
+thumbnailCredit: "<a href='https://reactjs.org/'>React</a> A JavaScript library for building user interfaces"
 date: 2017-12-25T01:13:53.000
 author: arnondora
 template: full-width

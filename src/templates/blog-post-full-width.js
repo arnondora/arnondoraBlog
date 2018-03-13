@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import take from 'lodash/take'
-import get from 'lodash/get'
+import { get, take, isEmpty } from 'lodash'
 
 import colours from '../utils/colours'
 
@@ -93,12 +92,25 @@ const SmallSubHeading = styled.p`
   font-weight: 300;
 `
 
+const ThumbnailCredit = styled.em`
+  display: block;
+  text-align: center;
+  color: rgba(0,0,0,.68);
+  margin-top:5px;
+  font-size: 0.8em;
+
+  a {
+    color: rgba(0,0,0,.8);
+  }
+`
+
 export default class BlogPostTemplate extends React.Component {
   render() {
     const postContent = this.props.pathContext.post
     const postInfo = postContent.frontmatter
     const siteMetadata = this.props.pathContext.siteInfo.siteMetadata
 
+    console.log(postInfo)
     return (
       <SuperWrapper>
         <SEO
@@ -108,6 +120,7 @@ export default class BlogPostTemplate extends React.Component {
         <NavBar article={true} slug={postContent.fields.slug} headline={postInfo.title}/>
 
         <ThumbnailContainer post={postInfo}/>
+        {!isEmpty(postInfo.thumbnailCredit)? <ThumbnailCredit dangerouslySetInnerHTML={{ __html: postInfo.thumbnailCredit }}/> : null}
 
         {postInfo.type === "post" ? <Container>
             <ContentWrapper>

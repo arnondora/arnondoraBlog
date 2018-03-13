@@ -134,6 +134,7 @@ exports.createPages = ({graphql, boundActionCreators}) => {
                     type
                     author
                     status
+                    thumbnailCredit
                     date(formatString: "MMMM DD, YYYY")
                     isFeatured
                     image {
@@ -273,7 +274,7 @@ exports.createPages = ({graphql, boundActionCreators}) => {
           return _.pick(post, ['node.fields.slug', 'node.frontmatter.title', 'node.frontmatter.image'])
         })
 
-        node = _.pick(edge.node, ['fields.slug',  'frontmatter.excerpt', 'frontmatter.title', 'frontmatter.image', 'frontmatter.category', 'frontmatter.date', 'frontmatter.author', 'frontmatter.template', 'frontmatter.type', 'frontmatter.subtitle', 'html'])
+        node = _.pick(edge.node, ['fields.slug',  'frontmatter.excerpt', 'frontmatter.title', 'frontmatter.image', 'frontmatter.category', 'frontmatter.date', 'frontmatter.author', 'frontmatter.template', 'frontmatter.type', 'frontmatter.subtitle', 'frontmatter.thumbnailCredit', 'html'])
 
         createPage({
           path: edge.node.fields.slug,
@@ -295,7 +296,7 @@ exports.createPages = ({graphql, boundActionCreators}) => {
         const next = false
         const related = false
 
-        node = _.pick(edge.node, ['fields.slug',  'frontmatter.excerpt', 'frontmatter.title', 'frontmatter.image', 'frontmatter.category', 'frontmatter.date', 'frontmatter.author', 'frontmatter.template', 'frontmatter.type', 'html'])
+        node = _.pick(edge.node, ['fields.slug',  'frontmatter.excerpt', 'frontmatter.title', 'frontmatter.image', 'frontmatter.category', 'frontmatter.date', 'frontmatter.author', 'frontmatter.template', 'frontmatter.type', 'frontmatter.subtitle', 'frontmatter.thumbnailCredit', 'html'])
 
         createPage({
           path: edge.node.fields.slug,
