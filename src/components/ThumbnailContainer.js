@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { get } from 'lodash'
+import { get, isEmpty } from 'lodash'
 
 import colours from '../utils/colours'
 
@@ -38,13 +38,20 @@ const ThumbnailWrapper = styled.div`
 
 const Info = styled.p`
   color: white;
-  font-size: 1.5em;
+  font-size: ${props => props.isSubtitle ? 1.5 : 0.9}em;
+`
+
+const Subtitle = styled.p`
+  color:white;
+  font-size: 1.2em;
 `
 
 const Heading = styled.h1`
   color:white;
   text-shadow: 0 2px 4px rgba(0,0,0,0.20);
   font-size: 3em;
+  margin-bottom: 5px;
+  line-height: 1.3;
 `
 
 export default class ThumbnailContainer extends React.Component {
@@ -55,7 +62,8 @@ export default class ThumbnailContainer extends React.Component {
           <FullWidthContainer thumbnail={get(this.props.post, 'image.childImageSharp.sizes.src')}>
             <ThumbnailWrapper>
               <Heading>{this.props.post.title}</Heading>
-              {this.props.post.type === "post" ? <Info>by {this.props.post.author} on {this.props.post.date}</Info> : null}
+              {!isEmpty(this.props.post.subtitle) ?<Subtitle>{this.props.post.subtitle}</Subtitle> : null}
+              {this.props.post.type === "post" ? <Info isSubtitle={isEmpty(this.props.post.subtitle)}>by {this.props.post.author} on {this.props.post.date}</Info> : null}
             </ThumbnailWrapper>
           </FullWidthContainer>
           :
