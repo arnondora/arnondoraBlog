@@ -1,7 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
-import get from 'lodash/get'
+import { get, isEmpty } from 'lodash'
 import colours from '../utils/colours'
 import Link from 'gatsby-link'
 
@@ -69,7 +69,6 @@ const MoreButtonWrapper = styled.div`
 export default class CategoryTemplate extends React.Component
 {
   render () {
-    console.log(this.props.pathContext.posts)
     var stories = null
     if (get(this.props.pathContext,'posts', null) !== null)
       stories = this.props.pathContext.posts
@@ -82,7 +81,7 @@ export default class CategoryTemplate extends React.Component
             <CategoryDescription>{this.props.pathContext.category.description}</CategoryDescription>
           </CategoryInfoWrapper>
 
-          <FeaturedCategory categoryName = {this.props.pathContext.category.name} post={this.props.pathContext.featurePost}/>
+          {!isEmpty(this.props.pathContext.featurePost) ? <FeaturedCategory categoryName = {this.props.pathContext.category.name} post={this.props.pathContext.featurePost}/> : null}
 
           <StoriesWrapper>
             {

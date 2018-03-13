@@ -66,8 +66,6 @@ const Subtitle = styled.p`
 export default class FeaturedCategory extends React.Component {
 
   render () {
-    console.log(this.props.post)
-    console.log(this.props.categoryName)
     return (
       <Container onClick={ () => navigateTo(this.props.post.node.fields.slug)}>
         {
