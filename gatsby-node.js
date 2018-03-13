@@ -44,10 +44,6 @@ const uploadCategoryToFirebase = (categories) => {
 const createCategoryPages = (createPage, categories, posts, siteInfo) => {
   const categoryPage = path.resolve('./src/templates/category.js')
 
-  posts = _.map(posts, (post) => {
-    return _.pick(post, ['node.fields.slug', 'node.frontmatter.title', 'node.frontmatter.excerpt', 'node.frontmatter.category', 'node.frontmatter.date', 'node.frontmatter.author'])
-  })
-
   categories.forEach(category => {
     const link = category.node.link
     const name = category.node.name
@@ -56,8 +52,23 @@ const createCategoryPages = (createPage, categories, posts, siteInfo) => {
       return _.get(item, 'node.frontmatter.category', false) === name
     })
 
+    var featuredCatPosts = _.filter(catPosts, (item) => {
+      return _.get(item, 'node.frontmatter.isFeatured', false) === true
+    })
+
+    if (featuredCatPosts.length === 0) {
+        featuredCatPosts = _.take(catPosts, 1)
+        catPosts.splice(0, 1)
+    }
+
+    posts = _.map(posts, (post) => {
+      return _.pick(post, ['node.fields.slug', 'node.frontmatter.title', 'node.frontmatter.excerpt', 'node.frontmatter.category', 'node.frontmatter.date', 'node.frontmatter.author', 'node.frontmatter.image'])
+    })
+
     var chunkCatPosts = _.chunk(catPosts, 10)
-    for (var page = 0; page < chunkCatPosts.length; page++) {
+
+    const noOfPages = chunkCatPosts.length > 0 ? chunkCatPosts.length : 1
+    for (var page = 0; page < noOfPages; page++) {
       createPage({
         path: (page + 1) === 1
           ? "/category/" + link
@@ -66,12 +77,13 @@ const createCategoryPages = (createPage, categories, posts, siteInfo) => {
         component: categoryPage,
         context: {
           category: cleanCategory,
+          featurePost: _.pick(_.take(featuredCatPosts,1)[0], ['node.fields.slug', 'node.frontmatter.author', 'node.frontmatter.date', 'node.frontmatter.excerpt', 'node.frontmatter.image', 'node.frontmatter.title']),
           siteInfo: siteInfo,
           name: name,
           isFirst: (page + 1) === 1
             ? true
             : false,
-          isLast: (page + 1) === chunkCatPosts.length
+          isLast: (page + 1) === noOfPages
             ? true
             : false,
           page: (page + 1),
@@ -128,9 +140,12 @@ exports.createPages = ({graphql, boundActionCreators}) => {
                       ext
                       childImageSharp {
                         sizes (maxWidth: 1200, quality: 80) {
+                          base64
+                          tracedSVG
+                          aspectRatio
                           src
                           srcWebp
-                          base64
+                          sizes
                         }
                       }
                     }
