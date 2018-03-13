@@ -67,6 +67,17 @@ const FooterIcon = styled(FontAwesomeIcon)`
   height: 18px;
 `
 
+const GithubLink = styled.a`
+  color:white;
+  text-decoration: none;
+  &:link {
+    color:white;
+  }
+  &:visited {
+    color:white;
+  }
+`
+
 export default class Footer extends React.Component {
   render () {
     return (
@@ -84,7 +95,7 @@ export default class Footer extends React.Component {
             {process.env.GATSBY_ENV === "staging" ?
                 <ThemeText>🔥 {process.env.APP_VERSION}</ThemeText>
               :
-                <ThemeText>Code with <FooterIcon icon={["fas", "heart"]} style = {{color: "#E91E63"}}/> by @arnondora</ThemeText>
+                <ThemeText>Code with <FooterIcon icon={["fas", "heart"]} style = {{color: "#E91E63"}}/> by <GithubLink href="https://github.com/arnondora">@arnondora</GithubLink></ThemeText>
             }
           </BottomText>
         </Wrapper>
