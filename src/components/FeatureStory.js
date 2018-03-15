@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import Img from 'gatsby-image'
 import Link from 'gatsby-link'
 import get from 'lodash/get'
 import filter from 'lodash/filter'
@@ -10,6 +11,7 @@ import colours from '../utils/colours'
 
 const SuperWrapper = styled.div`
   height: 100vh;
+  overflow: hidden;
 `
 
 const Container = styled.div`
@@ -23,13 +25,10 @@ const Container = styled.div`
   padding-bottom: 20px;
   z-index: 2;
 `
-const ImgBackgroundControl = styled.div `
+const ImgBackgroundControl = styled(Img) `
   height:100%;
-  background: url(${props => props.thumbnail}) ${colours.primaryColour};
-  background-size: cover;
-  background-position:center;
-  background-repeat: no-repeat;
   display: flex;
+  z-index: 0;
 `
 
 const Overlay = styled.div`
@@ -39,6 +38,7 @@ const Overlay = styled.div`
   min-width:100%;
   min-height:100%;
   background-color:rgba(0,0,0,0.4);
+  z-index: 1;
 `
 const Header = styled.span`
   font-size: 18px;
@@ -92,7 +92,7 @@ export default class FeatureStory extends React.Component {
 
         </Container>
         <Overlay/>
-        <ImgBackgroundControl thumbnail={featureStory.node.frontmatter.image.childImageSharp.sizes.src}/>
+        <ImgBackgroundControl sizes={featureStory.node.frontmatter.image.childImageSharp.sizes} outerWrapperClassName={"index-thumbnail-wrapper"}/>
       </SuperWrapper>
     )
   }
