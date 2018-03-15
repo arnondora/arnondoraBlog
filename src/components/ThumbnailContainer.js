@@ -1,38 +1,56 @@
 import React from 'react'
 import styled from 'styled-components'
+import Img from 'gatsby-image'
 import { get, isEmpty } from 'lodash'
 
 import colours from '../utils/colours'
 
 const SuperContainer = styled.div`
-
+  min-height: 80vh;
+  overflow: hidden;
 `
 
 const FullWidthContainer = styled.div`
   display: flex;
-  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${props => props.thumbnail}), ${colours.primaryColour};
-  background-size:cover;
-  background-position:center;
-  background-repeat: no-repeat;
+  min-width: 100%;
+  min-height: 100%;
 `
 
-const OnlyThumbnail = styled.div`
-  background: url(${props => props.thumbnail}), ${colours.primaryColour};
-  background-size:cover;
-  background-position:center;
-  background-repeat: no-repeat;
-  height: 80vh;
+const ImgBackgroundControl = styled(Img) `
+  height:100%;
+  width: 100%;
+  display: flex;
+`
+
+const BlankThumbnail = styled.div`
+  position: absolute;
+  background-color: ${colours.primaryColour};
+  top:0;
+  left:0;
+  min-width:100%;
+  min-height:80vh;
+  z-index: 0;
+`
+
+const Overlay = styled.div`
+  position:absolute;
+  top:0;
+  left:0;
+  min-width:100%;
+  min-height:80vh;
+  background-color:rgba(0,0,0,0.4);
+  z-index: 1;
 `
 
 const ThumbnailWrapper = styled.div`
+  position: relative;
   width:80%;
   margin: 0 auto;
-  margin-top: 40vh;
-  margin-bottom: 20vh;
+  margin-top: 30vh;
+  z-index: 2;
 
   @media (max-width: 768px) {
     margin-top: 20vh;
-    margin-bottom: : 20vh;
   }
 `
 
@@ -59,7 +77,9 @@ export default class ThumbnailContainer extends React.Component {
     return (
       <SuperContainer>
         { this.props.post.template === 'full-width' ?
-          <FullWidthContainer thumbnail={get(this.props.post, 'image.childImageSharp.sizes.src')}>
+          <FullWidthContainer>
+            {this.props.post.image !== null ? <ImgBackgroundControl sizes={this.props.post.image.childImageSharp.sizes} outerWrapperClassName={"full-width-thumbnail-box"}/> : <BlankThumbnail/>}
+            <Overlay/>
             <ThumbnailWrapper>
               <Heading>{this.props.post.title}</Heading>
               {!isEmpty(this.props.post.subtitle) ?<Subtitle>{this.props.post.subtitle}</Subtitle> : null}
@@ -68,7 +88,8 @@ export default class ThumbnailContainer extends React.Component {
           </FullWidthContainer>
           :
 
-          <OnlyThumbnail thumbnail={get(this.props.post, 'image.childImageSharp.sizes.src')}></OnlyThumbnail>
+          this.props.post.image !== null ? <Img sizes={this.props.post.image.childImageSharp.sizes.src} outerWrapperClassName={"full-width-thumbnail-box"}/> :
+          <BlankThumbnail/>
         }
       </SuperContainer>
     )
