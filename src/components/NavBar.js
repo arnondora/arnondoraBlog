@@ -184,7 +184,7 @@ export default class NavBar extends React.Component
             {
               get(this.props, 'article', false) === false ?
               <RightMenu>
-                <StyledLink to = "/search"><NavSearchWrapper><SearchIcon icon={faSearch}/></NavSearchWrapper></StyledLink>
+                <StyledLink to = "/search" aria-label="search"><NavSearchWrapper><SearchIcon icon={faSearch}/></NavSearchWrapper></StyledLink>
             </RightMenu> : null
           }
         </Menu>
