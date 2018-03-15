@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
-import { get, isEmpty } from 'lodash'
+import { isEmpty } from 'lodash'
 
 import colours from '../utils/colours'
 

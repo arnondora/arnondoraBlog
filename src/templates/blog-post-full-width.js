@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { get, take, isEmpty } from 'lodash'
+import { isEmpty } from 'lodash'
 
 import colours from '../utils/colours'
 
