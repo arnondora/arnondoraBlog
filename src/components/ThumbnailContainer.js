@@ -6,7 +6,7 @@ import { get, isEmpty } from 'lodash'
 import colours from '../utils/colours'
 
 const SuperContainer = styled.div`
-  min-height: 80vh;
+  min-height: 90vh;
   overflow: hidden;
 `
 
@@ -19,7 +19,6 @@ const FullWidthContainer = styled.div`
 const ImgBackgroundControl = styled(Img) `
   height:100%;
   width: 100%;
-  display: flex;
 `
 
 const BlankThumbnail = styled.div`
@@ -28,7 +27,7 @@ const BlankThumbnail = styled.div`
   top:0;
   left:0;
   min-width:100%;
-  min-height:80vh;
+  min-height:90vh;
   z-index: 0;
 `
 
@@ -37,7 +36,7 @@ const Overlay = styled.div`
   top:0;
   left:0;
   min-width:100%;
-  min-height:80vh;
+  min-height:90vh;
   background-color:rgba(0,0,0,0.4);
   z-index: 1;
 `
@@ -46,10 +45,22 @@ const ThumbnailWrapper = styled.div`
   position: relative;
   width:80%;
   margin: 0 auto;
-  margin-top: 30vh;
+  margin-top: ${props => props.isSubtitle? 30 : 35}vh;
   z-index: 2;
 
-  @media (max-width: 768px) {
+  @media (max-width: 576px) {
+    margin-top: 15vh;
+  }
+
+  @media (max-width: 677px) {
+    margin-top: ${props => props.isSubtitle? 20 : 30}vh;
+  }
+
+  @media (max-width: 350px) {
+    margin-top: 30vh;
+  }
+
+  @media (max-width: 185px) {
     margin-top: 20vh;
   }
 `
@@ -62,6 +73,10 @@ const Info = styled.p`
 const Subtitle = styled.p`
   color:white;
   font-size: 1.2em;
+
+  @media (max-width: 350px) {
+    display: none;
+  }
 `
 
 const Heading = styled.h1`
@@ -70,6 +85,14 @@ const Heading = styled.h1`
   font-size: 3em;
   margin-bottom: 5px;
   line-height: 1.3;
+
+  @media (max-width: 992px) {
+    font-size: 2.5em;
+  }
+
+  @media (max-width: 350px) {
+    font-size: 1.5em;
+  }
 `
 
 export default class ThumbnailContainer extends React.Component {
@@ -80,7 +103,7 @@ export default class ThumbnailContainer extends React.Component {
           <FullWidthContainer>
             {this.props.post.image !== null ? <ImgBackgroundControl sizes={this.props.post.image.childImageSharp.sizes} outerWrapperClassName={"full-width-thumbnail-box"}/> : <BlankThumbnail/>}
             <Overlay/>
-            <ThumbnailWrapper>
+            <ThumbnailWrapper isSubtitle={!isEmpty(this.props.post.subtitle)}>
               <Heading>{this.props.post.title}</Heading>
               {!isEmpty(this.props.post.subtitle) ?<Subtitle>{this.props.post.subtitle}</Subtitle> : null}
               {this.props.post.type === "post" ? <Info isSubtitle={isEmpty(this.props.post.subtitle)}>by {this.props.post.author} on {this.props.post.date}</Info> : null}

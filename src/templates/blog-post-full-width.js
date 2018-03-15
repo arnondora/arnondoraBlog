@@ -47,7 +47,7 @@ const MobileStickyShareContainer = styled.div`
 const ContentWrapper = styled.div`
   width: 60%;
   margin: 0 auto;
-  margin-top: 30px;
+  margin-top: 0px;
   margin-bottom: 0px;
 
   @media (max-width: 768px) {
@@ -109,7 +109,7 @@ export default class BlogPostTemplate extends React.Component {
     const postContent = this.props.pathContext.post
     const postInfo = postContent.frontmatter
     const siteMetadata = this.props.pathContext.siteInfo.siteMetadata
-    
+
     return (
       <SuperWrapper>
         <SEO
