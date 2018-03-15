@@ -35,9 +35,9 @@ export default class SocialShareNavBarButtons extends React.Component {
     var link = convertLinkFromSlug(this.props.slug)
     return (
       <Container>
-        <IconLink href = {getFacebookShareLink(link)} target="_blank"><Icon icon={faFacebookF} colour={colours.facebook}/></IconLink>
-        <IconLink href = {getTwitterShareLink(link)} target="_blank"><Icon icon={faTwitter} colour={colours.twitter}/></IconLink>
-        <IconLink href = {getGooglePlusShareLink(link)} target="_blank"><Icon icon={faGooglePlus} colour={colours.googlePlus}/></IconLink>
+        <IconLink href = {getFacebookShareLink(link)} rel="noopener" target="_blank" aria-label="Share to Facebook"><Icon icon={faFacebookF} colour={colours.facebook}/></IconLink>
+        <IconLink href = {getTwitterShareLink(link)} rel="noopener" target="_blank" aria-label="Share to Twitter"><Icon icon={faTwitter} colour={colours.twitter}/></IconLink>
+        <IconLink href = {getGooglePlusShareLink(link)} rel="noopener" target="_blank" aria-label="Share to Google Plus"><Icon icon={faGooglePlus} colour={colours.googlePlus}/></IconLink>
       </Container>
     )
   }

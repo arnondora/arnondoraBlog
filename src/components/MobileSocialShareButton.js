@@ -49,9 +49,9 @@ export default class MobileSocialShareButton extends React.Component {
       <Container>
           <Header>Share this article to social network?</Header>
           <ButtonGroup>
-            <IconLink href = {getFacebookShareLink(link)} target="_blank"><Icon icon={faFacebookF} colour={colours.facebook} size="2x"/></IconLink>
-            <IconLink href = {getTwitterShareLink(link)} target="_blank"><Icon icon={faTwitter} colour={colours.twitter} size="2x"/></IconLink>
-            <IconLink href = {getGooglePlusShareLink(link)} target="_blank"><Icon icon={faGooglePlus} colour={colours.googlePlus} size="2x"/></IconLink>
+            <IconLink href = {getFacebookShareLink(link)} rel="noopener" target="_blank" aria-label="Share to Facebook"><Icon icon={faFacebookF} colour={colours.facebook} size="2x"/></IconLink>
+            <IconLink href = {getTwitterShareLink(link)} rel="noopener" target="_blank" aria-label="Share to Twitter"><Icon icon={faTwitter} colour={colours.twitter} size="2x"/></IconLink>
+            <IconLink href = {getGooglePlusShareLink(link)} rel="noopener" target="_blank" aria-label="Share to Google Plus"><Icon icon={faGooglePlus} colour={colours.googlePlus} size="2x"/></IconLink>
           </ButtonGroup>
       </Container>
     )

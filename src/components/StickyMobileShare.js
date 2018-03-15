@@ -39,10 +39,10 @@ export default class StickyMobileShare extends React.Component {
     const link = convertLinkFromSlug(this.props.slug)
     return (
         <Container>
-          <SocialItem href = {getFacebookShareLink(link)} target="_blank" bgColour={colours.facebook}><Icon icon={faFacebookF} colour={"white"}/></SocialItem>
-          <SocialItem href = {getTwitterShareLink(link)} target="_blank" bgColour={colours.twitter}><Icon icon={faTwitter} colour={"white"}/></SocialItem>
-          <SocialItem href = {getGooglePlusShareLink(link)} target="_blank" bgColour={colours.googlePlus}><Icon icon={faGooglePlusG} colour={"white"}/></SocialItem>
-          <SocialItem href = {getLineShareLink(link)} target="_blank" bgColour={colours.line}><Icon icon={faLine} colour={"white"}/></SocialItem>
+          <SocialItem href = {getFacebookShareLink(link)} rel="noopener" target="_blank" aria-label="Share to Facebook" bgColour={colours.facebook}><Icon icon={faFacebookF} colour={"white"}/></SocialItem>
+          <SocialItem href = {getTwitterShareLink(link)} rel="noopener" target="_blank" aria-label="Share to Twitter" bgColour={colours.twitter}><Icon icon={faTwitter} colour={"white"}/></SocialItem>
+          <SocialItem href = {getGooglePlusShareLink(link)} rel="noopener" target="_blank" aria-label="Share to Google Pplus" bgColour={colours.googlePlus}><Icon icon={faGooglePlusG} colour={"white"}/></SocialItem>
+          <SocialItem href = {getLineShareLink(link)} rel="noopener" target="_blank" aria-label="Share to Line" bgColour={colours.line}><Icon icon={faLine} colour={"white"}/></SocialItem>
         </Container>
     )
   }
