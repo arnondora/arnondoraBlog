@@ -128,6 +128,11 @@ const StyledLinkOut = styled.a`
   }
 `
 
+const ListMenu = styled.li`
+  margin-bottom: 0;
+  display: inline;
+`
+
 const SearchIcon = styled(FontAwesomeIcon)`
   align-self: center;
   color: white;
@@ -176,15 +181,15 @@ export default class NavBar extends React.Component
 
         <Menu>
             <LeftMenu isArticle={get(this.props, 'article', false)}>
-                <StyledLink to = "/"><MenuItem>Home</MenuItem></StyledLink>
-                <StyledLink to = "/cv"><MenuItem>about:me</MenuItem></StyledLink>
-                <StyledLink to = "/page/tutorial"><MenuItem>Tutorial</MenuItem></StyledLink>
+                <ListMenu><StyledLink to = "/"><MenuItem>Home</MenuItem></StyledLink></ListMenu>
+                <ListMenu><StyledLink to = "/cv"><MenuItem>about:me</MenuItem></StyledLink></ListMenu>
+                <ListMenu><StyledLink to = "/page/tutorial"><MenuItem>Tutorial</MenuItem></StyledLink></ListMenu>
             </LeftMenu>
 
             {
               get(this.props, 'article', false) === false ?
               <RightMenu>
-                <StyledLink to = "/search" aria-label="search"><NavSearchWrapper><SearchIcon icon={faSearch}/></NavSearchWrapper></StyledLink>
+                <ListMenu><StyledLink to = "/search" aria-label="search"><NavSearchWrapper><SearchIcon icon={faSearch}/></NavSearchWrapper></StyledLink></ListMenu>
             </RightMenu> : null
           }
         </Menu>
