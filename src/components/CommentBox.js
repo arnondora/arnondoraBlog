@@ -117,12 +117,12 @@ export default class CommentBox extends React.Component {
             {process.env.NODE_ENV !== 'production' ? <Warning>Posting to staging database 🔥</Warning>: null}
             <InputGroup>
               <InputLabel>Name : </InputLabel>
-              <InputField required name="name" value={this.state.name} onChange={this.handleNameChange}/>
+              <InputField required name="name" value={this.state.name} onChange={this.handleNameChange} aria-label="Name Box"/>
             </InputGroup>
 
             <InputGroup>
               <InputLabel>Comment : </InputLabel>
-              <TextField required rows={5} name = {"comment"} value={this.state.comment} onChange={this.handleCommentChange}></TextField>
+              <TextField required rows={5} name = {"comment"} value={this.state.comment} onChange={this.handleCommentChange} aria-label="Message Box"></TextField>
             </InputGroup>
 
             <InputGroup>
