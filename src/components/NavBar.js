@@ -52,7 +52,7 @@ const Menu = styled.div`
 `
 
 const LeftMenu = styled.ul `
-  align-self: flex-start;
+  align-self: center;
   color: white;
   font-weight: ${props => props.isArticle ? 400 : 300};
   margin: 0;
@@ -109,6 +109,7 @@ const NavSearchWrapper = styled.div `
 const MenuItem = styled.li`
   display: inline;
   margin-left: 20px;
+  margin-bottom: 0;
   color : white;
 `
 
@@ -126,11 +127,6 @@ const StyledLinkOut = styled.a`
   :visited {
     color: white !important;
   }
-`
-
-const ListMenu = styled.li`
-  margin-bottom: 0;
-  display: inline;
 `
 
 const SearchIcon = styled(FontAwesomeIcon)`
@@ -181,15 +177,15 @@ export default class NavBar extends React.Component
 
         <Menu>
             <LeftMenu isArticle={get(this.props, 'article', false)}>
-                <ListMenu><StyledLink to = "/"><MenuItem>Home</MenuItem></StyledLink></ListMenu>
-                <ListMenu><StyledLink to = "/cv"><MenuItem>about:me</MenuItem></StyledLink></ListMenu>
-                <ListMenu><StyledLink to = "/page/tutorial"><MenuItem>Tutorial</MenuItem></StyledLink></ListMenu>
+                <MenuItem><StyledLink to = "/">Home</StyledLink></MenuItem>
+                <MenuItem><StyledLink to = "/cv">about:me</StyledLink></MenuItem>
+                <MenuItem><StyledLink to = "/page/tutorial">Tutorial</StyledLink></MenuItem>
             </LeftMenu>
 
             {
               get(this.props, 'article', false) === false ?
               <RightMenu>
-                <ListMenu><StyledLink to = "/search" aria-label="search"><NavSearchWrapper><SearchIcon icon={faSearch}/></NavSearchWrapper></StyledLink></ListMenu>
+                <MenuItem><StyledLink to = "/search" aria-label="search"><NavSearchWrapper><SearchIcon icon={faSearch}/></NavSearchWrapper></StyledLink></MenuItem>
             </RightMenu> : null
           }
         </Menu>
