@@ -59,7 +59,7 @@
     "predeploy": "yarn build",
     "deploy": "firebase deploy -P default",
     "deploy-staging": "yarn build-staging && firebase deploy -P staging",
-    "serve" : "gatsby serve",
+    "serve": "gatsby serve",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
