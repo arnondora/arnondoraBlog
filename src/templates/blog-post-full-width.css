@@ -84,3 +84,15 @@ strong
 {
   font-weight: 700;
 }
+
+hr
+{
+  background-color: #2096F3;
+  border:none;
+  width:20%;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  height: 3.5px;
+
+}
