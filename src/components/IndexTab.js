@@ -26,7 +26,7 @@ const Tab = styled.button`
   font-weight: 700;
   letter-spacing: 2.5pt;
   font-size: 14px;
-  color: ${props => props.selected ? colours.textHeading : color(colours.textHeading).alpha(0.3).string()};
+  color: ${props => props.selected ? colours.textHeading : '#6f6f6f'};
   border:none;
   background: none;
   outline: none;
