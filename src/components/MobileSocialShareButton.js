@@ -11,6 +11,7 @@ import colours from '../utils/colours'
 import { getFacebookShareLink, getTwitterShareLink, getGooglePlusShareLink, convertLinkFromSlug } from '../utils/link'
 
 const Container = styled.div`
+  padding-bottom: 20px;
   display: flex;
   flex-direction:column;
 `

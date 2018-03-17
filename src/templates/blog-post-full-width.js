@@ -28,10 +28,6 @@ const Container = styled.div`
   flex-direction:column;
 `
 
-const MobileShareButtonContainer = styled.div`
-  padding-bottom: 20px;
-`
-
 const MobileStickyShareContainer = styled.div`
   display: none;
 
@@ -126,7 +122,7 @@ export default class BlogPostTemplate extends React.Component {
               {postInfo.template === "normal" ? <SmallHeading>{postInfo.title}</SmallHeading> : null}
               {postInfo.type === "post" && postInfo.template === "normal"? <SmallSubHeading>by {postInfo.author} on {postInfo.date}</SmallSubHeading> : null}
               <ArticleWrapper dangerouslySetInnerHTML={{ __html: postContent.html }} />
-              <MobileShareButtonContainer><MobileSocialShareButton slug={postContent.fields.slug}/></MobileShareButtonContainer>
+              <MobileSocialShareButton slug={postContent.fields.slug}/>
             </ContentWrapper>
 
           </Container> :
