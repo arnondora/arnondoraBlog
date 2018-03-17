@@ -231,7 +231,7 @@ exports.createPages = ({graphql, boundActionCreators}) => {
               ? true
               : false,
             page: (page + 1),
-            featurePosts: featurePosts,
+            featurePosts: featurePosts[0],
             categories: result.data.allCategoriesJson.edges
           }
         })

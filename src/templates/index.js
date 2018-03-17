@@ -76,7 +76,7 @@ export default class IndexPage extends React.Component {
         <MainContentContainer>
           <FeatureStoryContainer>
             <FeatureStory
-              posts = {this.props.pathContext.featurePosts}
+              featuredStory = {this.props.pathContext.featurePosts}
             />
           </FeatureStoryContainer>
 

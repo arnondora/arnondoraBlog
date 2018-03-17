@@ -80,7 +80,7 @@ const ReadMoreButton = styled(Link)`
 
 export default class FeatureStory extends React.Component {
   render() {
-    var featureStory = this.props.posts[0]
+    var featureStory = this.props.featuredStory
 
     return(
       <SuperWrapper>
@@ -95,10 +95,5 @@ export default class FeatureStory extends React.Component {
         <ImgBackgroundControl sizes={featureStory.node.frontmatter.image.childImageSharp.sizes} outerWrapperClassName={"index-thumbnail-wrapper"}/>
       </SuperWrapper>
     )
-  }
-
-  findLatestFeatureStory (stories) {
-    if (get(stories, '', null) != null) return []
-    return take(filter(stories, function(story) {return story.node.frontmatter.isFeatured === true}),1)
   }
 }
