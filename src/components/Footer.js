@@ -34,7 +34,7 @@ const ContactList = styled.div`
   margin-bottom: 0px !important;
 `
 const ContactItem = styled.img`
-  height: 35px;
+  height: 25px;
   width: auto;
   margin: 0 0 0 20px;
 
