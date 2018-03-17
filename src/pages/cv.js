@@ -249,6 +249,11 @@ export default class cv extends React.Component {
             </div>
 
             <div class = "section-list-item">
+              <h3>Young Scientist and Technologist Programme (YSTP) - National Science and Technology Development Agency (NSTDA)</h3>
+              <p class = "subtitle">Scholarship Student</p>
+            </div>
+
+            <div class = "section-list-item">
               <h3>ACM-ICPC Programming Competition Middle Regional Group B Offline Round (2016)</h3>
               <p class = "subtitle">Contestant</p>
             </div>
@@ -387,6 +392,16 @@ export default class cv extends React.Component {
             </div>
 
             <div class = "section-list-item">
+              <h3>Appropriateness of Using Thai Language Measurement for Youth in Social Network</h3>
+              <p class = "subtitle">The research project which aims to develop the mathematical model by using machine learning technique to classify the inappropriate usage of Thai language in Thai social network (both semantics and words meaning). This research is funded by Young Scientist and Technologist Programme (YSTP).</p>
+            </div>
+
+            <div class = "section-list-item">
+              <h3>ArnondoraBlog</h3>
+              <p class = "subtitle">The custom made website from GatsbyJS and React for my personal blog which I open-source the source code for other developer to follow. The purpose of this project is to reflect my designing and web development skill.</p>
+            </div>
+
+            <div class = "section-list-item">
               <h3>PaperTheme Redux</h3>
               <p class = "subtitle">PaperTheme have been released for 2 years, the design have to be changed. PaperTheme Redux is the new version of PaperTheme which change in design and improve performance.</p>
             </div>
@@ -408,6 +423,11 @@ export default class cv extends React.Component {
   the source code on Github so that
   anyone who is able to clone will be able
   to use it for free.</p>
+            </div>
+
+            <div class = "section-list-item">
+              <h3>Prothier</h3>
+              <p class = "subtitle">The platform which connects customer and small business together by suggesting promotions that match user's interest from the nearby shops and also provides the in-detail statistics about customers for small business owners to understand about their customer more. This project got several awards such as Winner in Innovation Category from Microsoft Imagine Cup Thailand 2016 and Merit award from APICTA 2016.</p>
             </div>
 
             <div class = "section-list-item">
@@ -482,6 +502,8 @@ export default class cv extends React.Component {
             <li class = "chip">R</li>
             <li class = "chip">java</li>
             <li class = "chip">elasticsearch</li>
+            <li class = "chip">machine learning</li>
+            <li class = "chip">data science</li>
           </ul>
         </section>
 
