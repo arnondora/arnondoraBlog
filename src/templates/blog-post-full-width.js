@@ -135,7 +135,7 @@ export default class BlogPostTemplate extends React.Component {
         {
           postInfo.type === "post" && (this.props.pathContext.next !== false || this.props.pathContext.prev !== false) ?
             <div>
-              <NextStory next={this.props.pathContext.next} prev={this.props.pathContext.prev}/>
+              <NextStory next={this.props.pathContext.next} prev={this.props.pathContext.prev} hasRelated={isEmpty(this.props.pathContext.related)}/>
               <RecommendStory stories = {this.props.pathContext.related}/>
             </div>
           : null

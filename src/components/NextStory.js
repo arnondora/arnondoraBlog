@@ -8,6 +8,7 @@ import colours from '../utils/colours'
 const SuperWrapper = styled.div`
   background-color: ${colours.secondaryBackground};
   border-top: 1px solid ${colours.secondaryBorder};
+  border-bottom: ${props => props.hasRelated? '1px solid ' + colours.secondaryBorder : 'none'};
   padding-top: 35px;
   padding-bottom: 35px;
 `
@@ -90,8 +91,9 @@ const ContentWrapper = styled.div`
 
 export default class NextStory extends React.Component {
   render() {
+    console.log(this.props.hasRelated)
     return (
-        <SuperWrapper>
+        <SuperWrapper hasRelated={this.props.hasRelated}>
           <Container>
             {
               this.props.next != false ?
