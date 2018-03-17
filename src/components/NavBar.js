@@ -179,7 +179,7 @@ export default class NavBar extends React.Component
             <LeftMenu isArticle={get(this.props, 'article', false)}>
                 <MenuItem><StyledLink to = "/">Home</StyledLink></MenuItem>
                 <MenuItem><StyledLink to = "/cv">about:me</StyledLink></MenuItem>
-                <MenuItem><StyledLink to = "/page/tutorial">Tutorial</StyledLink></MenuItem>
+                <MenuItem><StyledLink to = "/category/tutorial">Tutorial</StyledLink></MenuItem>
             </LeftMenu>
 
             {
