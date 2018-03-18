@@ -189,7 +189,8 @@ export default class search extends React.Component {
             <ResultWrapper isLeft={false}>
               {
                 searchResult.length > 0 ? searchResult.map(page => (
-                  <CardWrapper key={page.node.fields.slug}><CardImage post={page}/></CardWrapper>
+                  page.node.frontmatter.status === "published" ?
+                  <CardWrapper key={page.node.fields.slug}><CardImage post={page}/></CardWrapper>: null
                 )) : <NotFoundText>Not found article from the keyword.</NotFoundText>
               }
             </ResultWrapper>
@@ -248,7 +249,7 @@ export const pageQuery = graphql`
 
     allMarkdownRemark (
       sort: { order: DESC, fields: [frontmatter___date] }
-      filter : { frontmatter: { status : { eq: "published" } } }
+      filter : { frontmatter: { type : { eq: "post" } } }
     ) {
       edges {
         node {
@@ -276,6 +277,7 @@ export const pageQuery = graphql`
               }
             }
             author
+            status
             date(formatString: "MMMM DD, YYYY")
           }
         }
