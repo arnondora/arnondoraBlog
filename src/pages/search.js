@@ -1,10 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
+import Link from 'gatsby-link'
 
 import colours from '../utils/colours'
 
 import NavBar from '../components/NavBar'
-import Card from '../components/Card'
+import CardImage from '../components/CardImage'
 import MobileFooter from '../components/MobileFooter'
 
 const NavigationBar = styled(NavBar)`
@@ -25,6 +26,18 @@ const Container = styled.div`
   @media (max-width: 768px) {
     width: 90%;
   }
+`
+
+const GreySearchText = styled.span`
+  color: ${colours.textLowProfile};
+  font-size: 18px;
+`
+
+const KeywordText = styled.h4`
+  color: ${colours.textHeading};
+  font-size: 25px;
+  margin-top:10px;
+  margin-bottom: 0;
 `
 
 const PageHeader = styled.h1`
@@ -52,9 +65,24 @@ const FormWrapper = styled.div`
   }
 `
 
+const ResultShowPlane = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  margin-top: 30px;
+`
+
 const ResultWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
+  padding-right: ${props => props.isLeft? 20: 0}px;
+  width: ${props => props.isLeft? 30:70}%;
+
+  @media (max-width: 768px) {
+    display:${props => props.isLeft? 'none' : 'flex'};
+    width: ${props => !props.isLeft? 100:0}%;
+  }
 
 `
 const CardWrapper = styled.div`
@@ -65,9 +93,39 @@ const CardWrapper = styled.div`
 }
 `
 
+const CategoryChipWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top:5px;
+`
+
+const CategoryChip = styled.div`
+  padding: 5px 18px;
+  color: ${colours.textHeading};
+  font-size: 18px;
+  background-color: ${colours.secondaryBackground};
+  border-color: ${colours.secondaryBorder};
+  border-radius: 0.5px;
+  border-style: solid;
+  margin: 5px 5px 5px 5px;
+
+  :first {
+    margin-left: 0;
+  }
+
+  :hover {
+    color: white;
+    background-color: ${colours.primaryColour};
+    border-color: ${colours.primaryColour};
+  }
+
+`
+
 const NotFoundText = styled.h3`
   margin-top: 15px;
   color: ${colours.textSecondary};
+  text-align: center;
 `
 
 export default class search extends React.Component {
@@ -90,12 +148,10 @@ export default class search extends React.Component {
   }
 
   render () {
-    var searchResult = this.state.articles
-    .filter(this.searchFor(this.state.keyword))
-    .map(page => (
-      <CardWrapper key={page.node.fields.slug}><Card slug={page.node.fields.slug} heading={page.node.frontmatter.title} excerpt={page.node.frontmatter.excerpt} category={page.node.frontmatter.category} publishedDate={page.node.frontmatter.date} author={page.node.frontmatter.author}/></CardWrapper>
-    ))
-    .slice(0, 10)
+    var searchResult = this.state.articles.filter(this.searchFor(this.state.keyword)).slice(0, 10)
+    var relatedCategories = this.getRelatedCategory(searchResult)
+
+    if (relatedCategories.length === 0 || this.state.keyword === "") relatedCategories = this.props.data.allCategoriesJson.edges
 
     return (
       <SuperWrapper>
@@ -115,11 +171,30 @@ export default class search extends React.Component {
               />
             </FormWrapper>
 
-          <ResultWrapper>
-            {
-              searchResult.length > 0 ? searchResult : <NotFoundText>Not found article from the keyword.</NotFoundText>
-            }
-          </ResultWrapper>
+          <ResultShowPlane>
+            <ResultWrapper isLeft={true}>
+              <GreySearchText>SEARCH FOR</GreySearchText>
+              <KeywordText>{this.state.keyword === "" ? "All Stories": this.state.keyword}</KeywordText>
+              <hr/>
+              <GreySearchText>{this.state.keyword === "" || searchResult.length === 0 ? "RECOMMEND CATEGORIES" : "RELATED CATEGORIES"}</GreySearchText>
+              <CategoryChipWrapper>
+                {
+                  relatedCategories.map(category => {
+                    return <Link to={this.makeCategoryLink(category.node.link)}><CategoryChip>{category.node.name}</CategoryChip></Link>
+                  })
+                }
+              </CategoryChipWrapper>
+            </ResultWrapper>
+
+            <ResultWrapper isLeft={false}>
+              {
+                searchResult.length > 0 ? searchResult.map(page => (
+                  <CardWrapper key={page.node.fields.slug}><CardImage post={page}/></CardWrapper>
+                )) : <NotFoundText>Not found article from the keyword.</NotFoundText>
+              }
+            </ResultWrapper>
+          </ResultShowPlane>
+
         </Container>
         <MobileFooter/>
       </SuperWrapper>
@@ -140,6 +215,22 @@ export default class search extends React.Component {
         !keyword
       )
     }
+  }
+
+  getRelatedCategory (posts) {
+    var categories = []
+    for (var i=0; i<posts.length; i++) {
+      for (var j=0; j< this.props.data.allCategoriesJson.edges.length; j++) {
+        if (posts[i].node.frontmatter.category == this.props.data.allCategoriesJson.edges[j].node.name && categories.indexOf(this.props.data.allCategoriesJson.edges[j]) == -1)
+          categories.push(this.props.data.allCategoriesJson.edges[j])
+      }
+    }
+
+    return categories
+  }
+
+  makeCategoryLink (categoryName) {
+    return "/category/" + categoryName
   }
 
   focus() {
@@ -169,9 +260,33 @@ export const pageQuery = graphql`
             title
             excerpt
             category
+            isFeatured
+            image {
+              name
+              ext
+              childImageSharp {
+                sizes (maxWidth: 1200, quality: 80) {
+                  base64
+                  tracedSVG
+                  aspectRatio
+                  src
+                  srcWebp
+                  sizes
+                }
+              }
+            }
             author
             date(formatString: "MMMM DD, YYYY")
           }
+        }
+      }
+    }
+
+    allCategoriesJson {
+      edges {
+        node {
+          name
+          link
         }
       }
     }
