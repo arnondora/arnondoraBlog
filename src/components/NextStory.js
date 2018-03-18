@@ -91,7 +91,6 @@ const ContentWrapper = styled.div`
 
 export default class NextStory extends React.Component {
   render() {
-    console.log(this.props.hasRelated)
     return (
         <SuperWrapper hasRelated={this.props.hasRelated}>
           <Container>
