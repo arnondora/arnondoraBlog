@@ -68,8 +68,9 @@ const RightMenu = styled.ul `
   align-self: center;
   color: white;
   font-weight: 300;
-  margin: 0;
+  margin : 0 auto;
   margin-right: 20px;
+  margin-top:0px;
   list-style-type: none;
   list-style-position: inside;
 `
@@ -112,6 +113,11 @@ const MenuItem = styled.li`
   margin-left: 20px;
   margin-bottom: 0;
   color : white;
+
+  ${RightMenu} > &
+  {
+    margin-left: 0px;
+  }
 `
 
 const StyledLink = styled(Link)`
