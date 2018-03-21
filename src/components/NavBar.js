@@ -28,8 +28,8 @@ const Wrapper = styled.div `
 `
 
 const Logo = styled.img `
-  height: 40px;
-  width: auto;
+  min-width: 40px;
+  height: auto;
   margin : 0;
 `
 
@@ -65,10 +65,11 @@ const LeftMenu = styled.ul `
 `
 
 const RightMenu = styled.ul `
-  align-self: flex-end;
+  align-self: center;
   color: white;
   font-weight: 300;
   margin: 0;
+  margin-right: 20px;
   list-style-type: none;
   list-style-position: inside;
 `
@@ -84,6 +85,7 @@ const NavHeadline = styled.span`
   align-self: flex-start;
   color:white;
   margin: 0 0 0 20px;
+  padding-right: 20px;
   display: inline;
   overflow:hidden;
   font-size: 18px;
@@ -102,7 +104,6 @@ const NavShareButton = styled.div `
 `
 
 const NavSearchWrapper = styled.div `
-  margin-right: 20px;
   align-self: flex-end;
 `
 
