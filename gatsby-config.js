@@ -55,9 +55,7 @@ module.exports = {
     }, {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${process.env.gatsby_executing_command === "develop"
-          ? __dirname + "/src/sample-articles"
-          : __dirname + "/src/articles"}`,
+        path: `${__dirname + "/src/articles"}`,
         name: 'pages'
       }
     }, {
