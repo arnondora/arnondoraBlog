@@ -122,7 +122,7 @@ export default class cv extends React.Component {
         {
           .container
           {
-            width: 95%;
+            width: 90%;
           }
         }
 
@@ -505,10 +505,6 @@ export default class cv extends React.Component {
             <li class = "chip">machine learning</li>
             <li class = "chip">data science</li>
           </ul>
-        </section>
-
-        <section class = "notes">
-          <p>* Hard copy version is available by print this page, layout will be re-arranged automatically.</p>
         </section>
       </div>
     </body>
