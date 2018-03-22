@@ -195,7 +195,7 @@ export default class cv extends React.Component {
             <div class = "section-list-item">
               <h3>Like Me Co., Ltd.</h3>
               <p class = "subtitle">Former Front-End Developer Intern | Jun-Jul 2017</p>
-              <p>Tech Stack : React, Experess</p>
+              <p>Tech Stack : React, Express</p>
             </div>
 
             <div class =  "section-list-item">
