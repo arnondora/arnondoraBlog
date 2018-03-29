@@ -47,7 +47,7 @@ export default class CardImage extends React.Component {
   render () {
     return (
       <Container to ={this.props.post.node.fields.slug}>
-        {!isEmpty(this.props.post.node.frontmatter.image) ? <Img sizes={this.props.post.node.frontmatter.image.childImageSharp.sizes} style={{height:'200px', width:'100%'}}/> : null}
+        {!isEmpty(this.props.post.node.frontmatter.image) ? <Img sizes={this.props.post.node.frontmatter.image.childImageSharp.sizes} style={{height:'300px', width:'100%'}}/> : null}
         <ContentContainer isThumbnail={!isEmpty(this.props.post.node.frontmatter.image)}>
           <Heading to ={this.props.post.node.fields.slug}>{this.props.post.node.frontmatter.title}</Heading>
           <Except>{this.props.post.node.frontmatter.excerpt}</Except>
