@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import color from 'color'
+import htmlfilter from 'sanitize-html'
 import { map, isEmpty, orderBy } from 'lodash'
 
 import colours from '../utils/colours'
@@ -145,9 +146,14 @@ export default class CommentBox extends React.Component {
   }
 
   addComment (event) {
+    const filteredName = htmlfilter(this.state.name)
+    const filteredComment = htmlfilter(this.state.comment)
+
+    if (filteredName === "" || filteredComment === "") return
+
     firebase.database().ref("articles/" + this.props.slug + "/comments").push({
-      name : this.state.name,
-      comment : this.state.comment,
+      name : filteredName,
+      comment : filteredComment,
       timestamp : Math.round((new Date()).getTime() / 1000)
     })
 
