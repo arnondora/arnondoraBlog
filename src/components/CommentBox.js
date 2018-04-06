@@ -1,9 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import color from 'color'
-import map from 'lodash/map'
-import isEmpty from 'lodash/isEmpty'
-import orderBy from 'lodash/orderBy'
+import { map, isEmpty, orderBy } from 'lodash'
 
 import colours from '../utils/colours'
 import firebase from '../utils/firebase'
