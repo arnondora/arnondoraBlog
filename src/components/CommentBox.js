@@ -109,6 +109,14 @@ export default class CommentBox extends React.Component {
   }
 
   render () {
+    var comments = null
+    if (!isEmpty(this.state.commentList))
+      comments = map(this.state.commentList, (item) => {
+        if (item.name !== "" && item.comment !== "") return (<CommentItem key={item.timestamp} comment={item}/>)
+      })
+    else if (this.state.commentList === 0)
+      comments = this.state.commentList
+
     return (
       <Container>
           <Header>Leave a comment?</Header>
@@ -131,11 +139,11 @@ export default class CommentBox extends React.Component {
 
           <CommentList>
             {
-              this.state.commentList === 0 ?
+              comments === 0 ?
                 <span>Loading Comment(s)</span>
 
-              : !isEmpty(this.state.commentList) ?
-                map(this.state.commentList, (item) => {
+              : !isEmpty(comments) ?
+                map(comments, (item) => {
                   if (item.name !== "" && item.comment !== "") return (<CommentItem key={item.timestamp} comment={item}/>)
                 })
               :<span>There is no comment yet!</span>
