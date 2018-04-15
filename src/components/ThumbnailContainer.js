@@ -68,6 +68,10 @@ const ThumbnailWrapper = styled.div`
 const Info = styled.p`
   color: white;
   font-size: ${props => props.isSubtitle ? 1.5 : 0.9}em;
+
+  @media (max-width: 350px) {
+    font-size: 1em;
+  }
 `
 
 const Subtitle = styled.p`
@@ -87,11 +91,11 @@ const Heading = styled.h1`
   line-height: 1.3;
 
   @media (max-width: 992px) {
-    font-size: 2.5em;
+    font-size: 2em;
   }
 
   @media (max-width: 350px) {
-    font-size: 1.5em;
+    font-size: 1em;
   }
 `
 
