@@ -234,6 +234,11 @@ export default class cv extends React.Component {
             </div>
 
             <div class = "section-list-item">
+              <h3>Inventor Day Award 2018</h3>
+              <p class = "subtitle">Award in Information and Communication Technology Category</p>
+            </div>
+
+            <div class = "section-list-item">
               <h3>Salaya Life Photo Contest</h3>
               <p class = "subtitle">2nd Place in Student Category</p>
             </div>
@@ -393,7 +398,7 @@ export default class cv extends React.Component {
 
             <div class = "section-list-item">
               <h3>Appropriateness of Using Thai Language Measurement for Youth in Social Network</h3>
-              <p class = "subtitle">The research project which aims to develop the mathematical model by using machine learning technique to classify the inappropriate usage of Thai language in Thai social network (both semantics and words meaning). This research is funded by Young Scientist and Technologist Programme (YSTP).</p>
+              <p class = "subtitle">The research project which aims to develop the mathematical model by using machine learning technique to classify the inappropriate usage of Thai language in Thai social network (both semantics and words meaning). This research is funded by Young Scientist and Technologist Programme (YSTP) and under supervision of Dr.Suppawong Tuarob.</p>
             </div>
 
             <div class = "section-list-item">
