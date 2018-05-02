@@ -144,7 +144,7 @@ export default class CommentBox extends React.Component {
 
               : !isEmpty(comments) ?
                 map(comments, (item) => {
-                  if (item.name !== "" && item.comment !== "") return (<CommentItem key={item.timestamp} comment={item}/>)
+                  if (item.name.length > 0 && item.comment.length > 0 && moment.unix(item.timestamp).isValid()) return (<CommentItem key={item.timestamp} comment={item}/>)
                 })
               :<span>There is no comment yet!</span>
             }
