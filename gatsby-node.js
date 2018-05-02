@@ -24,13 +24,19 @@ var config = {
 if (!firebase.apps.length)
   firebase.initializeApp(config)
 
+const uploadValueToFirebase = (post, path) => {
+  if (node.frontmatter.image !== null)
+    node.frontmatter.image.childImageSharp = null
+  firebase.database().ref(path).update(post)
+}
 
 const uploadArticleToFirebase = (posts, path) => {
   _.each(posts, (edge) => {
     var node = _.cloneDeep(edge.node)
-    if (node.frontmatter.image !== null)
-      node.frontmatter.image.childImageSharp = null
-    firebase.database().ref(path + node.fields.slug).update(node)
+    firebase.database().ref(path).child(node.fields.slug).once('value', function(snapshot) {
+      if (snapshot.val() == null)
+        uploadValueToFirebase(node, path + node.fields.slug);
+    });
   })
 }
 
