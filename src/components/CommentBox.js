@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import color from 'color'
 import htmlfilter from 'sanitize-html'
+import moment from 'moment'
 import { map, isEmpty, orderBy } from 'lodash'
 
 import colours from '../utils/colours'
@@ -144,6 +145,7 @@ export default class CommentBox extends React.Component {
 
               : !isEmpty(comments) ?
                 map(comments, (item) => {
+                  item = item.props.comment
                   if (item.name.length > 0 && item.comment.length > 0 && moment.unix(item.timestamp).isValid()) return (<CommentItem key={item.timestamp} comment={item}/>)
                 })
               :<span>There is no comment yet!</span>
