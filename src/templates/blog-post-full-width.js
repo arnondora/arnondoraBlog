@@ -52,6 +52,11 @@ const ContentWrapper = styled.div`
   }
 `
 const ArticleWrapper = styled.div`
+  margin-top:20px;
+
+  @media (max-width: 768px) {
+    margin-top:0;
+  }
 `
 
 const PageWrapper = ArticleWrapper.extend`
