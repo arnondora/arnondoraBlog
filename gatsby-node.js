@@ -40,20 +40,17 @@ const uploadArticleToFirebase = (posts, path) => {
   })
 }
 
-const uploadCategoryToFirebase = (categories) => {
-  _.each(categories, (category) => {
-    var node = _.cloneDeep(category.node)
-    firebase.database().ref("categories/" + node.link).update(node)
-  })
-}
-
 const createCategoryPages = (createPage, categories, posts, siteInfo) => {
   const categoryPage = path.resolve('./src/templates/category.js')
 
-  categories.forEach(category => {
-    const link = category.node.link
-    const name = category.node.name
-    const cleanCategory = _.pick(category.node, ['name', 'description','link'])
+  console.log(categories)
+
+  categories.forEach(function(category) {
+
+    const link = category.link
+    const name = category.name
+    const cleanCategory = _.pick(category, ['name', 'description','link'])
+
     const catPosts = _.filter(posts, (item) => {
       return _.get(item, 'node.frontmatter.category', false) === name
     })
@@ -72,8 +69,8 @@ const createCategoryPages = (createPage, categories, posts, siteInfo) => {
     })
 
     var chunkCatPosts = _.chunk(catPosts, 9)
-
     const noOfPages = chunkCatPosts.length > 0 ? chunkCatPosts.length : 1
+
     for (var page = 0; page < noOfPages; page++) {
       createPage({
         path: (page + 1) === 1
@@ -97,9 +94,8 @@ const createCategoryPages = (createPage, categories, posts, siteInfo) => {
         }
       })
     }
-
-  });
-};
+  })
+}
 
 exports.createPages = ({graphql, boundActionCreators}) => {
   const {createPage} = boundActionCreators
@@ -165,16 +161,6 @@ exports.createPages = ({graphql, boundActionCreators}) => {
                 }
               }
             }
-            allCategoriesJson {
-              edges {
-                node {
-                  name
-                  link
-                  description
-                  thumbnail
-                }
-              }
-            }
           }
         `).then(result => {
       if (result.errors) {
@@ -207,41 +193,49 @@ exports.createPages = ({graphql, boundActionCreators}) => {
         return item.node.frontmatter.type === "page"
       })
 
+      var categories = null
+      firebase.database().ref("categories").once("value", function(snapshot) {
+        categories = []
+
+        snapshot.forEach(function(childSnapshot) {
+          categories.push(childSnapshot.val())
+        })
+        
+        createCategoryPages(createPage, categories, publishedPosts, result.data.site);
+
+        // Create Index page with pagination
+        var chunkPost = _.chunk(publishedPosts, IndexPaginationAmount)
+        for (var page = 0; page < chunkPost.length; page++) {
+          chunkCleanPosts = _.map(chunkPost[page], (post) => {
+            return _.pick(post, ['node.fields.slug', 'node.frontmatter.title', 'node.frontmatter.excerpt', 'node.frontmatter.category', 'node.frontmatter.date', 'node.frontmatter.author'])
+          })
+
+          createPage({
+            path: (page + 1) === 1
+              ? "/"
+              : "/" + (
+              page + 1),
+            component: index,
+            context: {
+              siteInfo: result.data.site,
+              posts: chunkCleanPosts,
+              isFirst: (page + 1) === 1
+                ? true
+                : false,
+              isLast: (page + 1) === chunkPost.length
+                ? true
+                : false,
+              page: (page + 1),
+              featurePosts: featurePosts[0],
+              categories: categories
+            }
+          })
+        }
+      })
+
       // Create Category Pages with pagination
-      createCategoryPages(createPage, result.data.allCategoriesJson.edges, publishedPosts, result.data.site);
       uploadArticleToFirebase(posts,"articles")
       uploadArticleToFirebase(pages,"pages")
-      uploadCategoryToFirebase(result.data.allCategoriesJson.edges,"categories")
-
-
-      // Create Index page with pagination
-      var chunkPost = _.chunk(publishedPosts, IndexPaginationAmount)
-      for (var page = 0; page < chunkPost.length; page++) {
-        chunkCleanPosts = _.map(chunkPost[page], (post) => {
-          return _.pick(post, ['node.fields.slug', 'node.frontmatter.title', 'node.frontmatter.excerpt', 'node.frontmatter.category', 'node.frontmatter.date', 'node.frontmatter.author'])
-        })
-
-        createPage({
-          path: (page + 1) === 1
-            ? "/"
-            : "/" + (
-            page + 1),
-          component: index,
-          context: {
-            siteInfo: result.data.site,
-            posts: chunkCleanPosts,
-            isFirst: (page + 1) === 1
-              ? true
-              : false,
-            isLast: (page + 1) === chunkPost.length
-              ? true
-              : false,
-            page: (page + 1),
-            featurePosts: featurePosts[0],
-            categories: result.data.allCategoriesJson.edges
-          }
-        })
-      }
 
       // Create pages.
       _.each(pages, (edge) => {

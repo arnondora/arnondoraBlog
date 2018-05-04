@@ -103,11 +103,11 @@ export default class IndexTab extends React.Component {
     var categories = this.props.context.categories.map((item) => {
       return (
           <CategoryCard
-            key={item.node.link}
-            name={item.node.name}
-            slug={item.node.link}
-            description={item.node.description}
-            thumbnail={item.node.thumbnail}
+            key={item.link}
+            name={item.name}
+            slug={item.link}
+            description={item.description}
+            thumbnail={item.thumbnail}
           />
       )
     })
