@@ -43,8 +43,6 @@ const uploadArticleToFirebase = (posts, path) => {
 const createCategoryPages = (createPage, categories, posts, siteInfo) => {
   const categoryPage = path.resolve('./src/templates/category.js')
 
-  console.log(categories)
-
   categories.forEach(function(category) {
 
     const link = category.link
@@ -200,7 +198,7 @@ exports.createPages = ({graphql, boundActionCreators}) => {
         snapshot.forEach(function(childSnapshot) {
           categories.push(childSnapshot.val())
         })
-        
+
         createCategoryPages(createPage, categories, publishedPosts, result.data.site);
 
         // Create Index page with pagination
