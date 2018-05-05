@@ -95,6 +95,23 @@ const createCategoryPages = (createPage, categories, posts, siteInfo) => {
   })
 }
 
+const createLivePages = (createPage, siteInfo) => {
+  const livePage = path.resolve('./src/templates/live.js')
+  firebase.database().ref("live").once("value", function(snapshot) {
+    snapshot.forEach(function(childSnapshot) {
+      const post = childSnapshot.val()
+      createPage({
+        path: "/live/" + post.slug,
+        component: livePage,
+        context: {
+          siteInfo: siteInfo,
+          post: post
+        }
+      })
+    })
+  })
+}
+
 exports.createPages = ({graphql, boundActionCreators}) => {
   const {createPage} = boundActionCreators
 
@@ -201,6 +218,9 @@ exports.createPages = ({graphql, boundActionCreators}) => {
 
         createCategoryPages(createPage, categories, publishedPosts, result.data.site);
 
+        // Create Live Blog Pages
+        createLivePages(createPage, result.data.site)
+        
         // Create Index page with pagination
         var chunkPost = _.chunk(publishedPosts, IndexPaginationAmount)
         for (var page = 0; page < chunkPost.length; page++) {
@@ -231,7 +251,6 @@ exports.createPages = ({graphql, boundActionCreators}) => {
         }
       })
 
-      // Create Category Pages with pagination
       uploadArticleToFirebase(posts,"articles")
       uploadArticleToFirebase(pages,"pages")
 
