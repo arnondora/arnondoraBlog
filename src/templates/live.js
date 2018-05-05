@@ -1,6 +1,8 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
+import moment from 'moment'
+import {isEmpty, orderBy, map} from 'lodash'
 
 import firebase from '../utils/firebase'
 import colours from '../utils/colours'
@@ -9,6 +11,7 @@ import Link from 'gatsby-link'
 
 import NavBar from '../components/NavBar'
 import HeaderWithLine from '../components/HeaderWithLine'
+import CommentItem from '../components/CommentItem'
 import MobileFooter from '../components/MobileFooter'
 
 const NavigationBar = styled(NavBar)`
@@ -115,6 +118,10 @@ const LatestPostContainer = styled.div`
   }
 `
 
+const PostWrapper = styled.div`
+  margin-top:10px;
+`
+
 const RightSide = styled.div`
   width:100%;
   display: flex;
@@ -154,7 +161,7 @@ export default class LiveTemplate extends React.Component
       super(props)
       this.state = {
         status : 0,
-        posts: null
+        post: null
       }
   }
 
@@ -162,13 +169,18 @@ export default class LiveTemplate extends React.Component
     firebase.database().ref("live/" + this.props.pathContext.post.slug).on('value', (snapshot) => {
       this.setState({
         status: snapshot.val().status,
-        posts: snapshot.val().posts
+        post: snapshot.val()
       })
     })
   }
 
   render () {
     const post = this.props.pathContext.post
+
+    var comments = null
+    if (!isEmpty(this.state.post) && !isEmpty(this.state.post.comments)) {
+      comments = orderBy(this.state.post.comments, ['timestamp'], ['desc'])
+    }
 
     var liveStatus = null
     if (this.state.status === 1) {
@@ -205,6 +217,14 @@ export default class LiveTemplate extends React.Component
         <Container>
           <LatestPostContainer>
             <HeaderWithLine label="Latest Post"/>
+            <PostWrapper>
+              {
+                comments !== null ?
+                  map(comments, (item) => {
+                    if (item.name.length > 0 && item.comment.length > 0 && moment.unix(item.timestamp).isValid()) return (<CommentItem key={item.timestamp} comment={item}/>)
+                  }) : null
+              }
+            </PostWrapper>
           </LatestPostContainer>
           <RightSide>
             <LiveFeedContainer>
