@@ -155,6 +155,11 @@ const EventDescription = styled.span`
   color: ${colours.textHeading};
 `
 
+const NoPostLabel = styled.h3`
+  margin-top:10px;
+  margin-bottom: 0;
+`
+
 export default class LiveTemplate extends React.Component
 {
   constructor(props) {
@@ -222,14 +227,14 @@ export default class LiveTemplate extends React.Component
                 comments !== null ?
                   map(comments, (item) => {
                     if (moment.unix(item.timestamp).isValid()) return (<LivePostCard key={item.timestamp} post={item}/>)
-                  }) : null
+                  }) : <NoPostLabel>There's no post right now, posts will be feeded when the event was started. Stay Tuned! 📻</NoPostLabel>
               }
             </PostWrapper>
           </LatestPostContainer>
           <RightSide>
             <LiveFeedContainer>
                 <HeaderWithLine label="Live Feed"/>
-                <LiveFeed dangerouslySetInnerHTML={{ __html: post.live }}/>
+                {!isEmpty(this.state.post.live) ? <LiveFeed dangerouslySetInnerHTML={{ __html: this.state.post.live }}/> : <NoPostLabel>Currenly, there's no live feed 📺. We'll put when it available. Stay Tuned!</NoPostLabel>}
             </LiveFeedContainer>
 
             <EventDetailContainer>
