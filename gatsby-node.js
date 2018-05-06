@@ -99,7 +99,7 @@ const createListLivePage = (createPage, posts, siteInfo) => {
   const ListLivePage = path.resolve('./src/templates/livePaginate.js')
   cleanedPosts = []
   posts.forEach(function(post) {
-    cleanedPosts.push(_.pick(post, ['title', 'thumbnail', 'subtitle', 'slug']))
+    cleanedPosts.push(_.pick(post, ['title', 'subtitle', 'slug']))
   })
 
   createPage({
