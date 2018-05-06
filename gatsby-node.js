@@ -95,6 +95,24 @@ const createCategoryPages = (createPage, categories, posts, siteInfo) => {
   })
 }
 
+const createListLivePage = (createPage, posts, siteInfo) => {
+  const ListLivePage = path.resolve('./src/templates/livePaginate.js')
+  cleanedPosts = []
+  posts.forEach(function(post) {
+    cleanedPosts.push(_.pick(post, ['title', 'thumbnail', 'subtitle', 'slug']))
+  })
+
+  createPage({
+    path: "/live",
+    component: ListLivePage,
+    context: {
+      siteInfo: siteInfo,
+      posts: cleanedPosts,
+    }
+  })
+
+}
+
 const createLivePages = (createPage, posts, siteInfo) => {
   const livePage = path.resolve('./src/templates/live.js')
   posts.forEach(function(post) {
@@ -224,7 +242,9 @@ exports.createPages = ({graphql, boundActionCreators}) => {
           })
 
           createLivePages(createPage, livePages, result.data.site)
+          createListLivePage(createPage, livePages, result.data.site)
         })
+
 
         // Create Index page with pagination
         var chunkPost = _.chunk(publishedPosts, IndexPaginationAmount)
