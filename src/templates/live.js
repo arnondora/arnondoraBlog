@@ -11,7 +11,7 @@ import Link from 'gatsby-link'
 
 import NavBar from '../components/NavBar'
 import HeaderWithLine from '../components/HeaderWithLine'
-import CommentItem from '../components/CommentItem'
+import LivePostCard from '../components/LivePostCard'
 import MobileFooter from '../components/MobileFooter'
 
 const NavigationBar = styled(NavBar)`
@@ -221,7 +221,7 @@ export default class LiveTemplate extends React.Component
               {
                 comments !== null ?
                   map(comments, (item) => {
-                    if (item.name.length > 0 && item.comment.length > 0 && moment.unix(item.timestamp).isValid()) return (<CommentItem key={item.timestamp} comment={item}/>)
+                    if (moment.unix(item.timestamp).isValid()) return (<LivePostCard key={item.timestamp} post={item}/>)
                   }) : null
               }
             </PostWrapper>
