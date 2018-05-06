@@ -2,7 +2,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
 import moment from 'moment'
-import {isEmpty, orderBy, map} from 'lodash'
+import {isEmpty, orderBy, map, get} from 'lodash'
 
 import firebase from '../utils/firebase'
 import colours from '../utils/colours'
@@ -165,7 +165,6 @@ export default class LiveTemplate extends React.Component
   constructor(props) {
       super(props)
       this.state = {
-        status : 0,
         post: null
       }
   }
@@ -173,7 +172,6 @@ export default class LiveTemplate extends React.Component
   componentDidMount () {
     firebase.database().ref("live/" + this.props.pathContext.post.slug).on('value', (snapshot) => {
       this.setState({
-        status: snapshot.val().status,
         post: snapshot.val()
       })
     })
@@ -188,13 +186,14 @@ export default class LiveTemplate extends React.Component
     }
 
     var liveStatus = null
-    if (this.state.status === 1) {
+    const status = get(this.state.post,'status', 0)
+    if (status === 1) {
       liveStatus = <LiveStatus>
         <LiveSymbol isLive={true}/>
         <LiveStatusLabel>Live</LiveStatusLabel>
       </LiveStatus>
     }
-    else if (this.state.status == 2) {
+    else if (status == 2) {
       liveStatus = <LiveStatus>
         <LiveSymbol isLive={false}/>
         <LiveStatusLabel>Ended</LiveStatusLabel>
@@ -234,7 +233,7 @@ export default class LiveTemplate extends React.Component
           <RightSide>
             <LiveFeedContainer>
                 <HeaderWithLine label="Live Feed"/>
-                {!isEmpty(this.state.post.live) ? <LiveFeed dangerouslySetInnerHTML={{ __html: this.state.post.live }}/> : <NoPostLabel>Currenly, there's no live feed 📺. We'll put when it available. Stay Tuned!</NoPostLabel>}
+                {!isEmpty(get(this.state.post,'live', null)) ? <LiveFeed dangerouslySetInnerHTML={{ __html: this.state.post.live }}/> : <NoPostLabel>Currenly, there's no live feed 📺. We'll put when it available. Stay Tuned!</NoPostLabel>}
             </LiveFeedContainer>
 
             <EventDetailContainer>
