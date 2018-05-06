@@ -105,7 +105,7 @@ const createLivePages = (createPage, siteInfo) => {
         component: livePage,
         context: {
           siteInfo: siteInfo,
-          post: post
+          post: _.pick(post, ['thumbnail', 'title', 'subtitle', 'detail', 'slug'])
         }
       })
     })
@@ -220,7 +220,7 @@ exports.createPages = ({graphql, boundActionCreators}) => {
 
         // Create Live Blog Pages
         createLivePages(createPage, result.data.site)
-        
+
         // Create Index page with pagination
         var chunkPost = _.chunk(publishedPosts, IndexPaginationAmount)
         for (var page = 0; page < chunkPost.length; page++) {
