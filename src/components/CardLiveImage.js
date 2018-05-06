@@ -49,9 +49,9 @@ const ThumbnailImageHolder = styled.img`
 export default class CardLiveImage extends React.Component {
   render () {
     return (
-      <Container to ={this.props.post.slug}>
+      <Container to ={"/live/" + this.props.post.slug}>
         <ContentContainer isThumbnail={!isEmpty(this.props.post.thumbnail)}>
-          <Heading to ={this.props.post.slug}>{this.props.post.title}</Heading>
+          <Heading to ={"/live/" + this.props.post.slug}>{this.props.post.title}</Heading>
           <Subtitle>{this.props.post.subtitle}</Subtitle>
         </ContentContainer>
       </Container>
