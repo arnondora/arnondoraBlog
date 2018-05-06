@@ -208,7 +208,31 @@ export default class LiveTemplate extends React.Component
 
     return (
       <SuperWrapper>
-        <Helmet title={post.title}/>
+        <Helmet title={post.title + " - " + this.props.pathContext.siteInfo.siteMetadata.title}
+          meta = {[
+            // G+
+            {itemprop: "name", "content" : post.title + " - " + this.props.pathContext.siteInfo.siteMetadata.title},
+            {itemprop: "description", "content" : post.detail},
+            {itemprop: "image", "content" : post.thumbnail},
+
+            // Open Graph
+            {property: "og:title", "content" : post.title + " - " + this.props.pathContext.siteInfo.siteMetadata.title},
+            {property: "og:description", "content" : post.detail},
+            {property: "og:locale", "content" : "th_TH"},
+            {property: "og:type", "content": "article"},
+            {property: "og:url", "content": this.props.pathContext.siteInfo.siteMetadata.siteUrl + post.slug},
+            {property: "og:image", "content": post.thumbnail},
+            {property: "og:image:secure_url", "content": post.thumbnail},
+            {property: "og:site_name", "content": post.title + " - " + this.props.pathContext.siteInfo.siteMetadata.title},
+
+            // Twitter
+            {name: "twitter:card", "content": post.thumbnail},
+            {name: "twitter:image:src", "content": post.thumbnail},
+            {name: "twitter:title", "content": post.title + " - " + this.props.pathContext.siteInfo.siteMetadata.title},
+            {name: "twitter:description", "content": post.detail},
+          ]}
+
+        />
         <NavigationBar siteTitle = {this.props.pathContext.siteInfo.siteMetadata.title}/>
         <ThumbnailWrapper thumbnail={post.thumbnail}>
           <ThumbnailContent>
