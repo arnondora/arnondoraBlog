@@ -49,8 +49,6 @@ const PostWrapper = styled.div`
 export default class CategoryTemplate extends React.Component
 {
   render () {
-    console.log(this.props.pathContext)
-
     var posts = this.props.pathContext.posts.map((item) => {
         return (
           <CardLiveImage key={item.slug} post={item}/>
