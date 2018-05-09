@@ -8,6 +8,8 @@ import colours from '../utils/colours'
 const Container = styled(Link)`
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+  border-radius: 8px;
 `
 const ContentContainer = styled.div `
   display: flex;
