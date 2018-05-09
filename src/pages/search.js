@@ -44,20 +44,16 @@ const PageHeader = styled.h1`
 
 `
 
-const FormWrapper = styled.div`
+const TextInput = styled.input`
   display: flex;
   width:100%;
   margin-bottom: 10px;
+  padding: 15px 15px 15px 15px;
+  background-color: #FFFFFF;
+  outline: none;
+  border: none;
 
-  & > input {
-    width:100%;
-    padding: 15px 15px 15px 15px;
-    background-color: #FFFFFF;
-    outline: none;
-    border: none;
-  }
-
-  & >input:focus {
+  & :focus {
     border: none;
     outline: none;
     padding: 15px 15px 15px 15px;
@@ -159,17 +155,15 @@ export default class search extends React.Component {
         <Container>
           <PageHeader>Search for articles</PageHeader>
 
-            <FormWrapper>
-              <input
-                type="text"
-                placeholder = "Let's search something new"
-                onChange={this.handleSearch}
-                value={this.state.keyword}
-                ref= {input => {
-                    this.textInput = input
-                }}
-              />
-            </FormWrapper>
+            <TextInput
+              type="text"
+              placeholder = "Let's search something new"
+              onChange={this.handleSearch}
+              value={this.state.keyword}
+              ref= {input => {
+                  this.textInput = input
+              }}
+            />
 
           <ResultShowPlane>
             <ResultWrapper isLeft={true}>
