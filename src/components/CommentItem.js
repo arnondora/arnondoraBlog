@@ -13,6 +13,7 @@ const Container = styled.div `
   border-radius: 2px;
   overflow: hidden;
   margin-top:25px;
+  border-radius: 8px;
 `
 
 const Author = styled.h3`
