@@ -10,6 +10,7 @@ const Container = styled.div`
   margin-top: 20px;
   position: relative;
   overflow: hidden;
+  border-radius: 8px;
 `
 
 const ContentContainer = styled.div`
