@@ -71,7 +71,7 @@ const PageWrapper = ArticleWrapper.extend`
 `
 
 const CommentWrapper = styled.div`
-  background-color: #FAFAFA
+  background-color: ${colours.darkBackground};
 `
 
 const Heading = styled.h1`
