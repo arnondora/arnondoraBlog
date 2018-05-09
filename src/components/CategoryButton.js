@@ -20,6 +20,7 @@ const Container = styled(Link)`
   flex-direction: column;
   justify-content: flex-end;
   overflow: hidden;
+  border-radius: 8px;
 
   &:hover > * {
     transform: translateY(0);
