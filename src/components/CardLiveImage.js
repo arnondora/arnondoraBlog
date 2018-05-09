@@ -1,8 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Link from 'gatsby-link'
-import Img from 'gatsby-image'
-import { isEmpty, capitalize } from 'lodash'
+import { isEmpty } from 'lodash'
 import colours from '../utils/colours'
 
 const Container = styled(Link)`
@@ -38,12 +37,6 @@ const Heading = styled.h2`
 const Subtitle = styled.p`
   color: ${colours.textSecondary};
   margin-top:30px;
-  margin-bottom: 0;
-`
-
-const ThumbnailImageHolder = styled.img`
-  width:100%;
-  height:auto;
   margin-bottom: 0;
 `
 
