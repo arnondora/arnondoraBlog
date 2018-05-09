@@ -1,11 +1,11 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
-import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import toInteger from 'lodash/toInteger'
 import get from 'lodash/get'
 import color from 'color'
-import faSearch from '@fortawesome/fontawesome-free-solid/faSearch'
+
+import MaterialIcon from '../components/MaterialIcon'
 
 import colours from '../utils/colours'
 import arnondoraIcon from '../assets/arnondoraIcon.svg'
@@ -136,7 +136,7 @@ const StyledLinkOut = styled.a`
   }
 `
 
-const SearchIcon = styled(FontAwesomeIcon)`
+const SearchIconWrapper = NavSearchWrapper.extend`
   align-self: center;
   color: white;
 `
@@ -193,7 +193,7 @@ export default class NavBar extends React.Component
             {
               get(this.props, 'article', false) === false ?
               <RightMenu>
-                <MenuItem><StyledLink to = "/search" aria-label="search"><NavSearchWrapper><SearchIcon icon={faSearch}/></NavSearchWrapper></StyledLink></MenuItem>
+                <MenuItem><StyledLink to = "/search" aria-label="search"><SearchIconWrapper><MaterialIcon iconName={"search"} size={"25px"} noLineHeight/></SearchIconWrapper></StyledLink></MenuItem>
             </RightMenu> : null
           }
         </Menu>

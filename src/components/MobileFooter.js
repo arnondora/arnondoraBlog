@@ -2,12 +2,9 @@ import React from 'react'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
 import color from 'color'
-import fontawesome from '@fortawesome/fontawesome'
-import FontAwesomeIcon from '@fortawesome/react-fontawesome'
-import faHome from '@fortawesome/fontawesome-free-solid/faHome'
-import faUser from '@fortawesome/fontawesome-free-solid/faUser'
-import faBook from '@fortawesome/fontawesome-free-solid/faBook'
-import faVideo from '@fortawesome/fontawesome-free-solid/faVideo'
+
+import MaterialIcon from '../components/MaterialIcon'
+
 import colours from '../utils/colours'
 
 const Menu = styled.div`
@@ -43,9 +40,10 @@ const LinkGroup = styled(Link)`
   display: flex;
   flex-direction: column;
   align-self: center;
+  align-items: center;
 `
 
-const Icon = styled(FontAwesomeIcon)`
+const Icon = styled(MaterialIcon)`
   align-self: center;
   color: white;
   margin-top:0;
@@ -67,28 +65,28 @@ export default class Footer extends React.Component {
       <Menu>
         <MenuItemWrapper>
           <LinkGroup to = "/">
-            <Icon icon={faHome} size ="2x"/>
+            <Icon iconName={"home"} size ="30px"/>
             <LogoText>Home</LogoText>
           </LinkGroup>
         </MenuItemWrapper>
 
         <MenuItemWrapper>
           <LinkGroup to = "/cv">
-            <Icon icon={faUser} size ="2x"/>
+            <Icon iconName={"person"} size ="30px"/>
             <LogoText>about:me</LogoText>
           </LinkGroup>
         </MenuItemWrapper>
 
         <MenuItemWrapper>
           <LinkGroup  to = "/category/tutorial">
-            <Icon icon={faBook} size ="2x"/>
+            <Icon iconName={"book"} size ="30px"/>
             <LogoText>Tutorial</LogoText>
           </LinkGroup>
         </MenuItemWrapper>
 
         <MenuItemWrapper>
           <LinkGroup  to = "/live">
-            <Icon icon={faVideo} size ="2x"/>
+            <Icon iconName={"videocam"} size ="30px"/>
             <LogoText>Live Blog</LogoText>
           </LinkGroup>
         </MenuItemWrapper>
