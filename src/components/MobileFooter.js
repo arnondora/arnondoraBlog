@@ -7,6 +7,7 @@ import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import faHome from '@fortawesome/fontawesome-free-solid/faHome'
 import faUser from '@fortawesome/fontawesome-free-solid/faUser'
 import faBook from '@fortawesome/fontawesome-free-solid/faBook'
+import faVideo from '@fortawesome/fontawesome-free-solid/faVideo'
 import colours from '../utils/colours'
 
 const Menu = styled.div`
@@ -82,6 +83,13 @@ export default class Footer extends React.Component {
           <LinkGroup  to = "/category/tutorial">
             <Icon icon={faBook} size ="2x"/>
             <LogoText>Tutorial</LogoText>
+          </LinkGroup>
+        </MenuItemWrapper>
+
+        <MenuItemWrapper>
+          <LinkGroup  to = "/live">
+            <Icon icon={faVideo} size ="2x"/>
+            <LogoText>Live Blog</LogoText>
           </LinkGroup>
         </MenuItemWrapper>
       </Menu>
