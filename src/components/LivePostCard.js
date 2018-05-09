@@ -13,12 +13,7 @@ const ContentContainer = styled.div `
   border-radius: 2px;
   overflow: hidden;
   border-radius: 8px;
-
   margin-top: 20px;
-
-  :hover {
-    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.20);
-  }
 `
 
 const PostImage = styled.img`
