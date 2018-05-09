@@ -52,6 +52,7 @@ const TextInput = styled.input`
   background-color: #FFFFFF;
   outline: none;
   border: none;
+  border-radius: 8px;
 
   & :focus {
     border: none;
