@@ -42,12 +42,18 @@ const InputLabel = styled.span`
 const InputField = styled.input`
   width: 100%;
   flex: 1;
+  border-radius: 8px;
+  border: 1px solid #e6e6e6;
+  padding: 7px;
 `
 
 const TextField = styled.textarea`
   margin-top: 5px;
   width:100%;
   flex: 1;
+  border-radius: 8px;
+  border: 1px solid #e6e6e6;
+  padding: 7px;
 `
 
 const CommentList = styled.div`
