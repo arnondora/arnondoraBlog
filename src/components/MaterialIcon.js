@@ -9,7 +9,7 @@ const Icon = styled.i`
   font-size: ${props => props.size};
   color: ${props => props.colour? props.colour: 'white'};
   display: inline-block;
-  line-height: 1;
+  line-height: ${props => props.noLineHeight? 'inherit' : 1};
   text-transform: none;
   letter-spacing: normal;
   word-wrap: normal;
@@ -32,7 +32,7 @@ export default class MaterialIcon extends React.Component {
   render () {
     return (
       <React.Fragment>
-        <Icon size={this.props.size}>{this.props.iconName}</Icon>
+        <Icon noLineHeight={this.props.noLineHeight} size={this.props.size}>{this.props.iconName}</Icon>
       </React.Fragment>
     )
   }
