@@ -6,7 +6,7 @@ import Helmet from 'react-helmet'
 import siteLogo from '../assets/favicon.png'
 
 const TemplateWrapper = ({ children }) => (
-  <div>
+  <React.Fragment>
     <Helmet
       title="Hello World - Mad Programmer Diary"
       meta={[
@@ -22,10 +22,10 @@ const TemplateWrapper = ({ children }) => (
     >
       <html lang="th"/>
     </Helmet>
-    <div>
+    <React.Fragment>
       {children()}
-    </div>
-  </div>
+    </React.Fragment>
+  </React.Fragment>
 )
 
 TemplateWrapper.propTypes = {

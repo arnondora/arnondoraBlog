@@ -52,6 +52,8 @@ const ContentContainer = styled.div`
   width:95%;
   margin: 0 auto;
   padding-top:20px;
+  display: flex;
+  flex-direction:column;
 `
 
 export default class IndexPage extends React.Component {

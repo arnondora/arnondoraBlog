@@ -9,11 +9,6 @@ import Card from '../components/Card'
 import CategoryButton from '../components/CategoryButton'
 import PrimaryButton from '../components/PrimaryButton'
 
-const Container = styled.div`
-  display: flex;
-  flex-direction:column;
-`
-
 const Tabs = styled.div`
   display: flex;
   width:100%;
@@ -113,7 +108,7 @@ export default class IndexTab extends React.Component {
     })
 
     return (
-      <Container>
+      <React.Fragment>
         <Tabs>
           {
             tabs.map((item, index) => {
@@ -145,7 +140,7 @@ export default class IndexTab extends React.Component {
               null
           }
         </ContentContainer>
-      </Container>
+      </React.Fragment>
     )
   }
 
