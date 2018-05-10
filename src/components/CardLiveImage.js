@@ -11,7 +11,7 @@ const Container = styled(Link)`
 const ContentContainer = styled.div `
   display: flex;
   flex-direction: column;
-  padding: 20px 52px 20px 52px;
+  padding: 30px 52px 20px 52px;
   background-color: #FFFFFF;
   box-shadow: 0 2px 5px 0 rgba(0,0,0,0.05);
   border-radius: 2px;
@@ -44,7 +44,7 @@ export default class CardLiveImage extends React.Component {
   render () {
     return (
       <Container to ={"/live/" + this.props.post.slug}>
-        <ContentContainer isThumbnail={!isEmpty(this.props.post.thumbnail)}>
+        <ContentContainer>
           <Heading to ={"/live/" + this.props.post.slug}>{this.props.post.title}</Heading>
           <Subtitle>{this.props.post.subtitle}</Subtitle>
         </ContentContainer>
