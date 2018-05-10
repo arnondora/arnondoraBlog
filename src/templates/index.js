@@ -12,17 +12,6 @@ import IndexTab from '../components/IndexTab'
 
 import siteLogo from '../assets/favicon.png'
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  padding-bottom: 83px;
-
-  @media (min-width: 576px) {
-      padding-bottom: 0;
-  }
-`
-
 const FeatureStoryContainer = styled.div`
   position: fixed;
   top: 74px;
@@ -38,9 +27,14 @@ const ContentWrapper = styled.div`
   width:65%;
   margin-top: 74px;
   margin-left: auto;
+  padding-bottom: 83px;
 
   @media (max-width: 768px) {
       width:100%;
+  }
+
+  @media (min-width: 576px) {
+      padding-bottom: 0;
   }
 `
 
@@ -55,7 +49,7 @@ const ContentContainer = styled.div`
 export default class IndexPage extends React.Component {
   render () {
     return (
-      <Container>
+      <React.Fragment>
         <Helmet
           title="Hello World - Mad Programmer Diary"
           meta={[
@@ -86,7 +80,7 @@ export default class IndexPage extends React.Component {
         </React.Fragment>
 
         <MobileFooter/>
-      </Container>
+      </React.Fragment>
     )
   }
 }
