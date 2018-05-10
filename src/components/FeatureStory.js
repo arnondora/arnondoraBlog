@@ -55,7 +55,7 @@ const HeadingText = styled.h1`
   text-shadow: 0 2px 4px rgba(0,0,0,0.20);
 `
 
-const Excerpt = styled.div`
+const Excerpt = styled.span`
   color:white;
 `
 const ReadMoreButtonContainer = styled.div`
