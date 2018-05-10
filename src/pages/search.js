@@ -99,6 +99,7 @@ const CategoryChip = styled(Link)`
   border-radius: 0.5px;
   border-style: solid;
   margin: 5px 5px 5px 5px;
+  border-radius:8px;
 
   :first {
     margin-left: 0;
