@@ -24,17 +24,15 @@ const Container = styled.div`
     width: 90%;
   }
 `
-const PageCaptionWrapper = styled.div`
-  padding-bottom: 20px;
-  border-bottom-style: solid;
-  border-bottom-color: #E0E0E0;
-  border-bottom-width: 1px;
-`
 
 const PageCaption = styled.h1 `
   color: ${colours.textHeading};
   margin: 0;
   font-weight: 700;
+  padding-bottom: 20px;
+  border-bottom-style: solid;
+  border-bottom-color: #E0E0E0;
+  border-bottom-width: 1px;
 `
 
 const PostWrapper = styled.div`
@@ -56,9 +54,7 @@ export default class CategoryTemplate extends React.Component
         <Helmet title={"Live Blog - " + this.props.pathContext.siteInfo.siteMetadata.title}/>
         <NavigationBar siteTitle = {this.props.pathContext.siteInfo.siteMetadata.title}/>
         <Container>
-          <PageCaptionWrapper>
              <PageCaption>Live Blog</PageCaption>
-          </PageCaptionWrapper>
           <PostWrapper>
             {posts}
           </PostWrapper>
