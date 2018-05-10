@@ -16,6 +16,7 @@ const SuperWrapper = styled.div`
 const Container = styled.div`
   display: flex;
   justify-content:space-between;
+  align-items: flex-start;
   flex-wrap: nowrap;
   width: 70%;
   margin: 0 auto;
@@ -29,6 +30,9 @@ const StoryContainer = styled.div`
     display: flex;
     flex-direction:column;
     width:50%;
+    margin:3px;
+    display: flex;
+    flex-direction:column;
 
     @media (max-width: 768px) {
       width:100%;
@@ -41,15 +45,21 @@ const StoryContainer = styled.div`
     }
 `
 const PreviousStoryContainer = StoryContainer.extend`
-  align-self:flex-start;
   float: left;
-  margin-right: 5px;
+  padding-left: 20px;
+
+  @media (max-width: 768px) {
+    padding-left:0;
+  }
 `
 
 const NextStoryContainer = StoryContainer.extend`
-  align-self:flex-end;
   float: right;
-  margin-left: 5px;
+  padding-right: 20px;
+
+  @media (max-width: 768px) {
+    padding-right:0;
+  }
 `
 
 const Label = styled.span`
@@ -60,6 +70,12 @@ const Label = styled.span`
 
   ${NextStoryContainer} > & {
     text-align: right;
+  }
+
+  @media (max-width: 768px) {
+    ${NextStoryContainer} > & {
+      text-align: left;
+    }
   }
 `
 
@@ -84,9 +100,7 @@ const Heading = styled(Link)`
 `
 
 const ContentWrapper = styled.div`
-  margin:3px;
-  display: flex;
-  flex-direction:column;
+
 `
 
 export default class NextStory extends React.Component {
@@ -97,10 +111,8 @@ export default class NextStory extends React.Component {
             {
               this.props.next != false ?
               <NextStoryContainer>
-                  <ContentWrapper>
                     <Label>Previous</Label>
                     <Heading to={this.props.next.fields.slug}>← {this.props.next.frontmatter.title}</Heading>
-                  </ContentWrapper>
               </NextStoryContainer>
               :
               null
@@ -109,10 +121,8 @@ export default class NextStory extends React.Component {
             {
               this.props.prev != false ?
               <PreviousStoryContainer>
-                  <ContentWrapper>
                     <Label>Next</Label>
                     <Heading to = {this.props.prev.fields.slug}>{this.props.prev.frontmatter.title} →</Heading>
-                  </ContentWrapper>
               </PreviousStoryContainer>
               :
               null
