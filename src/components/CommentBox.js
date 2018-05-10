@@ -20,10 +20,6 @@ const Header = styled.h2`
   margin-bottom: 10px;
 `
 
-const CommentForm = styled.div`
-  margin-bottom: 0;
-`
-
 const InputGroup = styled.div`
   flex-direction: column;
   align-items: flex-start;
@@ -127,22 +123,20 @@ export default class CommentBox extends React.Component {
     return (
       <Container>
           <Header>Leave a comment?</Header>
-          <CommentForm>
-            {process.env.NODE_ENV !== 'production' ? <Warning>Posting to staging database 🔥</Warning>: null}
-            <InputGroup>
-              <InputLabel>Name : </InputLabel>
-              <InputField required name="name" value={this.state.name} onChange={this.handleNameChange} aria-label="Name Box"/>
-            </InputGroup>
+          {process.env.NODE_ENV !== 'production' ? <Warning>Posting to staging database 🔥</Warning>: null}
+          <InputGroup>
+            <InputLabel>Name : </InputLabel>
+            <InputField required name="name" value={this.state.name} onChange={this.handleNameChange} aria-label="Name Box"/>
+          </InputGroup>
 
-            <InputGroup>
-              <InputLabel>Comment : </InputLabel>
-              <TextField required rows={5} name = {"comment"} value={this.state.comment} onChange={this.handleCommentChange} aria-label="Message Box"></TextField>
-            </InputGroup>
+          <InputGroup>
+            <InputLabel>Comment : </InputLabel>
+            <TextField required rows={5} name = {"comment"} value={this.state.comment} onChange={this.handleCommentChange} aria-label="Message Box"></TextField>
+          </InputGroup>
 
-            <InputGroup>
-              <PrimaryButton onClick={this.addComment}>Post a comment</PrimaryButton>
-            </InputGroup>
-          </CommentForm>
+          <InputGroup>
+            <PrimaryButton onClick={this.addComment}>Post a comment</PrimaryButton>
+          </InputGroup>
 
           <CommentList>
             {
