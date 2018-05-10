@@ -58,9 +58,7 @@ const HeadingText = styled.h1`
 const Excerpt = styled.span`
   color:white;
 `
-const ReadMoreButtonContainer = styled.div`
-  margin-top:30px;
-`
+
 const ReadMoreButton = styled(Link)`
   background-color: ${colours.primaryColour};
   color:white;
@@ -68,6 +66,8 @@ const ReadMoreButton = styled(Link)`
   padding: 13px 14px 13px 14px;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.20);
   border-radius: 2px;
+  margin-top: 30px;
+  align-self: flex-end;
 
   :visited {
     color:white;
@@ -88,8 +88,7 @@ export default class FeatureStory extends React.Component {
           <Header>Featured Story</Header>
           <HeadingText>{featureStory.node.frontmatter.title}</HeadingText>
           <Excerpt>{featureStory.node.frontmatter.excerpt}</Excerpt>
-          <ReadMoreButtonContainer><ReadMoreButton to={featureStory.node.fields.slug}>Read More</ReadMoreButton></ReadMoreButtonContainer>
-
+          <ReadMoreButton to={featureStory.node.fields.slug}>Read More</ReadMoreButton>
         </Container>
         <Overlay/>
         <ImgBackgroundControl sizes={featureStory.node.frontmatter.image.childImageSharp.sizes} outerWrapperClassName={"index-thumbnail-wrapper"}/>
