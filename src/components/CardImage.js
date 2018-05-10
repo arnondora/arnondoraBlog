@@ -10,6 +10,10 @@ const Container = styled(Link)`
   flex-direction: column;
   overflow: hidden;
   border-radius: 8px;
+  margin-top: 40px;
+  :first-child {
+    margin-top: 0px;
+  }
 `
 const ContentContainer = styled.div `
   display: flex;
@@ -48,7 +52,7 @@ const DateInfo = Except.extend`
 export default class CardImage extends React.Component {
   render () {
     return (
-      <Container to ={this.props.post.node.fields.slug}>
+      <Container key={this.props.post.node.fields.slug} to ={this.props.post.node.fields.slug}>
         {!isEmpty(this.props.post.node.frontmatter.image) ? <Img sizes={this.props.post.node.frontmatter.image.childImageSharp.sizes} style={{height:'300px', width:'100%'}}/> : null}
         <ContentContainer isThumbnail={!isEmpty(this.props.post.node.frontmatter.image)}>
           <Heading to ={this.props.post.node.fields.slug}>{this.props.post.node.frontmatter.title}</Heading>

@@ -82,13 +82,6 @@ const ResultWrapper = styled.div`
   }
 
 `
-const CardWrapper = styled.div`
-  margin-top: 40px;
-  :first-child{
-    margin-top: 0;
-    margin-bottom: 0;
-}
-`
 
 const CategoryChipWrapper = styled.div`
   display: flex;
@@ -178,7 +171,7 @@ export default class search extends React.Component {
               {
                 searchResult.length > 0 ? searchResult.map(page => (
                   page.node.frontmatter.status === "published" ?
-                  <CardWrapper key={page.node.fields.slug}><CardImage post={page}/></CardWrapper>: null
+                  <CardImage post={page}/>: null
                 )) : <NotFoundText>Not found article from the keyword.</NotFoundText>
               }
             </ResultWrapper>
