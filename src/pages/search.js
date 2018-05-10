@@ -90,7 +90,7 @@ const CategoryChipWrapper = styled.div`
   margin-top:5px;
 `
 
-const CategoryChip = styled.div`
+const CategoryChip = styled(Link)`
   padding: 5px 18px;
   color: ${colours.textHeading};
   font-size: 18px;
@@ -105,9 +105,13 @@ const CategoryChip = styled.div`
   }
 
   :hover {
-    color: white;
+    color: white !important;
     background-color: ${colours.primaryColour};
     border-color: ${colours.primaryColour};
+  }
+
+  :visited {
+    color: ${colours.textHeading};
   }
 
 `
@@ -161,7 +165,7 @@ export default class search extends React.Component {
               <CategoryChipWrapper>
                 {
                   relatedCategories.map(category => {
-                    return <Link to={this.makeCategoryLink(category.node.link)}><CategoryChip>{category.node.name}</CategoryChip></Link>
+                    return <CategoryChip to={this.makeCategoryLink(category.node.link)} key={category.node.link}>{category.node.name}</CategoryChip>
                   })
                 }
               </CategoryChipWrapper>
