@@ -136,12 +136,7 @@ export default class search extends React.Component {
 
       this.handleSearch = this.handleSearch.bind(this)
       this.searchFor = this.searchFor.bind(this)
-      this.focus = this.focus.bind(this)
 
-  }
-
-  componentDidMount () {
-    this.textInput.focus()
   }
 
   render () {
@@ -161,9 +156,7 @@ export default class search extends React.Component {
               placeholder = "Let's search something new"
               onChange={this.handleSearch}
               value={this.state.keyword}
-              ref= {input => {
-                  this.textInput = input
-              }}
+              autoFocus
             />
 
           <ResultShowPlane>
@@ -228,10 +221,6 @@ export default class search extends React.Component {
   makeCategoryLink (categoryName) {
     return "/category/" + categoryName
   }
-
-  focus() {
-   this.textInput.focus()
- }
 }
 
 export const pageQuery = graphql`
