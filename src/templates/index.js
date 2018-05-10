@@ -24,9 +24,6 @@ const Container = styled.div`
   }
 `
 
-const MainContentContainer = styled.div`
-`
-
 const FeatureStoryContainer = styled.div`
   position: fixed;
   top: 74px;
@@ -75,7 +72,7 @@ export default class IndexPage extends React.Component {
         />
         <NavBar siteTitle = {this.props.pathContext.siteInfo.siteMetadata.title}/>
 
-        <MainContentContainer>
+        <React.Fragment>
           <FeatureStoryContainer>
             <FeatureStory
               featuredStory = {this.props.pathContext.featurePosts}
@@ -87,8 +84,7 @@ export default class IndexPage extends React.Component {
               <IndexTab context = {this.props.pathContext}/>
             </ContentContainer>
           </ContentWrapper>
-
-        </MainContentContainer>
+        </React.Fragment>
 
         <MobileFooter/>
       </Container>
