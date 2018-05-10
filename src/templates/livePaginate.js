@@ -12,10 +12,6 @@ import MobileFooter from '../components/MobileFooter'
 const NavigationBar = styled(NavBar)`
   position: relative;
 `
-const SuperWrapper = styled.div`
-  background-color: #F5F5F5;
-  min-height: 100vh;
-`
 
 const Container = styled.div`
   width: 80%;
@@ -56,7 +52,7 @@ export default class CategoryTemplate extends React.Component
     })
 
     return (
-      <SuperWrapper>
+      <React.Fragment>
         <Helmet title={"Live Blog - " + this.props.pathContext.siteInfo.siteMetadata.title}/>
         <NavigationBar siteTitle = {this.props.pathContext.siteInfo.siteMetadata.title}/>
         <Container>
@@ -68,7 +64,7 @@ export default class CategoryTemplate extends React.Component
           </PostWrapper>
         </Container>
         <MobileFooter/>
-      </SuperWrapper>
+      </React.Fragment>
     )
   }
 }

@@ -17,10 +17,6 @@ import MobileFooter from '../components/MobileFooter'
 const NavigationBar = styled(NavBar)`
   position: relative;
 `
-const SuperWrapper = styled.div`
-  background-color: #F5F5F5;
-  min-height: 100vh;
-`
 
 const ThumbnailWrapper = styled.div`
   padding-top:44px;
@@ -207,7 +203,7 @@ export default class LiveTemplate extends React.Component
     }
 
     return (
-      <SuperWrapper>
+      <React.Fragment>
         <Helmet title={post.title + " - " + this.props.pathContext.siteInfo.siteMetadata.title}
           meta = {[
             // G+
@@ -267,7 +263,7 @@ export default class LiveTemplate extends React.Component
           </RightSide>
         </Container>
         <MobileFooter/>
-      </SuperWrapper>
+      </React.Fragment>
     )
   }
 }

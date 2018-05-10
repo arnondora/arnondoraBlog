@@ -14,10 +14,6 @@ import PrimaryButton from '../components/PrimaryButton'
 const NavigationBar = styled(NavBar)`
   position: relative;
 `
-const SuperWrapper = styled.div`
-  background-color: #F5F5F5;
-  min-height: 100vh;
-`
 
 const Container = styled.div`
   width: 80%;
@@ -98,7 +94,7 @@ export default class CategoryTemplate extends React.Component
     if (get(this.props.pathContext,'posts', null) !== null)
       stories = this.props.pathContext.posts
     return (
-      <SuperWrapper>
+      <React.Fragment>
         <Helmet title={this.props.pathContext.category.name + " - " + this.props.pathContext.siteInfo.siteMetadata.title}/>
         <NavigationBar siteTitle = {this.props.pathContext.siteInfo.siteMetadata.title}/>
         <Container>
@@ -109,7 +105,7 @@ export default class CategoryTemplate extends React.Component
 
           {!isEmpty(this.props.pathContext.featurePost) ? <FeaturedCategory categoryName = {this.props.pathContext.category.name} post={this.props.pathContext.featurePost}/> : null}
 
-          {stories != null ? <div><SectionHeader>Latest</SectionHeader><hr/></div> : null}
+          {stories != null ? <React.Fragment><SectionHeader>Latest</SectionHeader><hr/></React.Fragment> : null}
 
           <StoriesWrapper>
             {
@@ -128,7 +124,7 @@ export default class CategoryTemplate extends React.Component
           </MoreButtonWrapper>
         </Container>
         <MobileFooter/>
-      </SuperWrapper>
+      </React.Fragment>
     )
   }
 }

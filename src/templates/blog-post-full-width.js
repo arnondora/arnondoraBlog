@@ -16,16 +16,13 @@ import Footer from  '../components/Footer'
 
 import './blog-post-full-width.css' /* Import Reader Style */
 
-const SuperWrapper = styled.div`
+const Container = styled.div`
+  display: flex;
+  flex-direction:column;
 
   @media (max-width: 768px) {
     padding-bottom: 38px;
   }
-
-`
-const Container = styled.div`
-  display: flex;
-  flex-direction:column;
 `
 
 const MobileStickyShareContainer = styled.div`
@@ -112,7 +109,7 @@ export default class BlogPostTemplate extends React.Component {
     const siteMetadata = this.props.pathContext.siteInfo.siteMetadata
 
     return (
-      <SuperWrapper>
+      <React.Fragment>
         <SEO
           postContent={postContent}
           siteMetadata={siteMetadata}
@@ -151,7 +148,7 @@ export default class BlogPostTemplate extends React.Component {
 
         <MobileStickyShareContainer><StickyMobileShare slug={postContent.fields.slug}/></MobileStickyShareContainer>
         <Footer/>
-      </SuperWrapper>
+      </React.Fragment>
 
     )
   }

@@ -15,7 +15,6 @@ import siteLogo from '../assets/favicon.png'
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: #F5F5F5;
   min-height: 100vh;
   padding-bottom: 83px;
 
