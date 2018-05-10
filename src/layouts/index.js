@@ -4,6 +4,7 @@ import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 
 import siteLogo from '../assets/favicon.png'
+import './index.css'
 
 const TemplateWrapper = ({ children }) => (
   <React.Fragment>
