@@ -165,7 +165,7 @@ export default class CommentBox extends React.Component {
     const filteredName = htmlfilter(this.state.name)
     const filteredComment = htmlfilter(this.state.comment)
 
-    if (filteredName === "" || filteredComment === "") return
+    if (isEmpty(filteredName)|| isEmpty(filteredComment)) return
 
     firebase.database().ref("articles/" + this.props.slug + "/comments").push({
       name : filteredName,
