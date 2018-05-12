@@ -206,6 +206,8 @@ export default class LiveTemplate extends React.Component
       <React.Fragment>
         <Helmet title={post.title + " - " + this.props.pathContext.siteInfo.siteMetadata.title}
           meta = {[
+            {name: "description", "content" : post.subtitle},
+
             // G+
             {itemprop: "name", "content" : post.title + " - " + this.props.pathContext.siteInfo.siteMetadata.title},
             {itemprop: "description", "content" : post.detail},
