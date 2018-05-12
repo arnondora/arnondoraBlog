@@ -54,6 +54,14 @@ export default class IndexPage extends React.Component {
           title="Hello World - Mad Programmer Diary"
           meta={[
             { name: 'description', content: 'The offical personal blog of @arnondora' },
+            { name: 'author', content: 'Arnon Puitrakul @arnondora' },
+
+            // G+
+            {itemprop: "name", "content" : 'Hello World - Mad Programmer Diary'},
+            {itemprop: "author", "content" : 'Arnon Puitrakul @arnondora'},
+            {itemprop: "description", "content" : 'The offical personal blog of @arnondora'},
+
+            // Open Graph
             {property: "og:title", "content" : 'Hello World - Mad Programmer Diary'},
             {property: "og:description", "content" : 'The offical personal blog of @arnondora'},
             {property: "og:locale", "content" : "th_TH"},
@@ -61,6 +69,12 @@ export default class IndexPage extends React.Component {
             {property: "og:url", "content": `${process.env.APP_URL}`},
             {property: "og:image:secure_url", "content": siteLogo},
             {property: "og:site_name", "content": 'Hello World - Mad Programmer Diary'},
+
+            // Twitter
+            {name: "twitter:site", "content": 'Arnon Puitrakul @arnondora'},
+            {name: "twitter:creator", "content": 'Arnon Puitrakul @arnondora'},
+            {name: "twitter:title", "content": 'Hello World - Mad Programmer Diary'},
+            {name: "twitter:description", "content": 'The offical personal blog of @arnondora'},
           ]}
         />
         <NavBar siteTitle = {this.props.pathContext.siteInfo.siteMetadata.title}/>
