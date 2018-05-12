@@ -8,6 +8,10 @@ export default class SEO extends React.Component {
         <Helmet
           title = {this.props.postContent.frontmatter.title + " - " + this.props.siteMetadata.title}
           meta = {[
+            // Standard Meta
+            {name: "description", "content" : this.props.postContent.frontmatter.excerpt},
+            {name: "author", "content" : this.props.siteMetadata.author},
+
             // G+
             {itemprop: "name", "content" : this.props.postContent.frontmatter.title + " - " + this.props.siteMetadata.title},
             {itemprop: "author", "content" : this.props.siteMetadata.author},
