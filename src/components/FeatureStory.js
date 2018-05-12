@@ -7,8 +7,6 @@ import filter from 'lodash/filter'
 import take from 'lodash/take'
 import color from 'color'
 
-import colours from '../utils/colours'
-
 const SuperWrapper = styled.div`
   height: 100vh;
   overflow: hidden;
@@ -60,7 +58,7 @@ const Excerpt = styled.span`
 `
 
 const ReadMoreButton = styled(Link)`
-  background-color: ${colours.primaryColour};
+  background-color: ${props => props.theme.primaryColour};
   color:white;
   float: right;
   padding: 13px 14px 13px 14px;
@@ -74,7 +72,7 @@ const ReadMoreButton = styled(Link)`
   }
 
   :hover {
-    background-color: ${color(colours.primaryColour).darken(0.2).string()};
+    background-color: ${props => color(props.theme.primaryColour).darken(0.2).string()};
   }
 `
 

@@ -3,8 +3,6 @@ import styled from 'styled-components'
 import Link from 'gatsby-link'
 import color from 'color'
 
-import colours from '../utils/colours'
-
 import Card from '../components/Card'
 import CategoryButton from '../components/CategoryButton'
 import PrimaryButton from '../components/PrimaryButton'
@@ -12,7 +10,7 @@ import PrimaryButton from '../components/PrimaryButton'
 const Tabs = styled.div`
   display: flex;
   width:100%;
-  border-bottom-color: ${color(colours.textHeading).alpha(0.2).string()};
+  border-bottom-color: ${props => color(props.theme.textHeading).alpha(0.2).string()};
   border-bottom-style: solid;
   border-bottom-width: 1px;
 `
@@ -21,12 +19,12 @@ const Tab = styled.button`
   font-weight: 700;
   letter-spacing: 2.5pt;
   font-size: 14px;
-  color: ${props => props.selected ? colours.textHeading : '#6f6f6f'};
+  color: ${props => props.selected ? props.theme.textHeading : '#6f6f6f'};
   border:none;
   background: none;
   outline: none;
   border-bottom-style: solid;
-  border-bottom-color: ${colours.textDisable};
+  border-bottom-color: ${props => props.theme.textDisable};
   border-bottom-width: ${props => props.selected ? 5 : 0}px;
   margin-left: 20px;
   :first-child {

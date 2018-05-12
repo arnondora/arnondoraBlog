@@ -5,7 +5,6 @@ import htmlfilter from 'sanitize-html'
 import moment from 'moment'
 import { map, isEmpty, orderBy } from 'lodash'
 
-import colours from '../utils/colours'
 import firebase from '../utils/firebase'
 
 import CommentItem from '../components/CommentItem'
@@ -60,7 +59,7 @@ const CommentList = styled.div`
 `
 
 const PrimaryButton = styled.div`
-  background-color: ${colours.primaryColour};
+  background-color: ${props => props.theme.primaryColour};
   color:white;
   text-align: center;
   float: ${props => props.float};
@@ -74,7 +73,7 @@ const PrimaryButton = styled.div`
   }
 
   :hover {
-    background-color: ${color(colours.primaryColour).darken(0.2).string()};
+    background-color: ${props => color(props.theme.primaryColour).darken(0.2).string()};
   }
 `
 

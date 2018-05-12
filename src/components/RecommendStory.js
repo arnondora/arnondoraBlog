@@ -3,8 +3,6 @@ import styled from 'styled-components'
 import Link from 'gatsby-link'
 import { get } from 'lodash'
 
-import colours from '../utils/colours'
-
 const Container =  styled.div`
   display: flex;
   flex-direction:row;
@@ -17,7 +15,7 @@ const Container =  styled.div`
 `
 
 const StoryWrapper = styled(Link)`
-  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${props => props.thumbnail}), ${colours.primaryColour};
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${props => props.thumbnail}), ${props => props.theme.primaryColour};
   background-position:center;
   background-repeat: no-repeat;
   background-size: cover;

@@ -3,8 +3,6 @@ import styled from 'styled-components'
 import moment from 'moment'
 import {isEmpty} from 'lodash'
 
-import colours from '../utils/colours'
-
 const ContentContainer = styled.div `
   display: flex;
   flex-direction: column;
@@ -29,13 +27,13 @@ const Label = styled.span`
 
 const AuthorLabel = Label.extend`
   font-size: 14px;
-  color: ${colours.primaryColour};
+  color: ${props=> props.theme.primaryColour};
   padding-top:20px;
 `
 
 const TimeLabel = Label.extend`
   font-size: 14px;
-  color: ${colours.textSecondary};
+  color: ${props=> props.theme.textSecondary};
   margin-top:0x;
   padding-bottom: 10px;
 `
@@ -43,7 +41,7 @@ const TimeLabel = Label.extend`
 const PostLabel = Label.extend`
   font-size: 18px;
   padding-bottom: 20px;
-  color: ${colours.textHeading};
+  color: ${props=> props.theme.textHeading};
 `
 
 export default class LivePostCard extends React.Component {

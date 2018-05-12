@@ -3,8 +3,6 @@ import styled from 'styled-components'
 import Img from 'gatsby-image'
 import { isEmpty } from 'lodash'
 
-import colours from '../utils/colours'
-
 const SuperContainer = styled.div`
   min-height: 90vh;
   overflow: hidden;
@@ -23,7 +21,7 @@ const ImgBackgroundControl = styled(Img) `
 
 const BlankThumbnail = styled.div`
   position: absolute;
-  background-color: ${colours.primaryColour};
+  background-color: ${props => props.theme.primaryColour};
   top:0;
   left:0;
   min-width:100%;

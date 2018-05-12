@@ -5,8 +5,6 @@ import color from 'color'
 
 import MaterialIcon from '../components/MaterialIcon'
 
-import colours from '../utils/colours'
-
 const Menu = styled.div`
   display: flex;
   justify-content:space-between;
@@ -25,14 +23,14 @@ const Menu = styled.div`
 `
 
 const MenuItemWrapper = styled.div`
-  background-color: ${colours.primaryColour};
+  background-color: ${props => props.theme.primaryColour};
   width:100%;
   flex-grow: 1;
   padding-top: 10px;
   padding-bottom: 10px;
   :hover
   {
-    background-color: ${color(colours.primaryColour).darken(0.2).rgb().string()}
+    background-color: ${props => color(props.theme.primaryColour).darken(0.2).rgb().string()}
   }
 `
 

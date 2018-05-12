@@ -3,12 +3,10 @@ import styled from 'styled-components'
 import Link from 'gatsby-link'
 import color from 'color'
 
-import colours from '../utils/colours'
-
 const SuperWrapper = styled.div`
-  background-color: ${colours.secondaryBackground};
-  border-top: 1px solid ${colours.secondaryBorder};
-  border-bottom: ${props => props.hasRelated? '1px solid ' + colours.secondaryBorder : 'none'};
+  background-color: ${props => props.theme.secondaryBackground};
+  border-top: 1px solid ${props => props.theme.secondaryBorder};
+  border-bottom: ${props => props.hasRelated? '1px solid ' + props.theme.secondaryBorder : 'none'};
   padding-top: 35px;
   padding-bottom: 35px;
 `
@@ -63,7 +61,7 @@ const NextStoryContainer = StoryContainer.extend`
 `
 
 const Label = styled.span`
-  color: ${colours.textSecondary};
+  color: ${props => props.theme.textSecondary};
   font-size: 1.2em;
   font-weight: 300;
   margin: 0;
@@ -80,7 +78,7 @@ const Label = styled.span`
 `
 
 const Heading = styled(Link)`
-  color: ${colours.primaryColour};
+  color: ${props => props.theme.primaryColour};
   font-size: 1.4em;
   font-weight: 700;
   margin: 10px 0 0 0;
@@ -94,7 +92,7 @@ const Heading = styled(Link)`
   }
 
   :hover {
-    color: ${color(colours.primaryColour).darken(0.2).string()};
+    color: ${props => color(props.theme.primaryColour).darken(0.2).string()};
   }
 
 `

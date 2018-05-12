@@ -68,7 +68,7 @@ const PageWrapper = ArticleWrapper.extend`
 `
 
 const CommentWrapper = styled.div`
-  background-color: ${colours.darkBackground};
+  background-color: ${props => props.theme.darkBackground};
 `
 
 const Heading = styled.h1`
@@ -78,7 +78,7 @@ const Heading = styled.h1`
 `
 
 const SmallHeading = styled.h1`
-  color: ${colours.textHeading};
+  color: ${props => props.theme.textHeading};
   font-weight: 400;
   font-size: 2.5em;
   margin-bottom: 0px;
@@ -86,7 +86,7 @@ const SmallHeading = styled.h1`
 
 const SmallSubHeading = styled.p`
   margin-top:10px;
-  color: ${colours.textLowProfile};
+  color: ${props => props.theme.textLowProfile};
   font-weight: 300;
 `
 

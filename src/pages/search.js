@@ -2,8 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import Link from 'gatsby-link'
 
-import colours from '../utils/colours'
-
 import NavBar from '../components/NavBar'
 import CardImage from '../components/CardImage'
 import MobileFooter from '../components/MobileFooter'
@@ -29,12 +27,12 @@ const Container = styled.div`
 `
 
 const GreySearchText = styled.span`
-  color: ${colours.textLowProfile};
+  color: ${props => props.theme.textLowProfile};
   font-size: 18px;
 `
 
 const KeywordText = styled.h4`
-  color: ${colours.textHeading};
+  color: ${props => props.theme.textHeading};
   font-size: 25px;
   margin-top:10px;
   margin-bottom: 0;
@@ -92,10 +90,10 @@ const CategoryChipWrapper = styled.div`
 
 const CategoryChip = styled(Link)`
   padding: 5px 18px;
-  color: ${colours.textHeading};
+  color: ${props => props.theme.textHeading};
   font-size: 18px;
-  background-color: ${colours.secondaryBackground};
-  border-color: ${colours.secondaryBorder};
+  background-color: ${props => props.theme.secondaryBackground};
+  border-color: ${props => props.theme.secondaryBorder};
   border-radius: 0.5px;
   border-style: solid;
   margin: 5px 5px 5px 5px;
@@ -107,19 +105,19 @@ const CategoryChip = styled(Link)`
 
   :hover {
     color: white !important;
-    background-color: ${colours.primaryColour};
-    border-color: ${colours.primaryColour};
+    background-color: ${props => props.theme.primaryColour};
+    border-color: ${props => props.theme.primaryColour};
   }
 
   :visited {
-    color: ${colours.textHeading};
+    color: ${props => props.theme.textHeading};
   }
 
 `
 
 const NotFoundText = styled.h3`
   margin-top: 15px;
-  color: ${colours.textSecondary};
+  color: ${props => props.theme.textSecondary};
   text-align: center;
 `
 

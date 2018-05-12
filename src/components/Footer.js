@@ -4,7 +4,6 @@ import styled from 'styled-components'
 import fontawesome from '@fortawesome/fontawesome'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import faHeart from '@fortawesome/fontawesome-free-solid/faHeart'
-import colours from '../utils/colours'
 
 fontawesome.library.add(faHeart)
 
@@ -15,7 +14,7 @@ import GooglePlus from '../assets/GooglePlus.svg'
 import Email from '../assets/Email.svg'
 
 const Container = styled.div`
-  background-color: ${props => props.bgColour};
+  background-color: ${props => props.theme.primaryColour};
   padding-top: 20px;
   padding-bottom: 20px;
 `
@@ -81,7 +80,7 @@ const GithubLink = styled.a`
 export default class Footer extends React.Component {
   render () {
     return (
-      <Container bgColour={colours.primaryColour}>
+      <Container>
         <Wrapper>
           <ContactList>
             <a href ="https://www.facebook.com/arnondora" rel="noopener" target="_blank" aria-label="Facebook"><ContactItem src = {Facebook}/></a>

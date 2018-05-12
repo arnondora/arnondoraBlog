@@ -2,8 +2,6 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
 
-import colours from '../utils/colours'
-
 import NavBar from '../components/NavBar'
 import CardLiveImage from '../components/CardLiveImage'
 import MobileFooter from '../components/MobileFooter'
@@ -26,7 +24,7 @@ const Container = styled.div`
 `
 
 const PageCaption = styled.h1 `
-  color: ${colours.textHeading};
+  color: ${props => props.theme.textHeading};
   margin: 0;
   font-weight: 700;
   padding-bottom: 20px;

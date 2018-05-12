@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import Img from 'gatsby-image'
 import { navigateTo } from "gatsby-link"
 import { get } from 'lodash'
-import colours from '../utils/colours'
 
 const Container = styled.div`
   width:100%;
@@ -36,7 +35,7 @@ const ContentContainer = styled.div`
 const BlankBG = styled.div`
   height: 450px;
   width: 100%;
-  background-color: ${colours.primaryColour}
+  background-color: ${props => props.theme.primaryColour}
 `
 
 const Overlay = styled.div`

@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import Link from 'gatsby-link'
 import capitalize from 'lodash/capitalize'
-import colours from '../utils/colours'
 
 const Container = styled(Link) `
   display: flex;
@@ -20,24 +19,24 @@ const Container = styled(Link) `
 `
 
 const Heading = styled.h2`
-  color: ${colours.textHeading};
+  color: ${props => props.theme.textHeading};
   font-size: 25.92px;
   margin-top:0;
   margin-bottom: 0;
 
   ${Container}:hover > & {
-    color: ${colours.primaryColour};
+    color: ${props => props.theme.primaryColour};
   }
 `
 
 const Except = styled.p`
-  color: ${colours.textSecondary};
+  color: ${props => props.theme.textSecondary};
   margin-top:30px;
   margin-bottom: 0;
 `
 
 const DateInfo = Except.extend`
-  color: ${colours.textDisable};
+  color: ${props => props.theme.textDisable};
 `
 export default class Card extends React.Component {
   render () {

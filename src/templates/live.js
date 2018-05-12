@@ -5,7 +5,6 @@ import moment from 'moment'
 import {isEmpty, orderBy, map, get} from 'lodash'
 
 import firebase from '../utils/firebase'
-import colours from '../utils/colours'
 
 import Link from 'gatsby-link'
 
@@ -22,7 +21,7 @@ const ThumbnailWrapper = styled.div`
   padding-top:44px;
   padding-bottom: 133px;
 
-  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${props => props.thumbnail}), ${colours.primaryColour};
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${props => props.thumbnail}), ${props => props.theme.primaryColour};
   background-size:cover;
   background-position:center;
   background-repeat: no-repeat;
@@ -74,7 +73,7 @@ const LiveStatusLabel = styled.span`
 `
 
 const LiveSymbol = styled.div`
-  background-color: ${props => props.isLive? "red": colours.textLowProfile};
+  background-color: ${props => props.isLive? "red": props.theme.textLowProfile};
   box-shadow: 0 2px 4px rgba(0,0,0,0.20);
   width: 18px;
   height: 18px;
@@ -148,7 +147,7 @@ const EventDetailContainer = LiveFeedContainer.extend`
 const EventDescription = styled.span`
   margin-top: 20px;
   font-size: 18px;
-  color: ${colours.textHeading};
+  color: ${props => props.theme.textHeading};
 `
 
 const NoPostLabel = styled.h3`

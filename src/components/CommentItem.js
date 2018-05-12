@@ -2,8 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import moment from 'moment'
 
-import colours from '../utils/colours'
-
 const Container = styled.div `
   display: flex;
   flex-direction: column;
@@ -18,13 +16,13 @@ const Container = styled.div `
 
 const Author = styled.h3`
   margin-bottom: 2px;
-  color: ${colours.primaryColour};
+  color: ${props => props.theme.primaryColour};
 `
 
 const Subtitle = styled.span`
   font-size: 14px;
   margin-bottom: 10px;
-  color: ${colours.textSecondary};
+  color: ${props => props.theme.textSecondary};
 `
 
 const Content = styled.span`

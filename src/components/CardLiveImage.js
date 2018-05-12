@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import Link from 'gatsby-link'
 import { isEmpty } from 'lodash'
-import colours from '../utils/colours'
 
 const Container = styled(Link)`
   display: flex;
@@ -24,18 +23,18 @@ const ContentContainer = styled.div `
 `
 
 const Heading = styled.h2`
-  color: ${colours.textHeading};
+  color: ${props => props.theme.textHeading};
   font-size: 25.92px;
   margin-top:0;
   margin-bottom: 0;
 
   ${ContentContainer}:hover > & {
-    color: ${colours.primaryColour};
+    color: ${props => props.theme.primaryColour};
   }
 `
 
 const Subtitle = styled.p`
-  color: ${colours.textSecondary};
+  color: ${props => props.theme.textSecondary};
   margin-top:30px;
   margin-bottom: 0;
 `

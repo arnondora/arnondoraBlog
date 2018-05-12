@@ -1,7 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
+import { ThemeProvider } from 'styled-components'
 import Helmet from 'react-helmet'
+
+import colours from '../utils/colours'
 
 import siteLogo from '../assets/favicon.png'
 import './index.css'
@@ -23,9 +26,9 @@ const TemplateWrapper = ({ children }) => (
     >
       <html lang="th"/>
     </Helmet>
-    <React.Fragment>
+    <ThemeProvider theme={colours}>
       {children()}
-    </React.Fragment>
+    </ThemeProvider>
   </React.Fragment>
 )
 

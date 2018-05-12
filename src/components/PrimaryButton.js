@@ -2,10 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import color from 'color'
 
-import colours from '../utils/colours'
-
 const Container = styled.div`
-  background-color: ${colours.primaryColour};
+  background-color: ${props => props.theme.primaryColour};
   color:white;
   float: ${props => props.float};
   padding: 13px 14px 13px 14px;
@@ -17,7 +15,7 @@ const Container = styled.div`
   }
 
   :hover {
-    background-color: ${color(colours.primaryColour).darken(0.2).string()};
+    background-color: ${props => color(props.theme.primaryColour).darken(0.2).string()};
   }
 `
 

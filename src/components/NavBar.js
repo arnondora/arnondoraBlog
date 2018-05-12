@@ -7,7 +7,6 @@ import color from 'color'
 
 import MaterialIcon from '../components/MaterialIcon'
 
-import colours from '../utils/colours'
 import arnondoraIcon from '../assets/arnondoraIcon.svg'
 
 import SocialShareNavBarButtons from './SocialShareNavBarButtons'
@@ -23,7 +22,7 @@ const Wrapper = styled.div `
   justify-content: flex-start;
   width:100%;
   padding: 15px 0px 15px 15px;
-  background-color: ${props => props.bgColour};
+  background-color: ${props => props.scrollPosition < 256 && props.isArticle ? color(props.theme.primaryColour).alpha(props.scrollPosition/300).string() : props.theme.primaryColour};
   overflow:hidden;
 `
 
@@ -165,12 +164,8 @@ export default class NavBar extends React.Component
 	}
 
   render() {
-    if (this.state.scroll < 256 && get(this.props, 'article', false))
-      var bgColour = color(colours.primaryColour).alpha(this.state.scroll/300).string()
-      else
-      var bgColour = colours.primaryColour
     return (
-      <Wrapper bgColour={bgColour}>
+      <Wrapper scrollPosition={this.state.scroll} isArticle={get(this.props, 'article', false)}>
         <StyledLink to = "/"><Logo alt ={"site-logo"} src ={arnondoraIcon}/></StyledLink>
         {get(this.props,'article', false) ? null : <StyledLink to = "/"><SiteName>{this.props.siteTitle}</SiteName></StyledLink>}
 

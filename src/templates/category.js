@@ -2,7 +2,6 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
 import { get, isEmpty } from 'lodash'
-import colours from '../utils/colours'
 import Link from 'gatsby-link'
 
 import NavBar from '../components/NavBar'
@@ -27,7 +26,7 @@ const Container = styled.div`
   }
 `
 const CategoryInfoWrapper = styled.div`
-  color: ${colours.textHeading};
+  color: ${props => props.theme.textHeading};
   padding-bottom: 20px;
   border-bottom-style: solid;
   border-bottom-color: #E0E0E0;
@@ -42,7 +41,7 @@ const CategoryName = styled.h1 `
 const CategoryDescription = styled.p`
   margin-bottom: 0;
   margin-top: 10px;
-  color: ${colours.textDisable};
+  color: ${props => props.theme.textDisable};
   font-weight: 300;
 `
 
@@ -78,7 +77,7 @@ const CardWrapper = styled.div`
 `
 
 const SectionHeader = styled.h4`
-  color: ${colours.textSecondary};
+  color: ${props => props.theme.textSecondary};
   margin-top:30px;
   margin-bottom: 10px;
 `

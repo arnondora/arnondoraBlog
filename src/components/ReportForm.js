@@ -6,8 +6,6 @@ import TextField from 'material-ui/TextField'
 import MenuItem from 'material-ui/MenuItem'
 import color from 'color'
 
-import colours from '../utils/colours'
-
 const Container = styled.div `
   display: flex;
   flex-direction: column;
@@ -18,7 +16,7 @@ const ButtonWrapper = styled.div`
 `
 
 const SubmitButton = styled.button`
-  background-color: ${colours.primaryColour};
+  background-color: ${props => props.theme.primaryColour};
   color:white;
   float: ${props => props.float};
   padding: 13px 14px 13px 14px;
@@ -27,7 +25,7 @@ const SubmitButton = styled.button`
   float: right;
 
   :hover {
-    background-color: ${color(colours.primaryColour).darken(0.2).string()};
+    background-color: ${props => color(props.theme.primaryColour).darken(0.2).string()};
   }
 `
 export default class ReportForm extends React.Component {

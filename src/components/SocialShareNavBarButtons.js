@@ -5,7 +5,6 @@ import faFacebookF from '@fortawesome/fontawesome-free-brands/faFacebookF'
 import faTwitter from '@fortawesome/fontawesome-free-brands/faTwitter'
 import faGooglePlus from '@fortawesome/fontawesome-free-brands/faGooglePlus'
 
-import colours from '../utils/colours'
 import { getFacebookShareLink, getTwitterShareLink, getGooglePlusShareLink, convertLinkFromSlug } from '../utils/link'
 
 const IconLink = styled.a`
@@ -21,7 +20,7 @@ const Icon = styled(FontAwesomeIcon)`
   color: white;
 
   &:hover {
-    color: ${props => props.colour}
+    color: ${props => props.name === "facebook" ? props.theme.facebook : props.name === "twitter" ? props.theme.twitter : props.theme.googlePlus}
   }
 `
 
@@ -30,9 +29,9 @@ export default class SocialShareNavBarButtons extends React.Component {
     var link = convertLinkFromSlug(this.props.slug)
     return (
       <React.Fragment>
-        <IconLink href = {getFacebookShareLink(link)} rel="noopener" target="_blank" aria-label="Share to Facebook"><Icon icon={faFacebookF} colour={colours.facebook}/></IconLink>
-        <IconLink href = {getTwitterShareLink(link)} rel="noopener" target="_blank" aria-label="Share to Twitter"><Icon icon={faTwitter} colour={colours.twitter}/></IconLink>
-        <IconLink href = {getGooglePlusShareLink(link)} rel="noopener" target="_blank" aria-label="Share to Google Plus"><Icon icon={faGooglePlus} colour={colours.googlePlus}/></IconLink>
+        <IconLink href = {getFacebookShareLink(link)} rel="noopener" target="_blank" aria-label="Share to Facebook"><Icon icon={faFacebookF} name={"facebook"}/></IconLink>
+        <IconLink href = {getTwitterShareLink(link)} rel="noopener" target="_blank" aria-label="Share to Twitter"><Icon icon={faTwitter} name={"twitter"}/></IconLink>
+        <IconLink href = {getGooglePlusShareLink(link)} rel="noopener" target="_blank" aria-label="Share to Google Plus"><Icon icon={faGooglePlus} name={"google+"}/></IconLink>
       </React.Fragment>
     )
   }
