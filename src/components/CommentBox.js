@@ -88,7 +88,8 @@ export default class CommentBox extends React.Component {
       this.state = {
         name : "",
         comment : "",
-        commentList: 0
+        commentList: 0,
+        firebaseRef: firebase.database().ref("articles/" + this.props.slug + "/comments")
       }
       this.handleNameChange = this.handleNameChange.bind(this)
       this.handleCommentChange = this.handleCommentChange.bind(this)
@@ -96,11 +97,15 @@ export default class CommentBox extends React.Component {
   }
 
   componentDidMount () {
-    firebase.database().ref("articles/" + this.props.slug + "/comments").on('value', (snapshot) => {
+    this.state.firebaseRef.on('value', (snapshot) => {
       this.setState({
         commentList: orderBy(snapshot.val(), ['timestamp'], ['desc'])
       })
     })
+  }
+
+  componentWillUnmount () {
+    this.state.firebaseRef.off()
   }
 
   handleNameChange(event) {
