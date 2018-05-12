@@ -161,16 +161,21 @@ export default class LiveTemplate extends React.Component
   constructor(props) {
       super(props)
       this.state = {
-        post: null
+        post: null,
+        firebaseRef: firebase.database().ref("live/" + this.props.pathContext.post.slug),
       }
   }
 
   componentDidMount () {
-    firebase.database().ref("live/" + this.props.pathContext.post.slug).on('value', (snapshot) => {
+    this.state.firebaseRef.on('value', (snapshot) => {
       this.setState({
         post: snapshot.val()
       })
     })
+  }
+
+  componentWillUnmount () {
+    this.state.firebaseRef.off()
   }
 
   render () {
