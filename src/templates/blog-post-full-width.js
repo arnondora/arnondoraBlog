@@ -129,7 +129,7 @@ export default class BlogPostTemplate extends React.Component {
             </ContentWrapper>
 
           </Container> :
-          <Container><PageWrapper dangerouslySetInnerHTML={{ __html: postContent.html }} /></Container>
+          <PageWrapper dangerouslySetInnerHTML={{ __html: postContent.html }} />
         }
         {
           postInfo.type === "post" && (this.props.pathContext.next !== false || this.props.pathContext.prev !== false) ?
