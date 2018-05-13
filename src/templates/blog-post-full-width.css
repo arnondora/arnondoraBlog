@@ -27,12 +27,6 @@ a:visited {
   color: #0d8aed;
 }
 
-h1 {font-size: 37.32px;}
-h2 {font-size: 31.1px;}
-h3 {font-size: 25.92px;}
-h4 {font-size: 21.6px;}
-p {font-size: 18px;}
-
 iframe
 {
   display: block;
@@ -80,7 +74,7 @@ code
   color: #222222;
   border: 1px solid #e6e6e6;
   border-radius: 8px;
-  background-color: #FAFAFA; 
+  background-color: #FAFAFA;
 }
 
 table
