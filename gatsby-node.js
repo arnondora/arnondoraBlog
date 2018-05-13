@@ -178,7 +178,9 @@ exports.createPages = ({graphql, boundActionCreators}) => {
                           tracedSVG
                           aspectRatio
                           src
+                          srcSet
                           srcWebp
+                          srcSetWebp
                           sizes
                         }
                       }
