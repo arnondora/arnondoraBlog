@@ -5,6 +5,7 @@ import { get, isEmpty } from 'lodash'
 import Link from 'gatsby-link'
 
 import NavBar from '../components/NavBar'
+import Footer from '../components/Footer'
 import MobileFooter from '../components/MobileFooter'
 import FeaturedCategory from '../components/FeaturedCategory'
 import CardImage from '../components/CardImage'
@@ -20,6 +21,8 @@ const Container = styled.div`
 
   padding-top: 104px;
   padding-bottom: 50px;
+
+  margin-bottom: 20px;
 
   @media (max-width: 768px) {
     width: 90%;
@@ -122,6 +125,7 @@ export default class CategoryTemplate extends React.Component
             {!this.props.pathContext.isFirst && this.props.pathContext.page === 2 ? <Link to = {"/category/" + this.props.pathContext.category.link}><PrimaryButton float="right" label="Newer Posts"/></Link>  : null}
           </MoreButtonWrapper>
         </Container>
+        <Footer mobilehide/>
         <MobileFooter/>
       </React.Fragment>
     )

@@ -17,6 +17,10 @@ const Container = styled.div`
   background-color: ${props => props.theme.primaryColour};
   padding-top: 20px;
   padding-bottom: 20px;
+
+  @media (max-width: 576px) {
+      display: ${props => props.mobilehide ? 'none' : 'block'};
+  }
 `
 
 const Wrapper = styled.div`
@@ -80,7 +84,7 @@ const GithubLink = styled.a`
 export default class Footer extends React.Component {
   render () {
     return (
-      <Container>
+      <Container mobilehide={this.props.mobilehide}>
         <Wrapper>
           <ContactList>
             <a href ="https://www.facebook.com/arnondora" rel="noopener" target="_blank" aria-label="Facebook"><ContactItem src = {Facebook}/></a>
