@@ -4,7 +4,6 @@ import styled from 'styled-components'
 import Helmet from 'react-helmet'
 
 import NavBar from '../components/NavBar'
-import Footer from '../components/Footer'
 import MobileFooter from '../components/MobileFooter'
 import FeatureStory from '../components/FeatureStory'
 import CategoryButton from '../components/CategoryButton'
