@@ -17,7 +17,7 @@ const TemplateWrapper = ({ children }) => (
         { name: 'description', content: 'The offical personal blog of @arnondora' },
         {property: "og:title", "content" : 'Hello World - Mad Programmer Diary'},
         {property: "og:description", "content" : 'The offical personal blog of @arnondora'},
-        {property: "og:locale", "content" : "th_TH"},
+        {property: "og:locale", "content" : "th"},
         {property: "og:type", "content": "blog"},
         {property: "og:url", "content": `${process.env.APP_URL}`},
         {property: "og:image:secure_url", "content": siteLogo},
