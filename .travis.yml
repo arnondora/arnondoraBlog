@@ -1,0 +1,27 @@
+language: node_js
+node_js:
+  - "8"
+cache: yarn
+addons:
+  apt:
+    packages:
+      - g++-4.8
+    sources:
+      - ubuntu-toolchain-r-test
+env:
+  CXX=g++-4.8
+git:
+    submodules: false
+before_install:
+    - sed -i 's/git@github.com:/https:\/\/${GITHUB_USERNAME}:${GIT_TOKEN}@github.com\//' .gitmodules
+    - git submodule update --init --recursive
+branches:
+  only:
+    - develop
+before_script:
+  - "yarn global add firebase-tools"
+  - "yarn global add gatsby"
+script:
+  - "yarn build-staging"
+after_success:
+  - "firebase deploy -P staging --token=${FIREBASE_API_TOKEN}"
