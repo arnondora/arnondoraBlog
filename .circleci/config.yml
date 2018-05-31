@@ -34,11 +34,11 @@ workflows:
   version: 2
   build-and-deploy-production:
     jobs:
-      - deploy_production
+      - deploy_production:
           filters:
             branches:
               only: master
-      - deploy_develop
+      - deploy_develop:
           filters:
             branches:
               only: develop
