@@ -3,7 +3,7 @@ jobs:
   deploy_production:
     working_directory: ~/blog
     docker :
-      - image : circleci/node:latest
+      - image : circleci/node:6
         environment:
           GATSBY_FIREBASE_APIKEY: $GATSBY_FIREBASE_APIKEY
           GATSBY_FIREBASE_AUTHDOMAIN: $GATSBY_FIREBASE_AUTHDOMAIN
