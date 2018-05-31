@@ -1,0 +1,44 @@
+version: 2
+jobs:
+  deploy_production:
+    working_directory: ~/blog
+    docker :
+      - image : circleci/node:latest
+    steps:
+      - checkout
+      - run:
+          name : Install Dependencies
+          command: |
+            yarn install
+            yarn build
+      - run:
+          name: Deploy to Production on Firebase
+          command: |
+            firebase deploy -P default --token=$FIREBASE_API_TOKEN
+  deploy_develop:
+    working_directory: ~/blog
+    docker :
+      - image : circleci/node:latest
+    steps:
+      - checkout
+      - run:
+          name : Install Dependencies
+          command: |
+            yarn install
+            yarn build-staging
+      - run:
+          name: Deploy to Production on Firebase
+          command: |
+            firebase deploy -P staging --token=$FIREBASE_API_TOKEN
+workflows:
+  version: 2
+  build-and-deploy-production:
+    jobs:
+      - deploy_production
+          filters:
+            branches:
+              only: master
+      - deploy_develop
+          filters:
+            branches:
+              only: develop
