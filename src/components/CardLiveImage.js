@@ -10,6 +10,7 @@ const Container = styled(Link)`
 const ContentContainer = styled.div `
   display: flex;
   flex-direction: column;
+  margin-top: 10px;
   padding: 30px 52px 20px 52px;
   background-color: #FFFFFF;
   box-shadow: 0 2px 5px 0 rgba(0,0,0,0.05);
