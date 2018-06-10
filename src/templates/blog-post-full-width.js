@@ -55,6 +55,26 @@ const ArticleWrapper = styled.div`
   @media (max-width: 768px) {
     margin-top:0;
   }
+
+  & > h1 {
+    font-size: 2.6058rem;
+  }
+
+  & > h2 {
+    font-size: 2.00448rem;
+  }
+
+  & > h3 {
+    font-size: 1.6704rem;
+  }
+
+  & > h4 {
+    font-size: 1.392rem;
+  }
+
+  & > p,li {
+    font-size: 1.1rem;
+  }
 `
 
 const PageWrapper = ArticleWrapper.extend`
