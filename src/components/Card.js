@@ -14,6 +14,7 @@ const Container = styled(Link) `
   border-radius: 8px;
 
   :hover {
+    transition: box-shadow .5s ease;
     box-shadow: 0 2px 5px 0 rgba(0,0,0,0.20);
   }
 `
