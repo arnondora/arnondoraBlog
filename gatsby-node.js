@@ -358,15 +358,11 @@ exports.modifyWebpackConfig = ({config, stage}) => {
     });
   }
 
-  if (stage === 'build-javascript') {
-    // turn off source-maps
-    config.merge({devtool: false});
-  }
-
   switch (stage) {
     case `build-javascript`:
       config.plugin(`Lodash`, webpackLodashPlugin, null)
-
+      // turn off source-maps
+      config.merge({devtool: false});
       break
   }
 
