@@ -30,8 +30,8 @@ module.exports = class HTML extends React.Component {
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
           />
           <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="preload" as="style"/>
-          <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="preload" as="style"/>
-          
+          <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+
           {this.props.headComponents}
           {css}
         </head>
