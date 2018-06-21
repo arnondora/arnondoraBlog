@@ -129,12 +129,14 @@ const SmallSubHeading = styled.p`
 const ThumbnailCredit = styled.em`
   display: block;
   text-align: center;
-  color: rgba(0,0,0,.68);
-  margin-top:5px;
+  color: ${props => props.isNight ? props.theme.night_text_light : 'rgba(0,0,0,.68)'};
+  padding-top:5px;
   font-size: 0.8em;
 
+  background-color: ${props => props.isNight ? props.theme.night_darkBackground : props.theme.defaultBackground};
+
   a {
-    color: rgba(0,0,0,.8);
+    color: ${props => props.isNight ? props.theme.night_text_normal : 'rgba(0,0,0,.8)'};
   }
 `
 
@@ -162,7 +164,7 @@ export default class BlogPostTemplate extends React.Component {
         />
         <NavBar article={true} slug={this.props.pathContext.slug} headline={postInfo.title} isNight={this.state.isNight === null ? false : this.state.isNight}/>
         <ThumbnailContainer post={postInfo}/>
-        {!isEmpty(postInfo.thumbnailCredit)? <ThumbnailCredit dangerouslySetInnerHTML={{ __html: postInfo.thumbnailCredit }}/> : null}
+        {!isEmpty(postInfo.thumbnailCredit)? <ThumbnailCredit isNight={this.state.isNight} dangerouslySetInnerHTML={{ __html: postInfo.thumbnailCredit }}/> : null}
 
         {postInfo.type === "post" ? <Container isNight={this.state.isNight}>
             <ContentWrapper>
