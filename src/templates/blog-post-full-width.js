@@ -100,7 +100,7 @@ const PageWrapper = ArticleWrapper.extend`
 
   @media (max-width: 768px) {
     width: 90%;
-    margin-top:20px;
+    padding-top:20px;
   }
 `
 
