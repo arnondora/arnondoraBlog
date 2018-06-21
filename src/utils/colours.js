@@ -5,7 +5,7 @@ const colours = {
   textSecondary: "#666666",
   textLowProfile: "#ADADAD",
   secondaryBackground: "#FAFAFA",
-  defaultBackground: "F5F5F5",
+  defaultBackground: "#F5F5F5",
   darkBackground: "#F9F9F9",
   secondaryBorder: "#E0E0E0",
 
