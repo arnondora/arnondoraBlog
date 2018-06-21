@@ -22,8 +22,8 @@ const Wrapper = styled.div `
   justify-content: flex-start;
   width:100%;
   padding: 15px 0px 15px 15px;
-  background-color: ${props =>
-    props.scrollPosition < 256 && props.isArticle ? props.isNight ? color(props.theme.night_darkBackground).alpha(props.scrollPosition/300).string() : color(props.theme.primaryColour).alpha(props.scrollPosition/300).string() : props.isNight ? props.theme.night_darkBackground: props.theme.primaryColour};
+  background-color: ${props => props.scrollPosition < 256 && props.isArticle ? props.isNight ? color(props.theme.night_darkBackground).alpha(props.scrollPosition/300).string() : color(props.theme.primaryColour).alpha(props.scrollPosition/300).string() : props.isNight ? props.theme.night_darkBackground: props.theme.primaryColour};
+  border-bottom: solid ${props => props.isNight ? color(props.theme.night_secondaryBorder).alpha(props.scrollPosition/300).string() : 'none'} 1px;
   overflow:hidden;
 `
 
