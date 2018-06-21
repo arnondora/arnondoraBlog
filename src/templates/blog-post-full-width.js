@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import color from 'color'
 import { isEmpty } from 'lodash'
 
 import colours from '../utils/colours'
@@ -140,6 +141,21 @@ const ThumbnailCredit = styled.em`
   }
 `
 
+const PrimaryButton = styled.button`
+  background-color: ${props => props.isNight ? color(props.theme.night_darkBackground).darken(0.3).toString() : props.theme.primaryColour};
+  color:white;
+  text-align: center;
+  float: ${props => props.float};
+  padding: 13px 14px 13px 14px;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.20);
+  border-radius: 4px;
+  border: none;
+  
+  :hover {
+    background-color: ${props => props.isNight? color(props.theme.night_darkBackground).darken(0.2).string() : color(props.theme.primaryColour).darken(0.2).string()};
+  }
+`
+
 export default class BlogPostTemplate extends React.Component {
   constructor (props) {
       super(props)
@@ -172,7 +188,7 @@ export default class BlogPostTemplate extends React.Component {
         {postInfo.type === "post" ? <Container isNight={this.state.isNight}>
             <ContentWrapper>
               {/* TODO: Add Proper Colour Mode Switcher Button*/}
-              <div><button onClick={this.nightModeSwitcher}>{this.state.isNight ? "Switch to Day Mode" : "Switch to Night Mode"}</button></div>
+              <PrimaryButton isNight={this.state.isNight} onClick={this.nightModeSwitcher}>{this.state.isNight ? "Switch to Day Mode" : "Switch to Night Mode"}</PrimaryButton>
               {postInfo.template === "normal" ? <SmallHeading>{postInfo.title}</SmallHeading> : null}
               {postInfo.type === "post" && postInfo.template === "normal"? <SmallSubHeading>by {postInfo.author} on {postInfo.date}</SmallSubHeading> : null}
               <ArticleWrapper isNight={this.state.isNight} dangerouslySetInnerHTML={{ __html: postContent.html }} />
