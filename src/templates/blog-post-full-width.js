@@ -143,6 +143,9 @@ const ThumbnailCredit = styled.em`
 export default class BlogPostTemplate extends React.Component {
   constructor (props) {
       super(props)
+
+      // TODO: Add isNight state store in session
+
       this.state = {
         isNight: false,
       }
@@ -168,7 +171,8 @@ export default class BlogPostTemplate extends React.Component {
 
         {postInfo.type === "post" ? <Container isNight={this.state.isNight}>
             <ContentWrapper>
-              <div><button onClick={this.nightModeSwitcher}>Change</button></div>
+              {/* TODO: Add Proper Colour Mode Switcher Button*/}
+              <div><button onClick={this.nightModeSwitcher}>{this.state.isNight ? "Switch to Day Mode" : "Switch to Night Mode"}</button></div>
               {postInfo.template === "normal" ? <SmallHeading>{postInfo.title}</SmallHeading> : null}
               {postInfo.type === "post" && postInfo.template === "normal"? <SmallSubHeading>by {postInfo.author} on {postInfo.date}</SmallSubHeading> : null}
               <ArticleWrapper isNight={this.state.isNight} dangerouslySetInnerHTML={{ __html: postContent.html }} />

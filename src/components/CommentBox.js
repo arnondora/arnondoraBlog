@@ -36,6 +36,8 @@ const InputGroup = styled.div`
   :first {
     margin-top:0;
   }
+
+${'' /* TODO: Change Colour of InputField to be Dark */}
 `
 
 const InputLabel = styled.span`
