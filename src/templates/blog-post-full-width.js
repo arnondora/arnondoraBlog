@@ -124,6 +124,15 @@ const ThumbnailCredit = styled.em`
 `
 
 export default class BlogPostTemplate extends React.Component {
+  constructor (props) {
+      super(props)
+      this.state = {
+        isNight: false,
+      }
+
+      this.nightModeSwitcher = this.nightModeSwitcher.bind(this)
+  }
+
   render() {
     const postContent = this.props.data.markdownRemark
     const postInfo = postContent.frontmatter
@@ -136,13 +145,13 @@ export default class BlogPostTemplate extends React.Component {
           slug = {this.props.pathContext.slug}
           siteMetadata={siteMetadata}
         />
-        <NavBar article={true} slug={this.props.pathContext.slug} headline={postInfo.title}/>
-
+        <NavBar article={true} slug={this.props.pathContext.slug} headline={postInfo.title} isNight={this.state.isNight === null ? false : this.state.isNight}/>
         <ThumbnailContainer post={postInfo}/>
         {!isEmpty(postInfo.thumbnailCredit)? <ThumbnailCredit dangerouslySetInnerHTML={{ __html: postInfo.thumbnailCredit }}/> : null}
 
         {postInfo.type === "post" ? <Container>
             <ContentWrapper>
+              <div><button onClick={this.nightModeSwitcher}>Change</button></div>
               {postInfo.template === "normal" ? <SmallHeading>{postInfo.title}</SmallHeading> : null}
               {postInfo.type === "post" && postInfo.template === "normal"? <SmallSubHeading>by {postInfo.author} on {postInfo.date}</SmallSubHeading> : null}
               <ArticleWrapper dangerouslySetInnerHTML={{ __html: postContent.html }} />
@@ -169,10 +178,17 @@ export default class BlogPostTemplate extends React.Component {
         }
 
         <MobileStickyShareContainer><StickyMobileShare slug={this.props.pathContext.slug}/></MobileStickyShareContainer>
-        <Footer/>
+        <Footer isNight={this.state.isNight}/>
       </React.Fragment>
 
     )
+  }
+
+  nightModeSwitcher () {
+    console.log("changed")
+    this.setState({
+      isNight : !this.state.isNight
+    })
   }
 }
 

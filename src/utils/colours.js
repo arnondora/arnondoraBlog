@@ -7,6 +7,9 @@ const colours = {
   secondaryBackground: "#FAFAFA",
   darkBackground: "#F9F9F9",
   secondaryBorder: "#E0E0E0",
+
+  night_primaryColour: "#4f5b62",
+
   facebook: "#3b5998",
   twitter: "#55acee",
   googlePlus: "#dd4b39",

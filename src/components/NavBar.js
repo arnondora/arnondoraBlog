@@ -22,7 +22,8 @@ const Wrapper = styled.div `
   justify-content: flex-start;
   width:100%;
   padding: 15px 0px 15px 15px;
-  background-color: ${props => props.scrollPosition < 256 && props.isArticle ? color(props.theme.primaryColour).alpha(props.scrollPosition/300).string() : props.theme.primaryColour};
+  background-color: ${props =>
+    props.scrollPosition < 256 && props.isArticle ? props.isNight ? color(props.theme.night_primaryColour).alpha(props.scrollPosition/300).string() : color(props.theme.primaryColour).alpha(props.scrollPosition/300).string() : props.isNight ? props.theme.night_primaryColour: props.theme.primaryColour};
   overflow:hidden;
 `
 
@@ -165,7 +166,7 @@ export default class NavBar extends React.Component
 
   render() {
     return (
-      <Wrapper scrollPosition={this.state.scroll} isArticle={get(this.props, 'article', false)}>
+      <Wrapper scrollPosition={this.state.scroll} isNight={this.props.isNight} isArticle={get(this.props, 'article', false)}>
         <StyledLink to = "/"><Logo alt ={"site-logo"} src ={arnondoraIcon}/></StyledLink>
         {get(this.props,'article', false) ? null : <StyledLink to = "/"><SiteName>{this.props.siteTitle}</SiteName></StyledLink>}
 
