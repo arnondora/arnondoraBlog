@@ -14,7 +14,7 @@ import GooglePlus from '../assets/GooglePlus.svg'
 import Email from '../assets/Email.svg'
 
 const Container = styled.div`
-  background-color: ${props => props.isNight? props.theme.night_primaryColour : props.theme.primaryColour};
+  background-color: ${props => props.isNight? props.theme.night_darkBackground : props.theme.primaryColour};
   padding-top: 20px;
   padding-bottom: 20px;
 

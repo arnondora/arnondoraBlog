@@ -8,7 +8,7 @@ const colours = {
   darkBackground: "#F9F9F9",
   secondaryBorder: "#E0E0E0",
 
-  night_primaryColour: "#4f5b62",
+  night_darkBackground: "#22313a",
 
   facebook: "#3b5998",
   twitter: "#55acee",

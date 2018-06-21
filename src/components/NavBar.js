@@ -23,7 +23,7 @@ const Wrapper = styled.div `
   width:100%;
   padding: 15px 0px 15px 15px;
   background-color: ${props =>
-    props.scrollPosition < 256 && props.isArticle ? props.isNight ? color(props.theme.night_primaryColour).alpha(props.scrollPosition/300).string() : color(props.theme.primaryColour).alpha(props.scrollPosition/300).string() : props.isNight ? props.theme.night_primaryColour: props.theme.primaryColour};
+    props.scrollPosition < 256 && props.isArticle ? props.isNight ? color(props.theme.night_darkBackground).alpha(props.scrollPosition/300).string() : color(props.theme.primaryColour).alpha(props.scrollPosition/300).string() : props.isNight ? props.theme.night_darkBackground: props.theme.primaryColour};
   overflow:hidden;
 `
 

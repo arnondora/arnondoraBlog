@@ -59,7 +59,7 @@ const CommentList = styled.div`
 `
 
 const PrimaryButton = styled.div`
-  background-color: ${props => props.theme.primaryColour};
+  background-color: ${props => props.isNight ? props.theme.night_darkBackground : props.theme.primaryColour};
   color:white;
   text-align: center;
   float: ${props => props.float};
@@ -73,7 +73,7 @@ const PrimaryButton = styled.div`
   }
 
   :hover {
-    background-color: ${props => color(props.theme.primaryColour).darken(0.2).string()};
+    background-color: ${props => props.isNight? color(props.theme.night_darkBackground).darken(0.2).string() : color(props.theme.primaryColour).darken(0.2).string()};
   }
 `
 
@@ -139,7 +139,7 @@ export default class CommentBox extends React.Component {
           </InputGroup>
 
           <InputGroup>
-            <PrimaryButton onClick={this.addComment}>Post a comment</PrimaryButton>
+            <PrimaryButton onClick={this.addComment} isNight={this.props.isNight}>Post a comment</PrimaryButton>
           </InputGroup>
 
           <CommentList>

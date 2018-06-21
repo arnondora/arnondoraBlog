@@ -172,7 +172,7 @@ export default class BlogPostTemplate extends React.Component {
 
         {
           postInfo.type === "post" ?
-          <CommentWrapper><PageWrapper><CommentBox slug={this.props.pathContext.slug}/></PageWrapper></CommentWrapper>
+          <CommentWrapper><PageWrapper><CommentBox slug={this.props.pathContext.slug} isNight={this.state.isNight}/></PageWrapper></CommentWrapper>
           :
           null
         }
