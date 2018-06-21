@@ -13,6 +13,14 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   width:100%;
+
+  & > h2{
+    color: ${props => props.isNight ? props.theme.night_text_light : props.theme.textHeading};
+  }
+
+  & > div > span {
+    color: ${props => props.isNight ? props.theme.night_text_normal : props.theme.textHeading};
+  }
 `
 
 const Header = styled.h2`
@@ -59,7 +67,7 @@ const CommentList = styled.div`
 `
 
 const PrimaryButton = styled.div`
-  background-color: ${props => props.isNight ? props.theme.night_darkBackground : props.theme.primaryColour};
+  background-color: ${props => props.isNight ? color(props.theme.night_darkBackground).darken(0.3).toString() : props.theme.primaryColour};
   color:white;
   text-align: center;
   float: ${props => props.float};
@@ -79,6 +87,10 @@ const PrimaryButton = styled.div`
 
 const Warning = styled.span `
   color:red;
+`
+
+const Info = styled.span`
+  color: ${props => props.isNight? props.theme.night_text_normal : props.theme.textHeading};
 `
 
 export default class CommentBox extends React.Component {
@@ -125,7 +137,7 @@ export default class CommentBox extends React.Component {
       comments = this.state.commentList
 
     return (
-      <Container>
+      <Container isNight={this.props.isNight}>
           <Header>Leave a comment?</Header>
           {process.env.NODE_ENV !== 'production' ? <Warning>Posting to staging database 🔥</Warning>: null}
           <InputGroup>
@@ -145,14 +157,14 @@ export default class CommentBox extends React.Component {
           <CommentList>
             {
               comments === 0 ?
-                <span>Loading Comment(s)</span>
+                <Info isNight={this.props.isNight}>Loading Comment(s)</Info>
 
               : !isEmpty(comments) ?
                 map(comments, (item) => {
                   item = item.props.comment
-                  if (!isEmpty(item.name) > 0 && !isEmpty(item.comment) > 0 && moment.unix(item.timestamp).isValid()) return (<CommentItem key={item.timestamp} comment={item}/>)
+                  if (!isEmpty(item.name) > 0 && !isEmpty(item.comment) > 0 && moment.unix(item.timestamp).isValid()) return (<CommentItem key={item.timestamp} comment={item} isNight={this.props.isNight}/>)
                 })
-              :<span>There is no comment yet!</span>
+              :<Info isNight={this.props.isNight}>There is no comment yet!</Info>
             }
           </CommentList>
       </Container>
