@@ -61,6 +61,16 @@ const ArticleWrapper = styled.div`
     color: ${props => props.isNight ? props.theme.night_text_light : props.theme.textHeading};
   }
 
+  pre > code {
+    background-color: ${props => props.isNight ? props.theme.night_lightBackground : props.theme.secondaryBackground} !important;
+    white-space: pre-wrap;
+    display: block;
+    padding: 10px 15px 10px 15px;
+    color: ${props => props.isNight ? props.theme.night_text_light : '#222222'};
+    border: 1px solid ${props => props.isNight ? props.theme.night_secondaryBorder :'#e6e6e6'};
+    border-radius: 8px;
+  }
+
   & > h1 {
     font-size: 2.6058rem;
   }
