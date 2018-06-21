@@ -150,7 +150,7 @@ const PrimaryButton = styled.button`
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.20);
   border-radius: 4px;
   border: none;
-  
+
   :hover {
     background-color: ${props => props.isNight? color(props.theme.night_darkBackground).darken(0.2).string() : color(props.theme.primaryColour).darken(0.2).string()};
   }
@@ -222,7 +222,6 @@ export default class BlogPostTemplate extends React.Component {
   }
 
   nightModeSwitcher () {
-    console.log("changed")
     this.setState({
       isNight : !this.state.isNight
     })
