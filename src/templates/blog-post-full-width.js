@@ -19,6 +19,7 @@ import './blog-post-full-width.css' /* Import Reader Style */
 const Container = styled.div`
   display: flex;
   flex-direction:column;
+  background-color: ${props => props.isNight? props.theme.night_darkBackground : props.theme.defaultBackground};
 
   @media (max-width: 768px) {
     padding-bottom: 38px;
@@ -56,6 +57,10 @@ const ArticleWrapper = styled.div`
     margin-top:0;
   }
 
+  & > *, & > blockquote > p, & > ul,ol > li, & > ul,ol > li > strong {
+    color: ${props => props.isNight ? props.theme.night_text_light : props.theme.textHeading};
+  }
+
   & > h1 {
     font-size: 2.6058rem;
   }
@@ -89,7 +94,7 @@ const PageWrapper = ArticleWrapper.extend`
 `
 
 const CommentWrapper = styled.div`
-  background-color: ${props => props.theme.darkBackground};
+  background-color: ${props => props.isNight? props.theme.night_lightBackground :props.theme.darkBackground};
 `
 
 const Heading = styled.h1`
@@ -149,13 +154,13 @@ export default class BlogPostTemplate extends React.Component {
         <ThumbnailContainer post={postInfo}/>
         {!isEmpty(postInfo.thumbnailCredit)? <ThumbnailCredit dangerouslySetInnerHTML={{ __html: postInfo.thumbnailCredit }}/> : null}
 
-        {postInfo.type === "post" ? <Container>
+        {postInfo.type === "post" ? <Container isNight={this.state.isNight}>
             <ContentWrapper>
               <div><button onClick={this.nightModeSwitcher}>Change</button></div>
               {postInfo.template === "normal" ? <SmallHeading>{postInfo.title}</SmallHeading> : null}
               {postInfo.type === "post" && postInfo.template === "normal"? <SmallSubHeading>by {postInfo.author} on {postInfo.date}</SmallSubHeading> : null}
-              <ArticleWrapper dangerouslySetInnerHTML={{ __html: postContent.html }} />
-              <MobileSocialShareButton slug={this.props.pathContext.slug}/>
+              <ArticleWrapper isNight={this.state.isNight} dangerouslySetInnerHTML={{ __html: postContent.html }} />
+              <MobileSocialShareButton slug={this.props.pathContext.slug} isNight={this.state.isNight}/>
             </ContentWrapper>
 
           </Container> :
@@ -164,7 +169,7 @@ export default class BlogPostTemplate extends React.Component {
         {
           postInfo.type === "post" && (this.props.pathContext.next !== false || this.props.pathContext.prev !== false) ?
             <React.Fragment>
-              <NextStory next={this.props.pathContext.next} prev={this.props.pathContext.prev} hasRelated={isEmpty(this.props.pathContext.related)}/>
+              <NextStory next={this.props.pathContext.next} prev={this.props.pathContext.prev} hasRelated={isEmpty(this.props.pathContext.related)} isNight={this.state.isNight}/>
               <RecommendStory stories = {this.props.pathContext.related}/>
             </React.Fragment>
           : null
@@ -172,7 +177,7 @@ export default class BlogPostTemplate extends React.Component {
 
         {
           postInfo.type === "post" ?
-          <CommentWrapper><PageWrapper><CommentBox slug={this.props.pathContext.slug} isNight={this.state.isNight}/></PageWrapper></CommentWrapper>
+          <CommentWrapper isNight={this.state.isNight}><PageWrapper><CommentBox slug={this.props.pathContext.slug} isNight={this.state.isNight}/></PageWrapper></CommentWrapper>
           :
           null
         }
