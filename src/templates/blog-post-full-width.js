@@ -57,7 +57,7 @@ const ArticleWrapper = styled.div`
     margin-top:0;
   }
 
-  & > *, & > blockquote > p, & > ul,ol > li, & > ul,ol > li > strong {
+  & > *, & > blockquote > p, & > ul > li, & > ul > li > strong, & > ol > li, & > ol > li > strong {
     color: ${props => props.isNight ? props.theme.night_text_light : props.theme.textHeading};
   }
 
