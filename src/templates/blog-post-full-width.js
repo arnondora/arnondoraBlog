@@ -145,7 +145,8 @@ const PrimaryButton = styled.button`
   background-color: ${props => props.isNight ? color(props.theme.night_darkBackground).darken(0.3).toString() : props.theme.primaryColour};
   color:white;
   text-align: center;
-  float: ${props => props.float};
+  margin-top: 10px;
+  margin-bottom: 10px;
   padding: 13px 14px 13px 14px;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.20);
   border-radius: 4px;
