@@ -32,7 +32,7 @@ export default class MaterialIcon extends React.Component {
   render () {
     return (
       <React.Fragment>
-        <Icon noLineHeight={this.props.noLineHeight} size={this.props.size}>{this.props.iconName}</Icon>
+        <Icon noLineHeight={this.props.noLineHeight} size={this.props.size} colour={get(this.props.colour,'white')}>{this.props.iconName}</Icon>
       </React.Fragment>
     )
   }
