@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import {get, isEmpty} from 'lodash'
 
-const Icon = styled.i`
+export const Icon = styled.i`
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
