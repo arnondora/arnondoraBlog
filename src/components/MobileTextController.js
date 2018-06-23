@@ -40,6 +40,8 @@ export default class MobileTextController extends React.Component {
       <React.Fragment>
           <ControllerLabel isNight={this.props.isNight}>Appearance Controller : </ControllerLabel>
           <ItemButton onClick={this.props.nightModeSwitcher} isNight={this.props.isNight}><ItemIcon isNight={this.props.isNight} size={30} noLineHeight>{this.props.isNight ? "brightness_3" : "wb_sunny"}</ItemIcon></ItemButton>
+          <ItemButton onClick={this.props.enlargeFont} isNight={this.props.isNight}><ItemIcon isNight={this.props.isNight} size={30} noLineHeight>{"title"}</ItemIcon></ItemButton>
+          <ItemButton onClick={this.props.decreaseFont} isNight={this.props.isNight}><ItemIcon isNight={this.props.isNight} size={25} noLineHeight>{"title"}</ItemIcon></ItemButton>
       </React.Fragment>
     )
   }

@@ -159,15 +159,21 @@ export default class BlogPostTemplate extends React.Component {
 
       this.state = {
         isNight: false,
+        fontScale: 1,
       }
 
       this.nightModeSwitcher = this.nightModeSwitcher.bind(this)
+      this.enlargeFont = this.enlargeFont.bind(this)
+      this.decreaseFont = this.decreaseFont.bind(this)
   }
 
   render() {
     const postContent = this.props.data.markdownRemark
     const postInfo = postContent.frontmatter
     const siteMetadata = this.props.pathContext.siteInfo.siteMetadata
+
+    //NOTE Remove This Console Log After Finish Font Scale Function
+    console.log("Scaling Font is under development...")
 
     return (
       <React.Fragment>
@@ -183,7 +189,7 @@ export default class BlogPostTemplate extends React.Component {
         {postInfo.type === "post" ? <Container isNight={this.state.isNight}>
             <ContentWrapper>
               <MobileTextControllerGroup>
-                <MobileTextController isNight={this.state.isNight} nightModeSwitcher={this.nightModeSwitcher}/>
+                <MobileTextController isNight={this.state.isNight} nightModeSwitcher={this.nightModeSwitcher} enlargeFont={this.enlargeFont} decreaseFont={this.decreaseFont}/>
               </MobileTextControllerGroup>
 
               {postInfo.template === "normal" ? <SmallHeading>{postInfo.title}</SmallHeading> : null}
@@ -221,6 +227,18 @@ export default class BlogPostTemplate extends React.Component {
   nightModeSwitcher () {
     this.setState({
       isNight : !this.state.isNight
+    })
+  }
+
+  enlargeFont () {
+    this.setState ({
+      fontScale : this.state.fontScale < 3 ? this.state.fontScale + 1 : 3
+    })
+  }
+
+  decreaseFont () {
+    this.setState ({
+      fontScale : this.state.fontScale > 1 ? this.state.fontScale - 1 : 1
     })
   }
 }
