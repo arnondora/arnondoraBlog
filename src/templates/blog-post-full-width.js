@@ -12,6 +12,7 @@ import NextStory from '../components/NextStory'
 import RecommendStory from '../components/RecommendStory'
 import CommentBox from '../components/CommentBox'
 import MobileSocialShareButton from '../components/MobileSocialShareButton'
+import MobileTextController from '../components/MobileTextController'
 import StickyMobileShare from '../components/StickyMobileShare'
 import Footer from  '../components/Footer'
 
@@ -141,20 +142,13 @@ const ThumbnailCredit = styled.em`
   }
 `
 
-const PrimaryButton = styled.button`
-  background-color: ${props => props.isNight ? color(props.theme.night_darkBackground).darken(0.3).toString() : props.theme.primaryColour};
-  color:white;
-  text-align: center;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  padding: 13px 14px 13px 14px;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.20);
-  border-radius: 4px;
-  border: none;
-
-  :hover {
-    background-color: ${props => props.isNight? color(props.theme.night_darkBackground).darken(0.2).string() : color(props.theme.primaryColour).darken(0.2).string()};
-  }
+const MobileTextControllerGroup = styled.div`
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    align-items: center;
+    margin-bottom: 20px;
 `
 
 export default class BlogPostTemplate extends React.Component {
@@ -188,8 +182,10 @@ export default class BlogPostTemplate extends React.Component {
 
         {postInfo.type === "post" ? <Container isNight={this.state.isNight}>
             <ContentWrapper>
-              {/* TODO: Add Proper Colour Mode Switcher Button*/}
-              <PrimaryButton isNight={this.state.isNight} onClick={this.nightModeSwitcher}>{this.state.isNight ? "Switch to Day Mode" : "Switch to Night Mode"}</PrimaryButton>
+              <MobileTextControllerGroup>
+                <MobileTextController isNight={this.state.isNight} nightModeSwitcher={this.nightModeSwitcher}/>
+              </MobileTextControllerGroup>
+
               {postInfo.template === "normal" ? <SmallHeading>{postInfo.title}</SmallHeading> : null}
               {postInfo.type === "post" && postInfo.template === "normal"? <SmallSubHeading>by {postInfo.author} on {postInfo.date}</SmallSubHeading> : null}
               <ArticleWrapper isNight={this.state.isNight} dangerouslySetInnerHTML={{ __html: postContent.html }} />
