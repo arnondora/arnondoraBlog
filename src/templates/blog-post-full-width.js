@@ -182,9 +182,6 @@ export default class BlogPostTemplate extends React.Component {
     const postInfo = postContent.frontmatter
     const siteMetadata = this.props.pathContext.siteInfo.siteMetadata
 
-    //NOTE Remove This Console Log After Finish Font Scale Function
-    console.log("Scaling Font is under development...")
-
     return (
       <React.Fragment>
         <SEO
