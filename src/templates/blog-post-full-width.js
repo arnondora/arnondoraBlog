@@ -74,23 +74,23 @@ const ArticleWrapper = styled.div`
   }
 
   & > h1 {
-    font-size: ${props => (props.scale * 2.6058) + 'rem'};
+    font-size: ${props => (props.scale + 2.6058) + 'rem'};
   }
 
   & > h2 {
-    font-size: ${props => (props.scale * 2.00448) + 'rem'};
+    font-size: ${props => (props.scale + 2.00448) + 'rem'};
   }
 
   & > h3 {
-    font-size: ${props => (props.scale * 1.6704) + 'rem'};
+    font-size: ${props => (props.scale + 1.6704) + 'rem'};
   }
 
   & > h4 {
-    font-size: ${props => (props.scale * 1.392) + 'rem'};
+    font-size: ${props => (props.scale + 1.392) + 'rem'};
   }
 
   & > p,li {
-    font-size: ${props => (props.scale * 1.1) + 'rem'};
+    font-size: ${props => (props.scale + 1.1) + 'rem'};
   }
 `
 
@@ -159,7 +159,7 @@ export default class BlogPostTemplate extends React.Component {
 
       this.state = {
         isNight: false,
-        fontScale: 1,
+        fontScale: 0,
       }
 
       this.nightModeSwitcher = this.nightModeSwitcher.bind(this)
@@ -232,13 +232,13 @@ export default class BlogPostTemplate extends React.Component {
 
   enlargeFont () {
     this.setState ({
-      fontScale : this.state.fontScale < 3 ? this.state.fontScale + 1 : 3
+      fontScale : this.state.fontScale < 0.3 ? this.state.fontScale + 0.1 : 0.3
     })
   }
 
   decreaseFont () {
     this.setState ({
-      fontScale : this.state.fontScale > 1 ? this.state.fontScale - 1 : 1
+      fontScale : this.state.fontScale > 0 ? this.state.fontScale - 0.1 : 0
     })
   }
 }
