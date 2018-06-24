@@ -74,23 +74,23 @@ const ArticleWrapper = styled.div`
   }
 
   & > h1 {
-    font-size: 2.6058rem;
+    font-size: ${props => (props.scale * 2.6058) + 'rem'};
   }
 
   & > h2 {
-    font-size: 2.00448rem;
+    font-size: ${props => (props.scale * 2.00448) + 'rem'};
   }
 
   & > h3 {
-    font-size: 1.6704rem;
+    font-size: ${props => (props.scale * 1.6704) + 'rem'};
   }
 
   & > h4 {
-    font-size: 1.392rem;
+    font-size: ${props => (props.scale * 1.392) + 'rem'};
   }
 
   & > p,li {
-    font-size: 1.1rem;
+    font-size: ${props => (props.scale * 1.1) + 'rem'};
   }
 `
 
@@ -194,7 +194,7 @@ export default class BlogPostTemplate extends React.Component {
 
               {postInfo.template === "normal" ? <SmallHeading>{postInfo.title}</SmallHeading> : null}
               {postInfo.type === "post" && postInfo.template === "normal"? <SmallSubHeading>by {postInfo.author} on {postInfo.date}</SmallSubHeading> : null}
-              <ArticleWrapper isNight={this.state.isNight} dangerouslySetInnerHTML={{ __html: postContent.html }} />
+              <ArticleWrapper scale={this.state.fontScale} isNight={this.state.isNight} dangerouslySetInnerHTML={{ __html: postContent.html }} />
               <MobileSocialShareButton slug={this.props.pathContext.slug} isNight={this.state.isNight}/>
             </ContentWrapper>
 
