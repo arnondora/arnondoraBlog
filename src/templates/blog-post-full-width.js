@@ -92,6 +92,16 @@ const ArticleWrapper = styled.div`
   & > p,li {
     font-size: ${props => (props.scale + 1.1) + 'rem'};
   }
+
+  & > p:first-child::first-letter {
+    color: #2096F3;
+    font-size: ${props => (props.scale + 3.1) + 'rem'};
+    line-height: 40px;
+    float: left;
+    padding-top: ${props => ((props.scale * 10) + 12) + 'px'};
+    padding-right: 10px;
+    padding-left: 3px;
+  }
 `
 
 const PageWrapper = ArticleWrapper.extend`
