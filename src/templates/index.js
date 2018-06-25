@@ -1,12 +1,10 @@
 import React from 'react'
-import Link from 'gatsby-link'
 import styled from 'styled-components'
 import Helmet from 'react-helmet'
 
 import NavBar from '../components/NavBar'
 import MobileFooter from '../components/MobileFooter'
 import FeatureStory from '../components/FeatureStory'
-import CategoryButton from '../components/CategoryButton'
 import IndexTab from '../components/IndexTab'
 
 import siteLogo from '../assets/favicon.png'
@@ -76,18 +74,18 @@ export default class IndexPage extends React.Component {
             {name: "twitter:description", "content": 'The offical personal blog of @arnondora'},
           ]}
         />
-        <NavBar siteTitle = {this.props.pathContext.siteInfo.siteMetadata.title}/>
+        <NavBar siteTitle = {this.props.pageContext.siteInfo.siteMetadata.title}/>
 
         <React.Fragment>
           <FeatureStoryContainer>
             <FeatureStory
-              featuredStory = {this.props.pathContext.featurePosts}
+              featuredStory = {this.props.pageContext.featurePosts}
             />
           </FeatureStoryContainer>
 
           <ContentWrapper>
             <ContentContainer>
-              <IndexTab context = {this.props.pathContext}/>
+              <IndexTab context = {this.props.pageContext}/>
             </ContentContainer>
           </ContentWrapper>
         </React.Fragment>
