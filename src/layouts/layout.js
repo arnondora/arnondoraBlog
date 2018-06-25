@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'gatsby'
 import { ThemeProvider } from 'styled-components'
 import Helmet from 'react-helmet'
 
