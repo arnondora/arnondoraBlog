@@ -28,7 +28,7 @@ export default class Layout extends React.Component {
           <html lang="th"/>
         </Helmet>
         <ThemeProvider theme={colours}>
-          {children()}
+          {this.props.children}
         </ThemeProvider>
       </React.Fragment>
     )
