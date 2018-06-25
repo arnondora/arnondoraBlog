@@ -2,7 +2,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
 import { get, isEmpty } from 'lodash'
-import Link from 'gatsby-link'
+import { Link } from 'gatsby'
 
 import NavBar from '../components/NavBar'
 import Footer from '../components/Footer'
@@ -93,19 +93,19 @@ export default class CategoryTemplate extends React.Component
 {
   render () {
     var stories = null
-    if (get(this.props.pathContext,'posts', null) !== null)
-      stories = this.props.pathContext.posts
+    if (get(this.props.pageContext,'posts', null) !== null)
+      stories = this.props.pageContext.posts
     return (
       <React.Fragment>
-        <Helmet title={this.props.pathContext.category.name + " - " + this.props.pathContext.siteInfo.siteMetadata.title}/>
-        <NavigationBar siteTitle = {this.props.pathContext.siteInfo.siteMetadata.title}/>
+        <Helmet title={this.props.pageContext.category.name + " - " + this.props.pageContext.siteInfo.siteMetadata.title}/>
+        <NavigationBar siteTitle = {this.props.pageContext.siteInfo.siteMetadata.title}/>
         <Container>
           <CategoryInfoWrapper>
-            <CategoryName>{this.props.pathContext.category.name}</CategoryName>
-            <CategoryDescription>{this.props.pathContext.category.description}</CategoryDescription>
+            <CategoryName>{this.props.pageContext.category.name}</CategoryName>
+            <CategoryDescription>{this.props.pageContext.category.description}</CategoryDescription>
           </CategoryInfoWrapper>
 
-          {!isEmpty(this.props.pathContext.featurePost) ? <FeaturedCategory categoryName = {this.props.pathContext.category.name} post={this.props.pathContext.featurePost}/> : null}
+          {!isEmpty(this.props.pageContext.featurePost) ? <FeaturedCategory categoryName = {this.props.pageContext.category.name} post={this.props.pageContext.featurePost}/> : null}
 
           {stories != null ? <React.Fragment><SectionHeader>Latest</SectionHeader><hr/></React.Fragment> : null}
 
@@ -114,15 +114,15 @@ export default class CategoryTemplate extends React.Component
               stories != null ? stories.map((story,index) => {
                 return <CardWrapper key={story.node.fields.slug}><CardImage post={story}/></CardWrapper>
               })
-              : !isEmpty(this.props.pathContext.featurePost)? <ErrorMessage>There's no more post in this category</ErrorMessage> :
+              : !isEmpty(this.props.pageContext.featurePost)? <ErrorMessage>There's no more post in this category</ErrorMessage> :
                 <ErrorMessage>There is no post in this category. Stay Tuned</ErrorMessage>
             }
           </StoriesWrapper>
 
           <MoreButtonWrapper>
-            {!this.props.pathContext.isLast ? <Link to = {"/category/" + this.props.pathContext.category.link + "/" + (this.props.pathContext.page+1)}><PrimaryButton float="left" label="Older Posts"/></Link>  : null}
-            {!this.props.pathContext.isFirst && this.props.pathContext.page !== 2 ? <Link to = {"/category/" + this.props.pathContext.category.link + "/" + (this.props.pathContext.page-1)}><PrimaryButton float="right" label="Newer Posts"/></Link>  : null}
-            {!this.props.pathContext.isFirst && this.props.pathContext.page === 2 ? <Link to = {"/category/" + this.props.pathContext.category.link}><PrimaryButton float="right" label="Newer Posts"/></Link>  : null}
+            {!this.props.pageContext.isLast ? <Link to = {"/category/" + this.props.pageContext.category.link + "/" + (this.props.pageContext.page+1)}><PrimaryButton float="left" label="Older Posts"/></Link>  : null}
+            {!this.props.pageContext.isFirst && this.props.pageContext.page !== 2 ? <Link to = {"/category/" + this.props.pageContext.category.link + "/" + (this.props.pageContext.page-1)}><PrimaryButton float="right" label="Newer Posts"/></Link>  : null}
+            {!this.props.pageContext.isFirst && this.props.pageContext.page === 2 ? <Link to = {"/category/" + this.props.pageContext.category.link}><PrimaryButton float="right" label="Newer Posts"/></Link>  : null}
           </MoreButtonWrapper>
         </Container>
         <Footer mobilehide/>

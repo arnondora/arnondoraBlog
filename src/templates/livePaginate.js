@@ -41,7 +41,7 @@ const PostWrapper = styled.div`
 export default class CategoryTemplate extends React.Component
 {
   render () {
-    var posts = this.props.pathContext.posts.map((item) => {
+    var posts = this.props.pageContext.posts.map((item) => {
         return (
           <CardLiveImage key={item.slug} post={item}/>
         )
@@ -49,8 +49,8 @@ export default class CategoryTemplate extends React.Component
 
     return (
       <React.Fragment>
-        <Helmet title={"Live Blog - " + this.props.pathContext.siteInfo.siteMetadata.title}/>
-        <NavigationBar siteTitle = {this.props.pathContext.siteInfo.siteMetadata.title}/>
+        <Helmet title={"Live Blog - " + this.props.pageContext.siteInfo.siteMetadata.title}/>
+        <NavigationBar siteTitle = {this.props.pageContext.siteInfo.siteMetadata.title}/>
         <Container>
              <PageCaption>Live Blog</PageCaption>
           <PostWrapper>
