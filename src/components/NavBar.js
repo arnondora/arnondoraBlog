@@ -1,7 +1,6 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
-import toInteger from 'lodash/toInteger'
 import get from 'lodash/get'
 import color from 'color'
 

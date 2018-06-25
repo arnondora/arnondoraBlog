@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import color from 'color'
-import fontawesome from '@fortawesome/fontawesome'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import faLine from '@fortawesome/fontawesome-free-brands/faLine'
 import faFacebookF from '@fortawesome/fontawesome-free-brands/faFacebookF'

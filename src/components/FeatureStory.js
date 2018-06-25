@@ -1,10 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
-import Link from 'gatsby-link'
-import get from 'lodash/get'
-import filter from 'lodash/filter'
-import take from 'lodash/take'
 import color from 'color'
 
 const SuperWrapper = styled.div`
