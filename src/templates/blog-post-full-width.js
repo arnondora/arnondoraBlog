@@ -2,8 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import { isEmpty } from 'lodash'
 
-import colours from '../utils/colours'
-
 import SEO from '../components/SEO'
 import NavBar from '../components/NavBar'
 import ThumbnailContainer from '../components/ThumbnailContainer'
@@ -90,12 +88,6 @@ const PageWrapper = ArticleWrapper.extend`
 
 const CommentWrapper = styled.div`
   background-color: ${props => props.theme.darkBackground};
-`
-
-const Heading = styled.h1`
-  color:white;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.20);
-  font-size: 3em;
 `
 
 const SmallHeading = styled.h1`
