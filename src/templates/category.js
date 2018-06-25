@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { get, isEmpty } from 'lodash'
 import { Link } from 'gatsby'
 
+import Layout from '../layouts/Layout'
 import NavBar from '../components/NavBar'
 import Footer from '../components/Footer'
 import MobileFooter from '../components/MobileFooter'
@@ -96,38 +97,40 @@ export default class CategoryTemplate extends React.Component
     if (get(this.props.pageContext,'posts', null) !== null)
       stories = this.props.pageContext.posts
     return (
-      <React.Fragment>
-        <Helmet title={this.props.pageContext.category.name + " - " + this.props.pageContext.siteInfo.siteMetadata.title}/>
-        <NavigationBar siteTitle = {this.props.pageContext.siteInfo.siteMetadata.title}/>
-        <Container>
-          <CategoryInfoWrapper>
-            <CategoryName>{this.props.pageContext.category.name}</CategoryName>
-            <CategoryDescription>{this.props.pageContext.category.description}</CategoryDescription>
-          </CategoryInfoWrapper>
+      <Layout>
+        <React.Fragment>
+          <Helmet title={this.props.pageContext.category.name + " - " + this.props.pageContext.siteInfo.siteMetadata.title}/>
+          <NavigationBar siteTitle = {this.props.pageContext.siteInfo.siteMetadata.title}/>
+          <Container>
+            <CategoryInfoWrapper>
+              <CategoryName>{this.props.pageContext.category.name}</CategoryName>
+              <CategoryDescription>{this.props.pageContext.category.description}</CategoryDescription>
+            </CategoryInfoWrapper>
 
-          {!isEmpty(this.props.pageContext.featurePost) ? <FeaturedCategory categoryName = {this.props.pageContext.category.name} post={this.props.pageContext.featurePost}/> : null}
+            {!isEmpty(this.props.pageContext.featurePost) ? <FeaturedCategory categoryName = {this.props.pageContext.category.name} post={this.props.pageContext.featurePost}/> : null}
 
-          {stories != null ? <React.Fragment><SectionHeader>Latest</SectionHeader><hr/></React.Fragment> : null}
+            {stories != null ? <React.Fragment><SectionHeader>Latest</SectionHeader><hr/></React.Fragment> : null}
 
-          <StoriesWrapper>
-            {
-              stories != null ? stories.map((story,index) => {
-                return <CardWrapper key={story.node.fields.slug}><CardImage post={story}/></CardWrapper>
-              })
-              : !isEmpty(this.props.pageContext.featurePost)? <ErrorMessage>There's no more post in this category</ErrorMessage> :
-                <ErrorMessage>There is no post in this category. Stay Tuned</ErrorMessage>
-            }
-          </StoriesWrapper>
+            <StoriesWrapper>
+              {
+                stories != null ? stories.map((story,index) => {
+                  return <CardWrapper key={story.node.fields.slug}><CardImage post={story}/></CardWrapper>
+                })
+                : !isEmpty(this.props.pageContext.featurePost)? <ErrorMessage>There's no more post in this category</ErrorMessage> :
+                  <ErrorMessage>There is no post in this category. Stay Tuned</ErrorMessage>
+              }
+            </StoriesWrapper>
 
-          <MoreButtonWrapper>
-            {!this.props.pageContext.isLast ? <Link to = {"/category/" + this.props.pageContext.category.link + "/" + (this.props.pageContext.page+1)}><PrimaryButton float="left" label="Older Posts"/></Link>  : null}
-            {!this.props.pageContext.isFirst && this.props.pageContext.page !== 2 ? <Link to = {"/category/" + this.props.pageContext.category.link + "/" + (this.props.pageContext.page-1)}><PrimaryButton float="right" label="Newer Posts"/></Link>  : null}
-            {!this.props.pageContext.isFirst && this.props.pageContext.page === 2 ? <Link to = {"/category/" + this.props.pageContext.category.link}><PrimaryButton float="right" label="Newer Posts"/></Link>  : null}
-          </MoreButtonWrapper>
-        </Container>
-        <Footer mobilehide/>
-        <MobileFooter/>
-      </React.Fragment>
+            <MoreButtonWrapper>
+              {!this.props.pageContext.isLast ? <Link to = {"/category/" + this.props.pageContext.category.link + "/" + (this.props.pageContext.page+1)}><PrimaryButton float="left" label="Older Posts"/></Link>  : null}
+              {!this.props.pageContext.isFirst && this.props.pageContext.page !== 2 ? <Link to = {"/category/" + this.props.pageContext.category.link + "/" + (this.props.pageContext.page-1)}><PrimaryButton float="right" label="Newer Posts"/></Link>  : null}
+              {!this.props.pageContext.isFirst && this.props.pageContext.page === 2 ? <Link to = {"/category/" + this.props.pageContext.category.link}><PrimaryButton float="right" label="Newer Posts"/></Link>  : null}
+            </MoreButtonWrapper>
+          </Container>
+          <Footer mobilehide/>
+          <MobileFooter/>
+        </React.Fragment>
+      </Layout>
     )
   }
 }

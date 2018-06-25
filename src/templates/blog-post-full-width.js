@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import { isEmpty } from 'lodash'
 
+import Layout from '../layouts/Layout'
 import SEO from '../components/SEO'
 import NavBar from '../components/NavBar'
 import ThumbnailContainer from '../components/ThumbnailContainer'
@@ -123,48 +124,49 @@ export default class BlogPostTemplate extends React.Component {
     const siteMetadata = this.props.pageContext.siteInfo.siteMetadata
 
     return (
-      <React.Fragment>
-        <SEO
-          postContent={postContent}
-          slug = {this.props.pageContext.slug}
-          siteMetadata={siteMetadata}
-        />
-        <NavBar article={true} slug={this.props.pageContext.slug} headline={postInfo.title}/>
+      <Layout>
+        <React.Fragment>
+          <SEO
+            postContent={postContent}
+            slug = {this.props.pageContext.slug}
+            siteMetadata={siteMetadata}
+          />
+          <NavBar article={true} slug={this.props.pageContext.slug} headline={postInfo.title}/>
 
-        <ThumbnailContainer post={postInfo}/>
-        {!isEmpty(postInfo.thumbnailCredit)? <ThumbnailCredit dangerouslySetInnerHTML={{ __html: postInfo.thumbnailCredit }}/> : null}
+          <ThumbnailContainer post={postInfo}/>
+          {!isEmpty(postInfo.thumbnailCredit)? <ThumbnailCredit dangerouslySetInnerHTML={{ __html: postInfo.thumbnailCredit }}/> : null}
 
-        {postInfo.type === "post" ? <Container>
-            <ContentWrapper>
-              {postInfo.template === "normal" ? <SmallHeading>{postInfo.title}</SmallHeading> : null}
-              {postInfo.type === "post" && postInfo.template === "normal"? <SmallSubHeading>by {postInfo.author} on {postInfo.date}</SmallSubHeading> : null}
-              <ArticleWrapper dangerouslySetInnerHTML={{ __html: postContent.html }} />
-              <MobileSocialShareButton slug={this.props.pageContext.slug}/>
-            </ContentWrapper>
+          {postInfo.type === "post" ? <Container>
+              <ContentWrapper>
+                {postInfo.template === "normal" ? <SmallHeading>{postInfo.title}</SmallHeading> : null}
+                {postInfo.type === "post" && postInfo.template === "normal"? <SmallSubHeading>by {postInfo.author} on {postInfo.date}</SmallSubHeading> : null}
+                <ArticleWrapper dangerouslySetInnerHTML={{ __html: postContent.html }} />
+                <MobileSocialShareButton slug={this.props.pageContext.slug}/>
+              </ContentWrapper>
 
-          </Container> :
-          <PageWrapper dangerouslySetInnerHTML={{ __html: postContent.html }} />
-        }
-        {
-          postInfo.type === "post" && (this.props.pageContext.next !== false || this.props.pageContext.prev !== false) ?
-            <React.Fragment>
-              <NextStory next={this.props.pageContext.next} prev={this.props.pageContext.prev} hasRelated={isEmpty(this.props.pageContext.related)}/>
-              <RecommendStory stories = {this.props.pageContext.related}/>
-            </React.Fragment>
-          : null
-        }
+            </Container> :
+            <PageWrapper dangerouslySetInnerHTML={{ __html: postContent.html }} />
+          }
+          {
+            postInfo.type === "post" && (this.props.pageContext.next !== false || this.props.pageContext.prev !== false) ?
+              <React.Fragment>
+                <NextStory next={this.props.pageContext.next} prev={this.props.pageContext.prev} hasRelated={isEmpty(this.props.pageContext.related)}/>
+                <RecommendStory stories = {this.props.pageContext.related}/>
+              </React.Fragment>
+            : null
+          }
 
-        {
-          postInfo.type === "post" ?
-          <CommentWrapper><PageWrapper><CommentBox slug={this.props.pageContext.slug}/></PageWrapper></CommentWrapper>
-          :
-          null
-        }
+          {
+            postInfo.type === "post" ?
+            <CommentWrapper><PageWrapper><CommentBox slug={this.props.pageContext.slug}/></PageWrapper></CommentWrapper>
+            :
+            null
+          }
 
-        <MobileStickyShareContainer><StickyMobileShare slug={this.props.pageContext.slug}/></MobileStickyShareContainer>
-        <Footer/>
-      </React.Fragment>
-
+          <MobileStickyShareContainer><StickyMobileShare slug={this.props.pageContext.slug}/></MobileStickyShareContainer>
+          <Footer/>
+        </React.Fragment>
+      </Layout>
     )
   }
 }

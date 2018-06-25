@@ -6,6 +6,7 @@ import {isEmpty, orderBy, map, get} from 'lodash'
 
 import firebase from '../utils/firebase'
 
+import Layout from '../layouts/Layout'
 import NavBar from '../components/NavBar'
 import HeaderWithLine from '../components/HeaderWithLine'
 import LivePostCard from '../components/LivePostCard'
@@ -205,69 +206,71 @@ export default class LiveTemplate extends React.Component
     }
 
     return (
-      <React.Fragment>
-        <Helmet title={post.title + " - " + this.props.pageContext.siteInfo.siteMetadata.title}
-          meta = {[
-            {name: "description", "content" : post.subtitle},
+      <Layout>
+        <React.Fragment>
+          <Helmet title={post.title + " - " + this.props.pageContext.siteInfo.siteMetadata.title}
+            meta = {[
+              {name: "description", "content" : post.subtitle},
 
-            // G+
-            {itemprop: "name", "content" : post.title + " - " + this.props.pageContext.siteInfo.siteMetadata.title},
-            {itemprop: "description", "content" : post.detail},
-            {itemprop: "image", "content" : post.thumbnail},
+              // G+
+              {itemprop: "name", "content" : post.title + " - " + this.props.pageContext.siteInfo.siteMetadata.title},
+              {itemprop: "description", "content" : post.detail},
+              {itemprop: "image", "content" : post.thumbnail},
 
-            // Open Graph
-            {property: "og:title", "content" : post.title + " - " + this.props.pageContext.siteInfo.siteMetadata.title},
-            {property: "og:description", "content" : post.detail},
-            {property: "og:locale", "content" : "th_TH"},
-            {property: "og:type", "content": "article"},
-            {property: "og:url", "content": this.props.pageContext.siteInfo.siteMetadata.siteUrl + post.slug},
-            {property: "og:image", "content": post.thumbnail},
-            {property: "og:image:secure_url", "content": post.thumbnail},
-            {property: "og:site_name", "content": post.title + " - " + this.props.pageContext.siteInfo.siteMetadata.title},
+              // Open Graph
+              {property: "og:title", "content" : post.title + " - " + this.props.pageContext.siteInfo.siteMetadata.title},
+              {property: "og:description", "content" : post.detail},
+              {property: "og:locale", "content" : "th_TH"},
+              {property: "og:type", "content": "article"},
+              {property: "og:url", "content": this.props.pageContext.siteInfo.siteMetadata.siteUrl + post.slug},
+              {property: "og:image", "content": post.thumbnail},
+              {property: "og:image:secure_url", "content": post.thumbnail},
+              {property: "og:site_name", "content": post.title + " - " + this.props.pageContext.siteInfo.siteMetadata.title},
 
-            // Twitter
-            {name: "twitter:card", "content": post.thumbnail},
-            {name: "twitter:image:src", "content": post.thumbnail},
-            {name: "twitter:title", "content": post.title + " - " + this.props.pageContext.siteInfo.siteMetadata.title},
-            {name: "twitter:description", "content": post.detail},
-          ]}
+              // Twitter
+              {name: "twitter:card", "content": post.thumbnail},
+              {name: "twitter:image:src", "content": post.thumbnail},
+              {name: "twitter:title", "content": post.title + " - " + this.props.pageContext.siteInfo.siteMetadata.title},
+              {name: "twitter:description", "content": post.detail},
+            ]}
 
-        />
-        <NavigationBar siteTitle = {this.props.pageContext.siteInfo.siteMetadata.title}/>
-        <ThumbnailWrapper thumbnail={post.thumbnail}>
-          <ThumbnailContent>
-            <Heading>{post.title}</Heading>
-            <SubHeading>{post.subtitle}</SubHeading>
-            {liveStatus}
-          </ThumbnailContent>
-        </ThumbnailWrapper>
+          />
+          <NavigationBar siteTitle = {this.props.pageContext.siteInfo.siteMetadata.title}/>
+          <ThumbnailWrapper thumbnail={post.thumbnail}>
+            <ThumbnailContent>
+              <Heading>{post.title}</Heading>
+              <SubHeading>{post.subtitle}</SubHeading>
+              {liveStatus}
+            </ThumbnailContent>
+          </ThumbnailWrapper>
 
-        <Container>
-          <LatestPostContainer>
-            <HeaderWithLine label="Latest Post"/>
-            <PostWrapper>
-              {
-                comments !== null ?
-                  map(comments, (item) => {
-                    if (moment.unix(item.timestamp).isValid()) return (<LivePostCard key={item.timestamp} post={item}/>)
-                  }) : <NoPostLabel>There's no post right now, posts will be feeded when the event was started. Stay Tuned! <span role="img" aria-label="radio" aria-labelledby="stay tuned">📻</span></NoPostLabel>
-              }
-            </PostWrapper>
-          </LatestPostContainer>
-          <RightSide>
-            <LiveFeedContainer>
-                <HeaderWithLine label="Live Feed"/>
-                {!isEmpty(get(this.state.post,'live', null)) ? <LiveFeed dangerouslySetInnerHTML={{ __html: this.state.post.live }}/> : <NoPostLabel>Currenly, there's no live feed <span role="img" aria-label="television" aria-labelledby="television">📺</span>. We'll put when it available. Stay Tuned!</NoPostLabel>}
-            </LiveFeedContainer>
+          <Container>
+            <LatestPostContainer>
+              <HeaderWithLine label="Latest Post"/>
+              <PostWrapper>
+                {
+                  comments !== null ?
+                    map(comments, (item) => {
+                      if (moment.unix(item.timestamp).isValid()) return (<LivePostCard key={item.timestamp} post={item}/>)
+                    }) : <NoPostLabel>There's no post right now, posts will be feeded when the event was started. Stay Tuned! <span role="img" aria-label="radio" aria-labelledby="stay tuned">📻</span></NoPostLabel>
+                }
+              </PostWrapper>
+            </LatestPostContainer>
+            <RightSide>
+              <LiveFeedContainer>
+                  <HeaderWithLine label="Live Feed"/>
+                  {!isEmpty(get(this.state.post,'live', null)) ? <LiveFeed dangerouslySetInnerHTML={{ __html: this.state.post.live }}/> : <NoPostLabel>Currenly, there's no live feed <span role="img" aria-label="television" aria-labelledby="television">📺</span>. We'll put when it available. Stay Tuned!</NoPostLabel>}
+              </LiveFeedContainer>
 
-            <EventDetailContainer>
-              <HeaderWithLine label="Event Detail"/>
-              <EventDescription>{post.detail}</EventDescription>
-            </EventDetailContainer>
-          </RightSide>
-        </Container>
-        <MobileFooter/>
-      </React.Fragment>
+              <EventDetailContainer>
+                <HeaderWithLine label="Event Detail"/>
+                <EventDescription>{post.detail}</EventDescription>
+              </EventDetailContainer>
+            </RightSide>
+          </Container>
+          <MobileFooter/>
+        </React.Fragment>
+      </Layout>
     )
   }
 }
