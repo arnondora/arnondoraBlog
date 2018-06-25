@@ -1,4 +1,5 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import { isEmpty } from 'lodash'
 
@@ -119,16 +120,16 @@ export default class BlogPostTemplate extends React.Component {
   render() {
     const postContent = this.props.data.markdownRemark
     const postInfo = postContent.frontmatter
-    const siteMetadata = this.props.pathContext.siteInfo.siteMetadata
+    const siteMetadata = this.props.pageContext.siteInfo.siteMetadata
 
     return (
       <React.Fragment>
         <SEO
           postContent={postContent}
-          slug = {this.props.pathContext.slug}
+          slug = {this.props.pageContext.slug}
           siteMetadata={siteMetadata}
         />
-        <NavBar article={true} slug={this.props.pathContext.slug} headline={postInfo.title}/>
+        <NavBar article={true} slug={this.props.pageContext.slug} headline={postInfo.title}/>
 
         <ThumbnailContainer post={postInfo}/>
         {!isEmpty(postInfo.thumbnailCredit)? <ThumbnailCredit dangerouslySetInnerHTML={{ __html: postInfo.thumbnailCredit }}/> : null}
@@ -138,29 +139,29 @@ export default class BlogPostTemplate extends React.Component {
               {postInfo.template === "normal" ? <SmallHeading>{postInfo.title}</SmallHeading> : null}
               {postInfo.type === "post" && postInfo.template === "normal"? <SmallSubHeading>by {postInfo.author} on {postInfo.date}</SmallSubHeading> : null}
               <ArticleWrapper dangerouslySetInnerHTML={{ __html: postContent.html }} />
-              <MobileSocialShareButton slug={this.props.pathContext.slug}/>
+              <MobileSocialShareButton slug={this.props.pageContext.slug}/>
             </ContentWrapper>
 
           </Container> :
           <PageWrapper dangerouslySetInnerHTML={{ __html: postContent.html }} />
         }
         {
-          postInfo.type === "post" && (this.props.pathContext.next !== false || this.props.pathContext.prev !== false) ?
+          postInfo.type === "post" && (this.props.pageContext.next !== false || this.props.pageContext.prev !== false) ?
             <React.Fragment>
-              <NextStory next={this.props.pathContext.next} prev={this.props.pathContext.prev} hasRelated={isEmpty(this.props.pathContext.related)}/>
-              <RecommendStory stories = {this.props.pathContext.related}/>
+              <NextStory next={this.props.pageContext.next} prev={this.props.pageContext.prev} hasRelated={isEmpty(this.props.pageContext.related)}/>
+              <RecommendStory stories = {this.props.pageContext.related}/>
             </React.Fragment>
           : null
         }
 
         {
           postInfo.type === "post" ?
-          <CommentWrapper><PageWrapper><CommentBox slug={this.props.pathContext.slug}/></PageWrapper></CommentWrapper>
+          <CommentWrapper><PageWrapper><CommentBox slug={this.props.pageContext.slug}/></PageWrapper></CommentWrapper>
           :
           null
         }
 
-        <MobileStickyShareContainer><StickyMobileShare slug={this.props.pathContext.slug}/></MobileStickyShareContainer>
+        <MobileStickyShareContainer><StickyMobileShare slug={this.props.pageContext.slug}/></MobileStickyShareContainer>
         <Footer/>
       </React.Fragment>
 

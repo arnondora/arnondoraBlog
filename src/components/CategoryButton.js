@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import Link from 'gatsby-link'
+import { Link } from 'gatsby'
 
 const Container = styled(Link)`
-  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${props => props.thumbnail}) ${props => props.hover ? colours.primaryColour : 'white'};
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${props => props.thumbnail}) ${props => props.hover ? props.theme.primaryColour : 'white'};
   background-position:center;
   background-repeat: no-repeat;
   color: white;
