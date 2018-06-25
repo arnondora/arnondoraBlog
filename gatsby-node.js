@@ -350,7 +350,7 @@ exports.onCreateNode = ({node, actions, getNode}) => {
   }
 }
 
-exports.modifyWebpackConfig = ({config, stage}) => {
+exports.onCreateWebpackConfig = ({config, stage}) => {
   if (stage === "build-html") {
     config.loader("null", {
       test: /scroll-to-element/,
