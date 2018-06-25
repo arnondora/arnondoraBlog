@@ -1,5 +1,4 @@
 import React from 'react'
-import Link from 'gatsby-link'
 import styled from 'styled-components'
 import fontawesome from '@fortawesome/fontawesome'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
@@ -12,6 +11,7 @@ import GooglePlus from '../assets/GooglePlus.svg'
 import Email from '../assets/Email.svg'
 
 fontawesome.library.add(faHeart)
+
 const Container = styled.div`
   background-color: ${props => props.theme.primaryColour};
   padding-top: 20px;
@@ -95,7 +95,7 @@ export default class Footer extends React.Component {
           <BottomText>
             <CopyrightText>© 2014-{new Date().getFullYear()} Arnon Puitrakul all right reserved.</CopyrightText>
             {process.env.GATSBY_ENV === "staging" ?
-                <ThemeText>🔥 {process.env.APP_VERSION}</ThemeText>
+                <ThemeText><span role="img" aria-label="fire" aria-labelledby="beta">🔥</span> {process.env.APP_VERSION}</ThemeText>
               :
                 <ThemeText>Code with <FooterIcon icon={["fas", "heart"]} style = {{color: "#E91E63"}}/> by <GithubLink href="https://github.com/arnondora">@arnondora</GithubLink></ThemeText>
             }

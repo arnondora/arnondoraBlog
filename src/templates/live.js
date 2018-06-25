@@ -250,14 +250,14 @@ export default class LiveTemplate extends React.Component
                 comments !== null ?
                   map(comments, (item) => {
                     if (moment.unix(item.timestamp).isValid()) return (<LivePostCard key={item.timestamp} post={item}/>)
-                  }) : <NoPostLabel>There's no post right now, posts will be feeded when the event was started. Stay Tuned! 📻</NoPostLabel>
+                  }) : <NoPostLabel>There's no post right now, posts will be feeded when the event was started. Stay Tuned! <span role="img" aria-label="radio" aria-labelledby="stay tuned">📻</span></NoPostLabel>
               }
             </PostWrapper>
           </LatestPostContainer>
           <RightSide>
             <LiveFeedContainer>
                 <HeaderWithLine label="Live Feed"/>
-                {!isEmpty(get(this.state.post,'live', null)) ? <LiveFeed dangerouslySetInnerHTML={{ __html: this.state.post.live }}/> : <NoPostLabel>Currenly, there's no live feed 📺. We'll put when it available. Stay Tuned!</NoPostLabel>}
+                {!isEmpty(get(this.state.post,'live', null)) ? <LiveFeed dangerouslySetInnerHTML={{ __html: this.state.post.live }}/> : <NoPostLabel>Currenly, there's no live feed <span role="img" aria-label="television" aria-labelledby="television">📺</span>. We'll put when it available. Stay Tuned!</NoPostLabel>}
             </LiveFeedContainer>
 
             <EventDetailContainer>
