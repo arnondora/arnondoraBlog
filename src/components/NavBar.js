@@ -126,14 +126,6 @@ const StyledLink = styled(Link)`
   }
 `
 
-const StyledLinkOut = styled.a`
-  color:white !important;
-
-  :visited {
-    color: white !important;
-  }
-`
-
 const SearchIconWrapper = NavSearchWrapper.extend`
   align-self: center;
   color: white;
