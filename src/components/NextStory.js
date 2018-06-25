@@ -97,10 +97,6 @@ const Heading = styled(Link)`
 
 `
 
-const ContentWrapper = styled.div`
-
-`
-
 export default class NextStory extends React.Component {
   render() {
     return (
