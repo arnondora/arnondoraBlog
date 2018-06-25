@@ -3,6 +3,8 @@ import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 
+import firebase from '../utils/firebase'
+
 import Layout from '../layouts/Layout'
 import NavBar from '../components/NavBar'
 import CardImage from '../components/CardImage'
@@ -125,6 +127,7 @@ export default class search extends React.Component {
       super(props)
       this.state = {
         articles: this.props.data.allMarkdownRemark.edges,
+        categories: [] ,
         keyword: ""
       }
 
@@ -133,11 +136,23 @@ export default class search extends React.Component {
 
   }
 
+  componentDidMount () {
+    firebase.database().ref("categories").once('value', function(snapshot) {
+      var categories = []
+      snapshot.forEach(function(childSnapshot) {
+        categories.push(childSnapshot.val())
+      })
+      this.setState({
+        categories: categories
+      })
+    }.bind(this))
+  }
+
   render () {
     var searchResult = this.state.articles.filter(this.searchFor(this.state.keyword)).slice(0, 10)
     var relatedCategories = this.getRelatedCategory(searchResult)
 
-    if (relatedCategories.length === 0 || this.state.keyword === "") relatedCategories = this.props.data.allCategoriesJson.edges
+    if (relatedCategories.length === 0 || this.state.keyword === "") relatedCategories = this.state.categories
 
     return (
       <Layout>
@@ -162,8 +177,8 @@ export default class search extends React.Component {
                 <GreySearchText>{this.state.keyword === "" || searchResult.length === 0 ? "RECOMMEND CATEGORIES" : "RELATED CATEGORIES"}</GreySearchText>
                 <CategoryChipWrapper>
                   {
-                    relatedCategories.map(category => {
-                      return <CategoryChip to={this.makeCategoryLink(category.node.link)} key={category.node.link}>{category.node.name}</CategoryChip>
+                    relatedCategories.length === 0 ? <span>Loading...</span> :relatedCategories.map(category => {
+                      return <CategoryChip to={this.makeCategoryLink(category.link)} key={category.link}>{category.name}</CategoryChip>
                     })
                   }
                 </CategoryChipWrapper>
@@ -205,9 +220,9 @@ export default class search extends React.Component {
   getRelatedCategory (posts) {
     var categories = []
     for (var i=0; i<posts.length; i++) {
-      for (var j=0; j< this.props.data.allCategoriesJson.edges.length; j++) {
-        if (posts[i].node.frontmatter.category === this.props.data.allCategoriesJson.edges[j].node.name && categories.indexOf(this.props.data.allCategoriesJson.edges[j]) === -1)
-          categories.push(this.props.data.allCategoriesJson.edges[j])
+      for (var j=0; j< this.state.categories.length; j++) {
+        if (posts[i].node.frontmatter.category === this.state.categories[j].name && categories.indexOf(this.state.categories[j]) === -1)
+          categories.push(this.state.categories[j])
       }
     }
 
@@ -252,6 +267,7 @@ export const pageQuery = graphql`
                   aspectRatio
                   src
                   srcWebp
+                  srcSet
                   sizes
                 }
               }
@@ -260,15 +276,6 @@ export const pageQuery = graphql`
             status
             date(formatString: "MMMM DD, YYYY")
           }
-        }
-      }
-    }
-
-    allCategoriesJson {
-      edges {
-        node {
-          name
-          link
         }
       }
     }
