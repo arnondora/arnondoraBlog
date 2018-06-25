@@ -103,7 +103,7 @@ export default class NextStory extends React.Component {
         <SuperWrapper hasRelated={this.props.hasRelated}>
           <Container>
             {
-              this.props.next != false ?
+              this.props.next !== false ?
               <NextStoryContainer>
                     <Label>Previous</Label>
                     <Heading to={this.props.next.fields.slug}>← {this.props.next.frontmatter.title}</Heading>
@@ -113,7 +113,7 @@ export default class NextStory extends React.Component {
             }
 
             {
-              this.props.prev != false ?
+              this.props.prev !== false ?
               <PreviousStoryContainer>
                     <Label>Next</Label>
                     <Heading to = {this.props.prev.fields.slug}>{this.props.prev.frontmatter.title} →</Heading>
