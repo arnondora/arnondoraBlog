@@ -5,14 +5,13 @@ import fontawesome from '@fortawesome/fontawesome'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import faHeart from '@fortawesome/fontawesome-free-solid/faHeart'
 
-fontawesome.library.add(faHeart)
-
 // Import Social Logo
 import Facebook from '../assets/Facebook.svg'
 import Twitter from '../assets/Twitter.svg'
 import GooglePlus from '../assets/GooglePlus.svg'
 import Email from '../assets/Email.svg'
 
+fontawesome.library.add(faHeart)
 const Container = styled.div`
   background-color: ${props => props.theme.primaryColour};
   padding-top: 20px;
