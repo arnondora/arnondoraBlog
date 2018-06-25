@@ -206,7 +206,7 @@ export default class search extends React.Component {
     var categories = []
     for (var i=0; i<posts.length; i++) {
       for (var j=0; j< this.props.data.allCategoriesJson.edges.length; j++) {
-        if (posts[i].node.frontmatter.category == this.props.data.allCategoriesJson.edges[j].node.name && categories.indexOf(this.props.data.allCategoriesJson.edges[j]) == -1)
+        if (posts[i].node.frontmatter.category === this.props.data.allCategoriesJson.edges[j].node.name && categories.indexOf(this.props.data.allCategoriesJson.edges[j]) === -1)
           categories.push(this.props.data.allCategoriesJson.edges[j])
       }
     }
