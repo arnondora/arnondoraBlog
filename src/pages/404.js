@@ -12,12 +12,6 @@ const Container = styled.div `
   width: 80%;
 `
 
-const ItemWrapper = styled.div`
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-`
-
 const Header = styled.span`
   font-size: 48px;
   text-align:center;
