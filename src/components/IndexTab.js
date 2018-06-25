@@ -111,20 +111,20 @@ export default class IndexTab extends React.Component {
           {
             tabs.map((item, index) => {
               return (
-                <Tab key={item} selected={this.state.tabIndex == index} onClick={() => this.setState({tabIndex: index})}>{item}</Tab>
+                <Tab key={item} selected={this.state.tabIndex === index} onClick={() => this.setState({tabIndex: index})}>{item}</Tab>
               )
             })
           }
         </Tabs>
         <ContentContainer>
-          { this.state.tabIndex == 0 ?
+          { this.state.tabIndex === 0 ?
 
-              this.props.context.posts.length == 0 ? <h2>There is no post!</h2> : posts
+              this.props.context.posts.length === 0 ? <h2>There is no post!</h2> : posts
             :
               null
           }
 
-          {this.state.tabIndex == 0 ?
+          {this.state.tabIndex === 0 ?
             <MoreButtonWrapper>
               {!this.props.context.isLast ? <Link to = {"/" + (this.props.context.page+1)}><PrimaryButton float="left" label="Older Posts"/></Link>  : null}
               {!this.props.context.isFirst && this.props.context.page !== 2 ? <Link to = {(this.props.context.page-1)}><PrimaryButton float="right" label="Newer Posts"/></Link>  : null}
@@ -132,8 +132,8 @@ export default class IndexTab extends React.Component {
 
             </MoreButtonWrapper> : null}
 
-          { this.state.tabIndex == 1 ?
-              this.props.context.categories.length == 0 ? <h2>There is no category!</h2> : <CategoryContainer> {categories} </CategoryContainer>
+          { this.state.tabIndex === 1 ?
+              this.props.context.categories.length === 0 ? <h2>There is no category!</h2> : <CategoryContainer> {categories} </CategoryContainer>
             :
               null
           }
