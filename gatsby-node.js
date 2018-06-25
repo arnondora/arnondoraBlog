@@ -1,7 +1,6 @@
 const _ = require('lodash')
 const Promise = require('bluebird')
 const path = require('path')
-const webpackLodashPlugin = require('lodash-webpack-plugin')
 const {createFilePath} = require('gatsby-source-filesystem')
 const firebase = require('firebase')
 
@@ -348,23 +347,4 @@ exports.onCreateNode = ({node, actions, getNode}) => {
     const value = createFilePath({node, getNode})
     createNodeField({name: `slug`, node, value})
   }
-}
-
-exports.onCreateWebpackConfig = ({config, stage}) => {
-  if (stage === "build-html") {
-    config.loader("null", {
-      test: /scroll-to-element/,
-      loader: "null-loader"
-    });
-  }
-
-  switch (stage) {
-    case `build-javascript`:
-      config.plugin(`Lodash`, webpackLodashPlugin, null)
-      // turn off source-maps
-      config.merge({devtool: false});
-      break
-  }
-
-  return config
 }
