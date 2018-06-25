@@ -8,7 +8,7 @@ import colours from '../utils/colours'
 import siteLogo from '../assets/favicon.png'
 import './index.css'
 
-export default class Template extends React.Component {
+export default class Layout extends React.Component {
   render () {
     return (
       <React.Fragment>
