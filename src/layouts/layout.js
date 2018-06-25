@@ -16,6 +16,8 @@ export default class Layout extends React.Component {
         <Helmet
           title="Hello World - Mad Programmer Diary"
           meta={[
+            { name: 'charSet', content: 'utf-8' },
+            { name: 'viewport', content: 'width=device-width, initial-scale=1, shrink-to-fit=no' },
             { name: 'description', content: 'The offical personal blog of @arnondora' },
             {property: "og:title", "content" : 'Hello World - Mad Programmer Diary'},
             {property: "og:description", "content" : 'The offical personal blog of @arnondora'},
