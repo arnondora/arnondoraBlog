@@ -1,17 +1,15 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 import styled from 'styled-components'
-import Link from 'gatsby-link'
+import { Link } from 'gatsby'
 
+import Layout from '../layouts/Layout'
 import NavBar from '../components/NavBar'
 import CardImage from '../components/CardImage'
 import MobileFooter from '../components/MobileFooter'
 
 const NavigationBar = styled(NavBar)`
   position: relative;
-`
-const SuperWrapper = styled.div`
-  background-color: #F5F5F5;
-  min-height: 100vh;
 `
 
 const Container = styled.div`
@@ -142,47 +140,49 @@ export default class search extends React.Component {
     if (relatedCategories.length === 0 || this.state.keyword === "") relatedCategories = this.props.data.allCategoriesJson.edges
 
     return (
-      <SuperWrapper>
-        <NavigationBar siteTitle = {this.props.data.site.siteMetadata.title}/>
-        <Container>
-          <PageHeader>Search for articles</PageHeader>
+      <Layout>
+        <React.Fragment>
+          <NavigationBar siteTitle = {this.props.data.site.siteMetadata.title}/>
+          <Container>
+            <PageHeader>Search for articles</PageHeader>
 
-            <TextInput
-              type="text"
-              placeholder = "Let's search something new"
-              onChange={this.handleSearch}
-              value={this.state.keyword}
-              autoFocus
-            />
+              <TextInput
+                type="text"
+                placeholder = "Let's search something new"
+                onChange={this.handleSearch}
+                value={this.state.keyword}
+                autoFocus
+              />
 
-          <ResultShowPlane>
-            <ResultWrapper isLeft={true}>
-              <GreySearchText>SEARCH FOR</GreySearchText>
-              <KeywordText>{this.state.keyword === "" ? "All Stories": this.state.keyword}</KeywordText>
-              <hr/>
-              <GreySearchText>{this.state.keyword === "" || searchResult.length === 0 ? "RECOMMEND CATEGORIES" : "RELATED CATEGORIES"}</GreySearchText>
-              <CategoryChipWrapper>
+            <ResultShowPlane>
+              <ResultWrapper isLeft={true}>
+                <GreySearchText>SEARCH FOR</GreySearchText>
+                <KeywordText>{this.state.keyword === "" ? "All Stories": this.state.keyword}</KeywordText>
+                <hr/>
+                <GreySearchText>{this.state.keyword === "" || searchResult.length === 0 ? "RECOMMEND CATEGORIES" : "RELATED CATEGORIES"}</GreySearchText>
+                <CategoryChipWrapper>
+                  {
+                    relatedCategories.map(category => {
+                      return <CategoryChip to={this.makeCategoryLink(category.node.link)} key={category.node.link}>{category.node.name}</CategoryChip>
+                    })
+                  }
+                </CategoryChipWrapper>
+              </ResultWrapper>
+
+              <ResultWrapper isLeft={false}>
                 {
-                  relatedCategories.map(category => {
-                    return <CategoryChip to={this.makeCategoryLink(category.node.link)} key={category.node.link}>{category.node.name}</CategoryChip>
-                  })
+                  searchResult.length > 0 ? searchResult.map(page => (
+                    page.node.frontmatter.status === "published" ?
+                    <CardImage key={page.node.fields.slug} post={page}/>: null
+                  )) : <NotFoundText>Not found article from the keyword.</NotFoundText>
                 }
-              </CategoryChipWrapper>
-            </ResultWrapper>
+              </ResultWrapper>
+            </ResultShowPlane>
 
-            <ResultWrapper isLeft={false}>
-              {
-                searchResult.length > 0 ? searchResult.map(page => (
-                  page.node.frontmatter.status === "published" ?
-                  <CardImage key={page.node.fields.slug} post={page}/>: null
-                )) : <NotFoundText>Not found article from the keyword.</NotFoundText>
-              }
-            </ResultWrapper>
-          </ResultShowPlane>
-
-        </Container>
-        <MobileFooter/>
-      </SuperWrapper>
+          </Container>
+          <MobileFooter/>
+        </React.Fragment>
+      </Layout>
     )
   }
 
