@@ -22,7 +22,6 @@
     "gatsby-plugin-nprogress": "^1.0.7",
     "gatsby-plugin-offline": "^1.0.10",
     "gatsby-plugin-react-helmet": "^2.0.1",
-    "gatsby-plugin-react-next": "^1.0.7",
     "gatsby-plugin-remove-trailing-slashes": "^1.0.3",
     "gatsby-plugin-sharp": "next",
     "gatsby-plugin-sitemap": "^1.2.5",
@@ -47,10 +46,10 @@
     "react-dom": "^16.4.1",
     "react-fontawesome": "^1.6.1",
     "react-helmet": "^5.2.0",
+    "react-typography": "^0.16.13",
     "sanitize-html": "^1.18.2",
     "styled-components": "^3.1.6",
-    "typography": "^0.16.17",
-    "react-typography": "^0.16.13"
+    "typography": "^0.16.17"
   },
   "keywords": [
     "gatsby"
