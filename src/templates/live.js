@@ -6,8 +6,6 @@ import {isEmpty, orderBy, map, get} from 'lodash'
 
 import firebase from '../utils/firebase'
 
-import Link from 'gatsby-link'
-
 import NavBar from '../components/NavBar'
 import HeaderWithLine from '../components/HeaderWithLine'
 import LivePostCard from '../components/LivePostCard'
@@ -161,7 +159,7 @@ export default class LiveTemplate extends React.Component
       super(props)
       this.state = {
         post: null,
-        firebaseRef: firebase.database().ref("live/" + this.props.pathContext.post.slug),
+        firebaseRef: firebase.database().ref("live/" + this.props.pageContext.post.slug),
       }
   }
 
@@ -178,7 +176,7 @@ export default class LiveTemplate extends React.Component
   }
 
   render () {
-    const post = this.props.pathContext.post
+    const post = this.props.pageContext.post
 
     var comments = null
     if (!isEmpty(this.state.post) && !isEmpty(this.state.post.comments)) {
@@ -193,7 +191,7 @@ export default class LiveTemplate extends React.Component
         <LiveStatusLabel>Live</LiveStatusLabel>
       </LiveStatus>
     }
-    else if (status == 2) {
+    else if (status === 2) {
       liveStatus = <LiveStatus>
         <LiveSymbol isLive={false}/>
         <LiveStatusLabel>Ended</LiveStatusLabel>
@@ -208,34 +206,34 @@ export default class LiveTemplate extends React.Component
 
     return (
       <React.Fragment>
-        <Helmet title={post.title + " - " + this.props.pathContext.siteInfo.siteMetadata.title}
+        <Helmet title={post.title + " - " + this.props.pageContext.siteInfo.siteMetadata.title}
           meta = {[
             {name: "description", "content" : post.subtitle},
 
             // G+
-            {itemprop: "name", "content" : post.title + " - " + this.props.pathContext.siteInfo.siteMetadata.title},
+            {itemprop: "name", "content" : post.title + " - " + this.props.pageContext.siteInfo.siteMetadata.title},
             {itemprop: "description", "content" : post.detail},
             {itemprop: "image", "content" : post.thumbnail},
 
             // Open Graph
-            {property: "og:title", "content" : post.title + " - " + this.props.pathContext.siteInfo.siteMetadata.title},
+            {property: "og:title", "content" : post.title + " - " + this.props.pageContext.siteInfo.siteMetadata.title},
             {property: "og:description", "content" : post.detail},
             {property: "og:locale", "content" : "th_TH"},
             {property: "og:type", "content": "article"},
-            {property: "og:url", "content": this.props.pathContext.siteInfo.siteMetadata.siteUrl + post.slug},
+            {property: "og:url", "content": this.props.pageContext.siteInfo.siteMetadata.siteUrl + post.slug},
             {property: "og:image", "content": post.thumbnail},
             {property: "og:image:secure_url", "content": post.thumbnail},
-            {property: "og:site_name", "content": post.title + " - " + this.props.pathContext.siteInfo.siteMetadata.title},
+            {property: "og:site_name", "content": post.title + " - " + this.props.pageContext.siteInfo.siteMetadata.title},
 
             // Twitter
             {name: "twitter:card", "content": post.thumbnail},
             {name: "twitter:image:src", "content": post.thumbnail},
-            {name: "twitter:title", "content": post.title + " - " + this.props.pathContext.siteInfo.siteMetadata.title},
+            {name: "twitter:title", "content": post.title + " - " + this.props.pageContext.siteInfo.siteMetadata.title},
             {name: "twitter:description", "content": post.detail},
           ]}
 
         />
-        <NavigationBar siteTitle = {this.props.pathContext.siteInfo.siteMetadata.title}/>
+        <NavigationBar siteTitle = {this.props.pageContext.siteInfo.siteMetadata.title}/>
         <ThumbnailWrapper thumbnail={post.thumbnail}>
           <ThumbnailContent>
             <Heading>{post.title}</Heading>
