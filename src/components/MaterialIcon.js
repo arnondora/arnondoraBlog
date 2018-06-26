@@ -31,7 +31,6 @@ export const Icon = styled.i`
 
 export default class MaterialIcon extends React.Component {
   render () {
-    console.log(this.props.colour)
     return (
       <React.Fragment>
         <Icon noLineHeight={this.props.noLineHeight} size={this.props.size} colour={this.props.colour}>{this.props.iconName}</Icon>
