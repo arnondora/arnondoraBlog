@@ -12,7 +12,8 @@ const Container = styled.div`
   border-radius: 8px;
 
   :hover {
-    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.20);
+    box-shadow: 0 2px 5px 2px rgba(0,0,0,0.20);
+    transition: box-shadow .2s ease;
   }
 `
 

@@ -87,10 +87,10 @@ export default class Footer extends React.Component {
       <Container mobilehide={this.props.mobilehide}>
         <Wrapper>
           <ContactList>
-            <a href ="https://www.facebook.com/arnondora" rel="noopener" target="_blank" aria-label="Facebook"><ContactItem src = {Facebook}/></a>
-            <a href ="https://www.twitter.com/arnondora" rel="noopener" target="_blank" aria-label="Twitter"><ContactItem src = {Twitter}/></a>
-            <a href ="https://www.plus.google.com/+arnonpuitrakul" rel="noopener" target="_blank" aria-label="Google Plus"><ContactItem src = {GooglePlus}/></a>
-            <a href ="mailto:peter.arnon@gmail.com" rel="noopener" target="_blank" aria-label="Mail"><ContactItem src = {Email}/></a>
+            <a href ="https://www.facebook.com/arnondora" rel="noopener" target="_blank" aria-label="Facebook"><ContactItem alt="Facebook" src = {Facebook}/></a>
+            <a href ="https://www.twitter.com/arnondora" rel="noopener" target="_blank" aria-label="Twitter"><ContactItem alt="Twitter" src = {Twitter}/></a>
+            <a href ="https://www.plus.google.com/+arnonpuitrakul" rel="noopener" target="_blank" aria-label="Google Plus"><ContactItem alt="Google+" src = {GooglePlus}/></a>
+            <a href ="mailto:peter.arnon@gmail.com" rel="noopener" target="_blank" aria-label="Mail"><ContactItem alt="Email" src = {Email}/></a>
           </ContactList>
 
           <BottomText>

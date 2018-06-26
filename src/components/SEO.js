@@ -24,7 +24,7 @@ export default class SEO extends React.Component {
             {property: "og:description", "content" : this.props.postContent.frontmatter.excerpt},
             {property: "og:locale", "content" : "th_TH"},
             {property: "og:type", "content": "article"},
-            {property: "og:url", "content": this.props.siteMetadata.siteUrl + this.props.postContent.fields.slug},
+            {property: "og:url", "content": this.props.siteMetadata.siteUrl + this.props.slug},
             {property: "og:image", "content": get(this.props.postContent.frontmatter, 'image', null) === null ? "" : this.props.siteMetadata.siteUrl + this.props.postContent.frontmatter.image.childImageSharp.sizes.src},
             {property: "og:image:secure_url", "content": get(this.props.postContent.frontmatter, 'image', null) === null ? "" : this.props.siteMetadata.siteUrl + this.props.postContent.frontmatter.image.childImageSharp.sizes.src},
             {property: "og:site_name", "content": this.props.siteMetadata.title + " - " + this.props.siteMetadata.description},

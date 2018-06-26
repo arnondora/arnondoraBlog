@@ -1,0 +1,66 @@
+version: 2
+jobs:
+  deploy_production:
+    working_directory: ~/blog
+    docker :
+      - image : circleci/node:8
+        environment:
+          GATSBY_FIREBASE_APIKEY: $GATSBY_FIREBASE_APIKEY
+          GATSBY_FIREBASE_AUTHDOMAIN: $GATSBY_FIREBASE_AUTHDOMAIN
+          GATSBY_FIREBASE_DATABASEURL: $GATSBY_FIREBASE_DATABASEURL
+          GATSBY_FIREBASE_PROJECTID: $GATSBY_FIREBASE_PROJECTID
+          GATSBY_FIREBASE_STORAGEBUCKET: $GATSBY_FIREBASE_STORAGEBUCKET
+          GATSBY_FIREBASE_MESSAGINGSENDERID: $GATSBY_FIREBASE_MESSAGINGSENDERID
+          APP_VERSION: $APP_VERSION
+          SITE_NAME: $SITE_NAME
+          APP_URL: $APP_URL
+          GOOGLE_ANALYTICS_TRACKING_ID: $GOOGLE_ANALYTICS_TRACKING_ID
+    steps:
+      - checkout
+      - run:
+          name : Install Dependencies
+          command: |
+            npm install
+            npm build
+      - run:
+          name: Deploy to Production on Firebase
+          command: |
+            firebase deploy -P default --token=$FIREBASE_API_TOKEN
+  deploy_develop:
+    working_directory: ~/blog
+    docker :
+      - image : circleci/node:latest
+        environment:
+          GATSBY_FIREBASE_APIKEY: $GATSBY_FIREBASE_APIKEY_STAGING
+          GATSBY_FIREBASE_AUTHDOMAIN: $GATSBY_FIREBASE_AUTHDOMAIN_STAGING
+          GATSBY_FIREBASE_DATABASEURL: $GATSBY_FIREBASE_DATABASEURL_STAGING
+          GATSBY_FIREBASE_PROJECTID: $GATSBY_FIREBASE_PROJECTID_STAGING
+          GATSBY_FIREBASE_STORAGEBUCKET: $GATSBY_FIREBASE_STORAGEBUCKET_STAGING
+          GATSBY_FIREBASE_MESSAGINGSENDERID: $GATSBY_FIREBASE_MESSAGINGSENDERID_STAGING
+          APP_VERSION: $APP_VERSION_STAGING
+          SITE_NAME: $SITE_NAME
+          APP_URL: $APP_URL_STAGING
+          GOOGLE_ANALYTICS_TRACKING_ID: $GOOGLE_ANALYTICS_TRACKING_ID_STAGING
+    steps:
+      - checkout
+      - run:
+          name : Install Dependencies
+          command: |
+            npm install
+            npm build-staging
+      - run:
+          name: Deploy to Production on Firebase
+          command: |
+            firebase deploy -P staging --token=$FIREBASE_API_TOKEN
+workflows:
+  version: 2
+  build-and-deploy-production:
+    jobs:
+      - deploy_production:
+          filters:
+            branches:
+              only: master
+      - deploy_develop:
+          filters:
+            branches:
+              only: develop

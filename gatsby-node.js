@@ -153,25 +153,19 @@ exports.createPages = ({graphql, boundActionCreators}) => {
                 node {
                   excerpt(pruneLength: 250)
                   html
-                  id
                   fields {
                     slug
                   }
                   frontmatter {
                     title
-                    subtitle
                     excerpt
                     category
-                    template
                     type
                     author
                     status
-                    thumbnailCredit
                     date(formatString: "MMMM DD, YYYY")
                     isFeatured
                     image {
-                      name
-                      ext
                       childImageSharp {
                         sizes (maxWidth: 1200, quality: 80) {
                           base64
@@ -185,10 +179,6 @@ exports.createPages = ({graphql, boundActionCreators}) => {
                         }
                       }
                     }
-                  }
-                  timeToRead
-                  fields {
-                    slug
                   }
                 }
               }
@@ -284,15 +274,13 @@ exports.createPages = ({graphql, boundActionCreators}) => {
       // Create pages.
       _.each(pages, (edge) => {
 
-        node = _.pick(edge.node, ['fields.slug',  'frontmatter.excerpt', 'frontmatter.title', 'frontmatter.image', 'frontmatter.category', 'frontmatter.date', 'frontmatter.author', 'frontmatter.template', 'frontmatter.type', 'html'])
-
         createPage({
           path: edge.node.fields.slug,
           component: blogPost,
           context: {
             siteInfo: result.data.site,
+            slug: edge.node.fields.slug,
             id: id,
-            post: node
           }
         })
       })
@@ -318,15 +306,12 @@ exports.createPages = ({graphql, boundActionCreators}) => {
           return _.pick(post, ['node.fields.slug', 'node.frontmatter.title', 'node.frontmatter.image'])
         })
 
-        node = _.pick(edge.node, ['fields.slug',  'frontmatter.excerpt', 'frontmatter.title', 'frontmatter.image', 'frontmatter.category', 'frontmatter.date', 'frontmatter.author', 'frontmatter.template', 'frontmatter.type', 'frontmatter.subtitle', 'frontmatter.thumbnailCredit', 'html'])
-
         createPage({
           path: edge.node.fields.slug,
           component: blogPost,
           context: {
             siteInfo: result.data.site,
-            id: id,
-            post: node,
+            slug: edge.node.fields.slug,
             prev,
             next,
             related
@@ -340,15 +325,12 @@ exports.createPages = ({graphql, boundActionCreators}) => {
         const next = false
         const related = false
 
-        node = _.pick(edge.node, ['fields.slug',  'frontmatter.excerpt', 'frontmatter.title', 'frontmatter.image', 'frontmatter.category', 'frontmatter.date', 'frontmatter.author', 'frontmatter.template', 'frontmatter.type', 'frontmatter.subtitle', 'frontmatter.thumbnailCredit', 'html'])
-
         createPage({
           path: edge.node.fields.slug,
           component: blogPost,
           context: {
             siteInfo: result.data.site,
-            id: id,
-            post: node,
+            slug: edge.node.fields.slug,
             prev,
             next,
             related
@@ -376,15 +358,11 @@ exports.modifyWebpackConfig = ({config, stage}) => {
     });
   }
 
-  if (stage === 'build-javascript') {
-    // turn off source-maps
-    config.merge({devtool: false});
-  }
-
   switch (stage) {
     case `build-javascript`:
       config.plugin(`Lodash`, webpackLodashPlugin, null)
-
+      // turn off source-maps
+      config.merge({devtool: false});
       break
   }
 

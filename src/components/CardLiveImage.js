@@ -6,6 +6,7 @@ import { isEmpty } from 'lodash'
 const Container = styled(Link)`
   display: flex;
   flex-direction: column;
+  margin-top: 10px;
 `
 const ContentContainer = styled.div `
   display: flex;

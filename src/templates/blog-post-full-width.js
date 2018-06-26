@@ -55,6 +55,26 @@ const ArticleWrapper = styled.div`
   @media (max-width: 768px) {
     margin-top:0;
   }
+
+  & > h1 {
+    font-size: 2.6058rem;
+  }
+
+  & > h2 {
+    font-size: 2.00448rem;
+  }
+
+  & > h3 {
+    font-size: 1.6704rem;
+  }
+
+  & > h4 {
+    font-size: 1.392rem;
+  }
+
+  & > p,li {
+    font-size: 1.1rem;
+  }
 `
 
 const PageWrapper = ArticleWrapper.extend`
@@ -105,7 +125,7 @@ const ThumbnailCredit = styled.em`
 
 export default class BlogPostTemplate extends React.Component {
   render() {
-    const postContent = this.props.pathContext.post
+    const postContent = this.props.data.markdownRemark
     const postInfo = postContent.frontmatter
     const siteMetadata = this.props.pathContext.siteInfo.siteMetadata
 
@@ -113,9 +133,10 @@ export default class BlogPostTemplate extends React.Component {
       <React.Fragment>
         <SEO
           postContent={postContent}
+          slug = {this.props.pathContext.slug}
           siteMetadata={siteMetadata}
         />
-        <NavBar article={true} slug={postContent.fields.slug} headline={postInfo.title}/>
+        <NavBar article={true} slug={this.props.pathContext.slug} headline={postInfo.title}/>
 
         <ThumbnailContainer post={postInfo}/>
         {!isEmpty(postInfo.thumbnailCredit)? <ThumbnailCredit dangerouslySetInnerHTML={{ __html: postInfo.thumbnailCredit }}/> : null}
@@ -125,7 +146,7 @@ export default class BlogPostTemplate extends React.Component {
               {postInfo.template === "normal" ? <SmallHeading>{postInfo.title}</SmallHeading> : null}
               {postInfo.type === "post" && postInfo.template === "normal"? <SmallSubHeading>by {postInfo.author} on {postInfo.date}</SmallSubHeading> : null}
               <ArticleWrapper dangerouslySetInnerHTML={{ __html: postContent.html }} />
-              <MobileSocialShareButton slug={postContent.fields.slug}/>
+              <MobileSocialShareButton slug={this.props.pathContext.slug}/>
             </ContentWrapper>
 
           </Container> :
@@ -142,15 +163,47 @@ export default class BlogPostTemplate extends React.Component {
 
         {
           postInfo.type === "post" ?
-          <CommentWrapper><PageWrapper><CommentBox slug={postContent.fields.slug}/></PageWrapper></CommentWrapper>
+          <CommentWrapper><PageWrapper><CommentBox slug={this.props.pathContext.slug}/></PageWrapper></CommentWrapper>
           :
           null
         }
 
-        <MobileStickyShareContainer><StickyMobileShare slug={postContent.fields.slug}/></MobileStickyShareContainer>
+        <MobileStickyShareContainer><StickyMobileShare slug={this.props.pathContext.slug}/></MobileStickyShareContainer>
         <Footer/>
       </React.Fragment>
 
     )
   }
 }
+
+export const query = graphql`
+  query ContentQuery ($slug: String!) {
+    markdownRemark(fields: { slug: { eq: $slug}}) {
+      html
+      frontmatter {
+        title
+        excerpt
+        subtitle
+        template
+        type
+        author
+        thumbnailCredit
+        date(formatString: "MMMM DD, YYYY")
+        image {
+          childImageSharp {
+            sizes (maxWidth: 1200, quality: 80) {
+              base64
+              tracedSVG
+              aspectRatio
+              src
+              srcSet
+              srcWebp
+              srcSetWebp
+              sizes
+            }
+          }
+        }
+      }
+    }
+  }
+`

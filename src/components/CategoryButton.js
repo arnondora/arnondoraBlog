@@ -44,6 +44,11 @@ const ContentWrapper = styled.div`
   {
     transform: translateY(60px);
   }
+
+  @media (min-width: 1624px)
+  {
+    transform: translateY(50%);
+  }
 `
 
 const CatName = styled.span`
