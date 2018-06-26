@@ -75,6 +75,11 @@ const ArticleWrapper = styled.div`
   & > p,li {
     font-size: 1.1rem;
   }
+
+  & > p > img {
+    width: 100%;
+    margin: 0 auto;
+  }
 `
 
 const PageWrapper = ArticleWrapper.extend`
