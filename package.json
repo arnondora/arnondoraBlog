@@ -54,7 +54,7 @@
   "license": "MIT",
   "main": "n/a",
   "scripts": {
-    "build": "node --max-old-space-size=20000 ./node_modules/.bin/gatsby  build",
+    "build": "NODE_ENV=production GATSBY_ENV=production node --max-old-space-size=20000 ./node_modules/.bin/gatsby  build",
     "build-staging": "GATSBY_ENV=staging node --max-old-space-size=20000 ./node_modules/.bin/gatsby  build",
     "develop": "gatsby develop",
     "predeploy": "yarn build",
