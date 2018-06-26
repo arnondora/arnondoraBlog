@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import color from 'color'
-import fontawesome from '@fortawesome/fontawesome'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import faFacebookF from '@fortawesome/fontawesome-free-brands/faFacebookF'
 import faTwitter from '@fortawesome/fontawesome-free-brands/faTwitter'
@@ -49,9 +48,9 @@ export default class MobileSocialShareButton extends React.Component {
       <Container>
           <Header>Share this article to social network?</Header>
           <ButtonGroup>
-            <IconLink href = {getFacebookShareLink(link)} rel="noopener" target="_blank" aria-label="Share to Facebook"><Icon icon={faFacebookF} name={"facebook"} size="2x"/></IconLink>
-            <IconLink href = {getTwitterShareLink(link)} rel="noopener" target="_blank" aria-label="Share to Twitter"><Icon icon={faTwitter} name={"twitter"} size="2x"/></IconLink>
-            <IconLink href = {getGooglePlusShareLink(link)} rel="noopener" target="_blank" aria-label="Share to Google Plus"><Icon icon={faGooglePlus} name={"google+"} size="2x"/></IconLink>
+            <IconLink href = {getFacebookShareLink(link)} rel="noopener noreferrer" target="_blank" aria-label="Share to Facebook"><Icon icon={faFacebookF} name={"facebook"} size="2x"/></IconLink>
+            <IconLink href = {getTwitterShareLink(link)} rel="noopener noreferrer" target="_blank" aria-label="Share to Twitter"><Icon icon={faTwitter} name={"twitter"} size="2x"/></IconLink>
+            <IconLink href = {getGooglePlusShareLink(link)} rel="noopener noreferrer" target="_blank" aria-label="Share to Google Plus"><Icon icon={faGooglePlus} name={"google+"} size="2x"/></IconLink>
           </ButtonGroup>
       </Container>
     )

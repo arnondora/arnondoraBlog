@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import Link from 'gatsby-link'
+import { Link } from 'gatsby'
 import Helmet from 'react-helmet'
 import Error404Icon from "../assets/Error404Icon.svg"
 
@@ -10,12 +10,6 @@ const Container = styled.div `
   margin: 0 auto;
   margin-top: 100px;
   width: 80%;
-`
-
-const ItemWrapper = styled.div`
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
 `
 
 const Header = styled.span`

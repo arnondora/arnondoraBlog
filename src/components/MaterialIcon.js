@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import {get} from 'lodash'
 
 const Icon = styled.i`
   font-family: 'Material Icons';

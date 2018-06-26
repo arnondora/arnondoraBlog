@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import color from 'color'
-import fontawesome from '@fortawesome/fontawesome'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import faLine from '@fortawesome/fontawesome-free-brands/faLine'
 import faFacebookF from '@fortawesome/fontawesome-free-brands/faFacebookF'
@@ -38,10 +37,10 @@ export default class StickyMobileShare extends React.Component {
     const link = convertLinkFromSlug(this.props.slug)
     return (
         <Container>
-          <SocialItem href = {getFacebookShareLink(link)} rel="noopener" target="_blank" aria-label="Share to Facebook" name={"facebook"}><Icon icon={faFacebookF}/></SocialItem>
-          <SocialItem href = {getTwitterShareLink(link)} rel="noopener" target="_blank" aria-label="Share to Twitter" name={"twitter"}><Icon icon={faTwitter}/></SocialItem>
-          <SocialItem href = {getGooglePlusShareLink(link)} rel="noopener" target="_blank" aria-label="Share to Google Plus" name={"google+"}><Icon icon={faGooglePlusG}/></SocialItem>
-          <SocialItem href = {getLineShareLink(link)} rel="noopener" target="_blank" aria-label="Share to Line" name={"line"}><Icon icon={faLine}/></SocialItem>
+          <SocialItem href = {getFacebookShareLink(link)} rel="noopener noreferrer" target="_blank" aria-label="Share to Facebook" name={"facebook"}><Icon icon={faFacebookF}/></SocialItem>
+          <SocialItem href = {getTwitterShareLink(link)} rel="noopener noreferrer" target="_blank" aria-label="Share to Twitter" name={"twitter"}><Icon icon={faTwitter}/></SocialItem>
+          <SocialItem href = {getGooglePlusShareLink(link)} rel="noopener noreferrer" target="_blank" aria-label="Share to Google Plus" name={"google+"}><Icon icon={faGooglePlusG}/></SocialItem>
+          <SocialItem href = {getLineShareLink(link)} rel="noopener noreferrer" target="_blank" aria-label="Share to Line" name={"line"}><Icon icon={faLine}/></SocialItem>
         </Container>
     )
   }
