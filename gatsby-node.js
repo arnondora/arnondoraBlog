@@ -1,6 +1,7 @@
 const _ = require('lodash')
 const Promise = require('bluebird')
 const path = require('path')
+const webpackLodashPlugin = require('lodash-webpack-plugin')
 const {createFilePath} = require('gatsby-source-filesystem')
 const firebase = require('firebase')
 
@@ -47,8 +48,6 @@ const createCategoryPages = (createPage, categories, posts, siteInfo) => {
     const link = category.link
     const name = category.name
     const cleanCategory = _.pick(category, ['name', 'description','link'])
-
-    if (_.isEmpty(cleanCategory)) return
 
     const catPosts = _.filter(posts, (item) => {
       return _.get(item, 'node.frontmatter.category', false) === name
@@ -128,8 +127,8 @@ const createLivePages = (createPage, posts, siteInfo) => {
   })
 }
 
-exports.createPages = ({graphql, actions}) => {
-  const {createPage} = actions
+exports.createPages = ({graphql, boundActionCreators}) => {
+  const {createPage} = boundActionCreators
 
   return new Promise((resolve, reject) => {
     const blogPost = path.resolve('./src/templates/blog-post-full-width.js')
@@ -342,11 +341,30 @@ exports.createPages = ({graphql, actions}) => {
   })
 }
 
-exports.onCreateNode = ({node, actions, getNode}) => {
-  const {createNodeField} = actions
+exports.onCreateNode = ({node, boundActionCreators, getNode}) => {
+  const {createNodeField} = boundActionCreators
 
   if (node.internal.type === `MarkdownRemark`) {
     const value = createFilePath({node, getNode})
     createNodeField({name: `slug`, node, value})
   }
+}
+
+exports.modifyWebpackConfig = ({config, stage}) => {
+  if (stage === "build-html") {
+    config.loader("null", {
+      test: /scroll-to-element/,
+      loader: "null-loader"
+    });
+  }
+
+  switch (stage) {
+    case `build-javascript`:
+      config.plugin(`Lodash`, webpackLodashPlugin, null)
+      // turn off source-maps
+      config.merge({devtool: false});
+      break
+  }
+
+  return config
 }
