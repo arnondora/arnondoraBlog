@@ -33,6 +33,12 @@ const ContentContainer = styled.div`
   }
 `
 
+const BlankBG = styled.div`
+  height: 450px;
+  width: 100%;
+  background-color: ${props => props.theme.primaryColour}
+`
+
 const Overlay = styled.div`
   position:absolute;
   min-width:100%;

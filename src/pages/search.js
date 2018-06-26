@@ -1,7 +1,6 @@
 import React from 'react'
-import { graphql } from 'gatsby'
 import styled from 'styled-components'
-import { Link } from 'gatsby'
+import Link from 'gatsby-link'
 
 import firebase from '../utils/firebase'
 
@@ -11,6 +10,10 @@ import MobileFooter from '../components/MobileFooter'
 
 const NavigationBar = styled(NavBar)`
   position: relative;
+`
+const SuperWrapper = styled.div`
+  background-color: #F5F5F5;
+  min-height: 100vh;
 `
 
 const Container = styled.div`
@@ -154,48 +157,47 @@ export default class search extends React.Component {
     if (relatedCategories.length === 0 || this.state.keyword === "") relatedCategories = this.state.categories
 
     return (
-      <Layout>
-        <React.Fragment>
-          <NavigationBar siteTitle = {this.props.data.site.siteMetadata.title}/>
-          <Container>
-            <PageHeader>Search for articles</PageHeader>
+      <SuperWrapper>
+        <NavigationBar siteTitle = {this.props.data.site.siteMetadata.title}/>
+        <Container>
+          <PageHeader>Search for articles</PageHeader>
 
-              <TextInput
-                type="text"
-                placeholder = "Let's search something new"
-                onChange={this.handleSearch}
-                value={this.state.keyword}
-                autoFocus
-              />
+            <TextInput
+              type="text"
+              placeholder = "Let's search something new"
+              onChange={this.handleSearch}
+              value={this.state.keyword}
+              autoFocus
+            />
 
-            <ResultShowPlane>
-              <ResultWrapper isLeft={true}>
-                <GreySearchText>SEARCH FOR</GreySearchText>
-                <KeywordText>{this.state.keyword === "" ? "All Stories": this.state.keyword}</KeywordText>
-                <hr/>
-                <GreySearchText>{this.state.keyword === "" || searchResult.length === 0 ? "RECOMMEND CATEGORIES" : "RELATED CATEGORIES"}</GreySearchText>
-                <CategoryChipWrapper>
-                  {
-                    relatedCategories.length === 0 ? <span>Loading...</span> :relatedCategories.map(category => {
-                      return <CategoryChip to={this.makeCategoryLink(category.link)} key={category.link}>{category.name}</CategoryChip>
-                    })
-                  }
-                </CategoryChipWrapper>
-              </ResultWrapper>
-
-              <ResultWrapper isLeft={false}>
+          <ResultShowPlane>
+            <ResultWrapper isLeft={true}>
+              <GreySearchText>SEARCH FOR</GreySearchText>
+              <KeywordText>{this.state.keyword === "" ? "All Stories": this.state.keyword}</KeywordText>
+              <hr/>
+              <GreySearchText>{this.state.keyword === "" || searchResult.length === 0 ? "RECOMMEND CATEGORIES" : "RELATED CATEGORIES"}</GreySearchText>
+              <CategoryChipWrapper>
                 {
                   relatedCategories.length === 0 ? <span>Loading...</span> : relatedCategories.map(category => {
                     return <CategoryChip to={this.makeCategoryLink(category.link)} key={category.link}>{category.name}</CategoryChip>
                   })
                 }
-              </ResultWrapper>
-            </ResultShowPlane>
+              </CategoryChipWrapper>
+            </ResultWrapper>
 
-          </Container>
-          <MobileFooter/>
-        </React.Fragment>
-      </Layout>
+            <ResultWrapper isLeft={false}>
+              {
+                searchResult.length > 0 ? searchResult.map(page => (
+                  page.node.frontmatter.status === "published" ?
+                  <CardImage key={page.node.fields.slug} post={page}/>: null
+                )) : <NotFoundText>Not found article from the keyword.</NotFoundText>
+              }
+            </ResultWrapper>
+          </ResultShowPlane>
+
+        </Container>
+        <MobileFooter/>
+      </SuperWrapper>
     )
   }
 
@@ -265,7 +267,6 @@ export const pageQuery = graphql`
                   aspectRatio
                   src
                   srcWebp
-                  srcSet
                   sizes
                 }
               }
