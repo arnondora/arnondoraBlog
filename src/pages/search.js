@@ -5,7 +5,6 @@ import { Link } from 'gatsby'
 
 import firebase from '../utils/firebase'
 
-import Layout from '../layouts/Layout'
 import NavBar from '../components/NavBar'
 import CardImage from '../components/CardImage'
 import MobileFooter from '../components/MobileFooter'
@@ -186,10 +185,9 @@ export default class search extends React.Component {
 
               <ResultWrapper isLeft={false}>
                 {
-                  searchResult.length > 0 ? searchResult.map(page => (
-                    page.node.frontmatter.status === "published" ?
-                    <CardImage key={page.node.fields.slug} post={page}/>: null
-                  )) : <NotFoundText>Not found article from the keyword.</NotFoundText>
+                  relatedCategories.length === 0 ? <span>Loading...</span> : relatedCategories.map(category => {
+                    return <CategoryChip to={this.makeCategoryLink(category.link)} key={category.link}>{category.name}</CategoryChip>
+                  })
                 }
               </ResultWrapper>
             </ResultShowPlane>
@@ -221,7 +219,7 @@ export default class search extends React.Component {
     var categories = []
     for (var i=0; i<posts.length; i++) {
       for (var j=0; j< this.state.categories.length; j++) {
-        if (posts[i].node.frontmatter.category === this.state.categories[j].name && categories.indexOf(this.state.categories[j]) === -1)
+        if (posts[i].node.frontmatter.category == this.state.categories[j].name && categories.indexOf(this.state.categories[j]) == -1)
           categories.push(this.state.categories[j])
       }
     }

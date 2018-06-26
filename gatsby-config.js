@@ -56,7 +56,7 @@ module.exports = {
         path: `${__dirname + "/src/articles"}`,
         name: 'pages'
       }
-    }, {
+    },{
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
