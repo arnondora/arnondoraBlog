@@ -39,7 +39,7 @@ const PostWrapper = styled.div`
 `
 
 
-export default class CategoryTemplate extends React.Component
+export default class LivePaginate extends React.Component
 {
   render () {
     var posts = this.props.pageContext.posts.map((item) => {
