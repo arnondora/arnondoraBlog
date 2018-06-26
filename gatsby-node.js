@@ -25,8 +25,8 @@ if (!firebase.apps.length)
   firebase.initializeApp(config)
 
 const uploadValueToFirebase = (post, path) => {
-  if (node.frontmatter.image !== null)
-    node.frontmatter.image.childImageSharp = null
+  if (post.frontmatter.image !== null)
+    post.frontmatter.image.childImageSharp = null
   firebase.database().ref(path).update(post)
 }
 
