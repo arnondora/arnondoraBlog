@@ -48,6 +48,8 @@ const createCategoryPages = (createPage, categories, posts, siteInfo) => {
     const name = category.name
     const cleanCategory = _.pick(category, ['name', 'description','link'])
 
+    if (_.isEmpty(cleanCategory)) return
+
     const catPosts = _.filter(posts, (item) => {
       return _.get(item, 'node.frontmatter.category', false) === name
     })
