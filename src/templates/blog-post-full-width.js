@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import color from 'color'
 import { isEmpty } from 'lodash'
 
 import colours from '../utils/colours'
@@ -11,6 +12,7 @@ import NextStory from '../components/NextStory'
 import RecommendStory from '../components/RecommendStory'
 import CommentBox from '../components/CommentBox'
 import MobileSocialShareButton from '../components/MobileSocialShareButton'
+import MobileTextController from '../components/MobileTextController'
 import StickyMobileShare from '../components/StickyMobileShare'
 import Footer from  '../components/Footer'
 
@@ -19,6 +21,7 @@ import './blog-post-full-width.css' /* Import Reader Style */
 const Container = styled.div`
   display: flex;
   flex-direction:column;
+  background-color: ${props => props.isNight? props.theme.night_darkBackground : props.theme.defaultBackground};
 
   @media (max-width: 768px) {
     padding-bottom: 38px;
@@ -56,24 +59,48 @@ const ArticleWrapper = styled.div`
     margin-top:0;
   }
 
+  & > *, & > blockquote > p, & > ul > li, & > ul > li > strong, & > ol > li, & > ol > li > strong {
+    color: ${props => props.isNight ? props.theme.night_text_light : props.theme.textHeading};
+  }
+
+  pre > code {
+    background-color: ${props => props.isNight ? props.theme.night_lightBackground : props.theme.secondaryBackground} !important;
+    white-space: pre-wrap;
+    display: block;
+    padding: 10px 15px 10px 15px;
+    color: ${props => props.isNight ? props.theme.night_text_light : '#222222'};
+    border: 1px solid ${props => props.isNight ? props.theme.night_secondaryBorder :'#e6e6e6'};
+    border-radius: 8px;
+  }
+
   & > h1 {
-    font-size: 2.6058rem;
+    font-size: ${props => (props.scale + 2.6058) + 'rem'};
   }
 
   & > h2 {
-    font-size: 2.00448rem;
+    font-size: ${props => (props.scale + 2.00448) + 'rem'};
   }
 
   & > h3 {
-    font-size: 1.6704rem;
+    font-size: ${props => (props.scale + 1.6704) + 'rem'};
   }
 
   & > h4 {
-    font-size: 1.392rem;
+    font-size: ${props => (props.scale + 1.392) + 'rem'};
   }
 
   & > p,li {
-    font-size: 1.1rem;
+    font-size: ${props => (props.scale + 1.1) + 'rem'};
+  }
+
+  & > p:first-child::first-letter {
+    color: #2096F3;
+    font-size: ${props => (props.scale + 3.1) + 'rem'};
+    line-height: 40px;
+    float: left;
+    padding-top: ${props => ((props.scale * 10) + 12) + 'px'};
+    padding-right: 10px;
+    padding-left: 3px;
   }
 
   & > p > img {
@@ -89,12 +116,12 @@ const PageWrapper = ArticleWrapper.extend`
 
   @media (max-width: 768px) {
     width: 90%;
-    margin-top:20px;
+    padding-top:20px;
   }
 `
 
 const CommentWrapper = styled.div`
-  background-color: ${props => props.theme.darkBackground};
+  background-color: ${props => props.isNight? props.theme.night_lightBackground :props.theme.darkBackground};
 `
 
 const Heading = styled.h1`
@@ -119,16 +146,42 @@ const SmallSubHeading = styled.p`
 const ThumbnailCredit = styled.em`
   display: block;
   text-align: center;
-  color: rgba(0,0,0,.68);
-  margin-top:5px;
+  color: ${props => props.isNight ? props.theme.night_text_light : 'rgba(0,0,0,.68)'};
+  padding-top:5px;
   font-size: 0.8em;
 
+  background-color: ${props => props.isNight ? props.theme.night_darkBackground : props.theme.defaultBackground};
+
   a {
-    color: rgba(0,0,0,.8);
+    color: ${props => props.isNight ? props.theme.night_text_normal : 'rgba(0,0,0,.8)'};
   }
 `
 
+const MobileTextControllerGroup = styled.div`
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    align-items: center;
+    margin-bottom: 20px;
+`
+
 export default class BlogPostTemplate extends React.Component {
+  constructor (props) {
+      super(props)
+
+      // TODO: Add isNight state store in session
+
+      this.state = {
+        isNight: false,
+        fontScale: 0,
+      }
+
+      this.nightModeSwitcher = this.nightModeSwitcher.bind(this)
+      this.enlargeFont = this.enlargeFont.bind(this)
+      this.decreaseFont = this.decreaseFont.bind(this)
+  }
+
   render() {
     const postContent = this.props.data.markdownRemark
     const postInfo = postContent.frontmatter
@@ -141,17 +194,20 @@ export default class BlogPostTemplate extends React.Component {
           slug = {this.props.pathContext.slug}
           siteMetadata={siteMetadata}
         />
-        <NavBar article={true} slug={this.props.pathContext.slug} headline={postInfo.title}/>
-
+        <NavBar article={true} slug={this.props.pathContext.slug} headline={postInfo.title} isNight={this.state.isNight === null ? false : this.state.isNight}/>
         <ThumbnailContainer post={postInfo}/>
-        {!isEmpty(postInfo.thumbnailCredit)? <ThumbnailCredit dangerouslySetInnerHTML={{ __html: postInfo.thumbnailCredit }}/> : null}
+        {!isEmpty(postInfo.thumbnailCredit)? <ThumbnailCredit isNight={this.state.isNight} dangerouslySetInnerHTML={{ __html: postInfo.thumbnailCredit }}/> : null}
 
-        {postInfo.type === "post" ? <Container>
+        {postInfo.type === "post" ? <Container isNight={this.state.isNight}>
             <ContentWrapper>
+              <MobileTextControllerGroup>
+                <MobileTextController isNight={this.state.isNight} nightModeSwitcher={this.nightModeSwitcher} enlargeFont={this.enlargeFont} decreaseFont={this.decreaseFont}/>
+              </MobileTextControllerGroup>
+
               {postInfo.template === "normal" ? <SmallHeading>{postInfo.title}</SmallHeading> : null}
               {postInfo.type === "post" && postInfo.template === "normal"? <SmallSubHeading>by {postInfo.author} on {postInfo.date}</SmallSubHeading> : null}
-              <ArticleWrapper dangerouslySetInnerHTML={{ __html: postContent.html }} />
-              <MobileSocialShareButton slug={this.props.pathContext.slug}/>
+              <ArticleWrapper scale={this.state.fontScale} isNight={this.state.isNight} dangerouslySetInnerHTML={{ __html: postContent.html }} />
+              <MobileSocialShareButton slug={this.props.pathContext.slug} isNight={this.state.isNight}/>
             </ContentWrapper>
 
           </Container> :
@@ -160,7 +216,7 @@ export default class BlogPostTemplate extends React.Component {
         {
           postInfo.type === "post" && (this.props.pathContext.next !== false || this.props.pathContext.prev !== false) ?
             <React.Fragment>
-              <NextStory next={this.props.pathContext.next} prev={this.props.pathContext.prev} hasRelated={isEmpty(this.props.pathContext.related)}/>
+              <NextStory next={this.props.pathContext.next} prev={this.props.pathContext.prev} hasRelated={isEmpty(this.props.pathContext.related)} isNight={this.state.isNight}/>
               <RecommendStory stories = {this.props.pathContext.related}/>
             </React.Fragment>
           : null
@@ -168,16 +224,34 @@ export default class BlogPostTemplate extends React.Component {
 
         {
           postInfo.type === "post" ?
-          <CommentWrapper><PageWrapper><CommentBox slug={this.props.pathContext.slug}/></PageWrapper></CommentWrapper>
+          <CommentWrapper isNight={this.state.isNight}><PageWrapper><CommentBox slug={this.props.pathContext.slug} isNight={this.state.isNight}/></PageWrapper></CommentWrapper>
           :
           null
         }
 
         <MobileStickyShareContainer><StickyMobileShare slug={this.props.pathContext.slug}/></MobileStickyShareContainer>
-        <Footer/>
+        <Footer isNight={this.state.isNight}/>
       </React.Fragment>
 
     )
+  }
+
+  nightModeSwitcher () {
+    this.setState({
+      isNight : !this.state.isNight
+    })
+  }
+
+  enlargeFont () {
+    this.setState ({
+      fontScale : this.state.fontScale < 0.3 ? this.state.fontScale + 0.1 : 0.3
+    })
+  }
+
+  decreaseFont () {
+    this.setState ({
+      fontScale : this.state.fontScale > 0 ? this.state.fontScale - 0.1 : 0
+    })
   }
 }
 

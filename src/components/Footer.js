@@ -14,7 +14,7 @@ import GooglePlus from '../assets/GooglePlus.svg'
 import Email from '../assets/Email.svg'
 
 const Container = styled.div`
-  background-color: ${props => props.theme.primaryColour};
+  background-color: ${props => props.isNight? props.theme.night_darkBackground : props.theme.primaryColour};
   padding-top: 20px;
   padding-bottom: 20px;
 
@@ -84,7 +84,7 @@ const GithubLink = styled.a`
 export default class Footer extends React.Component {
   render () {
     return (
-      <Container mobilehide={this.props.mobilehide}>
+      <Container isNight={this.props.isNight} mobilehide={this.props.mobilehide}>
         <Wrapper>
           <ContactList>
             <a href ="https://www.facebook.com/arnondora" rel="noopener" target="_blank" aria-label="Facebook"><ContactItem alt="Facebook" src = {Facebook}/></a>
