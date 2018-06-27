@@ -221,8 +221,8 @@ export default class LiveTemplate extends React.Component {
     const thumbnail = get(post, 'thumbnail', 'Untitled')
     const slug = get(post, 'slug', 'Untitled')
 
-    const siteTitle = get(this.props, 'siteInfo.siteMetadata.title', 'Untitled')
-    const siteUrl = get(this.props, 'siteInfo.siteMetadata.siteUrl', 'Untitled')
+    const siteTitle = get(this.props, 'pageContext.siteInfo.siteMetadata.title', 'Untitled')
+    const siteUrl = get(this.props, 'pageContext.siteInfo.siteMetadata.siteUrl', 'Untitled')
 
     return (
       <Layout>
