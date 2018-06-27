@@ -105,6 +105,10 @@ const Warning = styled.span`
   color: red;
 `
 
+const Info = styled.span`
+  color: ${props => props.isNight? props.theme.night_text_normal : props.theme.textHeading};
+`
+
 export default class CommentBox extends React.Component {
   constructor(props) {
     super(props)
@@ -151,7 +155,7 @@ export default class CommentBox extends React.Component {
     else if (this.state.commentList === 0) comments = this.state.commentList
 
     return (
-      <Container>
+      <Container isNight={this.props.isNight}>
         <Header>Leave a comment?</Header>
         {process.env.NODE_ENV !== 'production' ? (
           <Warning>
@@ -185,14 +189,14 @@ export default class CommentBox extends React.Component {
         </InputGroup>
 
         <InputGroup>
-          <PrimaryButton onClick={this.addComment}>
+          <PrimaryButton isNight={this.props.isNight} onClick={this.addComment}>
             Post a comment
           </PrimaryButton>
         </InputGroup>
 
         <CommentList>
           {comments === 0 ? (
-            <span>Loading Comment(s)</span>
+            <Info isNight={this.props.isNight}>Loading Comment(s)</Info>
           ) : !isEmpty(comments) ? (
             map(comments, item => {
               item = item.props.comment
@@ -204,7 +208,7 @@ export default class CommentBox extends React.Component {
                 return <CommentItem key={item.timestamp} comment={item} />
             })
           ) : (
-            <span>There is no comment yet!</span>
+            <Info isNight={this.props.isNight}>There is no comment yet!</Info>
           )}
         </CommentList>
       </Container>
