@@ -12,14 +12,16 @@ import CommentItem from '../components/CommentItem'
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  width:100%;
+  width: 100%;
 
-  & > h2{
-    color: ${props => props.isNight ? props.theme.night_text_light : props.theme.textHeading};
+  & > h2 {
+    color: ${props =>
+      props.isNight ? props.theme.night_text_light : props.theme.textHeading};
   }
 
   & > div > span {
-    color: ${props => props.isNight ? props.theme.night_text_normal : props.theme.textHeading};
+    color: ${props =>
+      props.isNight ? props.theme.night_text_normal : props.theme.textHeading};
   }
 `
 
@@ -37,7 +39,7 @@ const InputGroup = styled.div`
     margin-top: 0;
   }
 
-${'' /* TODO: Change Colour of InputField to be Dark */}
+  ${'' /* TODO: Change Colour of InputField to be Dark */};
 `
 
 const InputLabel = styled.span`
@@ -69,8 +71,13 @@ const CommentList = styled.div`
 `
 
 const PrimaryButton = styled.div`
-  background-color: ${props => props.isNight ? color(props.theme.night_darkBackground).darken(0.3).toString() : props.theme.primaryColour};
-  color:white;
+  background-color: ${props =>
+    props.isNight
+      ? color(props.theme.night_darkBackground)
+          .darken(0.3)
+          .toString()
+      : props.theme.primaryColour};
+  color: white;
   text-align: center;
   float: ${props => props.float};
   padding: 13px 14px 13px 14px;
@@ -83,7 +90,14 @@ const PrimaryButton = styled.div`
   }
 
   :hover {
-    background-color: ${props => props.isNight? color(props.theme.night_darkBackground).darken(0.2).string() : color(props.theme.primaryColour).darken(0.2).string()};
+    background-color: ${props =>
+      props.isNight
+        ? color(props.theme.night_darkBackground)
+            .darken(0.2)
+            .string()
+        : color(props.theme.primaryColour)
+            .darken(0.2)
+            .string()};
   }
 `
 

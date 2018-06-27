@@ -123,7 +123,7 @@ export default class IndexPage extends React.Component {
 
           <MobileFooter />
         </React.Fragment>
-    </Layout>
+      </Layout>
     )
   }
 }

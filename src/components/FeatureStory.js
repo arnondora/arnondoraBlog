@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
-import {Link} from 'gatsby'
+import { Link } from 'gatsby'
 import color from 'color'
 
 const SuperWrapper = styled.div`

@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link} from 'gatsby'
+import { Link } from 'gatsby'
 import styled from 'styled-components'
 import get from 'lodash/get'
 import color from 'color'
@@ -21,9 +21,27 @@ const Wrapper = styled.div`
   justify-content: flex-start;
   width: 100%;
   padding: 15px 0px 15px 15px;
-  background-color: ${props => props.scrollPosition < 256 && props.isArticle ? props.isNight ? color(props.theme.night_darkBackground).alpha(props.scrollPosition/300).string() : color(props.theme.primaryColour).alpha(props.scrollPosition/300).string() : props.isNight ? props.theme.night_darkBackground: props.theme.primaryColour};
-  border-bottom: solid ${props => props.isNight ? color(props.theme.night_secondaryBorder).alpha(props.scrollPosition/300).string() : 'none'} 1px;
-  overflow:hidden;
+  background-color: ${props =>
+    props.scrollPosition < 256 && props.isArticle
+      ? props.isNight
+        ? color(props.theme.night_darkBackground)
+            .alpha(props.scrollPosition / 300)
+            .string()
+        : color(props.theme.primaryColour)
+            .alpha(props.scrollPosition / 300)
+            .string()
+      : props.isNight
+        ? props.theme.night_darkBackground
+        : props.theme.primaryColour};
+  border-bottom: solid
+    ${props =>
+      props.isNight
+        ? color(props.theme.night_secondaryBorder)
+            .alpha(props.scrollPosition / 300)
+            .string()
+        : 'none'}
+    1px;
+  overflow: hidden;
 `
 
 const Logo = styled.img`
@@ -155,9 +173,19 @@ export default class NavBar extends React.Component {
 
   render() {
     return (
-      <Wrapper scrollPosition={this.state.scroll} isNight={this.props.isNight} isArticle={get(this.props, 'article', false)}>
-        <StyledLink to = "/"><Logo alt ={"site-logo"} src ={arnondoraIcon}/></StyledLink>
-        {get(this.props,'article', false) ? null : <StyledLink to = "/"><SiteName>{this.props.siteTitle}</SiteName></StyledLink>}
+      <Wrapper
+        scrollPosition={this.state.scroll}
+        isNight={this.props.isNight}
+        isArticle={get(this.props, 'article', false)}
+      >
+        <StyledLink to="/">
+          <Logo alt={'site-logo'} src={arnondoraIcon} />
+        </StyledLink>
+        {get(this.props, 'article', false) ? null : (
+          <StyledLink to="/">
+            <SiteName>{this.props.siteTitle}</SiteName>
+          </StyledLink>
+        )}
 
         {this.state.scroll > 256 &&
         get(this.props, 'article', false && get(this.props, 'slug', false)) ? (

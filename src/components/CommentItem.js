@@ -15,27 +15,33 @@ const Content = styled.span`
   font-size: 18px;
 `
 
-const Container = styled.div `
+const Container = styled.div`
   display: flex;
   flex-direction: column;
   padding: 20px 18px 20px 18px;
-  background-color: ${props => props.isNight ? props.theme.night_darkBackground : '#FFFFFF'};
-  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.05);
+  background-color: ${props =>
+    props.isNight ? props.theme.night_darkBackground : '#FFFFFF'};
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.05);
   border-radius: 2px;
   overflow: hidden;
   margin-top: 25px;
   border-radius: 8px;
 
   & > ${Author} {
-    color: ${props => props.isNight ? props.theme.night_text_light : props.theme.primaryColour};
+    color: ${props =>
+      props.isNight ? props.theme.night_text_light : props.theme.primaryColour};
   }
 
   & > ${Subtitle} {
-    color: ${props => props.isNight ? props.theme.night_text_normal : props.theme.textSecondary};
+    color: ${props =>
+      props.isNight
+        ? props.theme.night_text_normal
+        : props.theme.textSecondary};
   }
 
   & > ${Content} {
-    color: ${props => props.isNight ? props.theme.night_text_normal : props.theme.textHeading};
+    color: ${props =>
+      props.isNight ? props.theme.night_text_normal : props.theme.textHeading};
   }
 `
 

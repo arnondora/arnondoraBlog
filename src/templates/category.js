@@ -2,7 +2,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
 import { get, isEmpty } from 'lodash'
-import {Link} from 'gatsby'
+import { Link } from 'gatsby'
 
 import Layout from '../layouts/Layout'
 import NavBar from '../components/NavBar'

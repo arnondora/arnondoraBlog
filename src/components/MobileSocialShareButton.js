@@ -21,10 +21,13 @@ const Header = styled.span`
 const Container = styled.div`
   padding-bottom: 20px;
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
 
   ${Header} {
-    color: ${props => props.isNight ? props.theme.night_text_normal : props.theme.textSecondary};
+    color: ${props =>
+      props.isNight
+        ? props.theme.night_text_normal
+        : props.theme.textSecondary};
   }
 `
 
@@ -42,7 +45,12 @@ const IconLink = styled.a`
 
 const Icon = styled(FontAwesomeIcon)`
   align-self: center;
-  color: ${props => props.isnight ? props.theme.night_text_normal : color(props.theme.textSecondary).lighten(0.2).string()};
+  color: ${props =>
+    props.isnight
+      ? props.theme.night_text_normal
+      : color(props.theme.textSecondary)
+          .lighten(0.2)
+          .string()};
 
   &:hover {
     color: ${props =>
@@ -58,13 +66,49 @@ export default class MobileSocialShareButton extends React.Component {
   render() {
     var link = convertLinkFromSlug(this.props.slug)
     return (
-      <Container isNight = {this.props.isNight}>
-          <Header>Share this article to social network?</Header>
-          <ButtonGroup>
-            <IconLink href = {getFacebookShareLink(link)} rel="noopener" target="_blank" aria-label="Share to Facebook"><Icon icon={faFacebookF} isnight={this.props.isNight ? 1 : 0} name={"facebook"} size="2x"/></IconLink>
-            <IconLink href = {getTwitterShareLink(link)} rel="noopener" target="_blank" aria-label="Share to Twitter"><Icon icon={faTwitter} isnight={this.props.isNight ? 1 : 0} name={"twitter"} size="2x"/></IconLink>
-            <IconLink href = {getGooglePlusShareLink(link)} rel="noopener" target="_blank" aria-label="Share to Google Plus"><Icon icon={faGooglePlus} isnight={this.props.isNight ? 1 : 0} name={"google+"} size="2x"/></IconLink>
-          </ButtonGroup>
+      <Container isNight={this.props.isNight}>
+        <Header>Share this article to social network?</Header>
+        <ButtonGroup>
+          <IconLink
+            href={getFacebookShareLink(link)}
+            rel="noopener"
+            target="_blank"
+            aria-label="Share to Facebook"
+          >
+            <Icon
+              icon={faFacebookF}
+              isnight={this.props.isNight ? 1 : 0}
+              name={'facebook'}
+              size="2x"
+            />
+          </IconLink>
+          <IconLink
+            href={getTwitterShareLink(link)}
+            rel="noopener"
+            target="_blank"
+            aria-label="Share to Twitter"
+          >
+            <Icon
+              icon={faTwitter}
+              isnight={this.props.isNight ? 1 : 0}
+              name={'twitter'}
+              size="2x"
+            />
+          </IconLink>
+          <IconLink
+            href={getGooglePlusShareLink(link)}
+            rel="noopener"
+            target="_blank"
+            aria-label="Share to Google Plus"
+          >
+            <Icon
+              icon={faGooglePlus}
+              isnight={this.props.isNight ? 1 : 0}
+              name={'google+'}
+              size="2x"
+            />
+          </IconLink>
+        </ButtonGroup>
       </Container>
     )
   }
