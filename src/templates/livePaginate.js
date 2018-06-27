@@ -56,11 +56,13 @@ export default class LiveListTemplate extends React.Component
       })
     }
 
+    const siteTitle = get(this.props.pageContext, 'siteInfo.siteMetadata.title', '"Hello World"')
+
     return (
       <Layout>
         <React.Fragment>
-          <Helmet title={"Live Blog - " + this.props.pageContext.siteInfo.siteMetadata.title}/>
-          <NavigationBar siteTitle = {this.props.pageContext.siteInfo.siteMetadata.title}/>
+          <Helmet title={"Live Blog - " + siteTitle}/>
+          <NavigationBar siteTitle = {siteTitle}/>
           <Container>
                <PageCaption>Live Blog</PageCaption>
             <PostWrapper>

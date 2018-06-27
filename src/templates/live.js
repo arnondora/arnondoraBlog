@@ -212,38 +212,42 @@ export default class LiveTemplate extends React.Component
     const subtitle = get(post, 'subtitle', 'Untitled')
     const detail = get(post, 'detail', 'Untitled')
     const thumbnail = get(post, 'thumbnail', 'Untitled')
+    const slug = get(post, 'slug', 'Untitled')
+
+    const siteTitle = get(this.props, 'siteInfo.siteMetadata.title', 'Untitled')
+    const siteUrl = get(this.props, 'siteInfo.siteMetadata.siteUrl', 'Untitled')
 
     return (
       <Layout>
         <React.Fragment>
-          <Helmet title={title + " - " + this.props.data.site.siteMetadata.title}
+          <Helmet title={title + " - " + siteTitle}
             meta = {[
               {name: "description", "content" : subtitle},
 
               // G+
-              {itemprop: "name", "content" : title + " - " + this.props.data.site.siteMetadata.title},
+              {itemprop: "name", "content" : title + " - " + siteTitle},
               {itemprop: "description", "content" : detail},
               {itemprop: "image", "content" : thumbnail},
 
               // Open Graph
-              {property: "og:title", "content" : title + " - " + this.props.data.site.siteMetadata.title},
+              {property: "og:title", "content" : title + " - " + siteTitle},
               {property: "og:description", "content" : detail},
               {property: "og:locale", "content" : "th_TH"},
               {property: "og:type", "content": "article"},
-              {property: "og:url", "content": this.props.data.site.siteMetadata.siteUrl + post.slug},
+              {property: "og:url", "content": siteUrl + slug},
               {property: "og:image", "content": thumbnail},
               {property: "og:image:secure_url", "content": thumbnail},
-              {property: "og:site_name", "content": title + " - " + this.props.data.site.siteMetadata.title},
+              {property: "og:site_name", "content": title + " - " + siteTitle},
 
               // Twitter
               {name: "twitter:card", "content": thumbnail},
               {name: "twitter:image:src", "content": thumbnail},
-              {name: "twitter:title", "content": title + " - " + this.props.data.site.siteMetadata.title},
+              {name: "twitter:title", "content": title + " - " + siteTitle},
               {name: "twitter:description", "content": detail},
             ]}
 
           />
-          <NavigationBar siteTitle = {this.props.data.site.siteMetadata.title}/>
+          <NavigationBar siteTitle = {siteTitle}/>
           <ThumbnailWrapper thumbnail={thumbnail}>
             <ThumbnailContent>
               <Heading>{title}</Heading>
@@ -282,15 +286,3 @@ export default class LiveTemplate extends React.Component
     )
   }
 }
-
-export const query = graphql`
-  query SiteInfoLive {
-    site {
-      siteMetadata {
-        title
-        description
-        siteUrl
-      }
-    }
-  }
-`

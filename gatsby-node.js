@@ -107,6 +107,7 @@ const createListLivePage = (createPage, posts, siteInfo) => {
     component: ListLivePage,
     context: {
       posts: cleanedPosts,
+      siteInfo: siteInfo
     }
   })
 
@@ -115,6 +116,7 @@ const createListLivePage = (createPage, posts, siteInfo) => {
 const createLivePages = (createPage, posts, siteInfo) => {
   const livePage = path.resolve('./src/templates/live.js')
   posts.forEach(function(post) {
+    if (_.isEmpty(siteInfo)) return
     createPage({
       path: "/live/" + post.slug,
       component: livePage,
