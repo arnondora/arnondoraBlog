@@ -2,7 +2,6 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
 import moment from 'moment'
-import { graphql } from 'gatsby'
 import { isEmpty, orderBy, map, get } from 'lodash'
 
 import firebase from '../utils/firebase'
