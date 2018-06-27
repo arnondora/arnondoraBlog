@@ -106,7 +106,8 @@ const Warning = styled.span`
 `
 
 const Info = styled.span`
-  color: ${props => props.isNight? props.theme.night_text_normal : props.theme.textHeading};
+  color: ${props =>
+    props.isNight ? props.theme.night_text_normal : props.theme.textHeading};
 `
 
 export default class CommentBox extends React.Component {
@@ -150,7 +151,13 @@ export default class CommentBox extends React.Component {
     if (!isEmpty(this.state.commentList))
       comments = map(this.state.commentList, item => {
         if (item.name !== '' && item.comment !== '')
-          return <CommentItem key={item.timestamp} comment={item} isNight={this.props.isNight} />
+          return (
+            <CommentItem
+              key={item.timestamp}
+              comment={item}
+              isNight={this.props.isNight}
+            />
+          )
       })
     else if (this.state.commentList === 0) comments = this.state.commentList
 
@@ -205,7 +212,13 @@ export default class CommentBox extends React.Component {
                 !isEmpty(item.comment) > 0 &&
                 moment.unix(item.timestamp).isValid()
               )
-                return <CommentItem key={item.timestamp} isNight={this.props.isNight} comment={item} />
+                return (
+                  <CommentItem
+                    key={item.timestamp}
+                    isNight={this.props.isNight}
+                    comment={item}
+                  />
+                )
             })
           ) : (
             <Info isNight={this.props.isNight}>There is no comment yet!</Info>
