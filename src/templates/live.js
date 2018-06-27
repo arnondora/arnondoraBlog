@@ -2,6 +2,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
 import moment from 'moment'
+import {graphql} from 'gatsby'
 import {isEmpty, orderBy, map, get} from 'lodash'
 
 import firebase from '../utils/firebase'
@@ -160,16 +161,18 @@ export default class LiveTemplate extends React.Component
       super(props)
       this.state = {
         post: null,
-        firebaseRef: firebase.database().ref("live/" + this.props.pageContext.post.slug),
+        firebaseRef: get(this.props.pageContext, 'post.slug', null) === null ? null : firebase.database().ref("live/" + this.props.pageContext.post.slug),
       }
   }
 
   componentDidMount () {
-    this.state.firebaseRef.on('value', (snapshot) => {
-      this.setState({
-        post: snapshot.val()
+    if (this.state.firebaseRef !== null) {
+      this.state.firebaseRef.on('value', (snapshot) => {
+        this.setState({
+          post: snapshot.val()
+        })
       })
-    })
+    }
   }
 
   componentWillUnmount () {
@@ -177,7 +180,7 @@ export default class LiveTemplate extends React.Component
   }
 
   render () {
-    const post = this.props.pageContext.post
+    const post = get(this.props.pageContext, 'post', null)
 
     var comments = null
     if (!isEmpty(this.state.post) && !isEmpty(this.state.post.comments)) {
@@ -205,41 +208,46 @@ export default class LiveTemplate extends React.Component
       </LiveStatus>
     }
 
+    const title = get(post, 'title', 'Untitled')
+    const subtitle = get(post, 'subtitle', 'Untitled')
+    const detail = get(post, 'detail', 'Untitled')
+    const thumbnail = get(post, 'thumbnail', 'Untitled')
+
     return (
       <Layout>
         <React.Fragment>
-          <Helmet title={post.title + " - " + this.props.pageContext.siteInfo.siteMetadata.title}
+          <Helmet title={title + " - " + this.props.data.site.siteMetadata.title}
             meta = {[
-              {name: "description", "content" : post.subtitle},
+              {name: "description", "content" : subtitle},
 
               // G+
-              {itemprop: "name", "content" : post.title + " - " + this.props.pageContext.siteInfo.siteMetadata.title},
-              {itemprop: "description", "content" : post.detail},
-              {itemprop: "image", "content" : post.thumbnail},
+              {itemprop: "name", "content" : title + " - " + this.props.data.site.siteMetadata.title},
+              {itemprop: "description", "content" : detail},
+              {itemprop: "image", "content" : thumbnail},
 
               // Open Graph
-              {property: "og:title", "content" : post.title + " - " + this.props.pageContext.siteInfo.siteMetadata.title},
-              {property: "og:description", "content" : post.detail},
+              {property: "og:title", "content" : title + " - " + this.props.data.site.siteMetadata.title},
+              {property: "og:description", "content" : detail},
               {property: "og:locale", "content" : "th_TH"},
               {property: "og:type", "content": "article"},
-              {property: "og:url", "content": this.props.pageContext.siteInfo.siteMetadata.siteUrl + post.slug},
-              {property: "og:image", "content": post.thumbnail},
-              {property: "og:image:secure_url", "content": post.thumbnail},
-              {property: "og:site_name", "content": post.title + " - " + this.props.pageContext.siteInfo.siteMetadata.title},
+              {property: "og:url", "content": this.props.data.site.siteMetadata.siteUrl + post.slug},
+              {property: "og:image", "content": thumbnail},
+              {property: "og:image:secure_url", "content": thumbnail},
+              {property: "og:site_name", "content": title + " - " + this.props.data.site.siteMetadata.title},
 
               // Twitter
-              {name: "twitter:card", "content": post.thumbnail},
-              {name: "twitter:image:src", "content": post.thumbnail},
-              {name: "twitter:title", "content": post.title + " - " + this.props.pageContext.siteInfo.siteMetadata.title},
-              {name: "twitter:description", "content": post.detail},
+              {name: "twitter:card", "content": thumbnail},
+              {name: "twitter:image:src", "content": thumbnail},
+              {name: "twitter:title", "content": title + " - " + this.props.data.site.siteMetadata.title},
+              {name: "twitter:description", "content": detail},
             ]}
 
           />
-          <NavigationBar siteTitle = {this.props.pageContext.siteInfo.siteMetadata.title}/>
-          <ThumbnailWrapper thumbnail={post.thumbnail}>
+          <NavigationBar siteTitle = {this.props.data.site.siteMetadata.title}/>
+          <ThumbnailWrapper thumbnail={thumbnail}>
             <ThumbnailContent>
-              <Heading>{post.title}</Heading>
-              <SubHeading>{post.subtitle}</SubHeading>
+              <Heading>{title}</Heading>
+              <SubHeading>{subtitle}</SubHeading>
               {liveStatus}
             </ThumbnailContent>
           </ThumbnailWrapper>
@@ -264,7 +272,7 @@ export default class LiveTemplate extends React.Component
 
               <EventDetailContainer>
                 <HeaderWithLine label="Event Detail"/>
-                <EventDescription>{post.detail}</EventDescription>
+                <EventDescription>{detail}</EventDescription>
               </EventDetailContainer>
             </RightSide>
           </Container>
@@ -274,3 +282,15 @@ export default class LiveTemplate extends React.Component
     )
   }
 }
+
+export const query = graphql`
+  query SiteInfoLive {
+    site {
+      siteMetadata {
+        title
+        description
+        siteUrl
+      }
+    }
+  }
+`

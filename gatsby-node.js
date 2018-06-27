@@ -2,6 +2,7 @@ const _ = require('lodash')
 const Promise = require('bluebird')
 const path = require('path')
 const {createFilePath} = require('gatsby-source-filesystem')
+const {graphql} = require('gatsby')
 const firebase = require('firebase')
 
 if (process.env.gatsby_executing_command === 'develop' || process.env.GATSBY_ENV === 'staging')
@@ -42,8 +43,8 @@ const uploadArticleToFirebase = (posts, path) => {
 const createCategoryPages = (createPage, categories, posts, siteInfo) => {
   const categoryPage = path.resolve('./src/templates/category.js')
 
-  categories.forEach(function(category) {
-
+  categories.forEach(function(categoryNode) {
+    const category = categoryNode.node
     const link = category.link
     const name = category.name
     const cleanCategory = _.pick(category, ['name', 'description','link'])
@@ -105,7 +106,6 @@ const createListLivePage = (createPage, posts, siteInfo) => {
     path: "/live",
     component: ListLivePage,
     context: {
-      siteInfo: siteInfo,
       posts: cleanedPosts,
     }
   })
@@ -136,53 +136,64 @@ exports.createPages = ({graphql, actions}) => {
     const IndexPaginationAmount = 5
 
     resolve(graphql(`
-          {
-            site {
-              siteMetadata {
-                title
-                author
-                description
-                siteUrl
-                authorTwitter
-              }
-            }
+      {
+        site {
+          siteMetadata {
+            title
+            author
+            description
+            siteUrl
+            authorTwitter
+          }
+        }
 
-            allMarkdownRemark (sort: { order: DESC, fields: [frontmatter___date] }) {
-              edges {
-                node {
-                  excerpt(pruneLength: 250)
-                  html
-                  fields {
-                    slug
-                  }
-                  frontmatter {
-                    title
-                    excerpt
-                    category
-                    type
-                    author
-                    status
-                    date(formatString: "MMMM DD, YYYY")
-                    isFeatured
-                    image {
-                      childImageSharp {
-                        sizes (maxWidth: 1200, quality: 80) {
-                          base64
-                          tracedSVG
-                          aspectRatio
-                          src
-                          srcSet
-                          srcWebp
-                          srcSetWebp
-                          sizes
-                        }
-                      }
+        allMarkdownRemark (sort: { order: DESC, fields: [frontmatter___date] }) {
+          edges {
+            node {
+              excerpt(pruneLength: 250)
+              html
+              fields {
+                slug
+              }
+              frontmatter {
+                title
+                excerpt
+                category
+                type
+                author
+                status
+                date(formatString: "MMMM DD, YYYY")
+                isFeatured
+                image {
+                  childImageSharp {
+                    sizes (maxWidth: 1200, quality: 80) {
+                      base64
+                      tracedSVG
+                      aspectRatio
+                      src
+                      srcSet
+                      srcWebp
+                      srcSetWebp
+                      sizes
                     }
                   }
                 }
               }
             }
           }
+        }
+
+        allCategoriesJson {
+          edges {
+            node {
+              name
+              description
+              link
+              thumbnail
+            }
+          }
+        }
+      }
         `).then(result => {
       if (result.errors) {
         console.log(result.errors)
@@ -214,58 +225,47 @@ exports.createPages = ({graphql, actions}) => {
         return item.node.frontmatter.type === "page"
       })
 
-      var categories = null
-      firebase.database().ref("categories").once("value", function(snapshot) {
-        categories = []
+      createCategoryPages(createPage, result.data.allCategoriesJson.edges, publishedPosts, result.data.site)
 
-        snapshot.forEach(function(childSnapshot) {
-          categories.push(childSnapshot.val())
+      // Create Live Blog Pages
+      firebase.database().ref("live").once("value", function(snapshot) {
+        var livePages = []
+
+        snapshot.forEach(function (childSnapshot) {
+          livePages.push(childSnapshot.val())
         })
 
-        createCategoryPages(createPage, categories, publishedPosts, result.data.site);
-
-        // Create Live Blog Pages
-        firebase.database().ref("live").once("value", function(snapshot) {
-          var livePages = []
-
-          snapshot.forEach(function (childSnapshot) {
-            livePages.push(childSnapshot.val())
-          })
-
-          createLivePages(createPage, livePages, result.data.site)
-          createListLivePage(createPage, livePages, result.data.site)
-        })
-
-
-        // Create Index page with pagination
-        var chunkPost = _.chunk(publishedPosts, IndexPaginationAmount)
-        for (var page = 0; page < chunkPost.length; page++) {
-          chunkCleanPosts = _.map(chunkPost[page], (post) => {
-            return _.pick(post, ['node.fields.slug', 'node.frontmatter.title', 'node.frontmatter.excerpt', 'node.frontmatter.category', 'node.frontmatter.date', 'node.frontmatter.author'])
-          })
-
-          createPage({
-            path: (page + 1) === 1
-              ? "/"
-              : "/" + (
-              page + 1),
-            component: index,
-            context: {
-              siteInfo: result.data.site,
-              posts: chunkCleanPosts,
-              isFirst: (page + 1) === 1
-                ? true
-                : false,
-              isLast: (page + 1) === chunkPost.length
-                ? true
-                : false,
-              page: (page + 1),
-              featurePosts: featurePosts[0],
-              categories: categories
-            }
-          })
-        }
+        createLivePages(createPage, livePages, result.data.site)
+        createListLivePage(createPage, livePages, result.data.site)
       })
+
+      var chunkPost = _.chunk(publishedPosts, IndexPaginationAmount)
+      for (var page = 0; page < chunkPost.length; page++) {
+        chunkCleanPosts = _.map(chunkPost[page], (post) => {
+          return _.pick(post, ['node.fields.slug', 'node.frontmatter.title', 'node.frontmatter.excerpt', 'node.frontmatter.category', 'node.frontmatter.date', 'node.frontmatter.author'])
+        })
+
+        createPage({
+          path: (page + 1) === 1
+            ? "/"
+            : "/" + (
+            page + 1),
+          component: index,
+          context: {
+            siteInfo: result.data.site,
+            posts: chunkCleanPosts,
+            isFirst: (page + 1) === 1
+              ? true
+              : false,
+            isLast: (page + 1) === chunkPost.length
+              ? true
+              : false,
+            page: (page + 1),
+            featurePosts: featurePosts[0],
+            categories: result.data.allCategoriesJson.edges
+          }
+        })
+      }
 
       uploadArticleToFirebase(posts,"articles")
       uploadArticleToFirebase(pages,"pages")

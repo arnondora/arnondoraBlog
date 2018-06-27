@@ -56,7 +56,13 @@ module.exports = {
         path: `${__dirname + "/src/articles"}`,
         name: 'pages'
       }
-    }, {
+    },{
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname + "/src/data"}`,
+        name: 'data'
+      }
+    },{
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
@@ -121,6 +127,7 @@ module.exports = {
       resolve: `gatsby-plugin-feed`
     },
     `gatsby-transformer-sharp`,
+    `gatsby-transformer-json`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-remove-trailing-slashes`
   ]

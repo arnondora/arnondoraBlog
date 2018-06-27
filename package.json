@@ -36,6 +36,7 @@
     "gatsby-remark-responsive-iframe": "next",
     "gatsby-remark-smartypants": "next",
     "gatsby-source-filesystem": "next",
+    "gatsby-transformer-json": "^2.1.1-beta.2",
     "gatsby-transformer-remark": "next",
     "gatsby-transformer-sharp": "next",
     "html-loader": "^0.5.1",

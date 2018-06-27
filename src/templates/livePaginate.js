@@ -42,11 +42,18 @@ const PostWrapper = styled.div`
 export default class LiveListTemplate extends React.Component
 {
   render () {
-    var posts = this.props.pageContext.posts.map((item) => {
-        return (
-          <CardLiveImage key={item.slug} post={item}/>
-        )
-    })
+    var posts = get(this.props.pageContext, 'posts', null)
+
+    if (posts === null) {
+      posts = <span>There's no Live Blog available yet.</span>
+    }
+    else {
+      posts = this.props.pageContext.posts.map((item) => {
+          return (
+            <CardLiveImage key={item.slug} post={item}/>
+          )
+      })
+    }
 
     return (
       <Layout>
