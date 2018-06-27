@@ -2,7 +2,6 @@ const _ = require('lodash')
 const Promise = require('bluebird')
 const path = require('path')
 const {createFilePath} = require('gatsby-source-filesystem')
-const {graphql} = require('gatsby')
 const firebase = require('firebase')
 
 if (process.env.gatsby_executing_command === 'develop' || process.env.GATSBY_ENV === 'staging')
