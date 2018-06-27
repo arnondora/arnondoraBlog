@@ -5,13 +5,18 @@ import faFacebookF from '@fortawesome/fontawesome-free-brands/faFacebookF'
 import faTwitter from '@fortawesome/fontawesome-free-brands/faTwitter'
 import faGooglePlus from '@fortawesome/fontawesome-free-brands/faGooglePlus'
 
-import { getFacebookShareLink, getTwitterShareLink, getGooglePlusShareLink, convertLinkFromSlug } from '../utils/link'
+import {
+  getFacebookShareLink,
+  getTwitterShareLink,
+  getGooglePlusShareLink,
+  convertLinkFromSlug,
+} from '../utils/link'
 
 const IconLink = styled.a`
   margin-left: 20px;
 
   &:first-child {
-    margin-left: 0
+    margin-left: 0;
   }
 `
 
@@ -20,12 +25,17 @@ const Icon = styled(FontAwesomeIcon)`
   color: white;
 
   &:hover {
-    color: ${props => props.name === "facebook" ? props.theme.facebook : props.name === "twitter" ? props.theme.twitter : props.theme.googlePlus}
+    color: ${props =>
+      props.name === 'facebook'
+        ? props.theme.facebook
+        : props.name === 'twitter'
+          ? props.theme.twitter
+          : props.theme.googlePlus};
   }
 `
 
 export default class SocialShareNavBarButtons extends React.Component {
-  render () {
+  render() {
     var link = convertLinkFromSlug(this.props.slug)
     return (
       <React.Fragment>

@@ -1,10 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import color from 'color'
 import { isEmpty } from 'lodash'
+import { graphql } from 'gatsby'
 
-import colours from '../utils/colours'
-
+import Layout from '../layouts/Layout'
 import SEO from '../components/SEO'
 import NavBar from '../components/NavBar'
 import ThumbnailContainer from '../components/ThumbnailContainer'
@@ -14,7 +13,7 @@ import CommentBox from '../components/CommentBox'
 import MobileSocialShareButton from '../components/MobileSocialShareButton'
 import MobileTextController from '../components/MobileTextController'
 import StickyMobileShare from '../components/StickyMobileShare'
-import Footer from  '../components/Footer'
+import Footer from '../components/Footer'
 
 import './blog-post-full-width.css' /* Import Reader Style */
 
@@ -32,11 +31,11 @@ const MobileStickyShareContainer = styled.div`
   display: none;
 
   @media (max-width: 768px) {
-    display:block;
-    position:fixed;
+    display: block;
+    position: fixed;
     left: 0;
     bottom: 0;
-    width:100%;
+    width: 100%;
     z-index: 2;
   }
 `
@@ -53,10 +52,10 @@ const ContentWrapper = styled.div`
   }
 `
 const ArticleWrapper = styled.div`
-  margin-top:20px;
+  margin-top: 20px;
 
   @media (max-width: 768px) {
-    margin-top:0;
+    margin-top: 0;
   }
 
   & > *, & > blockquote > p, & > ul > li, & > ul > li > strong, & > ol > li, & > ol > li > strong {
@@ -124,12 +123,6 @@ const CommentWrapper = styled.div`
   background-color: ${props => props.isNight? props.theme.night_lightBackground :props.theme.darkBackground};
 `
 
-const Heading = styled.h1`
-  color:white;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.20);
-  font-size: 3em;
-`
-
 const SmallHeading = styled.h1`
   color: ${props => props.theme.textHeading};
   font-weight: 400;
@@ -138,7 +131,7 @@ const SmallHeading = styled.h1`
 `
 
 const SmallSubHeading = styled.p`
-  margin-top:10px;
+  margin-top: 10px;
   color: ${props => props.theme.textLowProfile};
   font-weight: 300;
 `
@@ -185,16 +178,17 @@ export default class BlogPostTemplate extends React.Component {
   render() {
     const postContent = this.props.data.markdownRemark
     const postInfo = postContent.frontmatter
-    const siteMetadata = this.props.pathContext.siteInfo.siteMetadata
+    const siteMetadata = this.props.pageContext.siteInfo.siteMetadata
 
     return (
+      <Layout>
       <React.Fragment>
         <SEO
           postContent={postContent}
-          slug = {this.props.pathContext.slug}
+          slug = {this.props.pageContext.slug}
           siteMetadata={siteMetadata}
         />
-        <NavBar article={true} slug={this.props.pathContext.slug} headline={postInfo.title} isNight={this.state.isNight === null ? false : this.state.isNight}/>
+        <NavBar article={true} slug={this.props.pageContext.slug} headline={postInfo.title} isNight={this.state.isNight === null ? false : this.state.isNight}/>
         <ThumbnailContainer post={postInfo}/>
         {!isEmpty(postInfo.thumbnailCredit)? <ThumbnailCredit isNight={this.state.isNight} dangerouslySetInnerHTML={{ __html: postInfo.thumbnailCredit }}/> : null}
 
@@ -207,31 +201,32 @@ export default class BlogPostTemplate extends React.Component {
               {postInfo.template === "normal" ? <SmallHeading>{postInfo.title}</SmallHeading> : null}
               {postInfo.type === "post" && postInfo.template === "normal"? <SmallSubHeading>by {postInfo.author} on {postInfo.date}</SmallSubHeading> : null}
               <ArticleWrapper scale={this.state.fontScale} isNight={this.state.isNight} dangerouslySetInnerHTML={{ __html: postContent.html }} />
-              <MobileSocialShareButton slug={this.props.pathContext.slug} isNight={this.state.isNight}/>
+              <MobileSocialShareButton slug={this.props.pageContext.slug} isNight={this.state.isNight}/>
             </ContentWrapper>
 
           </Container> :
           <PageWrapper dangerouslySetInnerHTML={{ __html: postContent.html }} />
         }
         {
-          postInfo.type === "post" && (this.props.pathContext.next !== false || this.props.pathContext.prev !== false) ?
+          postInfo.type === "post" && (this.props.pageContext.next !== false || this.props.pageContext.prev !== false) ?
             <React.Fragment>
-              <NextStory next={this.props.pathContext.next} prev={this.props.pathContext.prev} hasRelated={isEmpty(this.props.pathContext.related)} isNight={this.state.isNight}/>
-              <RecommendStory stories = {this.props.pathContext.related}/>
+              <NextStory next={this.props.pageContext.next} prev={this.props.pageContext.prev} hasRelated={isEmpty(this.props.pageContext.related)} isNight={this.state.isNight}/>
+              <RecommendStory stories = {this.props.pageContext.related}/>
             </React.Fragment>
           : null
         }
 
         {
           postInfo.type === "post" ?
-          <CommentWrapper isNight={this.state.isNight}><PageWrapper><CommentBox slug={this.props.pathContext.slug} isNight={this.state.isNight}/></PageWrapper></CommentWrapper>
+          <CommentWrapper isNight={this.state.isNight}><PageWrapper><CommentBox slug={this.props.pageContext.slug} isNight={this.state.isNight}/></PageWrapper></CommentWrapper>
           :
           null
         }
 
-        <MobileStickyShareContainer><StickyMobileShare slug={this.props.pathContext.slug}/></MobileStickyShareContainer>
+        <MobileStickyShareContainer><StickyMobileShare slug={this.props.pageContext.slug}/></MobileStickyShareContainer>
         <Footer isNight={this.state.isNight}/>
       </React.Fragment>
+      </Layout>
 
     )
   }
@@ -256,8 +251,8 @@ export default class BlogPostTemplate extends React.Component {
 }
 
 export const query = graphql`
-  query ContentQuery ($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug}}) {
+  query ContentQuery($slug: String!) {
+    markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       frontmatter {
         title
@@ -270,7 +265,7 @@ export const query = graphql`
         date(formatString: "MMMM DD, YYYY")
         image {
           childImageSharp {
-            sizes (maxWidth: 1200, quality: 80) {
+            fluid(maxWidth: 1200, quality: 80) {
               base64
               tracedSVG
               aspectRatio

@@ -10,7 +10,6 @@ module.exports = {
     authorTwitter: '@arnondora'
   },
   plugins: [
-    `gatsby-plugin-react-next`,
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-catch-links`,
@@ -58,13 +57,19 @@ module.exports = {
         name: 'pages'
       }
     },{
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname + "/src/data"}`,
+        name: 'data'
+      }
+    },{
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 590,
+              maxWidth: 1200,
               linkImagesToOriginal: true
             }
           },
@@ -122,6 +127,7 @@ module.exports = {
       resolve: `gatsby-plugin-feed`
     },
     `gatsby-transformer-sharp`,
+    `gatsby-transformer-json`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-remove-trailing-slashes`
   ]

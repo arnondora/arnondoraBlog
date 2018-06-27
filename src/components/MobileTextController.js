@@ -1,8 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import colours from '../utils/colours'
-
 import {Icon} from '../components/MaterialIcon'
 
 const ControllerLabel = styled.span`
@@ -24,16 +22,12 @@ const ItemButton = styled.button`
     outline: none;
   }
 
-  ${ItemButton}:hover > ${ItemIcon} {
+  &:hover > ${ItemIcon} {
     color: ${props => props.isNight ? props.theme.night_text_light : props.theme.textHeading};
   }
 `
 
 export default class MobileTextController extends React.Component {
-  constructor (props) {
-    super(props)
-
-  }
 
   render() {
     return (

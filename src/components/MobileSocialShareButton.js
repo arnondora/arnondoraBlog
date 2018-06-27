@@ -1,13 +1,22 @@
 import React from 'react'
 import styled from 'styled-components'
 import color from 'color'
-import fontawesome from '@fortawesome/fontawesome'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import faFacebookF from '@fortawesome/fontawesome-free-brands/faFacebookF'
 import faTwitter from '@fortawesome/fontawesome-free-brands/faTwitter'
 import faGooglePlus from '@fortawesome/fontawesome-free-brands/faGooglePlus'
 
-import { getFacebookShareLink, getTwitterShareLink, getGooglePlusShareLink, convertLinkFromSlug } from '../utils/link'
+import {
+  getFacebookShareLink,
+  getTwitterShareLink,
+  getGooglePlusShareLink,
+  convertLinkFromSlug,
+} from '../utils/link'
+
+const Header = styled.span`
+  font-weight: 300;
+  margin-bottom: 10px;
+`
 
 const Container = styled.div`
   padding-bottom: 20px;
@@ -19,11 +28,6 @@ const Container = styled.div`
   }
 `
 
-const Header = styled.span`
-  font-weight: 300;
-  margin-bottom: 10px;
-`
-
 const ButtonGroup = styled.div`
   display: flex;
 `
@@ -32,7 +36,7 @@ const IconLink = styled.a`
   margin-left: 20px;
 
   &:first-child {
-    margin-left: 0
+    margin-left: 0;
   }
 `
 
@@ -41,12 +45,17 @@ const Icon = styled(FontAwesomeIcon)`
   color: ${props => props.isnight ? props.theme.night_text_normal : color(props.theme.textSecondary).lighten(0.2).string()};
 
   &:hover {
-    color: ${props => props.name === "facebook" ? props.theme.facebook : props.name === "twitter" ? props.theme.twitter : props.theme.googlePlus}
+    color: ${props =>
+      props.name === 'facebook'
+        ? props.theme.facebook
+        : props.name === 'twitter'
+          ? props.theme.twitter
+          : props.theme.googlePlus};
   }
 `
 
 export default class MobileSocialShareButton extends React.Component {
-  render () {
+  render() {
     var link = convertLinkFromSlug(this.props.slug)
     return (
       <Container isNight = {this.props.isNight}>

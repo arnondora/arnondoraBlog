@@ -11,7 +11,7 @@ const Label = styled.span`
   border-bottom-width: 5px;
 `
 export default class HeaderWithLine extends React.Component {
-  render () {
+  render() {
     return (
       <React.Fragment>
         <Label>{this.props.label}</Label>

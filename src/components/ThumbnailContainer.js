@@ -14,36 +14,36 @@ const FullWidthContainer = styled.div`
   min-height: 100%;
 `
 
-const ImgBackgroundControl = styled(Img) `
-  height:100%;
+const ImgBackgroundControl = styled(Img)`
+  height: 100%;
   width: 100%;
 `
 
 const BlankThumbnail = styled.div`
   position: absolute;
   background-color: ${props => props.theme.primaryColour};
-  top:0;
-  left:0;
-  min-width:100%;
-  min-height:90vh;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 90vh;
   z-index: 0;
 `
 
 const Overlay = styled.div`
-  position:absolute;
-  top:0;
-  left:0;
-  min-width:100%;
-  min-height:90vh;
-  background-color:rgba(0,0,0,0.4);
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 90vh;
+  background-color: rgba(0, 0, 0, 0.4);
   z-index: 1;
 `
 
 const ThumbnailWrapper = styled.div`
   position: relative;
-  width:80%;
+  width: 80%;
   margin: 0 auto;
-  margin-top: ${props => props.isSubtitle? 30 : 35}vh;
+  margin-top: ${props => (props.isSubtitle ? 30 : 35)}vh;
   z-index: 2;
 
   @media (max-width: 576px) {
@@ -51,7 +51,7 @@ const ThumbnailWrapper = styled.div`
   }
 
   @media (max-width: 677px) {
-    margin-top: ${props => props.isSubtitle? 20 : 30}vh;
+    margin-top: ${props => (props.isSubtitle ? 20 : 30)}vh;
   }
 
   @media (max-width: 350px) {
@@ -65,7 +65,7 @@ const ThumbnailWrapper = styled.div`
 
 const Info = styled.p`
   color: white;
-  font-size: ${props => props.isSubtitle ? 1.5 : 0.9}em;
+  font-size: ${props => (props.isSubtitle ? 1.5 : 0.9)}em;
 
   @media (max-width: 350px) {
     font-size: 1em;
@@ -73,7 +73,7 @@ const Info = styled.p`
 `
 
 const Subtitle = styled.p`
-  color:white;
+  color: white;
   font-size: 1.2em;
 
   @media (max-width: 350px) {
@@ -82,8 +82,8 @@ const Subtitle = styled.p`
 `
 
 const Heading = styled.h1`
-  color:white;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.20);
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   font-size: 3em;
   margin-bottom: 5px;
   line-height: 1.3;
@@ -98,24 +98,40 @@ const Heading = styled.h1`
 `
 
 export default class ThumbnailContainer extends React.Component {
-  render () {
+  render() {
     return (
       <SuperContainer>
-        { this.props.post.template === 'full-width' ?
+        {this.props.post.template === 'full-width' ? (
           <FullWidthContainer>
-            {this.props.post.image !== null ? <ImgBackgroundControl sizes={this.props.post.image.childImageSharp.sizes} outerWrapperClassName={"full-width-thumbnail-box"}/> : <BlankThumbnail/>}
-            <Overlay/>
+            {this.props.post.image !== null ? (
+              <ImgBackgroundControl
+                fluid={this.props.post.image.childImageSharp.fluid}
+                outerWrapperClassName={'full-width-thumbnail-box'}
+              />
+            ) : (
+              <BlankThumbnail />
+            )}
+            <Overlay />
             <ThumbnailWrapper isSubtitle={!isEmpty(this.props.post.subtitle)}>
               <Heading>{this.props.post.title}</Heading>
-              {!isEmpty(this.props.post.subtitle) ?<Subtitle>{this.props.post.subtitle}</Subtitle> : null}
-              {this.props.post.type === "post" ? <Info isSubtitle={isEmpty(this.props.post.subtitle)}>by {this.props.post.author} on {this.props.post.date}</Info> : null}
+              {!isEmpty(this.props.post.subtitle) ? (
+                <Subtitle>{this.props.post.subtitle}</Subtitle>
+              ) : null}
+              {this.props.post.type === 'post' ? (
+                <Info isSubtitle={isEmpty(this.props.post.subtitle)}>
+                  by {this.props.post.author} on {this.props.post.date}
+                </Info>
+              ) : null}
             </ThumbnailWrapper>
           </FullWidthContainer>
-          :
-
-          this.props.post.image !== null ? <Img sizes={this.props.post.image.childImageSharp.sizes.src} outerWrapperClassName={"full-width-thumbnail-box"}/> :
-          <BlankThumbnail/>
-        }
+        ) : this.props.post.image !== null ? (
+          <Img
+            fluid={this.props.post.image.childImageSharp.fluid.src}
+            outerWrapperClassName={'full-width-thumbnail-box'}
+          />
+        ) : (
+          <BlankThumbnail />
+        )}
       </SuperContainer>
     )
   }

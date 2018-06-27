@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import Link from 'gatsby-link'
+import {Link} from 'gatsby'
 import color from 'color'
 
 const SuperWrapper = styled.div`
@@ -22,6 +22,12 @@ const Container = styled.div`
   @media (max-width: 768px) {
     flex-direction:column;
   }
+`
+
+const Label = styled.span`
+  font-size: 1.2em;
+  font-weight: 300;
+  margin: 0;
 `
 
 const StoryContainer = styled.div`
@@ -71,24 +77,18 @@ const NextStoryContainer = StoryContainer.extend`
     color: ${props => props.isNight ? props.theme.night_text_light : props.theme.primaryColour};
   }
 
-  @media (max-width: 768px) {
-    padding-right:0;
-  }
-`
-
-const Label = styled.span`
-  font-size: 1.2em;
-  font-weight: 300;
-  margin: 0;
-
-  ${NextStoryContainer} > & {
+  & > ${Label} {
     text-align: right;
   }
 
   @media (max-width: 768px) {
-    ${NextStoryContainer} > & {
+    & > ${Label} {
       text-align: left;
     }
+  }
+
+  @media (max-width: 768px) {
+    padding-right:0;
   }
 `
 
@@ -111,17 +111,13 @@ const Heading = styled(Link)`
 
 `
 
-const ContentWrapper = styled.div`
-
-`
-
 export default class NextStory extends React.Component {
   render() {
     return (
         <SuperWrapper hasRelated={this.props.hasRelated} isNight={this.props.isNight}>
           <Container>
             {
-              this.props.next != false ?
+              this.props.next !== false ?
               <NextStoryContainer isNight={this.props.isNight}>
                     <Label>Previous</Label>
                     <Heading to={this.props.next.fields.slug}>← {this.props.next.frontmatter.title}</Heading>
@@ -131,7 +127,7 @@ export default class NextStory extends React.Component {
             }
 
             {
-              this.props.prev != false ?
+              this.props.prev !== false ?
               <PreviousStoryContainer isNight={this.props.isNight}>
                     <Label>Next</Label>
                     <Heading to = {this.props.prev.fields.slug}>{this.props.prev.frontmatter.title} →</Heading>

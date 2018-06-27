@@ -23,7 +23,7 @@ const Container = styled.div `
   box-shadow: 0 2px 5px 0 rgba(0,0,0,0.05);
   border-radius: 2px;
   overflow: hidden;
-  margin-top:25px;
+  margin-top: 25px;
   border-radius: 8px;
 
   & > ${Author} {
@@ -40,11 +40,14 @@ const Container = styled.div `
 `
 
 export default class CommentItem extends React.Component {
-  render () {
+  render() {
     return (
       <Container isNight={this.props.isNight}>
         <Author>{this.props.comment.name}</Author>
-        <Subtitle>Posted on {moment.unix(this.props.comment.timestamp).format('MMMM DD, YYYY')}</Subtitle>
+        <Subtitle>
+          Posted on{' '}
+          {moment.unix(this.props.comment.timestamp).format('MMMM DD, YYYY')}
+        </Subtitle>
         <Content>{this.props.comment.comment}</Content>
       </Container>
     )
