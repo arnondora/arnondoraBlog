@@ -18,7 +18,7 @@ const Container = styled.div`
   padding-bottom: 20px;
 
   @media (max-width: 576px) {
-      display: ${props => props.mobilehide ? 'none' : 'block'};
+    display: ${props => (props.mobilehide ? 'none' : 'block')};
   }
 `
 
@@ -41,7 +41,7 @@ const ContactItem = styled.img`
   margin: 0 0 0 20px;
 
   :first {
-    margin:0;
+    margin: 0;
   }
 `
 
@@ -53,8 +53,8 @@ const BottomText = styled.div`
   justify-content: space-between;
 `
 const BottomTextItem = styled.span`
-    color: white;
-    font-size: 18px;
+  color: white;
+  font-size: 18px;
 `
 
 const CopyrightText = BottomTextItem.extend`
@@ -70,35 +70,81 @@ const FooterIcon = styled(FontAwesomeIcon)`
 `
 
 const GithubLink = styled.a`
-  color:white;
+  color: white;
   text-decoration: none;
   &:link {
-    color:white;
+    color: white;
   }
   &:visited {
-    color:white;
+    color: white;
   }
 `
 
 export default class Footer extends React.Component {
-  render () {
+  render() {
     return (
       <Container mobilehide={this.props.mobilehide}>
         <Wrapper>
           <ContactList>
-            <a href ="https://www.facebook.com/arnondora" rel="noopener noreferrer" target="_blank" aria-label="Facebook"><ContactItem alt="Facebook" src = {Facebook}/></a>
-            <a href ="https://www.twitter.com/arnondora" rel="noopener noreferrer" target="_blank" aria-label="Twitter"><ContactItem alt="Twitter" src = {Twitter}/></a>
-            <a href ="https://www.plus.google.com/+arnonpuitrakul" rel="noopener noreferrer" target="_blank" aria-label="Google Plus"><ContactItem alt="Google+" src = {GooglePlus}/></a>
-            <a href ="mailto:peter.arnon@gmail.com" rel="noopener noreferrer" target="_blank" aria-label="Mail"><ContactItem alt="Email" src = {Email}/></a>
+            <a
+              href="https://www.facebook.com/arnondora"
+              rel="noopener noreferrer"
+              target="_blank"
+              aria-label="Facebook"
+            >
+              <ContactItem alt="Facebook" src={Facebook} />
+            </a>
+            <a
+              href="https://www.twitter.com/arnondora"
+              rel="noopener noreferrer"
+              target="_blank"
+              aria-label="Twitter"
+            >
+              <ContactItem alt="Twitter" src={Twitter} />
+            </a>
+            <a
+              href="https://www.plus.google.com/+arnonpuitrakul"
+              rel="noopener noreferrer"
+              target="_blank"
+              aria-label="Google Plus"
+            >
+              <ContactItem alt="Google+" src={GooglePlus} />
+            </a>
+            <a
+              href="mailto:peter.arnon@gmail.com"
+              rel="noopener noreferrer"
+              target="_blank"
+              aria-label="Mail"
+            >
+              <ContactItem alt="Email" src={Email} />
+            </a>
           </ContactList>
 
           <BottomText>
-            <CopyrightText>© 2014-{new Date().getFullYear()} Arnon Puitrakul all right reserved.</CopyrightText>
-            {process.env.GATSBY_ENV === "staging" ?
-                <ThemeText><span role="img" aria-label="fire" aria-labelledby="beta">🔥</span> {process.env.APP_VERSION}</ThemeText>
-              :
-                <ThemeText>Code with <FooterIcon icon={["fas", "heart"]} style = {{color: "#E91E63"}}/> by <GithubLink href="https://github.com/arnondora">@arnondora</GithubLink></ThemeText>
-            }
+            <CopyrightText>
+              © 2014-{new Date().getFullYear()} Arnon Puitrakul all right
+              reserved.
+            </CopyrightText>
+            {process.env.GATSBY_ENV === 'staging' ? (
+              <ThemeText>
+                <span role="img" aria-label="fire" aria-labelledby="beta">
+                  🔥
+                </span>{' '}
+                {process.env.APP_VERSION}
+              </ThemeText>
+            ) : (
+              <ThemeText>
+                Code with{' '}
+                <FooterIcon
+                  icon={['fas', 'heart']}
+                  style={{ color: '#E91E63' }}
+                />{' '}
+                by{' '}
+                <GithubLink href="https://github.com/arnondora">
+                  @arnondora
+                </GithubLink>
+              </ThemeText>
+            )}
           </BottomText>
         </Wrapper>
       </Container>

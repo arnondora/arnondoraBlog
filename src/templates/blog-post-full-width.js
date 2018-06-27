@@ -12,13 +12,13 @@ import RecommendStory from '../components/RecommendStory'
 import CommentBox from '../components/CommentBox'
 import MobileSocialShareButton from '../components/MobileSocialShareButton'
 import StickyMobileShare from '../components/StickyMobileShare'
-import Footer from  '../components/Footer'
+import Footer from '../components/Footer'
 
 import './blog-post-full-width.css' /* Import Reader Style */
 
 const Container = styled.div`
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
 
   @media (max-width: 768px) {
     padding-bottom: 38px;
@@ -29,11 +29,11 @@ const MobileStickyShareContainer = styled.div`
   display: none;
 
   @media (max-width: 768px) {
-    display:block;
-    position:fixed;
+    display: block;
+    position: fixed;
     left: 0;
     bottom: 0;
-    width:100%;
+    width: 100%;
     z-index: 2;
   }
 `
@@ -50,10 +50,10 @@ const ContentWrapper = styled.div`
   }
 `
 const ArticleWrapper = styled.div`
-  margin-top:20px;
+  margin-top: 20px;
 
   @media (max-width: 768px) {
-    margin-top:0;
+    margin-top: 0;
   }
 
   & > h1 {
@@ -72,7 +72,8 @@ const ArticleWrapper = styled.div`
     font-size: 1.392rem;
   }
 
-  & > p,li {
+  & > p,
+  li {
     font-size: 1.1rem;
   }
 `
@@ -84,7 +85,7 @@ const PageWrapper = ArticleWrapper.extend`
 
   @media (max-width: 768px) {
     width: 90%;
-    margin-top:20px;
+    margin-top: 20px;
   }
 `
 
@@ -100,7 +101,7 @@ const SmallHeading = styled.h1`
 `
 
 const SmallSubHeading = styled.p`
-  margin-top:10px;
+  margin-top: 10px;
   color: ${props => props.theme.textLowProfile};
   font-weight: 300;
 `
@@ -108,12 +109,12 @@ const SmallSubHeading = styled.p`
 const ThumbnailCredit = styled.em`
   display: block;
   text-align: center;
-  color: rgba(0,0,0,.68);
-  margin-top:5px;
+  color: rgba(0, 0, 0, 0.68);
+  margin-top: 5px;
   font-size: 0.8em;
 
   a {
-    color: rgba(0,0,0,.8);
+    color: rgba(0, 0, 0, 0.8);
   }
 `
 
@@ -128,43 +129,69 @@ export default class BlogPostTemplate extends React.Component {
         <React.Fragment>
           <SEO
             postContent={postContent}
-            slug = {this.props.pageContext.slug}
+            slug={this.props.pageContext.slug}
             siteMetadata={siteMetadata}
           />
-          <NavBar article={true} slug={this.props.pageContext.slug} headline={postInfo.title}/>
+          <NavBar
+            article={true}
+            slug={this.props.pageContext.slug}
+            headline={postInfo.title}
+          />
 
-          <ThumbnailContainer post={postInfo}/>
-          {!isEmpty(postInfo.thumbnailCredit)? <ThumbnailCredit dangerouslySetInnerHTML={{ __html: postInfo.thumbnailCredit }}/> : null}
+          <ThumbnailContainer post={postInfo} />
+          {!isEmpty(postInfo.thumbnailCredit) ? (
+            <ThumbnailCredit
+              dangerouslySetInnerHTML={{ __html: postInfo.thumbnailCredit }}
+            />
+          ) : null}
 
-          {postInfo.type === "post" ? <Container>
+          {postInfo.type === 'post' ? (
+            <Container>
               <ContentWrapper>
-                {postInfo.template === "normal" ? <SmallHeading>{postInfo.title}</SmallHeading> : null}
-                {postInfo.type === "post" && postInfo.template === "normal"? <SmallSubHeading>by {postInfo.author} on {postInfo.date}</SmallSubHeading> : null}
-                <ArticleWrapper dangerouslySetInnerHTML={{ __html: postContent.html }} />
-                <MobileSocialShareButton slug={this.props.pageContext.slug}/>
+                {postInfo.template === 'normal' ? (
+                  <SmallHeading>{postInfo.title}</SmallHeading>
+                ) : null}
+                {postInfo.type === 'post' && postInfo.template === 'normal' ? (
+                  <SmallSubHeading>
+                    by {postInfo.author} on {postInfo.date}
+                  </SmallSubHeading>
+                ) : null}
+                <ArticleWrapper
+                  dangerouslySetInnerHTML={{ __html: postContent.html }}
+                />
+                <MobileSocialShareButton slug={this.props.pageContext.slug} />
               </ContentWrapper>
+            </Container>
+          ) : (
+            <PageWrapper
+              dangerouslySetInnerHTML={{ __html: postContent.html }}
+            />
+          )}
+          {postInfo.type === 'post' &&
+          (this.props.pageContext.next !== false ||
+            this.props.pageContext.prev !== false) ? (
+            <React.Fragment>
+              <NextStory
+                next={this.props.pageContext.next}
+                prev={this.props.pageContext.prev}
+                hasRelated={isEmpty(this.props.pageContext.related)}
+              />
+              <RecommendStory stories={this.props.pageContext.related} />
+            </React.Fragment>
+          ) : null}
 
-            </Container> :
-            <PageWrapper dangerouslySetInnerHTML={{ __html: postContent.html }} />
-          }
-          {
-            postInfo.type === "post" && (this.props.pageContext.next !== false || this.props.pageContext.prev !== false) ?
-              <React.Fragment>
-                <NextStory next={this.props.pageContext.next} prev={this.props.pageContext.prev} hasRelated={isEmpty(this.props.pageContext.related)}/>
-                <RecommendStory stories = {this.props.pageContext.related}/>
-              </React.Fragment>
-            : null
-          }
+          {postInfo.type === 'post' ? (
+            <CommentWrapper>
+              <PageWrapper>
+                <CommentBox slug={this.props.pageContext.slug} />
+              </PageWrapper>
+            </CommentWrapper>
+          ) : null}
 
-          {
-            postInfo.type === "post" ?
-            <CommentWrapper><PageWrapper><CommentBox slug={this.props.pageContext.slug}/></PageWrapper></CommentWrapper>
-            :
-            null
-          }
-
-          <MobileStickyShareContainer><StickyMobileShare slug={this.props.pageContext.slug}/></MobileStickyShareContainer>
-          <Footer/>
+          <MobileStickyShareContainer>
+            <StickyMobileShare slug={this.props.pageContext.slug} />
+          </MobileStickyShareContainer>
+          <Footer />
         </React.Fragment>
       </Layout>
     )
@@ -172,8 +199,8 @@ export default class BlogPostTemplate extends React.Component {
 }
 
 export const query = graphql`
-  query ContentQuery ($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug}}) {
+  query ContentQuery($slug: String!) {
+    markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       frontmatter {
         title
@@ -186,7 +213,7 @@ export const query = graphql`
         date(formatString: "MMMM DD, YYYY")
         image {
           childImageSharp {
-            sizes (maxWidth: 1200, quality: 80) {
+            sizes(maxWidth: 1200, quality: 80) {
               base64
               tracedSVG
               aspectRatio

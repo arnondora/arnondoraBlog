@@ -2,8 +2,8 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
 import moment from 'moment'
-import {graphql} from 'gatsby'
-import {isEmpty, orderBy, map, get} from 'lodash'
+import { graphql } from 'gatsby'
+import { isEmpty, orderBy, map, get } from 'lodash'
 
 import firebase from '../utils/firebase'
 
@@ -18,16 +18,17 @@ const NavigationBar = styled(NavBar)`
 `
 
 const ThumbnailWrapper = styled.div`
-  padding-top:44px;
+  padding-top: 44px;
   padding-bottom: 133px;
 
-  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${props => props.thumbnail}), ${props => props.theme.primaryColour};
-  background-size:cover;
-  background-position:center;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url(${props => props.thumbnail}), ${props => props.theme.primaryColour};
+  background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
 
   @media (max-width: 768px) {
-      padding-bottom: 49px;
+    padding-bottom: 49px;
   }
 `
 
@@ -41,18 +42,18 @@ const ThumbnailContent = styled.div`
 `
 
 const Heading = styled.h1`
-  color:white;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.20);
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   font-size: 3em;
-  margin-top:0;
+  margin-top: 0;
   margin-bottom: 0;
   font-weight: 800;
 `
 
 const SubHeading = styled.h2`
-  color:white;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.20);
-  margin-top:10px;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  margin-top: 10px;
   margin-bottom: 0;
 `
 
@@ -60,21 +61,22 @@ const LiveStatus = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-top:10px;
+  margin-top: 10px;
   margin-bottom: 0;
 `
 
 const LiveStatusLabel = styled.span`
   margin-left: 5px;
-  color:white;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.20);
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   font-weight: 300;
   font-size: 18px;
 `
 
 const LiveSymbol = styled.div`
-  background-color: ${props => props.isLive? "red": props.theme.textLowProfile};
-  box-shadow: 0 2px 4px rgba(0,0,0,0.20);
+  background-color: ${props =>
+    props.isLive ? 'red' : props.theme.textLowProfile};
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   width: 18px;
   height: 18px;
   border-radius: 50%;
@@ -105,24 +107,24 @@ const LatestPostContainer = styled.div`
   display: flex;
   flex-direction: column;
   padding-right: 82px;
-  order:1;
+  order: 1;
 
   @media (max-width: 768px) {
     padding-right: 0;
-    order: 2
+    order: 2;
   }
 `
 
 const PostWrapper = styled.div`
-  margin-top:10px;
+  margin-top: 10px;
 `
 
 const RightSide = styled.div`
-  width:100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   padding-left: 82px;
-  order:2;
+  order: 2;
 
   @media (max-width: 768px) {
     padding-left: 0;
@@ -131,13 +133,13 @@ const RightSide = styled.div`
 `
 
 const LiveFeedContainer = styled.div`
-  width:100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
 `
 
 const LiveFeed = styled.div`
-  margin-top:25px;
+  margin-top: 25px;
 `
 
 const EventDetailContainer = LiveFeedContainer.extend`
@@ -151,35 +153,37 @@ const EventDescription = styled.span`
 `
 
 const NoPostLabel = styled.h3`
-  margin-top:10px;
+  margin-top: 10px;
   margin-bottom: 0;
 `
 
-export default class LiveTemplate extends React.Component
-{
+export default class LiveTemplate extends React.Component {
   constructor(props) {
-      super(props)
-      this.state = {
-        post: null,
-        firebaseRef: get(this.props.pageContext, 'post.slug', null) === null ? null : firebase.database().ref("live/" + this.props.pageContext.post.slug),
-      }
+    super(props)
+    this.state = {
+      post: null,
+      firebaseRef:
+        get(this.props.pageContext, 'post.slug', null) === null
+          ? null
+          : firebase.database().ref('live/' + this.props.pageContext.post.slug),
+    }
   }
 
-  componentDidMount () {
+  componentDidMount() {
     if (this.state.firebaseRef !== null) {
-      this.state.firebaseRef.on('value', (snapshot) => {
+      this.state.firebaseRef.on('value', snapshot => {
         this.setState({
-          post: snapshot.val()
+          post: snapshot.val(),
         })
       })
     }
   }
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     this.state.firebaseRef.off()
   }
 
-  render () {
+  render() {
     const post = get(this.props.pageContext, 'post', null)
 
     var comments = null
@@ -188,24 +192,28 @@ export default class LiveTemplate extends React.Component
     }
 
     var liveStatus = null
-    const status = get(this.state.post,'status', 0)
+    const status = get(this.state.post, 'status', 0)
     if (status === 1) {
-      liveStatus = <LiveStatus>
-        <LiveSymbol isLive={true}/>
-        <LiveStatusLabel>Live</LiveStatusLabel>
-      </LiveStatus>
-    }
-    else if (status === 2) {
-      liveStatus = <LiveStatus>
-        <LiveSymbol isLive={false}/>
-        <LiveStatusLabel>Ended</LiveStatusLabel>
-      </LiveStatus>
-    }
-    else  {
-      liveStatus = <LiveStatus>
-        <LiveSymbol isLive={false}/>
-        <LiveStatusLabel>Not started yet</LiveStatusLabel>
-      </LiveStatus>
+      liveStatus = (
+        <LiveStatus>
+          <LiveSymbol isLive={true} />
+          <LiveStatusLabel>Live</LiveStatusLabel>
+        </LiveStatus>
+      )
+    } else if (status === 2) {
+      liveStatus = (
+        <LiveStatus>
+          <LiveSymbol isLive={false} />
+          <LiveStatusLabel>Ended</LiveStatusLabel>
+        </LiveStatus>
+      )
+    } else {
+      liveStatus = (
+        <LiveStatus>
+          <LiveSymbol isLive={false} />
+          <LiveStatusLabel>Not started yet</LiveStatusLabel>
+        </LiveStatus>
+      )
     }
 
     const title = get(post, 'title', 'Untitled')
@@ -220,34 +228,34 @@ export default class LiveTemplate extends React.Component
     return (
       <Layout>
         <React.Fragment>
-          <Helmet title={title + " - " + siteTitle}
-            meta = {[
-              {name: "description", "content" : subtitle},
+          <Helmet
+            title={title + ' - ' + siteTitle}
+            meta={[
+              { name: 'description', content: subtitle },
 
               // G+
-              {itemprop: "name", "content" : title + " - " + siteTitle},
-              {itemprop: "description", "content" : detail},
-              {itemprop: "image", "content" : thumbnail},
+              { itemprop: 'name', content: title + ' - ' + siteTitle },
+              { itemprop: 'description', content: detail },
+              { itemprop: 'image', content: thumbnail },
 
               // Open Graph
-              {property: "og:title", "content" : title + " - " + siteTitle},
-              {property: "og:description", "content" : detail},
-              {property: "og:locale", "content" : "th_TH"},
-              {property: "og:type", "content": "article"},
-              {property: "og:url", "content": siteUrl + slug},
-              {property: "og:image", "content": thumbnail},
-              {property: "og:image:secure_url", "content": thumbnail},
-              {property: "og:site_name", "content": title + " - " + siteTitle},
+              { property: 'og:title', content: title + ' - ' + siteTitle },
+              { property: 'og:description', content: detail },
+              { property: 'og:locale', content: 'th_TH' },
+              { property: 'og:type', content: 'article' },
+              { property: 'og:url', content: siteUrl + slug },
+              { property: 'og:image', content: thumbnail },
+              { property: 'og:image:secure_url', content: thumbnail },
+              { property: 'og:site_name', content: title + ' - ' + siteTitle },
 
               // Twitter
-              {name: "twitter:card", "content": thumbnail},
-              {name: "twitter:image:src", "content": thumbnail},
-              {name: "twitter:title", "content": title + " - " + siteTitle},
-              {name: "twitter:description", "content": detail},
+              { name: 'twitter:card', content: thumbnail },
+              { name: 'twitter:image:src', content: thumbnail },
+              { name: 'twitter:title', content: title + ' - ' + siteTitle },
+              { name: 'twitter:description', content: detail },
             ]}
-
           />
-          <NavigationBar siteTitle = {siteTitle}/>
+          <NavigationBar siteTitle={siteTitle} />
           <ThumbnailWrapper thumbnail={thumbnail}>
             <ThumbnailContent>
               <Heading>{title}</Heading>
@@ -258,29 +266,56 @@ export default class LiveTemplate extends React.Component
 
           <Container>
             <LatestPostContainer>
-              <HeaderWithLine label="Latest Post"/>
+              <HeaderWithLine label="Latest Post" />
               <PostWrapper>
-                {
-                  comments !== null ?
-                    map(comments, (item) => {
-                      if (moment.unix(item.timestamp).isValid()) return (<LivePostCard key={item.timestamp} post={item}/>)
-                    }) : <NoPostLabel>There's no post right now, posts will be feeded when the event was started. Stay Tuned! <span role="img" aria-label="radio" aria-labelledby="stay tuned">📻</span></NoPostLabel>
-                }
+                {comments !== null ? (
+                  map(comments, item => {
+                    if (moment.unix(item.timestamp).isValid())
+                      return <LivePostCard key={item.timestamp} post={item} />
+                  })
+                ) : (
+                  <NoPostLabel>
+                    There's no post right now, posts will be feeded when the
+                    event was started. Stay Tuned!{' '}
+                    <span
+                      role="img"
+                      aria-label="radio"
+                      aria-labelledby="stay tuned"
+                    >
+                      📻
+                    </span>
+                  </NoPostLabel>
+                )}
               </PostWrapper>
             </LatestPostContainer>
             <RightSide>
               <LiveFeedContainer>
-                  <HeaderWithLine label="Live Feed"/>
-                  {!isEmpty(get(this.state.post,'live', null)) ? <LiveFeed dangerouslySetInnerHTML={{ __html: this.state.post.live }}/> : <NoPostLabel>Currenly, there's no live feed <span role="img" aria-label="television" aria-labelledby="television">📺</span>. We'll put when it available. Stay Tuned!</NoPostLabel>}
+                <HeaderWithLine label="Live Feed" />
+                {!isEmpty(get(this.state.post, 'live', null)) ? (
+                  <LiveFeed
+                    dangerouslySetInnerHTML={{ __html: this.state.post.live }}
+                  />
+                ) : (
+                  <NoPostLabel>
+                    Currenly, there's no live feed{' '}
+                    <span
+                      role="img"
+                      aria-label="television"
+                      aria-labelledby="television"
+                    >
+                      📺
+                    </span>. We'll put when it available. Stay Tuned!
+                  </NoPostLabel>
+                )}
               </LiveFeedContainer>
 
               <EventDetailContainer>
-                <HeaderWithLine label="Event Detail"/>
+                <HeaderWithLine label="Event Detail" />
                 <EventDescription>{detail}</EventDescription>
               </EventDetailContainer>
             </RightSide>
           </Container>
-          <MobileFooter/>
+          <MobileFooter />
         </React.Fragment>
       </Layout>
     )

@@ -2,7 +2,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 
 export default class cv extends React.Component {
-  render () {
+  render() {
     const htmlContent = `
     <body>
       <style>
@@ -519,18 +519,24 @@ export default class cv extends React.Component {
         <Helmet
           title="Arnon Puitrakul"
           meta={[
-            { name: 'description', content: 'Fully Detail CV of Arnon Puitrakul' },
-            {property: "og:title", "content" : 'Arnon Puitrakul'},
-            {property: "og:description", "content" : 'Fully Detail CV of Arnon Puitrakul'},
-            {property: "og:locale", "content" : "en_us"},
-            {property: "og:type", "content": "webpage"},
-            {property: "og:url", "content": "https://www.arnondora.in.th/cv"},
-            {property: "og:site_name", "content": 'Arnon Puitrakul'},
+            {
+              name: 'description',
+              content: 'Fully Detail CV of Arnon Puitrakul',
+            },
+            { property: 'og:title', content: 'Arnon Puitrakul' },
+            {
+              property: 'og:description',
+              content: 'Fully Detail CV of Arnon Puitrakul',
+            },
+            { property: 'og:locale', content: 'en_us' },
+            { property: 'og:type', content: 'webpage' },
+            { property: 'og:url', content: 'https://www.arnondora.in.th/cv' },
+            { property: 'og:site_name', content: 'Arnon Puitrakul' },
           ]}
         >
-          <html lang="en"/>
+          <html lang="en" />
         </Helmet>
-        <div dangerouslySetInnerHTML= {{ __html: htmlContent }}></div>
+        <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
       </div>
     )
   }
