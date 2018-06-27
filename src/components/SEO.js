@@ -38,7 +38,7 @@ export default class SEO extends React.Component {
               get(this.props.postContent.frontmatter, 'image', null) === null
                 ? ''
                 : this.props.siteMetadata.siteUrl +
-                  this.props.postContent.frontmatter.image.childImageSharp.sizes
+                  this.props.postContent.frontmatter.image.childImageSharp.fluid
                     .src,
           },
           {
@@ -70,7 +70,7 @@ export default class SEO extends React.Component {
               get(this.props.postContent.frontmatter, 'image', null) === null
                 ? ''
                 : this.props.siteMetadata.siteUrl +
-                  this.props.postContent.frontmatter.image.childImageSharp.sizes
+                  this.props.postContent.frontmatter.image.childImageSharp.fluid
                     .src,
           },
           {
@@ -79,7 +79,7 @@ export default class SEO extends React.Component {
               get(this.props.postContent.frontmatter, 'image', null) === null
                 ? ''
                 : this.props.siteMetadata.siteUrl +
-                  this.props.postContent.frontmatter.image.childImageSharp.sizes
+                  this.props.postContent.frontmatter.image.childImageSharp.fluid
                     .src,
           },
           {
@@ -101,7 +101,7 @@ export default class SEO extends React.Component {
               get(this.props.postContent.frontmatter, 'image', null) === null
                 ? ''
                 : this.props.siteMetadata.siteUrl +
-                  this.props.postContent.frontmatter.image.childImageSharp.sizes
+                  this.props.postContent.frontmatter.image.childImageSharp.fluid
                     .src,
           },
           {
@@ -110,7 +110,7 @@ export default class SEO extends React.Component {
               get(this.props.postContent.frontmatter, 'image', null) === null
                 ? ''
                 : this.props.siteMetadata.siteUrl +
-                  this.props.postContent.frontmatter.image.childImageSharp.sizes
+                  this.props.postContent.frontmatter.image.childImageSharp.fluid
                     .src,
           },
           {

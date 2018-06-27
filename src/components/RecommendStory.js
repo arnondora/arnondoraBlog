@@ -57,7 +57,7 @@ export default class RecommendStory extends React.Component {
               width={1 / this.props.stories.length}
               thumbnail={get(
                 story.node.frontmatter,
-                'image.childImageSharp.sizes.src',
+                'image.childImageSharp.fluid.src',
                 ''
               )}
             >

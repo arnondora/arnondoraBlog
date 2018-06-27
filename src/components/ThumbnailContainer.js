@@ -105,7 +105,7 @@ export default class ThumbnailContainer extends React.Component {
           <FullWidthContainer>
             {this.props.post.image !== null ? (
               <ImgBackgroundControl
-                sizes={this.props.post.image.childImageSharp.sizes}
+                fluid={this.props.post.image.childImageSharp.fluid}
                 outerWrapperClassName={'full-width-thumbnail-box'}
               />
             ) : (
@@ -126,7 +126,7 @@ export default class ThumbnailContainer extends React.Component {
           </FullWidthContainer>
         ) : this.props.post.image !== null ? (
           <Img
-            sizes={this.props.post.image.childImageSharp.sizes.src}
+            fluid={this.props.post.image.childImageSharp.fluid.src}
             outerWrapperClassName={'full-width-thumbnail-box'}
           />
         ) : (

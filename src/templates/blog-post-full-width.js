@@ -213,7 +213,7 @@ export const query = graphql`
         date(formatString: "MMMM DD, YYYY")
         image {
           childImageSharp {
-            sizes(maxWidth: 1200, quality: 80) {
+            fluid(maxWidth: 1200, quality: 80) {
               base64
               tracedSVG
               aspectRatio

@@ -54,7 +54,7 @@ export default class CardImage extends React.Component {
       <Container to={this.props.post.node.fields.slug}>
         {!isEmpty(this.props.post.node.frontmatter.image) ? (
           <Img
-            sizes={this.props.post.node.frontmatter.image.childImageSharp.sizes}
+            fluid={this.props.post.node.frontmatter.image.childImageSharp.fluid}
             style={{ height: '300px', width: '100%' }}
           />
         ) : null}
