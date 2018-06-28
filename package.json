@@ -20,7 +20,9 @@
     "gatsby-plugin-favicon": "^2.1.1",
     "gatsby-plugin-feed": "next",
     "gatsby-plugin-google-analytics": "next",
+    "gatsby-plugin-lodash": "^3.0.1-beta.2",
     "gatsby-plugin-manifest": "next",
+    "gatsby-plugin-no-sourcemaps": "next",
     "gatsby-plugin-nprogress": "next",
     "gatsby-plugin-offline": "next",
     "gatsby-plugin-react-helmet": "next",
@@ -40,6 +42,7 @@
     "gatsby-transformer-remark": "next",
     "gatsby-transformer-sharp": "next",
     "html-loader": "^0.5.1",
+    "husky": "^0.14.3",
     "lodash": "^4.17.4",
     "lodash-webpack-plugin": "^0.11.4",
     "moment": "^2.19.4",
@@ -51,8 +54,7 @@
     "react-typography": "^0.16.13",
     "sanitize-html": "^1.18.2",
     "styled-components": "^3.1.6",
-    "typography": "^0.16.17",
-    "husky": "^0.14.3"
+    "typography": "^0.16.17"
   },
   "keywords": [
     "gatsby"
@@ -60,13 +62,14 @@
   "license": "MIT",
   "main": "n/a",
   "scripts": {
-    "build": "node --max-old-space-size=20000 ./node_modules/.bin/gatsby  build",
-    "build-staging": "GATSBY_ENV=staging node --max-old-space-size=20000 ./node_modules/.bin/gatsby  build",
-    "develop": "gatsby develop",
+    "build": "yarn run remove-cache && node --max-old-space-size=20000 ./node_modules/.bin/gatsby  build",
+    "build-staging": "yarn run remove-cache && GATSBY_ENV=staging node --max-old-space-size=20000 ./node_modules/.bin/gatsby  build",
+    "develop": "yarn run remove-cache && gatsby develop",
     "predeploy": "yarn build",
     "deploy": "firebase deploy -P default",
     "deploy-staging": "yarn build-staging && firebase deploy -P staging",
     "serve": "gatsby serve",
+    "remove-cache" : "rm -rf .cache",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\"",
     "test": "echo \"Error: no test specified\" && exit 1",
     "precommit": "yarn run format && exit 0"
