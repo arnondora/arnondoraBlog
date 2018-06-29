@@ -3,9 +3,17 @@ import styled from 'styled-components'
 
 import { Icon } from '../components/MaterialIcon'
 
-const ControllerLabel = styled.span`
-  color: ${props =>
-    props.isNight ? props.theme.night_text_normal : props.theme.textSecondary};
+const Container = styled.div`
+  position: sticky;
+  left: 10%;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `
 
 const ItemIcon = Icon.extend`
@@ -36,10 +44,7 @@ const ItemButton = styled.button`
 export default class MobileTextController extends React.Component {
   render() {
     return (
-      <React.Fragment>
-        <ControllerLabel isNight={this.props.isNight}>
-          Appearance Controller :{' '}
-        </ControllerLabel>
+      <Container>
         <ItemButton
           onClick={this.props.nightModeSwitcher}
           isNight={this.props.isNight}
@@ -64,7 +69,7 @@ export default class MobileTextController extends React.Component {
             {'title'}
           </ItemIcon>
         </ItemButton>
-      </React.Fragment>
+      </Container>
     )
   }
 }

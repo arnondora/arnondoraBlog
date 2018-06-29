@@ -19,7 +19,6 @@ import './blog-post-full-width.css' /* Import Reader Style */
 
 const Container = styled.div`
   display: flex;
-  flex-direction: column;
   background-color: ${props =>
     props.isNight
       ? props.theme.night_darkBackground
@@ -174,15 +173,6 @@ const ThumbnailCredit = styled.em`
   }
 `
 
-const MobileTextControllerGroup = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  overflow: hidden;
-  align-items: center;
-  margin-bottom: 20px;
-`
-
 export default class BlogPostTemplate extends React.Component {
   constructor(props) {
     super(props)
@@ -228,16 +218,13 @@ export default class BlogPostTemplate extends React.Component {
 
           {postInfo.type === 'post' ? (
             <Container isNight={this.state.isNight}>
+              <MobileTextController
+                isNight={this.state.isNight}
+                nightModeSwitcher={this.nightModeSwitcher}
+                enlargeFont={this.enlargeFont}
+                decreaseFont={this.decreaseFont}
+              />
               <ContentWrapper>
-                <MobileTextControllerGroup>
-                  <MobileTextController
-                    isNight={this.state.isNight}
-                    nightModeSwitcher={this.nightModeSwitcher}
-                    enlargeFont={this.enlargeFont}
-                    decreaseFont={this.decreaseFont}
-                  />
-                </MobileTextControllerGroup>
-
                 {postInfo.template === 'normal' ? (
                   <SmallHeading>{postInfo.title}</SmallHeading>
                 ) : null}
