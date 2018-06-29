@@ -30,7 +30,6 @@ const Container = styled.div`
   }
 `
 const CategoryInfoWrapper = styled.div`
-  color: ${props => props.theme.textHeading};
   padding-bottom: 20px;
   border-bottom-style: solid;
   border-bottom-color: #e0e0e0;
