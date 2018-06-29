@@ -296,6 +296,7 @@ export const pageQuery = graphql`
                   tracedSVG
                   aspectRatio
                   src
+                  srcSet
                   srcWebp
                   sizes
                 }
