@@ -86,6 +86,7 @@ const LeftMenu = styled.ul`
   margin: 0;
   list-style-type: none;
   list-style-position: inside;
+  margin-top: -10px;
 
   @media (max-width: 576px) {
     display: none;
@@ -101,6 +102,7 @@ const RightMenu = styled.ul`
   margin-top: 0px;
   list-style-type: none;
   list-style-position: inside;
+  margin-top: -10px;
 `
 
 const NavHeadShare = styled.div`
@@ -113,7 +115,7 @@ const NavHeadShare = styled.div`
 const NavHeadline = styled.span`
   align-self: flex-start;
   color: white;
-  margin: 0 0 0 20px;
+  margin: -5px 0 0 20px;
   padding-right: 20px;
   display: inline;
   overflow: hidden;
@@ -124,6 +126,7 @@ const NavHeadline = styled.span`
 
 const NavShareButton = styled.div`
   margin-right: 20px;
+  margin-top: -5px;
   align-self: flex-end;
 
   @media (max-width: 768px) {
@@ -140,6 +143,7 @@ const MenuItem = styled.li`
   margin-left: 20px;
   margin-bottom: 0;
   color: white;
+  margin-top: -10px;
 
   ${RightMenu} > & {
     margin-left: 0px;
@@ -152,6 +156,10 @@ const StyledLink = styled(Link)`
   :visited {
     color: white;
   }
+`
+
+const MarginedStyledLink = StyledLink.extend`
+  margin-top: -10px;
 `
 
 const SearchIconWrapper = NavSearchWrapper.extend`
@@ -194,9 +202,9 @@ export default class NavBar extends React.Component {
             <Logo alt={'site-logo'} src={arnondoraIcon} />
           </StyledLink>
           {get(this.props, 'article', false) ? null : (
-            <StyledLink to="/">
+            <MarginedStyledLink to="/">
               <SiteName>{this.props.siteTitle}</SiteName>
-            </StyledLink>
+            </MarginedStyledLink>
           )}
 
           {this.state.scroll > 256 &&
