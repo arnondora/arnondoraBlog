@@ -10,15 +10,11 @@ import arnondoraIcon from '../assets/arnondoraIcon.svg'
 
 import SocialShareNavBarButtons from './SocialShareNavBarButtons'
 
-const Wrapper = styled.div`
-  display: flex;
+const SuperWrapper = styled.div`
   z-index: 10;
-  flex-direction: row;
-  align-items: center;
   position: fixed;
   top: 0;
   height: 74px;
-  justify-content: flex-start;
   width: 100%;
   padding: 15px 0px 15px 15px;
   background-color: ${props =>
@@ -44,8 +40,23 @@ const Wrapper = styled.div`
   overflow: hidden;
 `
 
+const ContentWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  width: 90%;
+  margin: 0 auto;
+  margin-left: 0;
+
+  @media (min-width: 768px) {
+    width: 100%;
+    margin: 0;
+  }
+`
+
 const Logo = styled.img`
-  min-width: 40px;
+  min-width: 60px;
   height: auto;
   margin: 0;
 `
@@ -173,63 +184,69 @@ export default class NavBar extends React.Component {
 
   render() {
     return (
-      <Wrapper
+      <SuperWrapper
         scrollPosition={this.state.scroll}
         isNight={this.props.isNight}
         isArticle={get(this.props, 'article', false)}
       >
-        <StyledLink to="/">
-          <Logo alt={'site-logo'} src={arnondoraIcon} />
-        </StyledLink>
-        {get(this.props, 'article', false) ? null : (
+        <ContentWrapper>
           <StyledLink to="/">
-            <SiteName>{this.props.siteTitle}</SiteName>
+            <Logo alt={'site-logo'} src={arnondoraIcon} />
           </StyledLink>
-        )}
+          {get(this.props, 'article', false) ? null : (
+            <StyledLink to="/">
+              <SiteName>{this.props.siteTitle}</SiteName>
+            </StyledLink>
+          )}
 
-        {this.state.scroll > 256 &&
-        get(this.props, 'article', false && get(this.props, 'slug', false)) ? (
-          <NavHeadShare>
-            <NavHeadline>{this.props.headline}</NavHeadline>
-            <NavShareButton>
-              <SocialShareNavBarButtons slug={this.props.slug} />
-            </NavShareButton>
-          </NavHeadShare>
-        ) : (
-          <Menu>
-            <LeftMenu isArticle={get(this.props, 'article', false)}>
-              <MenuItem>
-                <StyledLink to="/">Home</StyledLink>
-              </MenuItem>
-              <MenuItem>
-                <StyledLink to="/cv">about:me</StyledLink>
-              </MenuItem>
-              <MenuItem>
-                <StyledLink to="/category/tutorial">Tutorial</StyledLink>
-              </MenuItem>
-              <MenuItem>
-                <StyledLink to="/live">Live Blog</StyledLink>
-              </MenuItem>
-            </LeftMenu>
-
-            {get(this.props, 'article', false) === false ? (
-              <RightMenu>
+          {this.state.scroll > 256 &&
+          get(
+            this.props,
+            'article',
+            false && get(this.props, 'slug', false)
+          ) ? (
+            <NavHeadShare>
+              <NavHeadline>{this.props.headline}</NavHeadline>
+              <NavShareButton>
+                <SocialShareNavBarButtons slug={this.props.slug} />
+              </NavShareButton>
+            </NavHeadShare>
+          ) : (
+            <Menu>
+              <LeftMenu isArticle={get(this.props, 'article', false)}>
                 <MenuItem>
-                  <StyledLink to="/search" aria-label="search">
-                    <SearchIconWrapper>
-                      <MaterialIcon
-                        iconName={'search'}
-                        size={'25px'}
-                        noLineHeight
-                      />
-                    </SearchIconWrapper>
-                  </StyledLink>
+                  <StyledLink to="/">Home</StyledLink>
                 </MenuItem>
-              </RightMenu>
-            ) : null}
-          </Menu>
-        )}
-      </Wrapper>
+                <MenuItem>
+                  <StyledLink to="/cv">about:me</StyledLink>
+                </MenuItem>
+                <MenuItem>
+                  <StyledLink to="/category/tutorial">Tutorial</StyledLink>
+                </MenuItem>
+                <MenuItem>
+                  <StyledLink to="/live">Live Blog</StyledLink>
+                </MenuItem>
+              </LeftMenu>
+
+              {get(this.props, 'article', false) === false ? (
+                <RightMenu>
+                  <MenuItem>
+                    <StyledLink to="/search" aria-label="search">
+                      <SearchIconWrapper>
+                        <MaterialIcon
+                          iconName={'search'}
+                          size={'25px'}
+                          noLineHeight
+                        />
+                      </SearchIconWrapper>
+                    </StyledLink>
+                  </MenuItem>
+                </RightMenu>
+              ) : null}
+            </Menu>
+          )}
+        </ContentWrapper>
+      </SuperWrapper>
     )
   }
 }
