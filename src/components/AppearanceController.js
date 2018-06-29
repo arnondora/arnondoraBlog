@@ -41,7 +41,7 @@ const ItemButton = styled.button`
   }
 `
 
-export default class MobileTextController extends React.Component {
+export default class AppearanceController extends React.Component {
   render() {
     return (
       <Container>

@@ -11,7 +11,7 @@ import NextStory from '../components/NextStory'
 import RecommendStory from '../components/RecommendStory'
 import CommentBox from '../components/CommentBox'
 import MobileSocialShareButton from '../components/MobileSocialShareButton'
-import MobileTextController from '../components/MobileTextController'
+import AppearanceController from '../components/AppearanceController'
 import StickyMobileShare from '../components/StickyMobileShare'
 import Footer from '../components/Footer'
 
@@ -218,7 +218,7 @@ export default class BlogPostTemplate extends React.Component {
 
           {postInfo.type === 'post' ? (
             <Container isNight={this.state.isNight}>
-              <MobileTextController
+              <AppearanceController
                 isNight={this.state.isNight}
                 nightModeSwitcher={this.nightModeSwitcher}
                 enlargeFont={this.enlargeFont}
