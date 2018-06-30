@@ -45,7 +45,7 @@ const ContentWrapper = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
-  width: ${props => props.isArticle ? '90%' : '100%'};
+  width: ${props => (props.isArticle ? '90%' : '100%')};
   margin: 0 auto;
   margin-left: 0;
 
