@@ -45,7 +45,7 @@ const ContentWrapper = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
-  width: 90%;
+  width: ${props => props.isArticle ? '90%' : '100%'};
   margin: 0 auto;
   margin-left: 0;
 
@@ -197,7 +197,7 @@ export default class NavBar extends React.Component {
         isNight={this.props.isNight}
         isArticle={get(this.props, 'article', false)}
       >
-        <ContentWrapper>
+        <ContentWrapper isArticle={get(this.props, 'article', false)}>
           <StyledLink to="/">
             <Logo alt={'site-logo'} src={arnondoraIcon} />
           </StyledLink>
