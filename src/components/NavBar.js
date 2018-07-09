@@ -18,7 +18,7 @@ const SuperWrapper = styled.div`
   width: 100%;
   padding: 15px 0px 15px 15px;
   background-color: ${props =>
-    props.scrollPosition < 256 && props.isArticle
+    props.scrollPosition < 256 && props.isArticle && props.isTransparent
       ? props.isNight
         ? color(props.theme.night_darkBackground)
             .alpha(props.scrollPosition / 300)
@@ -196,6 +196,7 @@ export default class NavBar extends React.Component {
         scrollPosition={this.state.scroll}
         isNight={this.props.isNight}
         isArticle={get(this.props, 'article', false)}
+        isTransparent={get(this.props, 'isTransparent', true)}
       >
         <ContentWrapper isArticle={get(this.props, 'article', false)}>
           <StyledLink to="/">

@@ -132,7 +132,8 @@ exports.createPages = ({graphql, actions}) => {
   const {createPage} = actions
 
   return new Promise((resolve, reject) => {
-    const blogPost = path.resolve('./src/templates/blog-post-full-width.js')
+    const blogPostFullWidth = path.resolve('./src/templates/blog-post-full-width.js')
+    const blogPostNormal = path.resolve('./src/templates/blog-post-normal.js')
     const index = path.resolve('./src/templates/index.js')
 
     const IndexPaginationAmount = 5
@@ -166,6 +167,7 @@ exports.createPages = ({graphql, actions}) => {
                 status
                 date(formatString: "MMMM DD, YYYY")
                 isFeatured
+                template
                 image {
                   childImageSharp {
                     fluid (maxWidth: 1200, quality: 80) {
@@ -277,7 +279,7 @@ exports.createPages = ({graphql, actions}) => {
 
         createPage({
           path: edge.node.fields.slug,
-          component: blogPost,
+          component: _.get(edge.node.frontmatter, 'template', 'full-width') === "full-width" ? blogPostFullWidth : blogPostNormal,
           context: {
             siteInfo: result.data.site,
             slug: edge.node.fields.slug,
@@ -309,7 +311,7 @@ exports.createPages = ({graphql, actions}) => {
 
         createPage({
           path: edge.node.fields.slug,
-          component: blogPost,
+          component: _.get(edge.node.frontmatter, 'template', 'full-width') === "full-width" ? blogPostFullWidth : blogPostNormal,
           context: {
             siteInfo: result.data.site,
             slug: edge.node.fields.slug,
@@ -328,7 +330,7 @@ exports.createPages = ({graphql, actions}) => {
 
         createPage({
           path: edge.node.fields.slug,
-          component: blogPost,
+          component: _.get(edge.node.frontmatter, 'template', 'full-width') === "full-width" ? blogPostFullWidth : blogPostNormal,
           context: {
             siteInfo: result.data.site,
             slug: edge.node.fields.slug,
