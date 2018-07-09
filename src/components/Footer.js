@@ -20,6 +20,10 @@ const Container = styled.div`
   padding-top: 20px;
   padding-bottom: 20px;
 
+  @media (max-width: 768px) {
+    margin-bottom: 38px;
+  }
+
   @media (max-width: 576px) {
     display: ${props => (props.mobilehide ? 'none' : 'block')};
   }
