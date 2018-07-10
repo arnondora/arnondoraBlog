@@ -207,9 +207,8 @@ export default class BlogPostNormalTemplate extends React.Component {
             </ContentWrapper>
           </BigContentWrapper>
 
-          {postInfo.type === 'post' &&
-          (this.props.pageContext.next !== false ||
-            this.props.pageContext.prev !== false) ? (
+          {this.props.pageContext.next !== false ||
+            this.props.pageContext.prev !== false ? (
             <React.Fragment>
               <NextStory
                 next={this.props.pageContext.next}
@@ -221,7 +220,6 @@ export default class BlogPostNormalTemplate extends React.Component {
             </React.Fragment>
           ) : null}
 
-          {postInfo.type === 'post' ? (
             <CommentWrapper isNight={this.state.isNight}>
               <PageWrapper>
                 <CommentBox
@@ -230,7 +228,6 @@ export default class BlogPostNormalTemplate extends React.Component {
                 />
               </PageWrapper>
             </CommentWrapper>
-          ) : null}
 
           <MobileStickyShareContainer>
             <StickyMobileShare slug={this.props.pageContext.slug} />
