@@ -352,22 +352,3 @@ exports.onCreateNode = ({node, actions, getNode}) => {
     createNodeField({name: `slug`, node, value})
   }
 }
-
-exports.modifyWebpackConfig = ({config, stage}) => {
-  if (stage === "build-html") {
-    config.loader("null", {
-      test: /scroll-to-element/,
-      loader: "null-loader"
-    });
-  }
-
-  switch (stage) {
-    case `build-javascript`:
-      config.plugin(`Lodash`, webpackLodashPlugin, null)
-      // turn off source-maps
-      config.merge({devtool: false});
-      break
-  }
-
-  return config
-}

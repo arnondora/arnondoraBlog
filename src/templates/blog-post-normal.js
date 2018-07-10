@@ -179,11 +179,12 @@ export default class BlogPostNormalTemplate extends React.Component {
               </PostDescription>
             </PostInfoContainer>
 
-            <Thumbnail
+            {!isEmpty(postInfo.image) ? <Thumbnail
               title={postInfo.title}
               alt={postInfo.title}
               fluid={postInfo.image.childImageSharp.fluid}
             />
+            : null}
             {!isEmpty(postInfo.thumbnailCredit) ? (
               <ThumbnailCredit
                 isNight={this.state.isNight}
