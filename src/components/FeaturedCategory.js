@@ -66,9 +66,17 @@ export default class FeaturedCategory extends React.Component {
   render() {
     return (
       <Container onClick={() => navigateTo(this.props.post.node.fields.slug)}>
-        {get(this.props.post.node.frontmatter, 'image.childImageSharp.fluid', false) !== false ? (
+        {get(
+          this.props.post.node.frontmatter,
+          'image.childImageSharp.fluid',
+          false
+        ) !== false ? (
           <Img
-            fluid={get(this.props.post.node.frontmatter, 'image.childImageSharp.fluid', null)}
+            fluid={get(
+              this.props.post.node.frontmatter,
+              'image.childImageSharp.fluid',
+              null
+            )}
             alt={this.props.post.node.frontmatter.title}
             style={{ height: '450px', width: '100%' }}
           />
