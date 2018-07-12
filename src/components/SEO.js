@@ -4,10 +4,9 @@ import { get } from 'lodash'
 
 export default class SEO extends React.Component {
   render() {
-    if (get(this.props.postContent.frontmatter, 'image', null) === null) {
-      const thumbnailURL = ''
-    } else {
-      const thumbnailURL =
+    var thumbnailURL = ""
+    if (get(this.props.postContent.frontmatter, 'image.childImageSharp.fluid.src', null) !== null) {
+      thumbnailURL =
         this.props.siteMetadata.siteUrl +
         this.props.postContent.frontmatter.image.childImageSharp.fluid.src
     }
@@ -154,7 +153,7 @@ export default class SEO extends React.Component {
               "@type" : "Person",
               "name" : "${this.props.siteMetadata.author}"
             },
-            "image" : ${thumbnailURL}
+            "image" : "${thumbnailURL}",
             "headline" : ${this.props.postContent.frontmatter.title},
             "datePublished" : "${this.props.postContent.frontmatter.date}",
             "description" : "${this.props.postContent.frontmatter.excerpt}"
