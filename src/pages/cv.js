@@ -535,6 +535,17 @@ export default class cv extends React.Component {
           ]}
         >
           <html lang="en" />
+          <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=UA-64833813-2"
+          />
+          <script>
+            {`window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-64833813-2');`}
+          </script>
         </Helmet>
         <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
       </div>
