@@ -4,6 +4,14 @@ import { get } from 'lodash'
 
 export default class SEO extends React.Component {
   render() {
+    if (get(this.props.postContent.frontmatter, 'image', null) === null) {
+      const thumbnailURL = ''
+    } else {
+      const thumbnailURL =
+        this.props.siteMetadata.siteUrl +
+        this.props.postContent.frontmatter.image.childImageSharp.fluid.src
+    }
+
     return (
       <Helmet
         title={
@@ -146,9 +154,7 @@ export default class SEO extends React.Component {
               "@type" : "Person",
               "name" : "${this.props.siteMetadata.author}"
             },
-            "image" : ${this.props.siteMetadata.siteUrl +
-              this.props.postContent.frontmatter.image.childImageSharp.fluid
-                .src}
+            "image" : ${thumbnailURL}
             "headline" : ${this.props.postContent.frontmatter.title},
             "datePublished" : "${this.props.postContent.frontmatter.date}",
             "description" : "${this.props.postContent.frontmatter.excerpt}"
