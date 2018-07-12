@@ -102,7 +102,21 @@ export default class IndexPage extends React.Component {
                 content: 'The offical personal blog of @arnondora',
               },
             ]}
-          />
+          >
+            <script type="application/application/ld+json">
+              {`
+                "@context": "http://schema.org/",
+                "@type" : "Website",
+                "url" : "${process.env.APP_URL}",
+                "potentialAction" : {
+                  "@type" : "SearchAction",
+                  "target" : "${process.env.APP_URL +
+                    '/search?keyword={search_term_string}'}",
+                  "query-input": "required name=search_term_string"
+                }
+              `}
+            </script>
+          </Helmet>
           <NavBar
             siteTitle={this.props.pageContext.siteInfo.siteMetadata.title}
           />
