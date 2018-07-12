@@ -4,8 +4,14 @@ import { get } from 'lodash'
 
 export default class SEO extends React.Component {
   render() {
-    var thumbnailURL = ""
-    if (get(this.props.postContent.frontmatter, 'image.childImageSharp.fluid.src', null) !== null) {
+    var thumbnailURL = ''
+    if (
+      get(
+        this.props.postContent.frontmatter,
+        'image.childImageSharp.fluid.src',
+        null
+      ) !== null
+    ) {
       thumbnailURL =
         this.props.siteMetadata.siteUrl +
         this.props.postContent.frontmatter.image.childImageSharp.fluid.src
