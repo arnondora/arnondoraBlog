@@ -133,7 +133,28 @@ export default class SEO extends React.Component {
             content: this.props.postContent.frontmatter.excerpt,
           },
         ]}
-      />
+      >
+        <script type="application/application/ld+json">
+          {`
+            "@context": "http://schema.org/",
+            "@type" : "Article",
+            "mainEntityOfPage" : {
+              "@type" : "Webpage",
+              "@id" : "https://arnondora.in.th"
+            }
+            "author" : {
+              "@type" : "Person",
+              "name" : "${this.props.siteMetadata.author}"
+            },
+            "image" : ${this.props.siteMetadata.siteUrl +
+              this.props.postContent.frontmatter.image.childImageSharp.fluid
+                .src}
+            "headline" : ${this.props.postContent.frontmatter.title},
+            "datePublished" : "${this.props.postContent.frontmatter.date}",
+            "description" : "${this.props.postContent.frontmatter.excerpt}"
+          `}
+        </script>
+      </Helmet>
     )
   }
 }
