@@ -56,7 +56,7 @@ const ArticleWrapper = styled.div`
 
   & > p:first-child::first-letter {
     color: #2096f3;
-    font-size: ${props => props.scale + 3.1 + 'rem'};
+    font-size: ${props => props.scale + 3.4 + 'rem'};
     line-height: 40px;
     float: left;
     padding-top: ${props => props.scale * 10 + 12 + 'px'};
