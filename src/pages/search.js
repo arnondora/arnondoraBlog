@@ -123,7 +123,9 @@ export default class search extends React.Component {
     this.state = {
       articles: this.props.data.allMarkdownRemark.edges,
       categories: [],
-      keyword: '',
+      keyword: this.props.location.search
+        ? this.props.location.search.split('=', 2)[1]
+        : '',
     }
 
     this.handleSearch = this.handleSearch.bind(this)
