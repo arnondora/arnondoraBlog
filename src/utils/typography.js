@@ -13,13 +13,9 @@ const typography = new Typography({
   bodyFontFamily: ['Open Sans', 'Thonburi'],
   googleFonts: [
     {
-      name: "Open Sans",
-      styles : [
-        '300',
-        '400',
-        '700'
-      ]
-    }
+      name: 'Open Sans',
+      styles: ['300', '400', '700'],
+    },
   ],
   overrideStyles: ({ adjustFontSizeTo, rhythm }, options, styles) => ({
     a: {
