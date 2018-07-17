@@ -82,16 +82,6 @@ const ArticleWrapper = styled.div`
     text-rendering: geometricPrecision;
   }
 
-  & > p > hr {
-    background-color: #2096f3;
-    border: none;
-    width: 20%;
-    margin: 0 auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    height: 3.5px;
-  }
-
   & > p > strong {
     font-weight: 700;
   }

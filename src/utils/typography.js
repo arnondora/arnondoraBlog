@@ -46,6 +46,15 @@ const typography = new Typography({
       borderLeft: `5px solid ${colours.primaryColour}`,
       marginLeft: '0',
     },
+    hr: {
+      backgroundColor: `${colours.primaryColour}`,
+      border: 'none',
+      width: '20%',
+      margin: '0 auto',
+      marginTop: '20px',
+      marginBottom: '20px',
+      height: '3.5px',
+    }
   }),
 })
 
