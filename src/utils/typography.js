@@ -22,12 +22,29 @@ const typography = new Typography({
       backgroundColor: '#F5F5F5',
       minHeight: '100vh',
     },
+    h1: {
+      fontSize: '37.32px',
+    },
+    h2: {
+      fontSize: '31.1px',
+    },
+    h3: {
+      fontSize: '25.92px',
+    },
+    h4: {
+      fontSize: '21.6px',
+    },
+    p: {
+      fontSize: '18px',
+    },
     a: {
-      color: '#424242',
+      color: `${colours.primaryColour}`,
       textDecoration: 'none',
     },
     blockquote: {
       borderLeft: `5px solid ${colours.primaryColour}`,
+      borderLeft: `5px solid ${colours.primaryColour}`,
+      marginLeft: '0',
     },
   }),
 })

@@ -55,7 +55,7 @@ const ArticleWrapper = styled.div`
   }
 
   & > p:first-child::first-letter {
-    color: #2096f3;
+    color: ${props => props.theme.primaryColour};
     font-size: ${props => props.scale + 3.4 + 'rem'};
     line-height: 40px;
     float: left;
@@ -67,6 +67,71 @@ const ArticleWrapper = styled.div`
   & > p > img {
     width: 100%;
     margin: 0 auto;
+  }
+
+  & > h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  ul > li,
+  ol > li {
+    color: #424242;
+    text-rendering: geometricPrecision;
+  }
+
+  & > p > hr {
+    background-color: #2096f3;
+    border: none;
+    width: 20%;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 3.5px;
+  }
+
+  & > p > strong {
+    font-weight: 700;
+  }
+
+  & > p > a {
+    text-decoration: none;
+    color: ${props => props.theme.primaryColour};
+
+    &:visited {
+      color: #0d8aed;
+    }
+  }
+
+  & > p > em {
+    display: inherit;
+    text-align: center;
+  }
+
+  iframe {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+
+  & > blockquote > p {
+    margin: 0;
+    padding-left: 20px;
+    font-size: 25px;
+    font-weight: 300;
+    color: #666666;
+  }
+
+  & > blockquote > p > strong {
+    font-weight: 400;
+  }
+
+  & > table {
+    width: 100%;
+    table-layout: fixed;
   }
 `
 
