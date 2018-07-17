@@ -18,6 +18,10 @@ const typography = new Typography({
     },
   ],
   overrideStyles: ({ adjustFontSizeTo, rhythm }, options, styles) => ({
+    body: {
+      backgroundColor: '#F5F5F5',
+      minHeight: '100vh',
+    },
     a: {
       color: '#424242',
       textDecoration: 'none',

@@ -5,7 +5,6 @@ import Helmet from 'react-helmet'
 import colours from '../utils/colours'
 
 import siteLogo from '../assets/favicon.png'
-import './index.css'
 
 export default class Layout extends React.Component {
   render() {
