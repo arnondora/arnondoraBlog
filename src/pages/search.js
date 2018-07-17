@@ -117,6 +117,16 @@ const NotFoundText = styled.h3`
   text-align: center;
 `
 
+const Seperator = styled.hr`
+  background-color: ${props => props.theme.primaryColour};
+  border: none;
+  width: 20%;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  height: 3.5px;
+`
+
 export default class search extends React.Component {
   constructor(props) {
     super(props)
@@ -182,7 +192,7 @@ export default class search extends React.Component {
                     ? 'All Stories'
                     : this.state.keyword}
                 </KeywordText>
-                <hr />
+                <Seperator />
                 <GreySearchText>
                   {this.state.keyword === '' || searchResult.length === 0
                     ? 'RECOMMEND CATEGORIES'

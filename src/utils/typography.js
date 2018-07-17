@@ -50,7 +50,6 @@ const typography = new Typography({
       backgroundColor: `${colours.primaryColour}`,
       border: 'none',
       width: '20%',
-      margin: '0 auto',
       marginTop: '20px',
       marginBottom: '20px',
       height: '3.5px',
