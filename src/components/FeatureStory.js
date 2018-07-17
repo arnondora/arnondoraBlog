@@ -92,6 +92,8 @@ export default class FeatureStory extends React.Component {
         </Container>
         <Overlay />
         <ImgBackgroundControl
+          title={featureStory.node.frontmatter.title}
+          alt={featureStory.node.frontmatter.title}
           fluid={featureStory.node.frontmatter.image.childImageSharp.fluid}
           outerWrapperClassName={'index-thumbnail-wrapper'}
         />
