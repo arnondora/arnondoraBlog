@@ -54,7 +54,7 @@ const typography = new Typography({
       marginTop: '20px',
       marginBottom: '20px',
       height: '3.5px',
-    }
+    },
   }),
 })
 
