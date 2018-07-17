@@ -11,6 +11,16 @@ const typography = new Typography({
   boldWeight: '700',
   headerFontFamily: ['Open Sans', 'Thonburi'],
   bodyFontFamily: ['Open Sans', 'Thonburi'],
+  googleFonts: [
+    {
+      name: "Open Sans",
+      styles : [
+        '300',
+        '400',
+        '700'
+      ]
+    }
+  ],
   overrideStyles: ({ adjustFontSizeTo, rhythm }, options, styles) => ({
     a: {
       color: '#424242',
