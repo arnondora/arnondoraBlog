@@ -12,11 +12,6 @@ export default class Layout extends React.Component {
     return (
       <React.Fragment>
         <link
-          href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700"
-          rel="preload"
-          as="style"
-        />
-        <link
           href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet"
         />
