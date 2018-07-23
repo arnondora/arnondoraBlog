@@ -88,7 +88,8 @@ const ArticleWrapper = styled.div`
   p,
   ul > li,
   ol > li {
-    color: #424242;
+    color: ${props =>
+      props.isNight ? props.theme.night_text_light : props.theme.textHeading};
     text-rendering: geometricPrecision;
   }
 
