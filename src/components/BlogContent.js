@@ -33,6 +33,16 @@ const ArticleWrapper = styled.div`
     border-radius: 8px;
   }
 
+  p > code {
+    background-color: ${props =>
+      props.isNight
+        ? props.theme.night_lightBackground
+        : 'rgba(27,31,35,0.05)'};
+    color: ${props =>
+      props.isNight ? props.theme.night_text_light : '#222222'};
+    font-size: 18px;
+  }
+
   & > h1 {
     font-size: ${props => props.scale + 2.6058 + 'rem'};
   }
