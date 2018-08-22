@@ -157,8 +157,8 @@ export default class cv extends React.Component {
       <div class = "container">
         <section class = "introduction">
           <h1 class = "title">Arnon Puitrakul</h1>
-          <h2 class = "subtitle">Student</h2>
-          <h3 class = "super-subtitle">Faculty of ICT, Mahidol University</h3>
+          <h2 class = "subtitle">Master Degree in Medical Bioinformatics</h2>
+          <h3 class = "super-subtitle">Faculty of Medicine Siriraj Hospital, Mahidol University</h3>
           <div class = "contact-info">
             <span class = "email"><strong>Email:</strong> peter.arnon@gmail.com</span>
             <span class = "website"><strong>Website:</strong> <a href = "https://www.arnondora.in.th">https://www.arnondora.in.th</a></span>
@@ -182,6 +182,11 @@ export default class cv extends React.Component {
             <div class = "section-list-item">
               <h3>Faculty of ICT, Mahidol University</h3>
               <p class = "subtitle">Bachelor’s Degree - Information and Communication Technology | 2014 - 2018</p>
+            </div>
+
+            <div class = "section-list-item">
+              <h3>Faculty of Medicine Siriraj Hospital, Mahidol University</h3>
+              <p class = "subtitle">Master Degree - Medical Bioinformatics | 2018 - Present</p>
             </div>
 
           </div>
