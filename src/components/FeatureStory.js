@@ -96,6 +96,7 @@ export default class FeatureStory extends React.Component {
           alt={featureStory.node.frontmatter.title}
           fluid={featureStory.node.frontmatter.image.childImageSharp.fluid}
           outerWrapperClassName={'index-thumbnail-wrapper'}
+          style={{'height': '100%'}}
         />
       </SuperWrapper>
     )

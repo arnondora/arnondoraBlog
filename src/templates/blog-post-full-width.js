@@ -16,8 +16,6 @@ import StickyMobileShare from '../components/StickyMobileShare'
 import Footer from '../components/Footer'
 import ArticleWrapper from '../components/BlogContent'
 
-import './blog-post-full-width.css' /* Import Reader Style */
-
 const Container = styled.div`
   display: flex;
   background-color: ${props =>
