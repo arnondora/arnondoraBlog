@@ -13,7 +13,13 @@ module.exports = {
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-catch-links`,
-    `gatsby-plugin-styled-components`,
+    {
+      resolve: `gatsby-plugin-styled-components`,
+      options: {
+        pure: true,
+        displayName: `${process.env.NODE_ENV !== "production"}`,
+      }
+    },
     `gatsby-remark-responsive-iframe`, {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
