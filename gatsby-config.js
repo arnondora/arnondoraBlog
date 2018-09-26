@@ -17,7 +17,9 @@ module.exports = {
       resolve: `gatsby-plugin-styled-components`,
       options: {
         pure: true,
-        displayName: `${process.env.NODE_ENV !== "production"}`,
+        minify: true,
+        displayName: false,
+        fileName: false,
       }
     },
     `gatsby-remark-responsive-iframe`, {
