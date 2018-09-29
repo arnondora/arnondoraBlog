@@ -24,6 +24,7 @@ const ImgBackgroundControl = styled(Img)`
   height: 100%;
   display: flex;
   z-index: 0;
+  filter: blur(1px);
 `
 
 const Overlay = styled.div`
