@@ -1,30 +1,103 @@
 import React from 'react'
 import styled from 'styled-components'
-import isEmpty from 'lodash/isEmpty'
 import { graphql } from 'gatsby'
+import isEmpty from 'lodash/isEmpty'
+import Img from 'gatsby-image'
 
 import Layout from '../layouts/Layout'
 import SEO from '../components/SEO'
 import NavBar from '../components/NavBar'
-import ThumbnailContainer from '../components/ThumbnailContainer'
+import BlogContent from '../components/BlogContent'
+import AppearanceController from '../components/AppearanceController'
 import NextStory from '../components/NextStory'
 import RecommendStory from '../components/RecommendStory'
 import CommentBox from '../components/CommentBox'
-import MobileSocialShareButton from '../components/MobileSocialShareButton'
-import AppearanceController from '../components/AppearanceController'
 import StickyMobileShare from '../components/StickyMobileShare'
 import Footer from '../components/Footer'
-import ArticleWrapper from '../components/BlogContent'
 
-const Container = styled.div`
+const ContentWrapper = styled.div`
   display: flex;
+  flex-direction: row;
+`
+
+const Title = styled.h1`
+  padding-bottom: 15px;
+  margin-bottom: 0;
+`
+
+const Excerpt = styled.p`
+  padding-top: 5px;
+  margin: 0;
+  font-size: 1.2em;
+`
+
+const PostDescription = styled.p`
+  padding-top: 20px;
+`
+
+const PostInfoContainer = styled.div`
+  width: 85%;
+  margin: 0 auto;
+`
+
+const BigContentWrapper = styled.div`
+  padding-top: 130px;
   background-color: ${props =>
     props.isNight
       ? props.theme.night_darkBackground
       : props.theme.defaultBackground};
 
+  & > ${PostInfoContainer} > ${Title}, ${Excerpt} {
+    color: ${props =>
+      props.isNight ? props.theme.night_text_light : props.theme.textHeading};
+  }
+
+  & > ${PostInfoContainer} > ${PostDescription} {
+    color: ${props =>
+      props.isNight
+        ? props.theme.night_text_normal
+        : props.theme.textLowProfile};
+  }
+`
+
+const Thumbnail = styled(Img)`
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 30px;
+  border-radius: 10px;
+
   @media (max-width: 768px) {
-    padding-bottom: 38px;
+    width: 100%;
+    border-radius: 0;
+  }
+`
+
+const Content = styled(BlogContent)`
+  width: 60%;
+  margin: 0 auto;
+  margin-top: 40px;
+
+  @media (max-width: 768px) {
+    width: 90%;
+    margin-top: 40px;
+  }
+`
+
+const CommentWrapper = styled.div`
+  background-color: ${props =>
+    props.isNight
+      ? props.theme.night_lightBackground
+      : props.theme.darkBackground};
+`
+
+const PageWrapper = styled(BlogContent)`
+  width: 60%;
+  margin: 0 auto;
+  padding-top: 20px;
+
+  @media (max-width: 768px) {
+    width: 90%;
+    padding-top: 20px;
   }
 `
 
@@ -39,49 +112,6 @@ const MobileStickyShareContainer = styled.div`
     width: 100%;
     z-index: 2;
   }
-`
-
-const ContentWrapper = styled.div`
-  width: 60%;
-  margin: 0 auto;
-  margin-top: 0px;
-  margin-bottom: 0px;
-
-  @media (max-width: 768px) {
-    width: 90%;
-    margin-top: 25px;
-  }
-`
-
-const PageWrapper = styled(ArticleWrapper)`
-  width: 60%;
-  margin: 0 auto;
-  padding-top: 20px;
-
-  @media (max-width: 768px) {
-    width: 90%;
-    padding-top: 20px;
-  }
-`
-
-const CommentWrapper = styled.div`
-  background-color: ${props =>
-    props.isNight
-      ? props.theme.night_lightBackground
-      : props.theme.darkBackground};
-`
-
-const SmallHeading = styled.h1`
-  color: ${props => props.theme.textHeading};
-  font-weight: 400;
-  font-size: 2.5em;
-  margin-bottom: 0px;
-`
-
-const SmallSubHeading = styled.p`
-  margin-top: 10px;
-  color: ${props => props.theme.textLowProfile};
-  font-weight: 300;
 `
 
 const ThumbnailCredit = styled.em`
@@ -103,11 +133,9 @@ const ThumbnailCredit = styled.em`
   }
 `
 
-export default class BlogPostTemplate extends React.Component {
+export default class BlogPostNormalTemplate extends React.Component {
   constructor(props) {
     super(props)
-
-    // TODO: Add isNight state store in session
 
     this.state = {
       isNight: false,
@@ -134,54 +162,55 @@ export default class BlogPostTemplate extends React.Component {
           />
           <NavBar
             article={true}
+            isTransparent={false}
             slug={this.props.pageContext.slug}
             headline={postInfo.title}
             isNight={this.state.isNight === null ? false : this.state.isNight}
           />
-          <ThumbnailContainer post={postInfo} />
-          {!isEmpty(postInfo.thumbnailCredit) ? (
-            <ThumbnailCredit
-              isNight={this.state.isNight}
-              dangerouslySetInnerHTML={{ __html: postInfo.thumbnailCredit }}
-            />
-          ) : null}
 
-          {postInfo.type === 'post' ? (
-            <Container isNight={this.state.isNight}>
+          <BigContentWrapper isNight={this.state.isNight}>
+            <PostInfoContainer>
+              <Title>{postInfo.title}</Title>
+              <Excerpt>
+                {postInfo.subtitle ? postInfo.subtitle : postInfo.excerpt}
+              </Excerpt>
+              <PostDescription>
+                By {postInfo.author} on {postInfo.date} in {postInfo.category}
+              </PostDescription>
+            </PostInfoContainer>
+
+            {!isEmpty(postInfo.image) ? (
+              <Thumbnail
+                title={postInfo.title}
+                alt={postInfo.title}
+                fluid={postInfo.image.childImageSharp.fluid}
+              />
+            ) : null}
+            {!isEmpty(postInfo.thumbnailCredit) ? (
+              <ThumbnailCredit
+                isNight={this.state.isNight}
+                dangerouslySetInnerHTML={{ __html: postInfo.thumbnailCredit }}
+              />
+            ) : null}
+
+            <ContentWrapper isNight={this.state.isNight}>
               <AppearanceController
                 isNight={this.state.isNight}
                 nightModeSwitcher={this.nightModeSwitcher}
                 enlargeFont={this.enlargeFont}
                 decreaseFont={this.decreaseFont}
               />
-              <ContentWrapper>
-                {postInfo.template === 'normal' ? (
-                  <SmallHeading>{postInfo.title}</SmallHeading>
-                ) : null}
-                {postInfo.type === 'post' && postInfo.template === 'normal' ? (
-                  <SmallSubHeading>
-                    by {postInfo.author} on {postInfo.date}
-                  </SmallSubHeading>
-                ) : null}
-                <ArticleWrapper
-                  scale={this.state.fontScale}
-                  isNight={this.state.isNight}
-                  dangerouslySetInnerHTML={{ __html: postContent.html }}
-                />
-                <MobileSocialShareButton
-                  slug={this.props.pageContext.slug}
-                  isNight={this.state.isNight}
-                />
-              </ContentWrapper>
-            </Container>
-          ) : (
-            <PageWrapper
-              dangerouslySetInnerHTML={{ __html: postContent.html }}
-            />
-          )}
-          {postInfo.type === 'post' &&
-          (this.props.pageContext.next !== false ||
-            this.props.pageContext.prev !== false) ? (
+
+              <Content
+                scale={this.state.fontScale}
+                isNight={this.state.isNight}
+                dangerouslySetInnerHTML={{ __html: postContent.html }}
+              />
+            </ContentWrapper>
+          </BigContentWrapper>
+
+          {this.props.pageContext.next !== false ||
+          this.props.pageContext.prev !== false ? (
             <React.Fragment>
               <NextStory
                 next={this.props.pageContext.next}
@@ -193,16 +222,14 @@ export default class BlogPostTemplate extends React.Component {
             </React.Fragment>
           ) : null}
 
-          {postInfo.type === 'post' ? (
-            <CommentWrapper isNight={this.state.isNight}>
-              <PageWrapper>
-                <CommentBox
-                  slug={this.props.pageContext.slug}
-                  isNight={this.state.isNight}
-                />
-              </PageWrapper>
-            </CommentWrapper>
-          ) : null}
+          <CommentWrapper isNight={this.state.isNight}>
+            <PageWrapper>
+              <CommentBox
+                slug={this.props.pageContext.slug}
+                isNight={this.state.isNight}
+              />
+            </PageWrapper>
+          </CommentWrapper>
 
           <MobileStickyShareContainer>
             <StickyMobileShare slug={this.props.pageContext.slug} />
@@ -212,7 +239,6 @@ export default class BlogPostTemplate extends React.Component {
       </Layout>
     )
   }
-
   nightModeSwitcher() {
     this.setState({
       isNight: !this.state.isNight,
@@ -233,17 +259,16 @@ export default class BlogPostTemplate extends React.Component {
 }
 
 export const query = graphql`
-  query ContentQuery($slug: String!) {
+  query NormalTemplateQuery($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       frontmatter {
         title
         excerpt
         subtitle
-        template
-        type
         author
         thumbnailCredit
+        category
         date(formatString: "MMMM DD, YYYY")
         image {
           childImageSharp {

@@ -43,8 +43,8 @@ const uploadArticleToFirebase = (posts, path) => {
 const createCategoryPages = (createPage, categories, posts, siteInfo) => {
   const categoryPage = path.resolve('./src/templates/category.js')
 
-  categories.forEach(function(category) {
-
+  categories.forEach(function(categoryNode) {
+    const category = categoryNode.node
     const link = category.link
     const name = category.name
     const cleanCategory = _.pick(category, ['name', 'description','link'])
@@ -106,8 +106,8 @@ const createListLivePage = (createPage, posts, siteInfo) => {
     path: "/live",
     component: ListLivePage,
     context: {
-      siteInfo: siteInfo,
       posts: cleanedPosts,
+      siteInfo: siteInfo
     }
   })
 
@@ -116,6 +116,7 @@ const createListLivePage = (createPage, posts, siteInfo) => {
 const createLivePages = (createPage, posts, siteInfo) => {
   const livePage = path.resolve('./src/templates/live.js')
   posts.forEach(function(post) {
+    if (_.isEmpty(siteInfo)) return
     createPage({
       path: "/live/" + post.slug,
       component: livePage,
@@ -127,63 +128,76 @@ const createLivePages = (createPage, posts, siteInfo) => {
   })
 }
 
-exports.createPages = ({graphql, boundActionCreators}) => {
-  const {createPage} = boundActionCreators
+exports.createPages = ({graphql, actions}) => {
+  const {createPage} = actions
 
   return new Promise((resolve, reject) => {
-    const blogPost = path.resolve('./src/templates/blog-post-full-width.js')
+    const blogPostFullWidth = path.resolve('./src/templates/blog-post-full-width.js')
+    const blogPostNormal = path.resolve('./src/templates/blog-post-normal.js')
     const index = path.resolve('./src/templates/index.js')
 
     const IndexPaginationAmount = 5
 
     resolve(graphql(`
-          {
-            site {
-              siteMetadata {
-                title
-                author
-                description
-                siteUrl
-                authorTwitter
-              }
-            }
+      {
+        site {
+          siteMetadata {
+            title
+            author
+            description
+            siteUrl
+            authorTwitter
+          }
+        }
 
-            allMarkdownRemark (sort: { order: DESC, fields: [frontmatter___date] }) {
-              edges {
-                node {
-                  excerpt(pruneLength: 250)
-                  html
-                  fields {
-                    slug
-                  }
-                  frontmatter {
-                    title
-                    excerpt
-                    category
-                    type
-                    author
-                    status
-                    date(formatString: "MMMM DD, YYYY")
-                    isFeatured
-                    image {
-                      childImageSharp {
-                        sizes (maxWidth: 1200, quality: 80) {
-                          base64
-                          tracedSVG
-                          aspectRatio
-                          src
-                          srcSet
-                          srcWebp
-                          srcSetWebp
-                          sizes
-                        }
-                      }
+        allMarkdownRemark (sort: { order: DESC, fields: [frontmatter___date] }) {
+          edges {
+            node {
+              excerpt(pruneLength: 250)
+              html
+              fields {
+                slug
+              }
+              frontmatter {
+                title
+                excerpt
+                category
+                type
+                author
+                status
+                date(formatString: "MMMM DD, YYYY")
+                isFeatured
+                template
+                image {
+                  childImageSharp {
+                    fluid (maxWidth: 1200, quality: 80) {
+                      base64
+                      tracedSVG
+                      aspectRatio
+                      src
+                      srcSet
+                      srcWebp
+                      srcSetWebp
+                      sizes
                     }
                   }
                 }
               }
             }
           }
+        }
+
+        allCategoriesJson {
+          edges {
+            node {
+              name
+              description
+              link
+              thumbnail
+            }
+          }
+        }
+      }
         `).then(result => {
       if (result.errors) {
         console.log(result.errors)
@@ -215,58 +229,47 @@ exports.createPages = ({graphql, boundActionCreators}) => {
         return item.node.frontmatter.type === "page"
       })
 
-      var categories = null
-      firebase.database().ref("categories").once("value", function(snapshot) {
-        categories = []
+      createCategoryPages(createPage, result.data.allCategoriesJson.edges, publishedPosts, result.data.site)
 
-        snapshot.forEach(function(childSnapshot) {
-          categories.push(childSnapshot.val())
+      // Create Live Blog Pages
+      firebase.database().ref("live").once("value", function(snapshot) {
+        var livePages = []
+
+        snapshot.forEach(function (childSnapshot) {
+          livePages.push(childSnapshot.val())
         })
 
-        createCategoryPages(createPage, categories, publishedPosts, result.data.site);
-
-        // Create Live Blog Pages
-        firebase.database().ref("live").once("value", function(snapshot) {
-          var livePages = []
-
-          snapshot.forEach(function (childSnapshot) {
-            livePages.push(childSnapshot.val())
-          })
-
-          createLivePages(createPage, livePages, result.data.site)
-          createListLivePage(createPage, livePages, result.data.site)
-        })
-
-
-        // Create Index page with pagination
-        var chunkPost = _.chunk(publishedPosts, IndexPaginationAmount)
-        for (var page = 0; page < chunkPost.length; page++) {
-          chunkCleanPosts = _.map(chunkPost[page], (post) => {
-            return _.pick(post, ['node.fields.slug', 'node.frontmatter.title', 'node.frontmatter.excerpt', 'node.frontmatter.category', 'node.frontmatter.date', 'node.frontmatter.author'])
-          })
-
-          createPage({
-            path: (page + 1) === 1
-              ? "/"
-              : "/" + (
-              page + 1),
-            component: index,
-            context: {
-              siteInfo: result.data.site,
-              posts: chunkCleanPosts,
-              isFirst: (page + 1) === 1
-                ? true
-                : false,
-              isLast: (page + 1) === chunkPost.length
-                ? true
-                : false,
-              page: (page + 1),
-              featurePosts: featurePosts[0],
-              categories: categories
-            }
-          })
-        }
+        createLivePages(createPage, livePages, result.data.site)
+        createListLivePage(createPage, livePages, result.data.site)
       })
+
+      var chunkPost = _.chunk(publishedPosts, IndexPaginationAmount)
+      for (var page = 0; page < chunkPost.length; page++) {
+        chunkCleanPosts = _.map(chunkPost[page], (post) => {
+          return _.pick(post, ['node.fields.slug', 'node.frontmatter.title', 'node.frontmatter.excerpt', 'node.frontmatter.category', 'node.frontmatter.date', 'node.frontmatter.author'])
+        })
+
+        createPage({
+          path: (page + 1) === 1
+            ? "/"
+            : "/" + (
+            page + 1),
+          component: index,
+          context: {
+            siteInfo: result.data.site,
+            posts: chunkCleanPosts,
+            isFirst: (page + 1) === 1
+              ? true
+              : false,
+            isLast: (page + 1) === chunkPost.length
+              ? true
+              : false,
+            page: (page + 1),
+            featurePosts: featurePosts[0],
+            categories: result.data.allCategoriesJson.edges
+          }
+        })
+      }
 
       uploadArticleToFirebase(posts,"articles")
       uploadArticleToFirebase(pages,"pages")
@@ -276,7 +279,7 @@ exports.createPages = ({graphql, boundActionCreators}) => {
 
         createPage({
           path: edge.node.fields.slug,
-          component: blogPost,
+          component: _.get(edge.node.frontmatter, 'template', 'full-width') === "full-width" ? blogPostFullWidth : blogPostNormal,
           context: {
             siteInfo: result.data.site,
             slug: edge.node.fields.slug,
@@ -308,7 +311,7 @@ exports.createPages = ({graphql, boundActionCreators}) => {
 
         createPage({
           path: edge.node.fields.slug,
-          component: blogPost,
+          component: _.get(edge.node.frontmatter, 'template', 'full-width') === "full-width" ? blogPostFullWidth : blogPostNormal,
           context: {
             siteInfo: result.data.site,
             slug: edge.node.fields.slug,
@@ -327,7 +330,7 @@ exports.createPages = ({graphql, boundActionCreators}) => {
 
         createPage({
           path: edge.node.fields.slug,
-          component: blogPost,
+          component: _.get(edge.node.frontmatter, 'template', 'full-width') === "full-width" ? blogPostFullWidth : blogPostNormal,
           context: {
             siteInfo: result.data.site,
             slug: edge.node.fields.slug,
@@ -341,30 +344,11 @@ exports.createPages = ({graphql, boundActionCreators}) => {
   })
 }
 
-exports.onCreateNode = ({node, boundActionCreators, getNode}) => {
-  const {createNodeField} = boundActionCreators
+exports.onCreateNode = ({node, actions, getNode}) => {
+  const {createNodeField} = actions
 
   if (node.internal.type === `MarkdownRemark`) {
     const value = createFilePath({node, getNode})
     createNodeField({name: `slug`, node, value})
   }
-}
-
-exports.modifyWebpackConfig = ({config, stage}) => {
-  if (stage === "build-html") {
-    config.loader("null", {
-      test: /scroll-to-element/,
-      loader: "null-loader"
-    });
-  }
-
-  switch (stage) {
-    case `build-javascript`:
-      config.plugin(`Lodash`, webpackLodashPlugin, null)
-      // turn off source-maps
-      config.merge({devtool: false});
-      break
-  }
-
-  return config
 }

@@ -10,11 +10,18 @@ module.exports = {
     authorTwitter: '@arnondora'
   },
   plugins: [
-    `gatsby-plugin-react-next`,
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-catch-links`,
-    `gatsby-plugin-styled-components`,
+    {
+      resolve: `gatsby-plugin-styled-components`,
+      options: {
+        pure: true,
+        minify: true,
+        displayName: false,
+        fileName: false,
+      }
+    },
     `gatsby-remark-responsive-iframe`, {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
@@ -57,21 +64,22 @@ module.exports = {
         path: `${__dirname + "/src/articles"}`,
         name: 'pages'
       }
-    }, {
+    },{
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `data`,
-        path: `${__dirname}/src/data/`
+        path: `${__dirname + "/src/data"}`,
+        name: 'data'
       }
-    }, {
+    },{
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 590,
-              linkImagesToOriginal: true
+              maxWidth: 2000,
+              linkImagesToOriginal: true,
+              sizeByPixelDensity: true,
             }
           },
           'gatsby-remark-prismjs',
@@ -107,29 +115,16 @@ module.exports = {
           }
         `
       }
-    }, {
-      resolve: `gatsby-plugin-favicon`,
-      options: {
-        logo: "./src/assets/favicon.png",
-        injectHTML: true,
-        icons: {
-          android: true,
-          appleIcon: true,
-          appleStartup: true,
-          coast: false,
-          favicons: true,
-          firefox: true,
-          twitter: false,
-          yandex: false,
-          windows: false
-        }
-      }
-    }, {
+    },{
       resolve: `gatsby-plugin-feed`
     },
+    {
+      resolve: `gatsby-plugin-no-sourcemaps`
+    },
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    `gatsby-plugin-lodash`,
     `gatsby-transformer-json`,
+    `gatsby-plugin-sharp`,
     `gatsby-plugin-remove-trailing-slashes`
   ]
 }

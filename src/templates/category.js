@@ -1,9 +1,11 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
-import { get, isEmpty } from 'lodash'
-import Link from 'gatsby-link'
+import get from 'lodash/get'
+import isEmpty from 'lodash/isEmpty'
+import { Link } from 'gatsby'
 
+import Layout from '../layouts/Layout'
 import NavBar from '../components/NavBar'
 import Footer from '../components/Footer'
 import MobileFooter from '../components/MobileFooter'
@@ -25,18 +27,18 @@ const Container = styled.div`
   margin-bottom: 20px;
 
   @media (max-width: 768px) {
+    padding-bottom: 130px;
     width: 90%;
   }
 `
 const CategoryInfoWrapper = styled.div`
-  color: ${props => props.theme.textHeading};
   padding-bottom: 20px;
   border-bottom-style: solid;
-  border-bottom-color: #E0E0E0;
+  border-bottom-color: #e0e0e0;
   border-bottom-width: 1px;
 `
 
-const CategoryName = styled.h1 `
+const CategoryName = styled.h1`
   margin: 0;
   font-weight: 700;
 `
@@ -61,73 +63,134 @@ const StoriesWrapper = styled.div`
 `
 
 const ErrorMessage = styled.h3`
-  margin-top:10px;
+  margin-top: 10px;
 `
 
 const CardWrapper = styled.div`
   flex-grow: 1;
   margin-top: 15px;
   padding-left: 30px;
-  width:33.33%;
-  :first-child{
+  width: 33.33%;
+  :first-child {
     padding-left: 0;
   }
 
   @media (max-width: 1200px) {
-    width:100%;
+    width: 100%;
     padding-left: 0;
   }
 `
 
 const SectionHeader = styled.h4`
   color: ${props => props.theme.textSecondary};
-  margin-top:30px;
+  margin-top: 30px;
   margin-bottom: 10px;
 `
 
 const MoreButtonWrapper = styled.div`
-  margin-top:20px;
+  margin-top: 20px;
 `
 
-export default class CategoryTemplate extends React.Component
-{
-  render () {
+export default class CategoryTemplate extends React.Component {
+  render() {
     var stories = null
-    if (get(this.props.pathContext,'posts', null) !== null)
-      stories = this.props.pathContext.posts
+    if (get(this.props.pageContext, 'posts', null) !== null)
+      stories = this.props.pageContext.posts
     return (
-      <React.Fragment>
-        <Helmet title={this.props.pathContext.category.name + " - " + this.props.pathContext.siteInfo.siteMetadata.title}/>
-        <NavigationBar siteTitle = {this.props.pathContext.siteInfo.siteMetadata.title}/>
-        <Container>
-          <CategoryInfoWrapper>
-            <CategoryName>{this.props.pathContext.category.name}</CategoryName>
-            <CategoryDescription>{this.props.pathContext.category.description}</CategoryDescription>
-          </CategoryInfoWrapper>
-
-          {!isEmpty(this.props.pathContext.featurePost) ? <FeaturedCategory categoryName = {this.props.pathContext.category.name} post={this.props.pathContext.featurePost}/> : null}
-
-          {stories != null ? <React.Fragment><SectionHeader>Latest</SectionHeader><hr/></React.Fragment> : null}
-
-          <StoriesWrapper>
-            {
-              stories != null ? stories.map((story,index) => {
-                return <CardWrapper key={story.node.fields.slug}><CardImage post={story}/></CardWrapper>
-              })
-              : !isEmpty(this.props.pathContext.featurePost)? <ErrorMessage>There's no more post in this category</ErrorMessage> :
-                <ErrorMessage>There is no post in this category. Stay Tuned</ErrorMessage>
+      <Layout>
+        <React.Fragment>
+          <Helmet
+            title={
+              this.props.pageContext.category.name +
+              ' - ' +
+              this.props.pageContext.siteInfo.siteMetadata.title
             }
-          </StoriesWrapper>
+          />
+          <NavigationBar
+            siteTitle={this.props.pageContext.siteInfo.siteMetadata.title}
+          />
+          <Container>
+            <CategoryInfoWrapper>
+              <CategoryName>
+                {this.props.pageContext.category.name}
+              </CategoryName>
+              <CategoryDescription>
+                {this.props.pageContext.category.description}
+              </CategoryDescription>
+            </CategoryInfoWrapper>
 
-          <MoreButtonWrapper>
-            {!this.props.pathContext.isLast ? <Link to = {"/category/" + this.props.pathContext.category.link + "/" + (this.props.pathContext.page+1)}><PrimaryButton float="left" label="Older Posts"/></Link>  : null}
-            {!this.props.pathContext.isFirst && this.props.pathContext.page !== 2 ? <Link to = {"/category/" + this.props.pathContext.category.link + "/" + (this.props.pathContext.page-1)}><PrimaryButton float="right" label="Newer Posts"/></Link>  : null}
-            {!this.props.pathContext.isFirst && this.props.pathContext.page === 2 ? <Link to = {"/category/" + this.props.pathContext.category.link}><PrimaryButton float="right" label="Newer Posts"/></Link>  : null}
-          </MoreButtonWrapper>
-        </Container>
-        <Footer mobilehide/>
-        <MobileFooter/>
-      </React.Fragment>
+            {!isEmpty(this.props.pageContext.featurePost) ? (
+              <FeaturedCategory
+                categoryName={this.props.pageContext.category.name}
+                post={this.props.pageContext.featurePost}
+              />
+            ) : null}
+
+            {stories != null ? (
+              <React.Fragment>
+                <SectionHeader>Latest</SectionHeader>
+                <hr />
+              </React.Fragment>
+            ) : null}
+
+            <StoriesWrapper>
+              {stories != null ? (
+                stories.map((story, index) => {
+                  return (
+                    <CardWrapper key={story.node.fields.slug}>
+                      <CardImage post={story} />
+                    </CardWrapper>
+                  )
+                })
+              ) : !isEmpty(this.props.pageContext.featurePost) ? (
+                <ErrorMessage>
+                  There's no more post in this category
+                </ErrorMessage>
+              ) : (
+                <ErrorMessage>
+                  There is no post in this category. Stay Tuned
+                </ErrorMessage>
+              )}
+            </StoriesWrapper>
+
+            <MoreButtonWrapper>
+              {!this.props.pageContext.isLast ? (
+                <Link
+                  to={
+                    '/category/' +
+                    this.props.pageContext.category.link +
+                    '/' +
+                    (this.props.pageContext.page + 1)
+                  }
+                >
+                  <PrimaryButton float="left" label="Older Posts" />
+                </Link>
+              ) : null}
+              {!this.props.pageContext.isFirst &&
+              this.props.pageContext.page !== 2 ? (
+                <Link
+                  to={
+                    '/category/' +
+                    this.props.pageContext.category.link +
+                    '/' +
+                    (this.props.pageContext.page - 1)
+                  }
+                >
+                  <PrimaryButton float="right" label="Newer Posts" />
+                </Link>
+              ) : null}
+              {!this.props.pageContext.isFirst &&
+              this.props.pageContext.page === 2 ? (
+                <Link to={'/category/' + this.props.pageContext.category.link}>
+                  <PrimaryButton float="right" label="Newer Posts" />
+                </Link>
+              ) : null}
+            </MoreButtonWrapper>
+          </Container>
+          <Footer mobilehide />
+          <MobileFooter />
+        </React.Fragment>
+      </Layout>
     )
   }
 }
