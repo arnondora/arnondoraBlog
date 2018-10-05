@@ -144,7 +144,7 @@ const LiveFeed = styled.div`
   margin-top: 25px;
 `
 
-const EventDetailContainer = LiveFeedContainer.extend`
+const EventDetailContainer = styled(LiveFeedContainer)`
   margin-top: 30px;
 `
 

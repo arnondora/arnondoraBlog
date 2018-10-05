@@ -72,7 +72,7 @@ const Thumbnail = styled(Img)`
   }
 `
 
-const Content = BlogContent.extend`
+const Content = styled(BlogContent)`
   width: 60%;
   margin: 0 auto;
   margin-top: 40px;
@@ -90,7 +90,7 @@ const CommentWrapper = styled.div`
       : props.theme.darkBackground};
 `
 
-const PageWrapper = BlogContent.extend`
+const PageWrapper = styled(BlogContent)`
   width: 60%;
   margin: 0 auto;
   padding-top: 20px;

@@ -60,7 +60,7 @@ const StoryContainer = styled.div`
     }
   }
 `
-const PreviousStoryContainer = StoryContainer.extend`
+const PreviousStoryContainer = styled(StoryContainer)`
   float: left;
   padding-left: 20px;
 
@@ -81,7 +81,7 @@ const PreviousStoryContainer = StoryContainer.extend`
   }
 `
 
-const NextStoryContainer = StoryContainer.extend`
+const NextStoryContainer = styled(StoryContainer)`
   float: right;
   padding-right: 20px;
 

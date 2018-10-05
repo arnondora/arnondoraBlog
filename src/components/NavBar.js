@@ -158,11 +158,11 @@ const StyledLink = styled(Link)`
   }
 `
 
-const MarginedStyledLink = StyledLink.extend`
+const MarginedStyledLink = styled(StyledLink)`
   margin-top: -10px;
 `
 
-const SearchIconWrapper = NavSearchWrapper.extend`
+const SearchIconWrapper = styled(NavSearchWrapper)`
   align-self: center;
   color: white;
 `

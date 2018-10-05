@@ -53,7 +53,7 @@ const ContentWrapper = styled.div`
   }
 `
 
-const PageWrapper = ArticleWrapper.extend`
+const PageWrapper = styled(ArticleWrapper)`
   width: 60%;
   margin: 0 auto;
   padding-top: 20px;

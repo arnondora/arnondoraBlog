@@ -25,20 +25,20 @@ const Label = styled.span`
   margin-right: 20px;
 `
 
-const AuthorLabel = Label.extend`
+const AuthorLabel = styled(Label)`
   font-size: 14px;
   color: ${props => props.theme.primaryColour};
   padding-top: 20px;
 `
 
-const TimeLabel = Label.extend`
+const TimeLabel = styled(Label)`
   font-size: 14px;
   color: ${props => props.theme.textSecondary};
   margin-top: 0x;
   padding-bottom: 10px;
 `
 
-const PostLabel = Label.extend`
+const PostLabel = styled(Label)`
   font-size: 18px;
   padding-bottom: 20px;
   color: ${props => props.theme.textHeading};

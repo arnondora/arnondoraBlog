@@ -64,11 +64,11 @@ const BottomTextItem = styled.span`
   font-size: 18px;
 `
 
-const CopyrightText = BottomTextItem.extend`
+const CopyrightText = styled(BottomTextItem)`
   align-self: flex-start;
 `
 
-const ThemeText = BottomTextItem.extend`
+const ThemeText = styled(BottomTextItem)`
   align-self: flex-end;
 `
 

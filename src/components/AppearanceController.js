@@ -16,7 +16,7 @@ const Container = styled.div`
   }
 `
 
-const ItemIcon = Icon.extend`
+const ItemIcon = styled(Icon)`
   font-size: ${props => props.size + 'px'};
   color: ${props =>
     props.isNight ? props.theme.night_text_normal : props.theme.textSecondary};

@@ -36,7 +36,7 @@ const Except = styled.p`
   margin-bottom: 0;
 `
 
-const DateInfo = Except.extend`
+const DateInfo = styled(Except)`
   color: ${props => props.theme.textDisable};
 `
 export default class Card extends React.Component {
