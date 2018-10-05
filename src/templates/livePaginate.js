@@ -1,7 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
-import { get } from 'lodash'
+import get from 'lodash/get'
 
 import Layout from '../layouts/Layout'
 import NavBar from '../components/NavBar'

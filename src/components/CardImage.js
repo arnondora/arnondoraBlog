@@ -2,7 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 import Img from 'gatsby-image'
-import { isEmpty, capitalize } from 'lodash'
+import isEmpty from 'lodash/isEmpty'
+import capitalize from 'lodash/capitalize'
 
 const Container = styled(Link)`
   display: flex;

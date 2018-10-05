@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
-import { get } from 'lodash'
+import get from 'lodash/get'
 
 const Container = styled.div`
   display: flex;

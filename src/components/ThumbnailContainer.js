@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
-import { isEmpty } from 'lodash'
+import isEmpty from 'lodash/isEmpty'
 
 const SuperContainer = styled.div`
   min-height: 90vh;

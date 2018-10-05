@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { isEmpty } from 'lodash'
+import isEmpty from 'lodash/isEmpty'
 import { graphql } from 'gatsby'
 
 import Layout from '../layouts/Layout'

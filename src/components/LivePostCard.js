@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import moment from 'moment'
-import { isEmpty } from 'lodash'
+import isEmpty from 'lodash/isEmpty'
 
 const ContentContainer = styled.div`
   display: flex;

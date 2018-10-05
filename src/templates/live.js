@@ -2,7 +2,10 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
 import moment from 'moment'
-import { isEmpty, orderBy, map, get } from 'lodash'
+import isEmpty from 'lodash/isEmpty'
+import orderBy from 'lodash/orderBy'
+import map from 'lodash/map'
+import get from 'lodash/get'
 
 import firebase from '../utils/firebase'
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
-import { isEmpty } from 'lodash'
+import isEmpty from 'lodash/isEmpty'
 import Img from 'gatsby-image'
 
 import Layout from '../layouts/Layout'

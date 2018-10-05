@@ -1,7 +1,8 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
-import { get, isEmpty } from 'lodash'
+import get from 'lodash/get'
+import isEmpty from 'lodash/isEmpty'
 import { Link } from 'gatsby'
 
 import Layout from '../layouts/Layout'

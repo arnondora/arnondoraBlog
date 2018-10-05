@@ -3,7 +3,9 @@ import styled from 'styled-components'
 import color from 'color'
 import htmlfilter from 'sanitize-html'
 import moment from 'moment'
-import { map, isEmpty, orderBy } from 'lodash'
+import map from 'lodash/map'
+import isEmpty from 'lodash/isEmpty'
+import orderBy from 'lodash/orderBy'
 
 import firebase from '../utils/firebase'
 

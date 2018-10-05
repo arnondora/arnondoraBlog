@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
 import { navigateTo } from 'gatsby-link'
-import { get } from 'lodash'
+import get from 'lodash/get'
 
 const Container = styled.div`
   width: 100%;
