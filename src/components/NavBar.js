@@ -115,7 +115,7 @@ const NavHeadShare = styled.div`
 const NavHeadline = styled.span`
   align-self: flex-start;
   color: white;
-  margin: -5px 0 0 20px;
+  margin: -5px 20px 0 20px;
   padding-right: 20px;
   display: inline;
   overflow: hidden;
