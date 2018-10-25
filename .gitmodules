@@ -1,3 +1,0 @@
-[submodule "src/articles"]
-	path = src/articles
-	url = https://github.com/arnondora/arnondoraBlogContent.git
