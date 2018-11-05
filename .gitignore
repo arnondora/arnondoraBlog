@@ -6,6 +6,7 @@ node_modules
 public/
 .DS_Store
 .firebaserc
+.firebase
 yarn-error.log
 # ENV FILES
 .env
