@@ -80,6 +80,7 @@ module.exports = {
               maxWidth: 2000,
               linkImagesToOriginal: true,
               sizeByPixelDensity: true,
+              withWebp: true,
             }
           },
           'gatsby-remark-prismjs',
