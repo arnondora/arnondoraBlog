@@ -212,16 +212,11 @@ exports.createPages = ({graphql, actions}) => {
       if (process.env.NODE_ENV == 'development') {
         // If environment is in the development -> show the draft post
         var publishedPosts = posts
-        var draftPosts = []
       }
       else {
         // otherwise draft posts will not be shown
         var publishedPosts = _.filter(posts, (item) => {
           return item.node.frontmatter.status === "published"
-        })
-
-        var draftPosts = _.filter(posts, (item) => {
-          return item.node.frontmatter.status === "draft"
         })
       }
 
@@ -316,25 +311,6 @@ exports.createPages = ({graphql, actions}) => {
         related = _.map(related, (post) => {
           return _.pick(post, ['node.fields.slug', 'node.frontmatter.title', 'node.frontmatter.image'])
         })
-
-        createPage({
-          path: edge.node.fields.slug,
-          component: _.get(edge.node.frontmatter, 'template', 'full-width') === "full-width" ? blogPostFullWidth : blogPostNormal,
-          context: {
-            siteInfo: result.data.site,
-            slug: edge.node.fields.slug,
-            prev,
-            next,
-            related
-          }
-        })
-      })
-
-      // Create blog draft post pages.
-      _.each(draftPosts, (edge) => {
-        const prev = false
-        const next = false
-        const related = false
 
         createPage({
           path: edge.node.fields.slug,
