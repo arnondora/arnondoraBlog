@@ -299,7 +299,6 @@ export const pageQuery = graphql`
             title
             excerpt
             category
-            isFeatured
             image {
               childImageSharp {
                 fluid(maxWidth: 1200, quality: 80) {
