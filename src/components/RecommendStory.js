@@ -1,9 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
+import Img from 'gatsby-image'
 import { Link } from 'gatsby'
 import get from 'lodash/get'
 
-const Container = styled.div`
+const RecommendStoryContainer = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -14,19 +15,50 @@ const Container = styled.div`
   }
 `
 
-const StoryWrapper = styled(Link)`
-  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url(${props => props.thumbnail}), ${props => props.theme.primaryColour};
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: ${props => props.width * 100 + '%'};
+const Overlay = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+`
 
-  padding: 0.5em;
+const PostThumbnail = styled(Img)`
+  position: absolute !important;
+  top:0;
+  left:0;
+  height: 100%;
+  width: 100%;
+  margin:0;
+  padding:0;
   display: flex;
-  height: 200px;
-  justify-content: center;
+  z-index: 0;
+`
+
+const ContentContainer = styled.div`
+  position: absolute;
+  top:0;
+  height:100%;
+  display:flex;
   align-items: center;
+  justify-content:center;
+  z-index: 2;
+  text-align:center;
+`
+const StoryTitle = styled.p`
+  color: white;
+  padding:0;
+  width:90%;
+  margin: 0 auto;
+`
+
+const StoryWrapper = styled(Link)`
+  position: relative;
+  width: ${props => props.width * 100 + '%'};
+  padding: 0.5em;
+  height: 200px;
 
   font-size: 1.2em;
   color: white;
@@ -48,24 +80,21 @@ const StoryWrapper = styled(Link)`
 export default class RecommendStory extends React.Component {
   render() {
     return (
-      <Container>
+      <RecommendStoryContainer>
         {this.props.stories.map((story, index) => {
           return (
             <StoryWrapper
               to={story.node.fields.slug}
               key={story.node.fields.slug}
               width={1 / this.props.stories.length}
-              thumbnail={get(
-                story.node.frontmatter,
-                'image.childImageSharp.fluid.src',
-                ''
-              )}
             >
-              {story.node.frontmatter.title}
+              <ContentContainer><StoryTitle>{story.node.frontmatter.title}</StoryTitle></ContentContainer>
+              <Overlay/>
+              <PostThumbnail title={get(story.node.frontmatter,'title')} alt={get(story.node.frontmatter,'title')} fluid={get(story.node.frontmatter, 'image.childImageSharp.fluid')}/>
             </StoryWrapper>
           )
         })}
-      </Container>
+      </RecommendStoryContainer>
     )
   }
 }
