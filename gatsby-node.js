@@ -209,13 +209,21 @@ exports.createPages = ({graphql, actions}) => {
         return item.node.frontmatter.type === "post"
       })
 
-      const publishedPosts = _.filter(posts, (item) => {
-        return item.node.frontmatter.status === "published"
-      })
+      if (process.env.NODE_ENV == 'development') {
+        // If environment is in the development -> show the draft post
+        var publishedPosts = posts
+        var draftPosts = []
+      }
+      else {
+        // otherwise draft posts will not be shown
+        var publishedPosts = _.filter(posts, (item) => {
+          return item.node.frontmatter.status === "published"
+        })
 
-      const draftPosts = _.filter(posts, (item) => {
-        return item.node.frontmatter.status === "draft"
-      })
+        var draftPosts = _.filter(posts, (item) => {
+          return item.node.frontmatter.status === "draft"
+        })
+      }
 
       var featurePosts = _.take(_.filter(publishedPosts, (item) => {
         return _.get(item, 'node.frontmatter.isFeatured', false) === true || _.get(item, 'node.frontmatter.isFeatured', 'false') === 'true'
