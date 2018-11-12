@@ -4,6 +4,8 @@ import Img from 'gatsby-image'
 import { Link } from 'gatsby'
 import get from 'lodash/get'
 
+import colours from '../utils/colours'
+
 const RecommendStoryContainer = styled.div`
   display: flex;
   flex-direction: row;
@@ -27,6 +29,19 @@ const Overlay = styled.div`
 
 const PostThumbnail = styled(Img)`
   position: absolute !important;
+  top:0;
+  left:0;
+  height: 100%;
+  width: 100%;
+  margin:0;
+  padding:0;
+  display: flex;
+  z-index: 0;
+`
+
+const BlankPostThumbnail = styled.div`
+  position: absolute !important;
+  background-color: ${colours.primaryColour};
   top:0;
   left:0;
   height: 100%;
@@ -90,7 +105,12 @@ export default class RecommendStory extends React.Component {
             >
               <ContentContainer><StoryTitle>{story.node.frontmatter.title}</StoryTitle></ContentContainer>
               <Overlay/>
-              <PostThumbnail title={get(story.node.frontmatter,'title')} alt={get(story.node.frontmatter,'title')} fluid={get(story.node.frontmatter, 'image.childImageSharp.fluid')}/>
+              {
+                get(story.node.frontmatter, 'image.childImageSharp.fluid', null) !== null ?
+                  <PostThumbnail title={get(story.node.frontmatter,'title')} alt={get(story.node.frontmatter,'title')} fluid={story.node.frontmatter.image.childImageSharp.fluid}/>
+                :
+                  <BlankPostThumbnail title={get(story.node.frontmatter,'title')}/>
+              }
             </StoryWrapper>
           )
         })}
