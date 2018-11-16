@@ -26,10 +26,10 @@ const SocialItem = styled.a`
     props.name === 'facebook'
       ? props.theme.facebook
       : props.name === 'twitter'
-        ? props.theme.twitter
-        : props.name === 'line'
-          ? props.theme.line
-          : props.theme.googlePlus};
+      ? props.theme.twitter
+      : props.name === 'line'
+      ? props.theme.line
+      : props.theme.googlePlus};
   justify-content: center;
   display: flex;
   padding-top: 10px;
@@ -42,16 +42,16 @@ const SocialItem = styled.a`
             .darken(0.2)
             .string()
         : props.name === 'twitter'
-          ? color(props.theme.twitter)
-              .darken(0.2)
-              .string()
-          : props.name === 'line'
-            ? color(props.theme.line)
-                .darken(0.2)
-                .string()
-            : color(props.theme.googlePlus)
-                .darken(0.2)
-                .string()};
+        ? color(props.theme.twitter)
+            .darken(0.2)
+            .string()
+        : props.name === 'line'
+        ? color(props.theme.line)
+            .darken(0.2)
+            .string()
+        : color(props.theme.googlePlus)
+            .darken(0.2)
+            .string()};
   }
 `
 

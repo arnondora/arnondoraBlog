@@ -314,7 +314,8 @@ export default class LiveTemplate extends React.Component {
                       aria-labelledby="television"
                     >
                       📺
-                    </span>. We'll put when it available. Stay Tuned!
+                    </span>
+                    . We'll put when it available. Stay Tuned!
                   </NoPostLabel>
                 )}
               </LiveFeedContainer>

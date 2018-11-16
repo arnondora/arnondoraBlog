@@ -18,12 +18,16 @@ const Container = styled.div`
 
   & > h2 {
     color: ${props =>
-      props.isNight ? props.theme.night_text_light : props.theme.textHeading} !important;
+      props.isNight
+        ? props.theme.night_text_light
+        : props.theme.textHeading} !important;
   }
 
   & > div > span {
     color: ${props =>
-      props.isNight ? props.theme.night_text_normal : props.theme.textHeading} !important;
+      props.isNight
+        ? props.theme.night_text_normal
+        : props.theme.textHeading} !important;
   }
 `
 

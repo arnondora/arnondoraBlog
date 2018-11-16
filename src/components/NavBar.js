@@ -27,8 +27,8 @@ const SuperWrapper = styled.div`
             .alpha(props.scrollPosition / 300)
             .string()
       : props.isNight
-        ? props.theme.night_darkBackground
-        : props.theme.primaryColour};
+      ? props.theme.night_darkBackground
+      : props.theme.primaryColour};
   border-bottom: solid
     ${props =>
       props.isNight

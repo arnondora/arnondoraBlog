@@ -57,8 +57,8 @@ const Icon = styled(FontAwesomeIcon)`
       props.name === 'facebook'
         ? props.theme.facebook
         : props.name === 'twitter'
-          ? props.theme.twitter
-          : props.theme.googlePlus};
+        ? props.theme.twitter
+        : props.theme.googlePlus};
   }
 `
 

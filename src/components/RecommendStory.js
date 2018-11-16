@@ -29,12 +29,12 @@ const Overlay = styled.div`
 
 const PostThumbnail = styled(Img)`
   position: absolute !important;
-  top:0;
-  left:0;
+  top: 0;
+  left: 0;
   height: 100%;
   width: 100%;
-  margin:0;
-  padding:0;
+  margin: 0;
+  padding: 0;
   display: flex;
   z-index: 0;
 `
@@ -42,30 +42,30 @@ const PostThumbnail = styled(Img)`
 const BlankPostThumbnail = styled.div`
   position: absolute !important;
   background-color: ${colours.primaryColour};
-  top:0;
-  left:0;
+  top: 0;
+  left: 0;
   height: 100%;
   width: 100%;
-  margin:0;
-  padding:0;
+  margin: 0;
+  padding: 0;
   display: flex;
   z-index: 0;
 `
 
 const ContentContainer = styled.div`
   position: absolute;
-  top:0;
-  height:100%;
-  display:flex;
+  top: 0;
+  height: 100%;
+  display: flex;
   align-items: center;
-  justify-content:center;
+  justify-content: center;
   z-index: 2;
-  text-align:center;
+  text-align: center;
 `
 const StoryTitle = styled.p`
   color: white;
-  padding:0;
-  width:90%;
+  padding: 0;
+  width: 90%;
   margin: 0 auto;
 `
 
@@ -103,14 +103,25 @@ export default class RecommendStory extends React.Component {
               key={story.node.fields.slug}
               width={1 / this.props.stories.length}
             >
-              <ContentContainer><StoryTitle>{story.node.frontmatter.title}</StoryTitle></ContentContainer>
-              <Overlay/>
-              {
-                get(story.node.frontmatter, 'image.childImageSharp.fluid', null) !== null ?
-                  <PostThumbnail title={get(story.node.frontmatter,'title')} alt={get(story.node.frontmatter,'title')} fluid={story.node.frontmatter.image.childImageSharp.fluid}/>
-                :
-                  <BlankPostThumbnail title={get(story.node.frontmatter,'title')}/>
-              }
+              <ContentContainer>
+                <StoryTitle>{story.node.frontmatter.title}</StoryTitle>
+              </ContentContainer>
+              <Overlay />
+              {get(
+                story.node.frontmatter,
+                'image.childImageSharp.fluid',
+                null
+              ) !== null ? (
+                <PostThumbnail
+                  title={get(story.node.frontmatter, 'title')}
+                  alt={get(story.node.frontmatter, 'title')}
+                  fluid={story.node.frontmatter.image.childImageSharp.fluid}
+                />
+              ) : (
+                <BlankPostThumbnail
+                  title={get(story.node.frontmatter, 'title')}
+                />
+              )}
             </StoryWrapper>
           )
         })}

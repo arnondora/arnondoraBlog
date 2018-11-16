@@ -108,7 +108,7 @@ export default class ThumbnailContainer extends React.Component {
                 fluid={this.props.post.image.childImageSharp.fluid}
                 alt={this.props.post.title}
                 title={this.props.post.title}
-                style={{'position': 'absolute', 'width': '100%', 'height': '90vh'}}
+                style={{ position: 'absolute', width: '100%', height: '90vh' }}
               />
             ) : (
               <BlankThumbnail />

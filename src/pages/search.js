@@ -218,11 +218,10 @@ export default class search extends React.Component {
 
               <ResultWrapper isLeft={false}>
                 {searchResult.length > 0 ? (
-                  searchResult.map(
-                    page =>
-                      page.node.frontmatter.status === 'published' ? (
-                        <CardImage key={page.node.fields.slug} post={page} />
-                      ) : null
+                  searchResult.map(page =>
+                    page.node.frontmatter.status === 'published' ? (
+                      <CardImage key={page.node.fields.slug} post={page} />
+                    ) : null
                   )
                 ) : (
                   <NotFoundText>
