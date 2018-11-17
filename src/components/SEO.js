@@ -176,7 +176,7 @@ export default class SEO extends React.Component {
                 "name" : "${this.props.siteMetadata.title}",
                 "logo": {
                   "@type": "ImageObject",
-                  "url": "${this.props.siteMetadata.siteUrl + "/favicon.png"}"
+                  "url": "${this.props.siteMetadata.siteUrl + '/favicon.png'}"
                 }
               }
             }
