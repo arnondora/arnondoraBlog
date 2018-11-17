@@ -150,22 +150,36 @@ export default class SEO extends React.Component {
           { property: 'google', content: 'nositelinkssearchbox' },
         ]}
       >
-        <script type="application/application/ld+json">
+        <script type="application/ld+json">
           {`
-            "@context": "http://schema.org/",
-            "@type" : "Article",
-            "mainEntityOfPage" : {
-              "@type" : "Webpage",
-              "@id" : "https://arnondora.in.th"
+            {
+              "@context": "http://schema.org/",
+              "@type" : "Article",
+              "mainEntityOfPage": {
+                 "@type": "WebPage",
+                 "@id": "${this.props.siteMetadata.siteUrl}"
+              },
+              "name" : "${this.props.postContent.frontmatter.title}",
+              "headline" : "${this.props.postContent.frontmatter.title}",
+              "backstory" : "${this.props.postContent.frontmatter.excerpt}",
+              "author" : {
+                "@type" : "Person",
+                "name" : "${this.props.siteMetadata.author}"
+              },
+              "datePublished" : "${this.props.postContent.frontmatter.date}",
+              "dateModified" : "${this.props.postContent.frontmatter.date}",
+              "image" : "${thumbnailURL}",
+              "url" : "${this.props.siteMetadata.siteUrl + this.props.slug}",
+              "description" : "${this.props.postContent.frontmatter.excerpt}",
+              "publisher" : {
+              	"@type" : "Organization",
+                "name" : "${this.props.siteMetadata.title}",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "${this.props.siteMetadata.siteUrl + "/favicon.png"}"
+                }
+              }
             }
-            "author" : {
-              "@type" : "Person",
-              "name" : "${this.props.siteMetadata.author}"
-            },
-            "image" : "${thumbnailURL}",
-            "headline" : ${this.props.postContent.frontmatter.title},
-            "datePublished" : "${this.props.postContent.frontmatter.date}",
-            "description" : "${this.props.postContent.frontmatter.excerpt}"
           `}
         </script>
       </Helmet>
