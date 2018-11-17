@@ -145,6 +145,9 @@ export default class SEO extends React.Component {
             name: 'twitter:description',
             content: this.props.postContent.frontmatter.excerpt,
           },
+
+          // Google Search Box
+          { property: 'google', content: 'nositelinkssearchbox' },
         ]}
       >
         <script type="application/application/ld+json">
