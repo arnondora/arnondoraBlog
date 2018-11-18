@@ -95,20 +95,20 @@ module.exports = {
         exclude: ["/category/*/*", "/search"],
         query: `
         {
-        site {
-          siteMetadata {
-            siteUrl
+          site {
+            siteMetadata {
+              siteUrl
+            }
           }
-        }
 
-        allSitePage {
-          edges {
-            node {
-              path
+          allSitePage {
+            edges {
+              node {
+                path
+              }
             }
           }
         }
-    }
         `
       }
     },{
