@@ -5,6 +5,7 @@ import htmlfilter from 'sanitize-html'
 import moment from 'moment'
 import map from 'lodash/map'
 import isEmpty from 'lodash/isEmpty'
+import get from 'lodash/get'
 import orderBy from 'lodash/orderBy'
 
 import firebase from '../utils/firebase'
@@ -212,11 +213,9 @@ export default class CommentBox extends React.Component {
             <Info isNight={this.props.isNight}>Loading Comment(s)</Info>
           ) : !isEmpty(comments) ? (
             map(comments, item => {
-              item = item.props.comment
+              item = get(item, 'props.comment', null)
               if (
-                !isEmpty(item.name) > 0 &&
-                !isEmpty(item.comment) > 0 &&
-                moment.unix(item.timestamp).isValid()
+                item !== null
               )
                 return (
                   <CommentItem

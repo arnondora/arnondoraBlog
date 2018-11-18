@@ -47,15 +47,25 @@ const Container = styled.div`
 
 export default class CommentItem extends React.Component {
   render() {
-    return (
-      <Container isNight={this.props.isNight}>
-        <Author>{this.props.comment.name}</Author>
-        <Subtitle>
-          Posted on{' '}
-          {moment.unix(this.props.comment.timestamp).format('MMMM DD, YYYY')}
-        </Subtitle>
-        <Content>{this.props.comment.comment}</Content>
-      </Container>
-    )
+    if (
+      !isEmpty(item.name) > 0 &&
+      !isEmpty(item.comment) > 0 &&
+      moment.unix(item.timestamp).isValid()
+    ) {
+      return (
+
+        <Container isNight={this.props.isNight}>
+          <Author>{this.props.comment.name}</Author>
+          <Subtitle>
+            Posted on{' '}
+            {moment.unix(this.props.comment.timestamp).format('MMMM DD, YYYY')}
+          </Subtitle>
+          <Content>{this.props.comment.comment}</Content>
+        </Container>
+      )
+    }
+    else {
+      return null
+    }
   }
 }
