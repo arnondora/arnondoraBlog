@@ -214,9 +214,7 @@ export default class CommentBox extends React.Component {
           ) : !isEmpty(comments) ? (
             map(comments, item => {
               item = get(item, 'props.comment', null)
-              if (
-                item !== null
-              )
+              if (item !== null)
                 return (
                   <CommentItem
                     key={item.timestamp}

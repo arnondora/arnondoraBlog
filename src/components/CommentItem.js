@@ -53,7 +53,6 @@ export default class CommentItem extends React.Component {
       moment.unix(item.timestamp).isValid()
     ) {
       return (
-
         <Container isNight={this.props.isNight}>
           <Author>{this.props.comment.name}</Author>
           <Subtitle>
@@ -63,8 +62,7 @@ export default class CommentItem extends React.Component {
           <Content>{this.props.comment.comment}</Content>
         </Container>
       )
-    }
-    else {
+    } else {
       return null
     }
   }
