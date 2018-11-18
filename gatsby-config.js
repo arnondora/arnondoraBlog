@@ -92,28 +92,23 @@ module.exports = {
     }, {
       resolve: `gatsby-plugin-sitemap`,
       options: {
+        exclude: ["/category/*/*", "/search"],
         query: `
-          {
-            site {
-              siteMetadata {
-                siteUrl
-              }
-            }
-            allSitePage (
-              filter: {
-                path : {
-                  regex : "/^(?!\/(dev-404-page 404)).*$/"
-                  regex : "/[^0-9]+$/"
-                }
-              }
-            ) {
-              edges {
-                node {
-                  path
-                }
-              }
+        {
+        site {
+          siteMetadata {
+            siteUrl
+          }
+        }
+
+        allSitePage {
+          edges {
+            node {
+              path
             }
           }
+        }
+    }
         `
       }
     },{
