@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import moment from 'moment'
+import get from 'lodash/get'
+import isEmpty from 'lodash/isEmpty'
 
 const Author = styled.h3`
   margin-bottom: 2px;
@@ -48,9 +50,9 @@ const Container = styled.div`
 export default class CommentItem extends React.Component {
   render() {
     if (
-      !isEmpty(item.name) > 0 &&
-      !isEmpty(item.comment) > 0 &&
-      moment.unix(item.timestamp).isValid()
+      !isEmpty(this.props.comment.name) > 0 &&
+      !isEmpty(this.props.comment.comment) > 0 &&
+      moment.unix(this.props.comment.timestamp).isValid()
     ) {
       return (
         <Container isNight={this.props.isNight}>

@@ -114,9 +114,6 @@ module.exports = {
     },{
       resolve: `gatsby-plugin-feed`
     },
-    {
-      resolve: `gatsby-plugin-no-sourcemaps`
-    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-lodash`,
     `gatsby-transformer-json`,
