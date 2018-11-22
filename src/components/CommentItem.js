@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import moment from 'moment'
-import get from 'lodash/get'
 import isEmpty from 'lodash/isEmpty'
 
 const Author = styled.h3`
