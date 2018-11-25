@@ -55,18 +55,20 @@ const BlankPostThumbnail = styled.div`
 const ContentContainer = styled.div`
   position: absolute;
   top: 0;
+  left: 0;
+  width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 2;
-  text-align: center;
 `
 const StoryTitle = styled.p`
   color: white;
   padding: 0;
   width: 90%;
   margin: 0 auto;
+  text-align: center;
 `
 
 const StoryWrapper = styled(Link)`
