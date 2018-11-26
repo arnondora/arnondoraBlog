@@ -208,6 +208,28 @@ const createPublishedPostPage = (createPage, posts, siteInfo) => {
   })
 }
 
+const createPagePages = (createPage, pages, siteInfo) => {
+  const blogPostFullWidth = path.resolve(
+    './src/templates/blog-post-full-width.js'
+  )
+  const blogPostNormal = path.resolve('./src/templates/blog-post-normal.js')
+
+  _.each(pages, edge => {
+    createPage({
+      path: edge.node.fields.slug,
+      component:
+        _.get(edge.node.frontmatter, 'template', 'full-width') ===
+        'full-width'
+          ? blogPostFullWidth
+          : blogPostNormal,
+      context: {
+        siteInfo: siteInfo,
+        slug: edge.node.fields.slug,
+      },
+    })
+  })
+}
+
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
@@ -377,28 +399,15 @@ exports.createPages = ({ graphql, actions }) => {
           })
         }
 
-        uploadArticleToFirebase(posts, 'articles')
-        uploadArticleToFirebase(pages, 'pages')
-
         // Create pages.
-        _.each(pages, edge => {
-          createPage({
-            path: edge.node.fields.slug,
-            component:
-              _.get(edge.node.frontmatter, 'template', 'full-width') ===
-              'full-width'
-                ? blogPostFullWidth
-                : blogPostNormal,
-            context: {
-              siteInfo: result.data.site,
-              slug: edge.node.fields.slug,
-              id: id,
-            },
-          })
-        })
+        createPagePages(createPage, pages, result.data.site)
 
         // Create blog published post pages.
         createPublishedPostPage(createPage, publishedPosts, result.data.site)
+
+        // Upload Article and Page to Firebase
+        uploadArticleToFirebase(posts, 'articles')
+        uploadArticleToFirebase(pages, 'pages')
       })
     )
   })
