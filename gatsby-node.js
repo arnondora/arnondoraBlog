@@ -230,6 +230,41 @@ const createPagePages = (createPage, pages, siteInfo) => {
   })
 }
 
+const createIndexPagination = (createPage, posts, siteInfo, categories, featuredPost) => {
+  const IndexPaginationAmount = 5
+  const index = path.resolve('./src/templates/index.js')
+
+  const chunkPost = _.chunk(posts, IndexPaginationAmount)
+
+  for (var page = 0; page < chunkPost.length; page++) {
+    chunkCleanPosts = _.map(chunkPost[page], post => {
+      return _.pick(post, [
+        'node.fields.slug',
+        'node.frontmatter.title',
+        'node.frontmatter.excerpt',
+        'node.frontmatter.category',
+        'node.frontmatter.date',
+        'node.frontmatter.author',
+      ])
+    })
+
+    createPage({
+      path: page + 1 === 1 ? '/' : '/' + (page + 1),
+      component: index,
+      context: {
+        siteInfo: siteInfo,
+        posts: chunkCleanPosts,
+        isFirst: page + 1 === 1 ? true : false,
+        isLast: page + 1 === chunkPost.length ? true : false,
+        page: page + 1,
+        featurePosts: featuredPost,
+        categories: categories,
+      },
+    })
+  }
+
+}
+
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
@@ -238,9 +273,6 @@ exports.createPages = ({ graphql, actions }) => {
       './src/templates/blog-post-full-width.js'
     )
     const blogPostNormal = path.resolve('./src/templates/blog-post-normal.js')
-    const index = path.resolve('./src/templates/index.js')
-
-    const IndexPaginationAmount = 5
 
     resolve(
       graphql(`
@@ -371,33 +403,8 @@ exports.createPages = ({ graphql, actions }) => {
             createListLivePage(createPage, livePages, result.data.site)
           })
 
-        var chunkPost = _.chunk(publishedPosts, IndexPaginationAmount)
-        for (var page = 0; page < chunkPost.length; page++) {
-          chunkCleanPosts = _.map(chunkPost[page], post => {
-            return _.pick(post, [
-              'node.fields.slug',
-              'node.frontmatter.title',
-              'node.frontmatter.excerpt',
-              'node.frontmatter.category',
-              'node.frontmatter.date',
-              'node.frontmatter.author',
-            ])
-          })
-
-          createPage({
-            path: page + 1 === 1 ? '/' : '/' + (page + 1),
-            component: index,
-            context: {
-              siteInfo: result.data.site,
-              posts: chunkCleanPosts,
-              isFirst: page + 1 === 1 ? true : false,
-              isLast: page + 1 === chunkPost.length ? true : false,
-              page: page + 1,
-              featurePosts: featurePosts[0],
-              categories: result.data.allCategoriesJson.edges,
-            },
-          })
-        }
+        // Create Index Pagination Pages
+        createIndexPagination(createPage, publishedPosts, result.data.site, result.data.allCategoriesJson.edges, featurePosts[0])
 
         // Create pages.
         createPagePages(createPage, pages, result.data.site)
