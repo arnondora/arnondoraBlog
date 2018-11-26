@@ -218,8 +218,7 @@ const createPagePages = (createPage, pages, siteInfo) => {
     createPage({
       path: edge.node.fields.slug,
       component:
-        _.get(edge.node.frontmatter, 'template', 'full-width') ===
-        'full-width'
+        _.get(edge.node.frontmatter, 'template', 'full-width') === 'full-width'
           ? blogPostFullWidth
           : blogPostNormal,
       context: {
@@ -230,7 +229,13 @@ const createPagePages = (createPage, pages, siteInfo) => {
   })
 }
 
-const createIndexPagination = (createPage, posts, siteInfo, categories, featuredPost) => {
+const createIndexPagination = (
+  createPage,
+  posts,
+  siteInfo,
+  categories,
+  featuredPost
+) => {
   const IndexPaginationAmount = 5
   const index = path.resolve('./src/templates/index.js')
 
@@ -262,18 +267,12 @@ const createIndexPagination = (createPage, posts, siteInfo, categories, featured
       },
     })
   }
-
 }
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
   return new Promise((resolve, reject) => {
-    const blogPostFullWidth = path.resolve(
-      './src/templates/blog-post-full-width.js'
-    )
-    const blogPostNormal = path.resolve('./src/templates/blog-post-normal.js')
-
     resolve(
       graphql(`
         {
@@ -404,7 +403,13 @@ exports.createPages = ({ graphql, actions }) => {
           })
 
         // Create Index Pagination Pages
-        createIndexPagination(createPage, publishedPosts, result.data.site, result.data.allCategoriesJson.edges, featurePosts[0])
+        createIndexPagination(
+          createPage,
+          publishedPosts,
+          result.data.site,
+          result.data.allCategoriesJson.edges,
+          featurePosts[0]
+        )
 
         // Create pages.
         createPagePages(createPage, pages, result.data.site)
