@@ -1,3 +1,10 @@
+if (process.env.gatsby_executing_command === 'develop' || process.env.GATSBY_ENV === 'staging')
+  var envPath = './.env.development'
+else
+  var envPath = './.env.production'
+
+require('dotenv').config({path: envPath})
+
 module.exports = {
   pathPrefix: `/`,
   siteMetadata: {
@@ -61,7 +68,7 @@ module.exports = {
     }, {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname + "/src/articles"}`,
+        path: `${__dirname + process.env.ARTICLE_LOCATION}`,
         name: 'pages'
       }
     },{
