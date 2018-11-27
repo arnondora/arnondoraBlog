@@ -1,7 +1,6 @@
 const _ = require('lodash')
 const Promise = require('bluebird')
 const path = require('path')
-const webpackLodashPlugin = require('lodash-webpack-plugin')
 const { createFilePath } = require('gatsby-source-filesystem')
 const firebase = require('firebase')
 
@@ -163,15 +162,59 @@ const createPublishedPostPage = (createPage, posts, siteInfo) => {
   var id = -1
   _.each(posts, edge => {
     id += 1
-    const prev =
+
+    var prev =
       id === 0
         ? false
         : _.pick(posts[id - 1].node, ['fields.slug', 'frontmatter.title'])
 
-    const next =
+    var next =
       id + 1 > _.size(posts) - 1
         ? false
         : _.pick(posts[id + 1].node, ['fields.slug', 'frontmatter.title'])
+
+    // Check for series
+    if (
+      _.get(edge.node.frontmatter, 'series', null) !== null &&
+      _.get(edge.node.frontmatter, 'ep_number', -1) > 0
+    ) {
+      //Collect the same series
+      const seriesPosts = _.filter(posts, item => {
+        return (
+          _.get(item, 'node.frontmatter.series', '') ===
+          edge.node.frontmatter.series
+        )
+      })
+
+      const previousStorySeries = _.filter(seriesPosts, item => {
+        return (
+          parseInt(_.get(item, 'node.frontmatter.ep_number', -1)) ===
+          parseInt(edge.node.frontmatter.ep_number) - 1
+        )
+      })
+
+      const nextStorySeries = _.filter(seriesPosts, item => {
+        return (
+          parseInt(_.get(item, 'node.frontmatter.ep_number', -1)) ===
+          parseInt(edge.node.frontmatter.ep_number) + 1
+        )
+      })
+
+      prev =
+        parseInt(edge.node.frontmatter.ep_number) === _.size(seriesPosts)
+          ? false
+          : _.pick(_.head(nextStorySeries).node, [
+              'fields.slug',
+              'frontmatter.title',
+            ])
+      next =
+        parseInt(edge.node.frontmatter.ep_number) === 1
+          ? false
+          : _.pick(_.head(previousStorySeries).node, [
+              'fields.slug',
+              'frontmatter.title',
+            ])
+    }
 
     var related = _.take(
       _.filter(posts, post => {
@@ -303,6 +346,9 @@ exports.createPages = ({ graphql, actions }) => {
                   type
                   author
                   status
+                  series
+                  ep_number
+                  ep_name
                   date(formatString: "MMMM DD, YYYY")
                   isFeatured
                   template
