@@ -72,7 +72,8 @@
     "remove-cache": "rm -rf .cache",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\"",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "precommit": "yarn run format && exit 0"
+    "precommit": "yarn run format && exit 0",
+    "new-article": "python3 article_manager/new_article.py"
   },
   "devDependencies": {
     "prettier": "^1.8.2",
