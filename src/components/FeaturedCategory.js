@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
-import { navigateTo } from 'gatsby-link'
+import { navigate } from 'gatsby-link'
 import get from 'lodash/get'
 
 const Container = styled.div`
@@ -65,7 +65,7 @@ const Subtitle = styled.p`
 export default class FeaturedCategory extends React.Component {
   render() {
     return (
-      <Container onClick={() => navigateTo(this.props.post.node.fields.slug)}>
+      <Container onClick={() => navigate(this.props.post.node.fields.slug)}>
         {get(
           this.props.post.node.frontmatter,
           'image.childImageSharp.fluid',
