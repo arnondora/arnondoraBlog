@@ -117,6 +117,19 @@ module.exports = {
     },{
       resolve: `gatsby-plugin-feed`
     },
+    {
+      resolve: `gatsby-plugin-facebook-pixel`,
+      options: {
+        pixelId: `${process.env.FACEBOOK_PIXEL_ID}`,
+      }
+    },
+    {
+    resolve: `gatsby-plugin-google-tagmanager`,
+    options: {
+      id: `${process.env.GOOGLE_TAG_MANAGER_ID}`,
+      includeInDevelopment: false
+    },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-lodash`,
     `gatsby-transformer-json`,
