@@ -107,6 +107,9 @@ export default class SEO extends React.Component {
             content: this.props.postContent.frontmatter.date,
           },
 
+          // Facebook
+          { property: 'fb:app_id', content: process.env.FACEBOOK_APP_ID },
+
           // Twitter
           {
             name: 'twitter:card',

@@ -76,12 +76,13 @@ export default class IndexPage extends React.Component {
               },
               {
                 property: 'og:description',
-                content: 'The offical personal blog of @arnondora',
+                content: `${process.env.SITE_DESCRIPTION}`,
               },
               { property: 'og:locale', content: 'th_TH' },
-              { property: 'og:type', content: 'blog' },
+              { property: 'og:type', content: 'website' },
               { property: 'og:url', content: `${process.env.APP_URL}` },
               { property: 'og:image:secure_url', content: siteLogo },
+              { property: 'fb:app_id', content: process.env.FACEBOOK_APP_ID },
               {
                 property: 'og:site_name',
                 content: 'Hello World - Mad Programmer Diary',
