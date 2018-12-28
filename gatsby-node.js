@@ -354,7 +354,7 @@ exports.createPages = ({ graphql, actions }) => {
                   template
                   image {
                     childImageSharp {
-                      fluid(maxWidth: 1200, quality: 80) {
+                      fluid(maxWidth: 2000, quality: 80) {
                         base64
                         tracedSVG
                         aspectRatio
