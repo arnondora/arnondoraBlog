@@ -43,7 +43,6 @@ const typography = new Typography({
     },
     blockquote: {
       borderLeft: `5px solid ${colours.primaryColour}`,
-      borderLeft: `5px solid ${colours.primaryColour}`,
       marginLeft: '0',
     },
     hr: {
