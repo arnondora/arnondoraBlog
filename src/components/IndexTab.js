@@ -97,7 +97,7 @@ export default class IndexTab extends React.Component {
       posts = this.props.context.posts
     } else {
       posts = filter(this.props.context.posts, item => {
-        return moment(item.node.frontmatter.date).unix() <== moment().unix()
+        return moment.unix(item.node.frontmatter.date).isValid() && moment.unix(item.node.frontmatter.date) <= moment().unix()
       })
     }
 
