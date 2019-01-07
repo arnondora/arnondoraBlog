@@ -307,6 +307,7 @@ const createIndexPagination = (
         page: page + 1,
         featurePosts: featuredPost,
         categories: categories,
+        isDevelop : process.env.NODE_ENV == 'development'
       },
     })
   }

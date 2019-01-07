@@ -1,7 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
+import { filter } from 'lodash'
 import color from 'color'
+import moment from 'moment'
 
 import Card from '../components/Card'
 import CategoryButton from '../components/CategoryButton'
@@ -88,7 +90,18 @@ export default class IndexTab extends React.Component {
 
   render() {
     const tabs = ['Posts', 'Categories']
-    var posts = this.props.context.posts.map(item => {
+
+    var posts = []
+
+    if (this.props.context.isDevelop === true) {
+      posts = this.props.context.posts
+    } else {
+      posts = filter(this.props.context.posts, item => {
+        return moment(item.node.frontmatter.date).unix() <= moment().unix()
+      })
+    }
+
+    posts = posts.map(item => {
       return (
         <CardWrapper key={item.node.fields.slug}>
           <Card
