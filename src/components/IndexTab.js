@@ -98,8 +98,8 @@ export default class IndexTab extends React.Component {
     } else {
       posts = filter(this.props.context.posts, item => {
         return (
-          moment.unix(item.node.frontmatter.date).isValid() &&
-          moment.unix(item.node.frontmatter.date) <= moment().unix()
+          moment(item.node.frontmatter.date, 'MMMM DD, YYYY').isValid() &&
+          moment(item.node.frontmatter.date, 'MMMM DD, YYYY').unix() <= moment().unix()
         )
       })
     }
