@@ -65,7 +65,7 @@ const ThumbnailWrapper = styled.div`
 
 const Info = styled.p`
   color: white;
-  font-size: ${props => (props.isSubtitle ? 1.5 : 0.9)}em;
+  font-size: ${props => (props.isSubtitle ? 1.5 : 1)}em;
 
   @media (max-width: 350px) {
     font-size: 1em;
