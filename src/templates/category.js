@@ -101,10 +101,22 @@ export default class CategoryTemplate extends React.Component {
     var feature_story = null
 
     //Check for featured category story
-    if (!isEmpty(this.props.pageContext.featurePost) || (this.props.pageContext.featurePost.node.frontmatter.status !== 'published' && moment(this.props.pageContext.featurePost.node.frontmatter.date, 'MMMM DD, YYYY').isValid() && moment(this.props.pageContext.featurePost.node.frontmatter.date, 'MMMM DD, YYYY').unix() >= moment().unix() && stories !== null)) {
+    if (
+      !isEmpty(this.props.pageContext.featurePost) ||
+      (this.props.pageContext.featurePost.node.frontmatter.status !==
+        'published' &&
+        moment(
+          this.props.pageContext.featurePost.node.frontmatter.date,
+          'MMMM DD, YYYY'
+        ).isValid() &&
+        moment(
+          this.props.pageContext.featurePost.node.frontmatter.date,
+          'MMMM DD, YYYY'
+        ).unix() >= moment().unix() &&
+        stories !== null)
+    ) {
       feature_story = stories[0]
-    }
-    else {
+    } else {
       feature_story = this.props.pageContext.featurePost
     }
 
