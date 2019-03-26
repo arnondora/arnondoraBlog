@@ -502,18 +502,17 @@ export default class cv extends React.Component {
             <li class = "chip">javascript</li>
             <li class = "chip">nodejs</li>
             <li class = "chip">react</li>
-            <li class = "chip">android</li>
             <li class = "chip">php</li>
             <li class = "chip">laravel</li>
             <li class = "chip">python</li>
             <li class = "chip">docker</li>
             <li class = "chip">tensorflow</li>
-            <li class = "chip">weka</li>
             <li class = "chip">R</li>
             <li class = "chip">java</li>
             <li class = "chip">elasticsearch</li>
             <li class = "chip">machine learning</li>
             <li class = "chip">data science</li>
+            <li class = "chip">sequence analysis</li>
           </ul>
         </section>
       </div>
