@@ -232,9 +232,6 @@ export default class NavBar extends React.Component {
                 <MenuItem>
                   <StyledLink to="/category/tutorial">Tutorial</StyledLink>
                 </MenuItem>
-                <MenuItem>
-                  <StyledLink to="/live">Live Blog</StyledLink>
-                </MenuItem>
               </LeftMenu>
 
               {get(this.props, 'article', false) === false ? (
