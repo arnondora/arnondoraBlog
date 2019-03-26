@@ -3,6 +3,7 @@ import Helmet from 'react-helmet'
 import styled from 'styled-components'
 import get from 'lodash/get'
 import isEmpty from 'lodash/isEmpty'
+import moment from 'moment'
 import { Link } from 'gatsby'
 
 import Layout from '../layouts/Layout'
@@ -96,6 +97,17 @@ export default class CategoryTemplate extends React.Component {
     var stories = null
     if (get(this.props.pageContext, 'posts', null) !== null)
       stories = this.props.pageContext.posts
+
+    var feature_story = null
+
+    //Check for featured category story
+    if (!isEmpty(this.props.pageContext.featurePost) || (this.props.pageContext.featurePost.node.frontmatter.status !== 'published' && moment(this.props.pageContext.featurePost.node.frontmatter.date, 'MMMM DD, YYYY').isValid() && moment(this.props.pageContext.featurePost.node.frontmatter.date, 'MMMM DD, YYYY').unix() >= moment().unix() && stories !== null)) {
+      feature_story = stories[0]
+    }
+    else {
+      feature_story = this.props.pageContext.featurePost
+    }
+
     return (
       <Layout>
         <React.Fragment>
@@ -119,10 +131,10 @@ export default class CategoryTemplate extends React.Component {
               </CategoryDescription>
             </CategoryInfoWrapper>
 
-            {!isEmpty(this.props.pageContext.featurePost) ? (
+            {!isEmpty(feature_story) ? (
               <FeaturedCategory
                 categoryName={this.props.pageContext.category.name}
-                post={this.props.pageContext.featurePost}
+                post={feature_story}
               />
             ) : null}
 
