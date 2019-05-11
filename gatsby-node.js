@@ -174,10 +174,10 @@ const createPublishedPostPage = (createPage, posts, siteInfo) => {
         : _.pick(posts[id + 1].node, ['fields.slug', 'frontmatter.title'])
 
     // Check for series
-    if (
+    isSeries =
       _.get(edge.node.frontmatter, 'series', null) !== null &&
       _.get(edge.node.frontmatter, 'ep_number', -1) > 0
-    ) {
+    if (isSeries) {
       //Collect the same series
       const seriesPosts = _.filter(posts, item => {
         return (
@@ -246,6 +246,7 @@ const createPublishedPostPage = (createPage, posts, siteInfo) => {
         prev,
         next,
         related,
+        isSeries,
       },
     })
   })
@@ -307,7 +308,7 @@ const createIndexPagination = (
         page: page + 1,
         featurePosts: featuredPost,
         categories: categories,
-        isDevelop : process.env.NODE_ENV == 'development'
+        isDevelop: process.env.NODE_ENV == 'development',
       },
     })
   }

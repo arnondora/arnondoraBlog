@@ -166,6 +166,7 @@ export default class BlogPostNormalTemplate extends React.Component {
             slug={this.props.pageContext.slug}
             headline={postInfo.title}
             isNight={this.state.isNight === null ? false : this.state.isNight}
+            isSeries={this.props.pathContext.isSeries}
           />
 
           <BigContentWrapper isNight={this.state.isNight}>
@@ -217,6 +218,7 @@ export default class BlogPostNormalTemplate extends React.Component {
                 prev={this.props.pageContext.prev}
                 hasRelated={isEmpty(this.props.pageContext.related)}
                 isNight={this.state.isNight}
+                isSeries={this.props.isSeries}
               />
               <RecommendStory stories={this.props.pageContext.related} />
             </React.Fragment>

@@ -188,6 +188,7 @@ export default class BlogPostTemplate extends React.Component {
                 prev={this.props.pageContext.prev}
                 hasRelated={isEmpty(this.props.pageContext.related)}
                 isNight={this.state.isNight}
+                isSeries={this.props.pathContext.isSeries}
               />
               <RecommendStory stories={this.props.pageContext.related} />
             </React.Fragment>
