@@ -2,8 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link, graphql } from 'gatsby'
 
-import firebase from '../utils/firebase'
-
 import Layout from '../layouts/Layout'
 import NavBar from '../components/NavBar'
 import CardImage from '../components/CardImage'
@@ -131,8 +129,6 @@ export default class search extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      articles: this.props.data.allMarkdownRemark.edges,
-      categories: [],
       keyword: this.props.location.search
         ? this.props.location.search.split('=', 2)[1]
         : '',
@@ -142,32 +138,24 @@ export default class search extends React.Component {
     this.searchFor = this.searchFor.bind(this)
   }
 
-  componentDidMount() {
-    firebase
-      .database()
-      .ref('categories')
-      .once(
-        'value',
-        function(snapshot) {
-          var categories = []
-          snapshot.forEach(function(childSnapshot) {
-            categories.push(childSnapshot.val())
-          })
-          this.setState({
-            categories: categories,
-          })
-        }.bind(this)
-      )
-  }
-
   render() {
-    var searchResult = this.state.articles
-      .filter(this.searchFor(this.state.keyword))
-      .slice(0, 10)
-    var relatedCategories = this.getRelatedCategory(searchResult)
+    var searchResult
+    var relatedCategories
+    if (this.state.keyword === '' || this.state.keyword.length === 0) {
+      // There is no search keyword has been typed
+      searchResult = this.props.data.allMarkdownRemark.edges
+      relatedCategories = this.props.data.allCategoriesJson.edges
+    } else {
+      // There is the keyword in the textfield
+      searchResult = this.props.data.allMarkdownRemark.edges
+        .filter(this.searchFor(this.state.keyword))
+        .slice(0, 10)
 
-    if (relatedCategories.length === 0 || this.state.keyword === '')
-      relatedCategories = this.state.categories
+      relatedCategories = this.getRelatedCategory(searchResult)
+
+      if (relatedCategories.length === 0)
+        relatedCategories = this.props.data.allCategoriesJson.edges
+    }
 
     return (
       <Layout>
@@ -205,10 +193,10 @@ export default class search extends React.Component {
                     relatedCategories.map(category => {
                       return (
                         <CategoryChip
-                          to={this.makeCategoryLink(category.link)}
-                          key={category.link}
+                          to={this.makeCategoryLink(category.node.link)}
+                          key={category.node.link}
                         >
-                          {category.name}
+                          {category.node.name}
                         </CategoryChip>
                       )
                     })
@@ -258,13 +246,13 @@ export default class search extends React.Component {
   getRelatedCategory(posts) {
     var categories = []
     for (var i = 0; i < posts.length; i++) {
-      for (var j = 0; j < this.state.categories.length; j++) {
+      for (var j = 0; j < this.props.data.allCategoriesJson.edges.length; j++) {
         if (
           posts[i].node.frontmatter.category ===
-            this.state.categories[j].name &&
-          categories.indexOf(this.state.categories[j]) === -1
+            this.props.data.allCategoriesJson.edges[j].node.name &&
+          categories.indexOf(this.props.data.allCategoriesJson.edges[j]) === -1
         )
-          categories.push(this.state.categories[j])
+          categories.push(this.props.data.allCategoriesJson.edges[j])
       }
     }
 
@@ -281,6 +269,15 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+      }
+    }
+
+    allCategoriesJson {
+      edges {
+        node {
+          name
+          link
+        }
       }
     }
 
