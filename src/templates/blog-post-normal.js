@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { graphql } from 'gatsby'
 import isEmpty from 'lodash/isEmpty'
 import Img from 'gatsby-image'
+import { FacebookProvider, Comments } from 'react-facebook'
 
 import Layout from '../layouts/Layout'
 import SEO from '../components/SEO'
@@ -11,7 +12,6 @@ import BlogContent from '../components/BlogContent'
 import AppearanceController from '../components/AppearanceController'
 import NextStory from '../components/NextStory'
 import RecommendStory from '../components/RecommendStory'
-import CommentBox from '../components/CommentBox'
 import StickyMobileShare from '../components/StickyMobileShare'
 import Footer from '../components/Footer'
 
@@ -88,6 +88,10 @@ const CommentWrapper = styled.div`
     props.isNight
       ? props.theme.night_lightBackground
       : props.theme.darkBackground};
+`
+
+const FacebookCommentBox = styled.div`
+    text-align: center;
 `
 
 const PageWrapper = styled(BlogContent)`
@@ -226,10 +230,11 @@ export default class BlogPostNormalTemplate extends React.Component {
 
           <CommentWrapper isNight={this.state.isNight}>
             <PageWrapper>
-              <CommentBox
-                slug={this.props.pageContext.slug}
-                isNight={this.state.isNight}
-              />
+            <FacebookCommentBox>
+                  <FacebookProvider appId="552530511753255">
+                    <Comments href={process.env.APP_URL + "/" + this.props.pageContext.slug} width={"100%"} colorScheme={this.state.isNight?"dark" : "light"} />
+                  </FacebookProvider>
+                </FacebookCommentBox>
             </PageWrapper>
           </CommentWrapper>
 
