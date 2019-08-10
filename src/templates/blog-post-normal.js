@@ -91,7 +91,7 @@ const CommentWrapper = styled.div`
 `
 
 const FacebookCommentBox = styled.div`
-    text-align: center;
+  text-align: center;
 `
 
 const PageWrapper = styled(BlogContent)`
@@ -230,11 +230,17 @@ export default class BlogPostNormalTemplate extends React.Component {
 
           <CommentWrapper isNight={this.state.isNight}>
             <PageWrapper>
-            <FacebookCommentBox>
-                  <FacebookProvider appId="552530511753255">
-                    <Comments href={process.env.APP_URL + "/" + this.props.pageContext.slug} width={"100%"} colorScheme={this.state.isNight?"dark" : "light"} />
-                  </FacebookProvider>
-                </FacebookCommentBox>
+              <FacebookCommentBox>
+                <FacebookProvider appId="552530511753255">
+                  <Comments
+                    href={
+                      process.env.APP_URL + '/' + this.props.pageContext.slug
+                    }
+                    width={'100%'}
+                    colorScheme={this.state.isNight ? 'dark' : 'light'}
+                  />
+                </FacebookProvider>
+              </FacebookCommentBox>
             </PageWrapper>
           </CommentWrapper>
 
