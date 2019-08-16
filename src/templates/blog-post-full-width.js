@@ -1,4 +1,5 @@
 import React from 'react'
+import AdSense from 'react-adsense'
 import styled from 'styled-components'
 import isEmpty from 'lodash/isEmpty'
 import { graphql } from 'gatsby'
@@ -168,6 +169,11 @@ export default class BlogPostTemplate extends React.Component {
                   isNight={this.state.isNight}
                   dangerouslySetInnerHTML={{ __html: postContent.html }}
                 />
+
+                <AdSense.Google
+                client={process.env.GOOGLE_ADSENSE_CLIENT_ID}
+                slot={process.env.GOOGLE_ADSENSE_SLOT_ID}
+              />
                 <MobileSocialShareButton
                   slug={this.props.pageContext.slug}
                   isNight={this.state.isNight}
