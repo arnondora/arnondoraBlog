@@ -171,9 +171,9 @@ export default class BlogPostTemplate extends React.Component {
                 />
 
                 <AdSense.Google
-                client={process.env.GOOGLE_ADSENSE_CLIENT_ID}
-                slot={process.env.GOOGLE_ADSENSE_SLOT_ID}
-              />
+                  client={process.env.GOOGLE_ADSENSE_CLIENT_ID}
+                  slot={process.env.GOOGLE_ADSENSE_SLOT_ID}
+                />
                 <MobileSocialShareButton
                   slug={this.props.pageContext.slug}
                   isNight={this.state.isNight}
