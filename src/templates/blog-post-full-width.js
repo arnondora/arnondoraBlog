@@ -3,6 +3,7 @@ import AdSense from 'react-adsense'
 import styled from 'styled-components'
 import isEmpty from 'lodash/isEmpty'
 import { graphql } from 'gatsby'
+import { FacebookProvider, Comments } from 'react-facebook'
 
 import Layout from '../layouts/Layout'
 import SEO from '../components/SEO'
@@ -10,7 +11,6 @@ import NavBar from '../components/NavBar'
 import ThumbnailContainer from '../components/ThumbnailContainer'
 import NextStory from '../components/NextStory'
 import RecommendStory from '../components/RecommendStory'
-import CommentBox from '../components/CommentBox'
 import MobileSocialShareButton from '../components/MobileSocialShareButton'
 import AppearanceController from '../components/AppearanceController'
 import StickyMobileShare from '../components/StickyMobileShare'
@@ -70,6 +70,10 @@ const CommentWrapper = styled.div`
     props.isNight
       ? props.theme.night_lightBackground
       : props.theme.darkBackground};
+`
+
+const FacebookCommentBox = styled.div`
+  text-align: center;
 `
 
 const SmallHeading = styled.h1`
@@ -203,10 +207,17 @@ export default class BlogPostTemplate extends React.Component {
           {postInfo.type === 'post' ? (
             <CommentWrapper isNight={this.state.isNight}>
               <PageWrapper>
-                <CommentBox
-                  slug={this.props.pageContext.slug}
-                  isNight={this.state.isNight}
-                />
+                <FacebookCommentBox>
+                  <FacebookProvider appId={process.env.FACEBOOK_APP_ID}>
+                    <Comments
+                      href={
+                        process.env.APP_URL + '/' + this.props.pageContext.slug
+                      }
+                      width={'100%'}
+                      colorScheme={this.state.isNight ? 'dark' : 'light'}
+                    />
+                  </FacebookProvider>
+                </FacebookCommentBox>
               </PageWrapper>
             </CommentWrapper>
           ) : null}

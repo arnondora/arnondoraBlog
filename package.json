@@ -53,6 +53,7 @@
     "react": "^16.4.1",
     "react-adsense": "^0.1.0",
     "react-dom": "^16.4.1",
+    "react-facebook": "^8.0.4",
     "react-fontawesome": "^1.6.1",
     "react-helmet": "^5.2.0",
     "react-typography": "^0.16.13",
