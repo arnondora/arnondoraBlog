@@ -141,7 +141,7 @@ export default class NextStory extends React.Component {
         isNight={this.props.isNight}
       >
         <Container>
-          {this.props.next !== false ? (
+          {this.props.next !== null ? (
             <NextStoryContainer isNight={this.props.isNight}>
               <Label>
                 {this.props.isSeries ? 'Previous Episode' : 'Previous'}
@@ -152,7 +152,7 @@ export default class NextStory extends React.Component {
             </NextStoryContainer>
           ) : null}
 
-          {this.props.prev !== false ? (
+          {this.props.prev !== null ? (
             <PreviousStoryContainer isNight={this.props.isNight}>
               <Label>{this.props.isSeries ? 'Next Episode' : 'Next'}</Label>
               <Heading to={this.props.prev.fields.slug}>
