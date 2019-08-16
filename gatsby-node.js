@@ -355,20 +355,3 @@ exports.onCreateNode = ({
     })
   }
 }
-
-exports.onCreateWebpackConfig = ({
-  actions,
-  stage
-}) => {
-  if (!stage.startsWith('develop')) {
-    actions.setWebpackConfig({
-      resolve: {
-        alias: {
-          react: `preact/compat`,
-          "react-dom": `preact/compat`,
-          "react-dom/server": `preact/compat`,
-        },
-      },
-    })
-  }
-}
