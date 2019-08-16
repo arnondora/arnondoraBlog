@@ -170,7 +170,7 @@ export default class BlogPostNormalTemplate extends React.Component {
             slug={this.props.pageContext.slug}
             headline={postInfo.title}
             isNight={this.state.isNight === null ? false : this.state.isNight}
-            isSeries={this.props.pathContext.isSeries}
+            isSeries={this.props.pageContext.isSeries}
           />
 
           <BigContentWrapper isNight={this.state.isNight}>
@@ -214,8 +214,8 @@ export default class BlogPostNormalTemplate extends React.Component {
             </ContentWrapper>
           </BigContentWrapper>
 
-          {this.props.pageContext.next !== false ||
-          this.props.pageContext.prev !== false ? (
+          {this.props.pageContext.next !== null ||
+          this.props.pageContext.prev !== null ? (
             <React.Fragment>
               <NextStory
                 next={this.props.pageContext.next}

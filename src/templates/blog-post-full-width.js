@@ -190,15 +190,15 @@ export default class BlogPostTemplate extends React.Component {
             />
           )}
           {postInfo.type === 'post' &&
-          (this.props.pageContext.next !== false ||
-            this.props.pageContext.prev !== false) ? (
+          (this.props.pageContext.next !== null ||
+            this.props.pageContext.prev !== null) ? (
             <React.Fragment>
               <NextStory
                 next={this.props.pageContext.next}
                 prev={this.props.pageContext.prev}
                 hasRelated={isEmpty(this.props.pageContext.related)}
                 isNight={this.state.isNight}
-                isSeries={this.props.pathContext.isSeries}
+                isSeries={this.props.pageContext.isSeries}
               />
               <RecommendStory stories={this.props.pageContext.related} />
             </React.Fragment>
