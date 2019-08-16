@@ -129,6 +129,7 @@ module.exports = {
         pixelId: `${process.env.FACEBOOK_PIXEL_ID}`,
       }
     },
+    `gatsby-plugin-sitemap`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-lodash`,
     `gatsby-transformer-json`,
