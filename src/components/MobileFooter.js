@@ -84,13 +84,6 @@ export default class Footer extends React.Component {
             <LogoText>Tutorial</LogoText>
           </LinkGroup>
         </MenuItemWrapper>
-
-        <MenuItemWrapper>
-          <LinkGroup to="/live">
-            <Icon iconName={'videocam'} size="30px" />
-            <LogoText>Live Blog</LogoText>
-          </LinkGroup>
-        </MenuItemWrapper>
       </Menu>
     )
   }
