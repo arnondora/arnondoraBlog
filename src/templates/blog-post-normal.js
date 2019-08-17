@@ -154,16 +154,11 @@ export default class BlogPostNormalTemplate extends React.Component {
   render() {
     const postContent = this.props.data.markdownRemark
     const postInfo = postContent.frontmatter
-    const siteMetadata = this.props.pageContext.siteInfo.siteMetadata
 
     return (
       <Layout>
         <React.Fragment>
-          <SEO
-            postContent={postContent}
-            slug={this.props.pageContext.slug}
-            siteMetadata={siteMetadata}
-          />
+          <SEO postContent={postContent} slug={this.props.pageContext.slug} />
           <NavBar
             article={true}
             isTransparent={false}

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { Link, StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import get from 'lodash/get'
 import color from 'color'
@@ -192,67 +192,80 @@ export default class NavBar extends React.Component {
 
   render() {
     return (
-      <SuperWrapper
-        scrollPosition={this.state.scroll}
-        isNight={this.props.isNight}
-        isArticle={get(this.props, 'article', false)}
-        isTransparent={get(this.props, 'isTransparent', true)}
-      >
-        <ContentWrapper isArticle={get(this.props, 'article', false)}>
-          <StyledLink to="/">
-            <Logo alt={'site-logo'} src={arnondoraIcon} />
-          </StyledLink>
-          {get(this.props, 'article', false) ? null : (
-            <MarginedStyledLink to="/">
-              <SiteName>{this.props.siteTitle}</SiteName>
-            </MarginedStyledLink>
-          )}
+      <StaticQuery
+        query={graphql`
+          query NavBarQuery {
+            site {
+              siteMetadata {
+                title
+              }
+            }
+          }
+        `}
+        render={data => (
+          <SuperWrapper
+            scrollPosition={this.state.scroll}
+            isNight={this.props.isNight}
+            isArticle={get(this.props, 'article', false)}
+            isTransparent={get(this.props, 'isTransparent', true)}
+          >
+            <ContentWrapper isArticle={get(this.props, 'article', false)}>
+              <StyledLink to="/">
+                <Logo alt={'site-logo'} src={arnondoraIcon} />
+              </StyledLink>
+              {get(this.props, 'article', false) ? null : (
+                <MarginedStyledLink to="/">
+                  <SiteName>{data.site.siteMetadata.title}</SiteName>
+                </MarginedStyledLink>
+              )}
 
-          {this.state.scroll > 256 &&
-          get(
-            this.props,
-            'article',
-            false && get(this.props, 'slug', false)
-          ) ? (
-            <NavHeadShare>
-              <NavHeadline>{this.props.headline}</NavHeadline>
-              <NavShareButton>
-                <SocialShareNavBarButtons slug={this.props.slug} />
-              </NavShareButton>
-            </NavHeadShare>
-          ) : (
-            <Menu>
-              <LeftMenu isArticle={get(this.props, 'article', false)}>
-                <MenuItem>
-                  <StyledLink to="/">Home</StyledLink>
-                </MenuItem>
-                <MenuItem>
-                  <StyledLink to="/cv">about:me</StyledLink>
-                </MenuItem>
-                <MenuItem>
-                  <StyledLink to="/category/tutorial">Tutorial</StyledLink>
-                </MenuItem>
-              </LeftMenu>
+              {this.state.scroll > 256 &&
+              get(
+                this.props,
+                'article',
+                false && get(this.props, 'slug', false)
+              ) ? (
+                <NavHeadShare>
+                  <NavHeadline>{this.props.headline}</NavHeadline>
+                  <NavShareButton>
+                    <SocialShareNavBarButtons slug={this.props.slug} />
+                  </NavShareButton>
+                </NavHeadShare>
+              ) : (
+                <Menu>
+                  <LeftMenu isArticle={get(this.props, 'article', false)}>
+                    <MenuItem>
+                      <StyledLink to="/">Home</StyledLink>
+                    </MenuItem>
+                    <MenuItem>
+                      <StyledLink to="/cv">about:me</StyledLink>
+                    </MenuItem>
+                    <MenuItem>
+                      <StyledLink to="/category/tutorial">Tutorial</StyledLink>
+                    </MenuItem>
+                  </LeftMenu>
 
-              {get(this.props, 'article', false) === false ? (
-                <RightMenu>
-                  <MenuItem>
-                    <StyledLink to="/search" aria-label="search">
-                      <SearchIconWrapper>
-                        <MaterialIcon
-                          iconName={'search'}
-                          size={'25px'}
-                          noLineHeight
-                        />
-                      </SearchIconWrapper>
-                    </StyledLink>
-                  </MenuItem>
-                </RightMenu>
-              ) : null}
-            </Menu>
-          )}
-        </ContentWrapper>
-      </SuperWrapper>
+                  {get(this.props, 'article', false) === false ? (
+                    <RightMenu>
+                      <MenuItem>
+                        <StyledLink to="/search" aria-label="search">
+                          <SearchIconWrapper>
+                            <MaterialIcon
+                              iconName={'search'}
+                              size={'25px'}
+                              noLineHeight
+                            />
+                          </SearchIconWrapper>
+                        </StyledLink>
+                      </MenuItem>
+                    </RightMenu>
+                  ) : null}
+                </Menu>
+              )}
+            </ContentWrapper>
+          </SuperWrapper>
+        )}
+      />
     )
   }
 }

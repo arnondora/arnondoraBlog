@@ -104,9 +104,7 @@ export default class IndexPage extends React.Component {
               },
             ]}
           />
-          <NavBar
-            siteTitle={this.props.pageContext.siteInfo.siteMetadata.title}
-          />
+          <NavBar />
 
           <React.Fragment>
             <FeatureStoryContainer>

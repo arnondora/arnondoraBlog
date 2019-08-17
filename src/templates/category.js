@@ -1,5 +1,4 @@
 import React from 'react'
-import Helmet from 'react-helmet'
 import styled from 'styled-components'
 import get from 'lodash/get'
 import isEmpty from 'lodash/isEmpty'
@@ -13,6 +12,7 @@ import MobileFooter from '../components/MobileFooter'
 import FeaturedCategory from '../components/FeaturedCategory'
 import CardImage from '../components/CardImage'
 import PrimaryButton from '../components/PrimaryButton'
+import PageTitle from '../components/PageTitle'
 
 const NavigationBar = styled(NavBar)`
   position: relative;
@@ -123,16 +123,8 @@ export default class CategoryTemplate extends React.Component {
     return (
       <Layout>
         <React.Fragment>
-          <Helmet
-            title={
-              this.props.pageContext.category.name +
-              ' - ' +
-              this.props.pageContext.siteInfo.siteMetadata.title
-            }
-          />
-          <NavigationBar
-            siteTitle={this.props.pageContext.siteInfo.siteMetadata.title}
-          />
+          <PageTitle title={this.props.pageContext.category.name} />
+          <NavigationBar />
           <Container>
             <CategoryInfoWrapper>
               <CategoryName>

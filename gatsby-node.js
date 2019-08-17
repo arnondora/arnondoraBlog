@@ -35,16 +35,6 @@ exports.createPages = async ({
   // Query
   const queryResult = await graphql(`
     {
-      site {
-        siteMetadata {
-          title
-          author
-          description
-          siteUrl
-          authorTwitter
-        }
-      }
-
       posts: allMarkdownRemark(
         sort: { order: DESC, fields: [frontmatter___date] }
       ) {
@@ -100,7 +90,7 @@ exports.createPages = async ({
     }
   `)
 
-  const {site, posts, categories} = queryResult.data
+  const {posts, categories} = queryResult.data
 
   // Creating Blog
   const blogs = _.filter(posts.edges, item => {
@@ -201,7 +191,6 @@ exports.createPages = async ({
           ? blogPostFullWidth
           : blogPostNormal,
       context: {
-        siteInfo: site,
         slug: edge.node.fields.slug,
         prev: prev,
         next: next,
@@ -241,7 +230,6 @@ exports.createPages = async ({
       path: page + 1 === 1 ? '/' : '/' + (page + 1),
       component: indexPage,
       context: {
-        siteInfo: site,
         posts: chunkCleanPosts,
         isFirst: page + 1 === 1 ? true : false,
         isLast: page + 1 === chunkPosts.length ? true : false,
@@ -296,7 +284,6 @@ exports.createPages = async ({
             'node.frontmatter.image',
             'node.frontmatter.title',
           ]),
-          siteInfo: site,
           name: name,
           isFirst: page + 1 === 1 ? true : false,
           isLast: page + 1 === noOfPages ? true : false,
@@ -325,7 +312,6 @@ exports.createPages = async ({
           ? blogPostFullWidth
           : blogPostNormal,
       context: {
-        siteInfo: site,
         slug: edge.node.fields.slug,
       },
     })
