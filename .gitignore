@@ -7,6 +7,7 @@ public/
 .DS_Store
 .firebaserc
 .firebase
+.netlify
 yarn-error.log
 # ENV FILES
 .env
