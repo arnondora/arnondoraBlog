@@ -1,14 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import FontAwesomeIcon from '@fortawesome/react-fontawesome'
-import faFacebookF from '@fortawesome/fontawesome-free-brands/faFacebookF'
-import faTwitter from '@fortawesome/fontawesome-free-brands/faTwitter'
-import faGooglePlus from '@fortawesome/fontawesome-free-brands/faGooglePlus'
+import { FaFacebookF, FaTwitter } from 'react-icons/fa'
 
 import {
   getFacebookShareLink,
   getTwitterShareLink,
-  getGooglePlusShareLink,
   convertLinkFromSlug,
 } from '../utils/link'
 
@@ -20,17 +16,19 @@ const IconLink = styled.a`
   }
 `
 
-const Icon = styled(FontAwesomeIcon)`
+const FacebookIcon = styled(FaFacebookF)`
   align-self: center;
   color: white;
-
   &:hover {
-    color: ${props =>
-      props.name === 'facebook'
-        ? props.theme.facebook
-        : props.name === 'twitter'
-        ? props.theme.twitter
-        : props.theme.googlePlus};
+    color: ${props => props.theme.facebook};
+  }
+`
+
+const TwitterIcon = styled(FaTwitter)`
+  align-self: center;
+  color: white;
+  &:hover {
+    color: ${props => props.theme.twitter};
   }
 `
 
@@ -45,7 +43,7 @@ export default class SocialShareNavBarButtons extends React.Component {
           target="_blank"
           aria-label="Share to Facebook"
         >
-          <Icon icon={faFacebookF} name={'facebook'} />
+          <FacebookIcon />
         </IconLink>
         <IconLink
           href={getTwitterShareLink(link)}
@@ -53,15 +51,7 @@ export default class SocialShareNavBarButtons extends React.Component {
           target="_blank"
           aria-label="Share to Twitter"
         >
-          <Icon icon={faTwitter} name={'twitter'} />
-        </IconLink>
-        <IconLink
-          href={getGooglePlusShareLink(link)}
-          rel="noopener"
-          target="_blank"
-          aria-label="Share to Google Plus"
-        >
-          <Icon icon={faGooglePlus} name={'google+'} />
+          <TwitterIcon />
         </IconLink>
       </React.Fragment>
     )

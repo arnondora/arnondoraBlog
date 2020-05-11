@@ -1,6 +1,6 @@
 import React from 'react'
 import { ThemeProvider } from 'styled-components'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 
 import colours from '../utils/colours'
 

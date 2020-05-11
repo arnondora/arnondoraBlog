@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import { ThemeProvider } from 'styled-components'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 
 import colours from '../utils/colours'
 

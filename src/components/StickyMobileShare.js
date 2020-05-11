@@ -1,16 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 import color from 'color'
-import FontAwesomeIcon from '@fortawesome/react-fontawesome'
-import faLine from '@fortawesome/fontawesome-free-brands/faLine'
-import faFacebookF from '@fortawesome/fontawesome-free-brands/faFacebookF'
-import faTwitter from '@fortawesome/fontawesome-free-brands/faTwitter'
-import faGooglePlusG from '@fortawesome/fontawesome-free-brands/faGooglePlusG'
+import { FaFacebookF, FaTwitter, FaLine } from 'react-icons/fa'
 
 import {
   getFacebookShareLink,
   getTwitterShareLink,
-  getGooglePlusShareLink,
   getLineShareLink,
   convertLinkFromSlug,
 } from '../utils/link'
@@ -55,7 +50,17 @@ const SocialItem = styled.a`
   }
 `
 
-const Icon = styled(FontAwesomeIcon)`
+const FacebookIcon = styled(FaFacebookF)`
+  align-self: center;
+  color: white;
+`
+
+const TwitterIcon = styled(FaTwitter)`
+  align-self: center;
+  color: white;
+`
+
+const LineIcon = styled(FaLine)`
   align-self: center;
   color: white;
 `
@@ -72,7 +77,7 @@ export default class StickyMobileShare extends React.Component {
           aria-label="Share to Facebook"
           name={'facebook'}
         >
-          <Icon icon={faFacebookF} />
+          <FacebookIcon />
         </SocialItem>
         <SocialItem
           href={getTwitterShareLink(link)}
@@ -81,16 +86,7 @@ export default class StickyMobileShare extends React.Component {
           aria-label="Share to Twitter"
           name={'twitter'}
         >
-          <Icon icon={faTwitter} />
-        </SocialItem>
-        <SocialItem
-          href={getGooglePlusShareLink(link)}
-          rel="noopener noreferrer"
-          target="_blank"
-          aria-label="Share to Google Plus"
-          name={'google+'}
-        >
-          <Icon icon={faGooglePlusG} />
+          <TwitterIcon />
         </SocialItem>
         <SocialItem
           href={getLineShareLink(link)}
@@ -99,7 +95,7 @@ export default class StickyMobileShare extends React.Component {
           aria-label="Share to Line"
           name={'line'}
         >
-          <Icon icon={faLine} />
+          <LineIcon />
         </SocialItem>
       </Container>
     )

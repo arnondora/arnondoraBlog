@@ -1,16 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
-import fontawesome from '@fortawesome/fontawesome'
-import FontAwesomeIcon from '@fortawesome/react-fontawesome'
-import faHeart from '@fortawesome/fontawesome-free-solid/faHeart'
+import { FaHeart } from 'react-icons/fa'
 
 // Import Social Logo
 import Facebook from '../assets/Facebook.svg'
 import Twitter from '../assets/Twitter.svg'
 import GooglePlus from '../assets/GooglePlus.svg'
 import Email from '../assets/Email.svg'
-
-fontawesome.library.add(faHeart)
 
 const Container = styled.div`
   background-color: ${props =>
@@ -72,7 +68,7 @@ const ThemeText = styled(BottomTextItem)`
   align-self: flex-end;
 `
 
-const FooterIcon = styled(FontAwesomeIcon)`
+const FooterIcon = styled(FaHeart)`
   height: 18px;
 `
 

@@ -1,15 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 import color from 'color'
-import FontAwesomeIcon from '@fortawesome/react-fontawesome'
-import faFacebookF from '@fortawesome/fontawesome-free-brands/faFacebookF'
-import faTwitter from '@fortawesome/fontawesome-free-brands/faTwitter'
-import faGooglePlus from '@fortawesome/fontawesome-free-brands/faGooglePlus'
+import { FaFacebookF, FaTwitter } from 'react-icons/fa'
 
 import {
   getFacebookShareLink,
   getTwitterShareLink,
-  getGooglePlusShareLink,
   convertLinkFromSlug,
 } from '../utils/link'
 
@@ -43,8 +39,10 @@ const IconLink = styled.a`
   }
 `
 
-const Icon = styled(FontAwesomeIcon)`
+const FacebookIcon = styled(FaFacebookF)`
   align-self: center;
+  width: 35px;
+  height: auto;
   color: ${props =>
     props.isnight
       ? props.theme.night_text_normal
@@ -53,12 +51,23 @@ const Icon = styled(FontAwesomeIcon)`
           .string()};
 
   &:hover {
-    color: ${props =>
-      props.name === 'facebook'
-        ? props.theme.facebook
-        : props.name === 'twitter'
-        ? props.theme.twitter
-        : props.theme.googlePlus};
+    color: ${props => props.theme.facebook};
+  }
+`
+
+const TwitterIcon = styled(FaTwitter)`
+  align-self: center;
+  width: 35px;
+  height: auto;
+  color: ${props =>
+    props.isnight
+      ? props.theme.night_text_normal
+      : color(props.theme.textSecondary)
+          .lighten(0.2)
+          .string()};
+
+  &:hover {
+    color: ${props => props.theme.twitter};
   }
 `
 
@@ -75,11 +84,9 @@ export default class MobileSocialShareButton extends React.Component {
             target="_blank"
             aria-label="Share to Facebook"
           >
-            <Icon
-              icon={faFacebookF}
+            <FacebookIcon
               isnight={this.props.isNight ? 1 : 0}
               name={'facebook'}
-              size="2x"
             />
           </IconLink>
           <IconLink
@@ -88,24 +95,9 @@ export default class MobileSocialShareButton extends React.Component {
             target="_blank"
             aria-label="Share to Twitter"
           >
-            <Icon
-              icon={faTwitter}
+            <TwitterIcon
               isnight={this.props.isNight ? 1 : 0}
               name={'twitter'}
-              size="2x"
-            />
-          </IconLink>
-          <IconLink
-            href={getGooglePlusShareLink(link)}
-            rel="noopener"
-            target="_blank"
-            aria-label="Share to Google Plus"
-          >
-            <Icon
-              icon={faGooglePlus}
-              isnight={this.props.isNight ? 1 : 0}
-              name={'google+'}
-              size="2x"
             />
           </IconLink>
         </ButtonGroup>
