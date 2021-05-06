@@ -52,7 +52,7 @@
     "react-fontawesome": "^1.6.1",
     "react-helmet": "^5.2.0",
     "react-typography": "^0.16.13",
-    "sanitize-html": "^1.18.2",
+    "sanitize-html": "^2.3.2",
     "styled-components": "^3.1.6",
     "typography": "^0.16.17"
   },
