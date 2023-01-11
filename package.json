@@ -39,7 +39,7 @@
     "gatsby-remark-smartypants": "^2.0.0-rc.1",
     "gatsby-source-filesystem": "^2.0.1-rc.6",
     "gatsby-transformer-json": "^2.1.1",
-    "gatsby-transformer-remark": "^2.1.1-rc.5",
+    "gatsby-transformer-remark": "^5.25.1",
     "gatsby-transformer-sharp": "^2.1.1-rc.3",
     "html-loader": "^0.5.1",
     "husky": "^0.14.3",
